@@ -5,24 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insolvenční asistent</title>
     <link rel="stylesheet" href="css/styly.css">
-    <script src="js/formulare/povoleniOddluzeni/NavrhNaOddluzeniFormular.js"></script>
-    <script src="js/generatoryObsahu/GeneratorObsahu.js"></script>
-    <script src="js/generatoryObsahu/NavrhNaOddluzeniGenerator.js"></script>
+    
+    <script src="js/konstanty/Konstanty.js"></script>
+
+    <script src="js/formulare/povoleniOddluzeni/FormularOddluzeni.js"></script>
+    <script src="js/formulare/povoleniOddluzeni/FormularOddluzeniManager.js"></script>
+
     <script src="js/obsluha/main.js"></script>
 </head>
 <body>
     
+   
+
     <div id="hlavni-obsah">
 
-        
+        <div id="telo-formulare">
+            <form id="nalezitosti-navrhu-na-oddluzeni">
+                <div class="radek-formulare">
+                    <label for="nalezitosti-plne-moci">Náležitosti plné moci</label>
+                    <select id="nalezitosti-plne-moci" class="zaskrtavaci-volba"></select>
+                </div>
+
+                <div class="radek-formulare">
+                    <label for="nalezitosti-formy-podani">Náležitosti formy podání</label>
+                    <select id="nalezitosti-formy-podani" class="zaskrtavaci-volba"></select>
+                </div>
+                <div class="radek-formulare">
+                    <label for="mistni-prislusnost">Místní příslušnost</label>
+                    <select id="mistni-prislusnost" class="zaskrtavaci-volba"></select>
+                </div>
+
+                <button id="vyhodnotit-navrh-na-oddluzeni">Vyhodnotit</button>
+            </form>
+
+        </div>
 
 
+        <div id="vyhodnoceni-formulare">
+
+        </div>
+
+    
     </div>
 
-    <div id="vyhodnoceni-formulare">
-
-        
-    </div>
-
+    
 </body>
 </html>

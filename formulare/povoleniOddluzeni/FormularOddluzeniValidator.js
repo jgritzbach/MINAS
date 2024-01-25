@@ -4,21 +4,19 @@ class NavrhNaOddluzeniFormular{
     // Samotné HTML elementy již mely být vytvořeny přidruženým generátorem obsahu.
     // při vytvoření formuláře je mu jako argument předán odkaz na objekt generátoru obsahu, aby mohl formulář odkazovat na jeho hodnoty
 
-    constructor(generatorObsahu){
+    constructor(){
         
-        this.go = generatorObsahu
-
-        // uchopení html elementů (které měl za úkol vytvořit generátor obsahu)
-        this.kolonkaPlnaMoc = document.getElementById(this.go.idNalezitostiPlneMoci)
-        this.kolonkaFormaPodani = document.getElementById(this.go.idNalezitostiFormyPodani)
-        this.kolonkaMistniPrislusnost = document.getElementById(this.go.idMistniPrislusnost)
+        // kolonky s vyplněnými hodnotami (tj. elementy <select>)
+        this.kolonkaPlneMoci = document.getElementById("nalezitosti-plne-moci")
+        this.kolonkaFormaPodani = document.getElementById("nalezitosti-formy-podani")
+        this.kolonkaMistniPrislusnost = document.getElementById("mistni-prislusnost")
 
     }
-
+        
     vyhodnotitKolonky(){
 
         const kolonky = [
-            this.kolonkaPlnaMoc,
+            this.kolonkaPlneMoci,
             this.kolonkaFormaPodani,
             this.kolonkaMistniPrislusnost,
         ]

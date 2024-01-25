@@ -11,3 +11,20 @@
     width: 100px;
 
 }
+
+#hlavni-obsah{
+    margin: 10px;
+}
+
+#telo-formulare{
+    width: 600px;
+    border: solid 1px black;
+}
+
+
+
+.kolonka-formulare{
+    display:block;
+    margin: 5px;
+    display: flexbox;
+}

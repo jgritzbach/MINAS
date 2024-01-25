@@ -1,4 +1,5 @@
 window.onload = ()=> {
-    const generatorNavrhuNaOddluzeni = new NavrhNaOddluzeniGenerator()
-    generatorNavrhuNaOddluzeni.vygenerujObsah()
+    
+    const formularOddluzeniManager = new FormularOddluzeniManager()
+    
 }
