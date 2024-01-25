@@ -7,25 +7,58 @@ class NavrhNaOddluzeniGenerator extends GeneratorObsahu{
         
         super()
 
+        //konstanty pro vytvoření kolonek
+        this.idNalezitostiPlneMoci = 'nalezitosti-plne-moci'
+        this.idNalezitostiFormyPodani = 'nalezitosti-formy-podani'
+        this.idMistniPrislusnost = 'mistni-prislusnost'
+
+        // formulář pro validaci kolonek
+        
+
     }
 
     vygenerujObsah(){
 
         this._vytvorFormularNavrhuNaOddluzeni()
+        this.formular = new NavrhNaOddluzeniFormular(this) // formuláři předáme odkaz na přidružený generátor obsahu, aby mohl formulář využít jeho konstant
+        this._vytvorTlacitkoVyhodnoceni()
 
 
     }
+
+    _vytvorTlacitkoVyhodnoceni(){
+        const tlacitko = document.createElement('button')
+
+        tlacitko.addEventListener('click', (event) => {
+
+            event.preventDefault
+            this.vypsatVyhodnoceniFormulare()
+
+        })
+
+        tlacitko.innerText = 'Vyhodnotit formulář'
+        document.body.appendChild(tlacitko)
+    }
+
+    vypsatVyhodnoceniFormulare(){
+        // později by měl tuto úlohu přebrat nějaký manager formuláře.
+        // formulář sám by měl vyhodnocovat, ne vypisovat. To jsou dvě akce, které by se měly oddělit.
+        // možná že by takový manažer formuláře, který by se staral o výpis, měl splynout s generátorem obsahu?
+
+        this.vyhodnoceniFormulareDiv.innerHTML = this.formular.vyhodnotitKolonky()
+    }
+
     _vytvorFormularNavrhuNaOddluzeni(){
 
-        // metoda vytvoří element formuláře reprezentujícího náležitosti návrhu na povolení oddlužení
+        // metoda vytvoří HTML element formuláře reprezentujícího náležitosti návrhu na povolení oddlužení
         
-        const formular = document.createElement('form')
+        const HTMLformular = document.createElement('form')
 
-        this._vytvorZaskrtavaciKolonku(formular, 'nalezitosti-plne-moci', 'Náležitosti plné moci')
-        this._vytvorZaskrtavaciKolonku(formular, 'nalezitosti-formy-podani', 'Náležitosti formy podání')
-        this._vytvorZaskrtavaciKolonku(formular, 'nalezitosti-mistni-prislusnost', 'Místní příslušnost')
+        this._vytvorZaskrtavaciKolonku(HTMLformular, this.idNalezitostiPlneMoci, 'Náležitosti plné moci')
+        this._vytvorZaskrtavaciKolonku(HTMLformular, this.idNalezitostiFormyPodani, 'Náležitosti formy podání')
+        this._vytvorZaskrtavaciKolonku(HTMLformular, this.idMistniPrislusnost, 'Místní příslušnost')
 
-        this.hlavniObsah.appendChild(formular)
+        this.hlavniObsahDiv.appendChild(HTMLformular)
 
     }
 
@@ -54,19 +87,19 @@ class NavrhNaOddluzeniGenerator extends GeneratorObsahu{
         const volba = document.createElement('select')
         
         const prazdne = document.createElement('option')
-        prazdne.value = 'prazdne'
+        prazdne.value = ''
         prazdne.innerText = ''
 
         const vporadku = document.createElement('option')
-        vporadku.value = 'v-poradku'
+        vporadku.value = this.VPORADKU
         vporadku.innerText = this.VPORADKU
 
         const diskutabilni = document.createElement('option')
-        diskutabilni.value = 'diskutabilni'
+        diskutabilni.value = this.DISKUTABILNI
         diskutabilni.innerText = this.DISKUTABILNI
 
         const vadne = document.createElement('option')
-        vadne.value = 'vadne'
+        vadne.value = this.VADNE
         vadne.innerText = this.VADNE
 
         volba.appendChild(prazdne)

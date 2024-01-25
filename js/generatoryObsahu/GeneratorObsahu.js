@@ -5,7 +5,8 @@ class GeneratorObsahu{
 
     constructor(){
 
-        this.hlavniObsah = document.getElementById('hlavni-obsah')
+        this.hlavniObsahDiv = document.getElementById('hlavni-obsah')
+        this.vyhodnoceniFormulareDiv = document.getElementById('vyhodnoceni-formulare')
 
         // konstanty zaškrtávacích výběrů
         this.VPORADKU = "\u2714 v pořádku"
