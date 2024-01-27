@@ -19,21 +19,30 @@
 
     <div id="hlavni-obsah">
 
+        <!-- formulář náležitostí návrhu na povolení oddlužení -->
         <div id="telo-formulare">
             <form id="nalezitosti-navrhu-na-oddluzeni">
-                <div class="radek-formulare">
-                    <label for="nalezitosti-plne-moci">Náležitosti plné moci</label>
-                    <select id="nalezitosti-plne-moci" class="zaskrtavaci-volba"></select>
-                </div>
 
-                <div class="radek-formulare">
-                    <label for="nalezitosti-formy-podani">Náležitosti formy podání</label>
-                    <select id="nalezitosti-formy-podani" class="zaskrtavaci-volba"></select>
-                </div>
-                <div class="radek-formulare">
-                    <label for="mistni-prislusnost">Místní příslušnost</label>
-                    <select id="mistni-prislusnost" class="zaskrtavaci-volba"></select>
-                </div>
+
+                <fieldset>
+                <legend>
+                
+                    <div class="radek-formulare">
+                        <select id="nalezitosti-plne-moci" class="zaskrtavaci-volba"></select>
+                        <label for="nalezitosti-plne-moci">Náležitosti plné moci</label>
+                    </div>
+
+                    <div class="radek-formulare">
+                        <select id="nalezitosti-formy-podani" class="zaskrtavaci-volba"></select>
+                        <label for="nalezitosti-formy-podani">Náležitosti formy podání</label>
+                    </div>
+                    <div class="radek-formulare">
+                        <select id="mistni-prislusnost" class="zaskrtavaci-volba"></select>
+                        <label for="mistni-prislusnost">Místní příslušnost</label>
+                    </div>
+                
+                </legend>
+                </fieldset>
 
                 <button id="vyhodnotit-navrh-na-oddluzeni">Vyhodnotit</button>
             </form>
