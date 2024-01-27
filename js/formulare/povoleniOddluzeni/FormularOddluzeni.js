@@ -7,14 +7,46 @@ class FormularOddluzeni{
     constructor(){
         
         // kolonky s vyplněnými hodnotami (tj. elementy <select>)
+
+        // Obecné náležitosti
         this.kolonkaPlneMoci = document.getElementById("nalezitosti-plne-moci")
         this.kolonkaFormaPodani = document.getElementById("nalezitosti-formy-podani")
         this.kolonkaMistniPrislusnost = document.getElementById("mistni-prislusnost")
+        this.kolonkaTvrzeniOUpadku = document.getElementById("tvrzeni-o-upadku")
+
+        // Přílohy insolvenčního návrhu
+        this.kolonkaSeznamMajetku = document.getElementById("seznam-majetku")
+        this.kolonkaSeznamZamestnancu = document.getElementById("seznam-zamestnancu")
+        this.kolonkaListinyDokladajiciUpadek = document.getElementById("listiny-dokladajici-upadek")
+
+        // Přílohy návrhu na povolení oddlužení
+        this.kolonkaProhlaseniOPouceni = document.getElementById("prohlaseni-o-pouceni")
+        this.kolonkaSoucasnePrijmy = document.getElementById("priloha-soucasne-prijmy")
+        this.kolonkaMinulePrijmy = document.getElementById("prijmy-za-12-mesicu")
+        this.kolonkaProhlaseniManzeluOMajetku = document.getElementById("prohlaseni-manzelu-o-majetku")
+
+        // Další přílohy
+        this.kolonkaDarovaciSmlouva = document.getElementById("priloha-darovaci-smlouva")
+        this.kolonkaRozsudekOVyzivnem = document.getElementById("priloha-rozsudek-o-vyzivnem")
+
 
         this.kolonky = [
             this.kolonkaPlneMoci,
             this.kolonkaFormaPodani,
             this.kolonkaMistniPrislusnost,
+            this.kolonkaTvrzeniOUpadku,
+
+            this.kolonkaSeznamMajetku,
+            this.kolonkaSeznamZamestnancu,
+            this.kolonkaListinyDokladajiciUpadek,
+
+            this.kolonkaProhlaseniOPouceni,
+            this.kolonkaSoucasnePrijmy,
+            this.kolonkaMinulePrijmy,
+            this.kolonkaProhlaseniManzeluOMajetku, 
+
+            this.kolonkaDarovaciSmlouva,
+            this.kolonkaRozsudekOVyzivnem,
         ]
 
         this._nastavitPripustneHodnoty()
@@ -60,7 +92,7 @@ class FormularOddluzeni{
 
 
     _nastavitPripustneHodnoty(){
-        // všem <selection> nastaví jako přípustnou volbu zaškrtávací možnosti v pořádku / diskutabilní / vadné
+        // všem <selection> kolonkám nastaví jako přípustnou volbu zaškrtávací možnosti v pořádku / diskutabilní / vadné
 
         for (const kolonka of this.kolonky){
             this._vytvorZaskrtavaciVolbu(kolonka)

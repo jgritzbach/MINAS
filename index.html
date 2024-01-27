@@ -19,37 +19,124 @@
 
     <div id="hlavni-obsah">
 
-        <!-- formulář náležitostí návrhu na povolení oddlužení -->
+        <!-- Formulář všech náležitostí návrhu na povolení oddlužení -->
         <div id="telo-formulare">
             <form id="nalezitosti-navrhu-na-oddluzeni">
 
-
+                <!-- Obecné náležitosti návrhu -->
                 <fieldset>
-                <legend>
+                    <legend>Obecné náležitosti podání</legend>
                 
+                    <!-- Plná moc -->
                     <div class="radek-formulare">
                         <select id="nalezitosti-plne-moci" class="zaskrtavaci-volba"></select>
                         <label for="nalezitosti-plne-moci">Náležitosti plné moci</label>
                     </div>
 
+                    <!-- Forma podání -->
                     <div class="radek-formulare">
                         <select id="nalezitosti-formy-podani" class="zaskrtavaci-volba"></select>
                         <label for="nalezitosti-formy-podani">Náležitosti formy podání</label>
                     </div>
+
+                    <!-- Místní příslušnost -->
                     <div class="radek-formulare">
                         <select id="mistni-prislusnost" class="zaskrtavaci-volba"></select>
                         <label for="mistni-prislusnost">Místní příslušnost</label>
                     </div>
+
+                    <!-- Tvrzení o úpadku -->
+                    <div class="radek-formulare">
+                        <select id="tvrzeni-o-upadku" class="zaskrtavaci-volba"></select>
+                        <label for="tvrzeni-o-upadku">Tvrzení o úpadku</label>
+                    </div>
                 
-                </legend>
                 </fieldset>
 
+                <!-- Přílohy insolvenčního návrhu -->
+                <fieldset>
+                    <legend>Přílohy insolvenčního návrhu</legend>
+
+                    <!-- Seznam majetku -->
+                    <div class="radek-formulare">
+                        <select id="seznam-majetku" class="zaskrtavaci-volba"></select>
+                        <label for="seznam-majetku">Seznam majetku</label>
+                    </div>
+
+                    <!-- Seznam zaměstnanců -->
+                    <div class="radek-formulare">
+                        <select id="seznam-zamestnancu" class="zaskrtavaci-volba"></select>
+                        <label for="seznam-zamestnancu">Seznam zaměstnanců</label>
+                    </div>
+
+                    <!-- Listiny dokládající úpadek -->
+                    <div class="radek-formulare">
+                        <select id="listiny-dokladajici-upadek" class="zaskrtavaci-volba"></select>
+                        <label for="listiny-dokladajici-upadek">Listiny dokládající úpadek</label>
+                    </div>
+
+                </fieldset>
+
+                <!-- Přílohy návrhu na povolení oddlužení -->
+                <fieldset>
+                    <legend>Přílohy návrhu na povolení oddlužení</legend>
+                
+                    <!-- Čestné prohlášení o poučení o povinnostech -->
+                    <div class="radek-formulare">
+                        <select id="prohlaseni-o-pouceni" class="zaskrtavaci-volba"></select>
+                        <label for="prohlaseni-o-pouceni">Čestné prohlášení o poučení o povinnostech</label>
+                    </div>
+
+                    <!-- Důkaz o současném příjmu -->
+                    <div class="radek-formulare">
+                        <select id="priloha-soucasne-prijmy" class="zaskrtavaci-volba"></select>
+                        <label for="priloha-soucasne-prijmy">Důkaz o současných příjmech</label>
+                    </div>
+
+                    <!-- Důkaz o příjmech za posledních 12 měsíců -->
+                    <div class="radek-formulare">
+                        <select id="prijmy-za-12-mesicu" class="zaskrtavaci-volba"></select>
+                        <label for="prijmy-za-12-mesicu">Důkaz o příjmech za posledních 12 měsíců</label>
+                    </div>
+
+                    <!-- Souhlasné prohlášení manželů o majetku - úředně ověřené podpisy -->
+                    <div class="radek-formulare">
+                        <select id="prohlaseni-manzelu-o-majetku" class="zaskrtavaci-volba"></select>
+                        <label for="prohlaseni-manzelu-o-majetku">Prohlášení manželů o majetku</label>
+                    </div>
+
+                </fieldset>
+
+                    <!-- Další přílohy -->
+                    <fieldset>
+                    <legend>Další přílohy</legend>
+
+                    <!-- Darovací smlouva / smlouva o důchodu -->
+                    <div class="radek-formulare">
+                        <select id="priloha-darovaci-smlouva" class="zaskrtavaci-volba"></select>
+                        <label for="priloha-darovaci-smlouva">Darovací smlouva / smlouva o důchodu</label>
+                    </div>
+
+                    <!-- Rozsudek soudu o výživném -->
+                    <div class="radek-formulare">
+                        <select id="priloha-rozsudek-o-vyzivnem" class="zaskrtavaci-volba"></select>
+                        <label for="priloha-rozsudek-o-vyzivnem">Rozsudek soudu o výživném</label>
+                    </div>
+
+                </fieldset>
+
+                
+
+                <!-- Tlačítko k vyhodnocení -->
                 <button id="vyhodnotit-navrh-na-oddluzeni">Vyhodnotit</button>
+
             </form>
+            <!-- Konec formuláře náležitostí návrhu na povolení oddlužení  -->
 
         </div>
 
 
+        <!-- Zde se bude vypisovat stav vyhodnocení formuláře - co soud pravděpodobně udělá? -->
         <div id="vyhodnoceni-formulare">
 
         </div>
