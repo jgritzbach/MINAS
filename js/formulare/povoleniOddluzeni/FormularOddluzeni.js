@@ -65,7 +65,7 @@ class FormularOddluzeni{
         let hodnota, vadne, diskutabilni
 
         for (const kolonka of this.kolonky){
-            hodnota = kolonka.value
+            hodnota = kolonka.innerText
 
             if (!hodnota){      // pokud někde absentuje vyplnění, rovnou víme, že nelze vyhodnotit
                 return Konstanty.NECO_CHYBI 
@@ -107,27 +107,73 @@ class FormularOddluzeni{
 
         // Vytvoří čtyři <option> s hodnotami prázdné, v pořádku, diskutabilní, vadné
         // všechny budou přiřazeny jako dceřinný element zadanému <selection>
-                
+        
+
+        // nastavíme attributy, které se budou přiřazovat pro jednotlivé <option> jako jejich value a pro celý <select> jako součást jeho class atributu
+        const attrVolby = {}        
+        attrVolby['vychozi'] = 'zaskrtnuto-nevybrano'
+        attrVolby[Konstanty.V_PORADKU] = 'zaskrtnuto-v-poradku'
+        attrVolby[Konstanty.DISKUTABILNI] = 'zaskrtnuto-diskutabilni'
+        attrVolby[Konstanty.VADNE] = 'zaskrtnuto-vadne'
+
+        selectElement.className = `${selectElement.className} ${attrVolby['vychozi']}`     // class attribute elementu <select> se doplní o výchozí volbu, kterým je "nevybráno"
+
+
+        // tvorba a nastavení jednotlivých zaškrtávacích <option>
+
         const prazdne = document.createElement('option')
-        prazdne.value = ''
+        prazdne.value = attrVolby['vychozi']
         prazdne.innerText = ''
 
         const vporadku = document.createElement('option')
-        vporadku.value = Konstanty.V_PORADKU
+        vporadku.value = attrVolby[Konstanty.V_PORADKU]
+        vporadku.class = attrVolby[Konstanty.V_PORADKU]
         vporadku.innerText = Konstanty.V_PORADKU
 
         const diskutabilni = document.createElement('option')
-        diskutabilni.value = Konstanty.DISKUTABILNI
-        diskutabilni.innerText = Konstanty.DISKUTABILNI
+        diskutabilni.value = attrVolby[Konstanty.DISKUTABILNI]
+        vporadku.class = attrVolby[Konstanty.DISKUTABILNI]
+        diskutabilni.innerHTML = Konstanty.DISKUTABILNI
 
         const vadne = document.createElement('option')
-        vadne.value = Konstanty.VADNE
+        vadne.value = attrVolby[Konstanty.VADNE]
+        vporadku.class = attrVolby[Konstanty.VADNE]
         vadne.innerText = Konstanty.VADNE
 
+
+        // přiřazení vytvořených <option> do <select> 
         selectElement.appendChild(prazdne)
         selectElement.appendChild(vporadku)
         selectElement.appendChild(diskutabilni)
         selectElement.appendChild(vadne)
+
+        
+        // zachycení události <select> change -> každá změna přepíše dosavadní volbu na tu novou
+
+
+        selectElement.addEventListener('change', () =>{
+
+            // při zvolení některé <option> dojde k tomu, že se <option>.value přepíše do <select>.class namísto toho, co tam bylo předtím
+            // právě to, že součástí class elementu <select> bude to, jaká volba tam právě panuje, umožní CSS nastavit odpovídající barvu
+            // CSS selektor     select option[value="v-poradku"]:checked       totiž ve většině prohlížečů bohužel nefunguje
+            // tvrdý zásah do <select>.class je tak zřejmě jediný způsob, jak dosáhnout přebarvení <select>
+            
+            const optionValue = selectElement.options[selectElement.selectedIndex].value  // uchopíme element <option>,který byl právě zvolen .value
+
+            for (const attrVolba in attrVolby){                           // iterujeme napříč volbami, které známe: zaskrtnuto-nevybrano, zaskrtnuto-v-poradku atd.
+
+                const zaskrtnuto = attrVolby[attrVolba]
+                if (selectElement.className.includes(zaskrtnuto)){       // jestliže se v současném attributu class elementu <select> vyskytuje iterovaná fráze
+                    const newClassName = selectElement.className.replace(zaskrtnuto, optionValue) 
+                    selectElement.className = newClassName     // nahradíme v <select> class dosavadní frázi tím, co má zvolený <option> ve value
+                    break       // a můžeme rovnou skončit (nepředpokládá se, že by <select> mohl mít více zaškrtnutých voleb najednou)
+                } 
+            }
+                
+        
+
+        })
+
 
     }
 
