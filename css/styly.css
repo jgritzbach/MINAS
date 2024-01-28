@@ -47,6 +47,7 @@ legend{
 .zaskrtavaci-volba{
 
     width: 110px;
+    transition: 0.25s;
 
 }
 
