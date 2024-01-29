@@ -49,134 +49,85 @@ class FormularOddluzeni{
             this.kolonkaRozsudekOVyzivnem,
         ]
 
-        this._nastavitPripustneHodnoty()
+        this._nastavitKolonky()
     }
 
-    vyhodnotitKolonky(){
-
-        // vyhodnotí vnitřní kolonky formuláře a vrátí stav:
-        // 0 - něco chybí - nelze vyhodnotit
-        // 1 - vše vyplněno, ale něco je vadné 
-        // 2 - vše vyplněno, nic není vadné, ale něco je diskutabilní
-        // 3 - vše vyplněno a v pořádku
-
-        
-
-        let hodnota, vadne, diskutabilni
-
-        for (const kolonka of this.kolonky){
-            hodnota = kolonka.innerText
-
-            if (!hodnota){      // pokud někde absentuje vyplnění, rovnou víme, že nelze vyhodnotit
-                return Konstanty.NECO_CHYBI 
-            } else if (hodnota === Konstanty.VADNE){
-                vadne = true;
-            } else if (hodnota === Konstanty.DISKUTABILNI){
-                diskutabilni = true;
-            }
-        
-        }   
-
-            
-        if (vadne){
-            return Konstanty.NECO_VADNE 
-        }
-        
-        if (diskutabilni){
-            return Konstanty.NECO_DISKUTABILNI
-        }
-        
-        return Konstanty.VSE_OK 
-
-    }
-
-
-    _nastavitPripustneHodnoty(){
+    _nastavitKolonky(){
         // všem <selection> kolonkám nastaví jako přípustnou volbu zaškrtávací možnosti v pořádku / diskutabilní / vadné
 
         for (const kolonka of this.kolonky){
             this._vytvorZaskrtavaciVolbu(kolonka)
+            this._nastavReakciNaVolbu(kolonka)
         }
 
     }
-
-
-   
 
     _vytvorZaskrtavaciVolbu(selectElement){
 
         // Vytvoří čtyři <option> s hodnotami prázdné, v pořádku, diskutabilní, vadné
         // všechny budou přiřazeny jako dceřinný element zadanému <selection>
         
+        for (const hodnota of Object.entries(Konstanty.volbyValues)){   // k nastavení innerText a value nám pomůžou definované konstanty
+            const option = document.createElement('option')             // vytvoříme nový option
+            option.value = hodnota[1]                                   // jeho value mu nastavíme dle definovaných konstant
+            option.innerText = Konstanty.volbyTexty[hodnota[0]]         // a jeho vnitřní text pomocí téhož klíče dle definovaných konstant
+            selectElement.appendChild(option)                           // a hotový <option> přiřadíme do <select>
+        }
 
-        // nastavíme attributy, které se budou přiřazovat pro jednotlivé <option> jako jejich value a pro celý <select> jako součást jeho class atributu
-        const attrVolby = {}        
-        attrVolby['vychozi'] = 'zaskrtnuto-nevybrano'
-        attrVolby[Konstanty.V_PORADKU] = 'zaskrtnuto-v-poradku'
-        attrVolby[Konstanty.DISKUTABILNI] = 'zaskrtnuto-diskutabilni'
-        attrVolby[Konstanty.VADNE] = 'zaskrtnuto-vadne'
-
-        selectElement.className = `${selectElement.className} ${attrVolby['vychozi']}`     // class attribute elementu <select> se doplní o výchozí volbu, kterým je "nevybráno"
-
-
-        // tvorba a nastavení jednotlivých zaškrtávacích <option>
-
-        const prazdne = document.createElement('option')
-        prazdne.value = attrVolby['vychozi']
-        prazdne.innerText = ''
-
-        const vporadku = document.createElement('option')
-        vporadku.value = attrVolby[Konstanty.V_PORADKU]
-        vporadku.class = attrVolby[Konstanty.V_PORADKU]
-        vporadku.innerText = Konstanty.V_PORADKU
-
-        const diskutabilni = document.createElement('option')
-        diskutabilni.value = attrVolby[Konstanty.DISKUTABILNI]
-        vporadku.class = attrVolby[Konstanty.DISKUTABILNI]
-        diskutabilni.innerHTML = Konstanty.DISKUTABILNI
-
-        const vadne = document.createElement('option')
-        vadne.value = attrVolby[Konstanty.VADNE]
-        vporadku.class = attrVolby[Konstanty.VADNE]
-        vadne.innerText = Konstanty.VADNE
-
-
-        // přiřazení vytvořených <option> do <select> 
-        selectElement.appendChild(prazdne)
-        selectElement.appendChild(vporadku)
-        selectElement.appendChild(diskutabilni)
-        selectElement.appendChild(vadne)
-
+        selectElement.classList.add(Konstanty.volbyValues['PRAZDNE']) // <select> nastavíme výchozí volbu (tj. nic nevybráno)
+    }
+    
+    _nastavReakciNaVolbu(selectElement){
         
-        // zachycení události <select> change -> každá změna přepíše dosavadní volbu na tu novou
-
-
+        // Nastaví vybranému <select> reakci na zvolení některé z option
+        // reakcí je přepis té části <select>.ClassList, která se týká barvy (o faktické přebarvení se stará CSS)
+        
         selectElement.addEventListener('change', () =>{
 
-            // při zvolení některé <option> dojde k tomu, že se <option>.value přepíše do <select>.class namísto toho, co tam bylo předtím
-            // právě to, že součástí class elementu <select> bude to, jaká volba tam právě panuje, umožní CSS nastavit odpovídající barvu
-            // CSS selektor     select option[value="v-poradku"]:checked       totiž ve většině prohlížečů bohužel nefunguje
-            // tvrdý zásah do <select>.class je tak zřejmě jediný způsob, jak dosáhnout přebarvení <select>
-            
-            const optionValue = selectElement.options[selectElement.selectedIndex].value  // uchopíme element <option>,který byl právě zvolen .value
+            for (const volba of Object.values(Konstanty.volbyValues)){       // iterujeme napříč values dle definovaných konstant typů zaškrtávacích voleb
 
-            for (const attrVolba in attrVolby){                           // iterujeme napříč volbami, které známe: zaskrtnuto-nevybrano, zaskrtnuto-v-poradku atd.
-
-                const zaskrtnuto = attrVolby[attrVolba]
-                if (selectElement.className.includes(zaskrtnuto)){       // jestliže se v současném attributu class elementu <select> vyskytuje iterovaná fráze
-                    const newClassName = selectElement.className.replace(zaskrtnuto, optionValue) 
-                    selectElement.className = newClassName     // nahradíme v <select> class dosavadní frázi tím, co má zvolený <option> ve value
+                if (selectElement.classList.contains(volba)){       // až narazíme na tu, která se vyskytuje v současném <select>.classList
+                    
+                    selectElement.classList.remove(volba)           // tu odstraníme
+                    const novaVolba = selectElement.options[selectElement.selectedIndex].value  // namísto toho uchopíme zvolený <option>.value
+                    selectElement.classList.add(novaVolba)     // a ten vložíme do <select>.classList namísto původní volby
                     break       // a můžeme rovnou skončit (nepředpokládá se, že by <select> mohl mít více zaškrtnutých voleb najednou)
                 } 
             }
                 
-        
-
         })
-
-
     }
 
+    vyhodnotitKolonky(){
+
+        // vyhodnotí vnitřní kolonky formuláře a vrátí stav reprezentovaný číslem
+        
+        let hodnota, vadne, diskutabilni
+
+        // iterace skrze jednotlivé kolonky
+        for (const kolonka of this.kolonky){
+
+            hodnota = kolonka.value
+
+            if (hodnota === Konstanty.volbyValues['PRAZDNE']){      // pokud někde absentuje vyplnění, rovnou víme, že nelze vyhodnotit
+                return Konstanty.stavy['NECO_CHYBI'] 
+            } else if (hodnota === Konstanty.volbyValues['VADNE']){
+                vadne = true;
+            } else if (hodnota === Konstanty.volbyValues['DISKUTABILNI']){
+                diskutabilni = true;
+            }
+        }   
+
+        // jak dopadla iterace?
+        if (vadne){
+            return Konstanty.stavy['NECO_VADNE'] 
+        }
+        if (diskutabilni){
+            return Konstanty.stavy['NECO_DISKUTABILNI']
+        }
+        return Konstanty.stavy['VSE_OK']
+    }
+        
 
 
 
