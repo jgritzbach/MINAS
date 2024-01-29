@@ -5,8 +5,24 @@ class FormularOddluzeni{
     // Sama o sobě tato třída nic nikam nevypisuje, k tomu může sloužit nějaký její manager
 
     constructor(){
+
+        this._uchopKolonky()
+        this._nastavKolonky()
+    }
+
+    _nastavKolonky(){
+        // všem <selection> kolonkám nastaví jako přípustnou volbu zaškrtávací možnosti v pořádku / diskutabilní / vadné
+
+        for (const kolonka of this.kolonky){
+            this._vytvorZaskrtavaciVolbu(kolonka)
+            this._nastavReakciNaVolbu(kolonka)
+        }
+
+    }
+
+    _uchopKolonky(){
         
-        // kolonky s vyplněnými hodnotami (tj. elementy <select>)
+        // na stránce uchopí patřičné kolonky (elementy <select>) dle jejich id a uloží je do vnitřních proměnných formuláře
 
         // Obecné náležitosti
         this.kolonkaPlneMoci = document.getElementById("nalezitosti-plne-moci")
@@ -29,7 +45,6 @@ class FormularOddluzeni{
         this.kolonkaDarovaciSmlouva = document.getElementById("priloha-darovaci-smlouva")
         this.kolonkaRozsudekOVyzivnem = document.getElementById("priloha-rozsudek-o-vyzivnem")
 
-
         this.kolonky = [
             this.kolonkaPlneMoci,
             this.kolonkaFormaPodani,
@@ -48,24 +63,11 @@ class FormularOddluzeni{
             this.kolonkaDarovaciSmlouva,
             this.kolonkaRozsudekOVyzivnem,
         ]
-
-        this._nastavitKolonky()
-    }
-
-    _nastavitKolonky(){
-        // všem <selection> kolonkám nastaví jako přípustnou volbu zaškrtávací možnosti v pořádku / diskutabilní / vadné
-
-        for (const kolonka of this.kolonky){
-            this._vytvorZaskrtavaciVolbu(kolonka)
-            this._nastavReakciNaVolbu(kolonka)
-        }
-
     }
 
     _vytvorZaskrtavaciVolbu(selectElement){
 
-        // Vytvoří čtyři <option> s hodnotami prázdné, v pořádku, diskutabilní, vadné
-        // všechny budou přiřazeny jako dceřinný element zadanému <selection>
+        // nastaví zadanému <select> jeho přípustné zaškrtávací <options>
         
         for (const hodnota of Object.entries(Konstanty.volbyValues)){   // k nastavení innerText a value nám pomůžou definované konstanty
             const option = document.createElement('option')             // vytvoříme nový option
@@ -98,7 +100,7 @@ class FormularOddluzeni{
         })
     }
 
-    vyhodnotitKolonky(){
+    vyhodnotKolonky(){
 
         // vyhodnotí vnitřní kolonky formuláře a vrátí stav reprezentovaný číslem
         
