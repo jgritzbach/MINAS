@@ -13,10 +13,6 @@ class FormularOddluzeniManager{
 
 
         this.formular = new FormularOddluzeni()
-
-        
-        
-
     }
 
 
