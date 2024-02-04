@@ -8,8 +8,8 @@ class FormularOddluzeniManager{
     constructor(){
 
         this.tlacitkoVyhodnotit = document.getElementById("vyhodnotit-navrh-na-oddluzeni")
-        this.vyhodnoceniFormulare = document.getElementById("vyhodnoceni-formulare")
-        
+        this.divVyhodnoceniFormulare = document.getElementById("vyhodnoceni-formulare")
+        this.divVyhodnoceniFormulare.innerHTML = "vyplňte prosím kolonky formuláře."
 
 
         this.formular = new FormularOddluzeni()
@@ -18,21 +18,47 @@ class FormularOddluzeniManager{
 
 
     vypisVyhodnoceniFormulare(){
+        // do cílového divu vypíše text odpovídající vyhodnocení kolonek formuláře
+        
+        const cil = this.divVyhodnoceniFormulare 
+        
+        const stavajiciHTML = cil.innerHTML
+        const noveHTML = this.vyhodnotKolonky()
 
-        let vysledek = this.vyhodnotKolonky()
-        this.vyhodnoceniFormulare.innerHTML = vysledek
+        if (stavajiciHTML === noveHTML){
+            return
+        }
+        
+        
+        cil.classList.add('pomalu-zmizet')
+
+        setTimeout(() =>{
+            cil.innerHTML = noveHTML
+            cil.classList.replace('pomalu-zmizet', 'pomalu-se-objevit')
+        },200)
+        
+        cil.classList.remove('pomalu-se-objevit')
+        // setTimeout(() => {
+        //     cil.classList.remove('pomalu-se-objevit')
+        // },8000)
+            
+        
+        
 
     }
     
 
     _pridatUdalostVyhodnoceni(){
 
+        // kea každé kolonce formuláře se přidá další change event listener.
+        // právě ten přepíše text vyhodnocení formuláře
+
         for (const kolonka of this.formular.vsechnyKolonky){
             kolonka.addEventListener('change', () => this.vypisVyhodnoceniFormulare())
         }
         // this.tlacitkoVyhodnotit.addEventListener('click', (event) => {
         //     event.preventDefault()
-        //     this.vypisVyhodnoceniFormulare()
+        //     this.vypisdivVyhodnoceniFormulare()
         // })
 
     }
@@ -46,7 +72,7 @@ class FormularOddluzeniManager{
 
         // Přednost má vada plné moci - nepřihlíží se a nelze napravit, ani se nemusíme dívat dál
         if (f._jeVadne(f.kolonkaPlneMoci)){
-            return `Vadná plná moc má za následek, že k insolvnečnímu návrhu se nepřihlíží (srov. § 97 IZ). Žádnými dalšími náležitostmi se soud nebude vůbec zabývat. Nedojde ani k vydání vyhlášky o zahájení insolvenčního řízení (srov. § 101 IZ) a vyvolání účinků jinak spojených s jeho zahájením (srov. § 109 IZ).<br/><br/>
+            return `Vadná plná moc má za následek, že k insolvenčnímu návrhu se nepřihlíží (srov. § 97 IZ). Žádnými dalšími náležitostmi se soud nebude vůbec zabývat. Nedojde ani k vydání vyhlášky o zahájení insolvenčního řízení (srov. § 101 IZ) a vyvolání účinků jinak spojených s jeho zahájením (srov. § 109 IZ).<br/><br/>
                     Jedná se o neodstranitelnou vadu, soud vás nebude vyzývat k opravě. Proti rozhodnutí o nepřihlížení k insolvenčnímu návrhu není přípustné odvolání. Insolvenční řízení tímto rozhodnutím skončí.`
         }
 
@@ -99,7 +125,7 @@ class FormularOddluzeniManager{
 
 
         // vady příloh návrhu na oddlužení - lze to napravit na výzvu - nedoplní-li odmítne se návrh na povolení oddlužení, ale je-li IN v pořádku, lze IN projednat - rozhodne se o úpadku dlužníka buďto se řízení zastaví, nebo se prohlásí konkurs
-        if (f._jeVadnaNecoZ(f.prilohyNavrhuNaPovoleniOddluzeni)){
+        if (f._jeVadneNecoZ(f.prilohyNavrhuNaPovoleniOddluzeni)){
             return `Některá z povinných návrhu na povolení oddlužení je vadná nebo chybí. Jedná se o odstranitelnou vadu. Soud v případě vadných příloh návrhu na povolení oddlužení vyzve navrhovatele k jejich doplnění (srov. § 393 odst. 2 IZ).<br/><br/>
                     Nebudou-li přílohy ve stanovené lhůtě doplněny soud návrh na povolení oddlužení odmítne (§ 393 odst. 3 IZ). Jsou-li však náležitosti insolvenčního návrhu a jeho příloh v pořádku, soud přesto rozhodne o úpadku dlužníka. Pouze není možné řešit úpadek oddlužení. Dle stavu majetkové podstaty soud buďto na majetek dlužníka prohlásí konkurs, anebo pro nedostatek majetku řízení zastaví.`
         }

@@ -76,14 +76,23 @@ legend{
 
 #vyhodnoceni-formulare{
     margin: 5px;
-    color: grey;
+    color: black;
     transition: 0.5s;
 }
 
 #vyhodnoceni-formulare:hover{
-    color:black;
+    color:grey;
 }
 
+.pomalu-zmizet{
+    transition: 1s;
+    opacity: 0;
+}
+
+.pomalu-se-objevit{
+    transition: 1s;
+    opacity: 1;
+}
 
 
 /*  */
