@@ -29,7 +29,7 @@ class FormularOddluzeniManager{
             3: '<br>Všechny kolonky byly vyhodnoceny jako v pořádku.<br>Zdá se, že návrh na povolení my mohl u soudu obstát.',
         }
 
-        let vysledek = hodnoceni[this.formular.vyhodnotitKolonky()]
+        let vysledek = hodnoceni[this.formular.vyhodnotKolonky()]
         this.vyhodnoceniFormulare.innerHTML = vysledek
 
     }

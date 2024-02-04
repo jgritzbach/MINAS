@@ -1,4 +1,5 @@
-* {
+* { 
+    
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,25 +7,94 @@
 }
 
 
-.zaskrtavaci-volba{
-
-    width: 100px;
-
-}
-
 #hlavni-obsah{
     margin: 10px;
 }
+
+
 
 #telo-formulare{
     width: 600px;
     border: solid 1px black;
 }
 
+#formular-oddluzeni{
+    padding: 10px;
+}
 
 
-.kolonka-formulare{
+
+fieldset{
+    margin: 15px 5px;
+    /* color: red; */
+    border: none;
+}
+
+legend{
+    color: rgb(90, 90, 90);
+    font-weight: bold;
+    /* border: none; */
+}
+
+
+.radek-formulare{
     display:block;
     margin: 5px;
     display: flexbox;
 }
+
+
+.zaskrtavaci-volba{
+
+    width: 110px;
+    transition: 0.25s;
+
+}
+
+
+.zaskrtnuto-nevybrano{
+    color: black;
+}
+
+.zaskrtnuto-v-poradku{
+    color: green;
+}
+
+.zaskrtnuto-diskutabilni{
+    color: orange;
+}
+
+.zaskrtnuto-vadne{
+    color: red;
+}
+
+
+
+
+
+
+/* .zaskrtavaci-volba option[value='']{
+    color: black;
+}
+
+.zaskrtavaci-volba option[value='v-poradku']{
+    color: green;
+}
+
+.zaskrtavaci-volba option[value='diskutabilni']{
+    color: orange;
+}
+
+.zaskrtavaci-volba option[value='vadne']{
+    color: red;
+} */
+
+
+
+
+#vyhodnotit-navrh-na-oddluzeni{
+    margin: 5px;
+}
+
+/*  */
+
