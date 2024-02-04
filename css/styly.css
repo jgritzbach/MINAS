@@ -6,36 +6,75 @@
     font-family: Helvetica;
 }
 
+/* HLAVNÍ LAYOUT */
+body{
+    color: rgb(80, 80, 80);
+    background-color: rgb(255, 255, 234);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;       /* velmi důležité - právě toto drží footer na spodku stránky */
+    
+}
+
+header{
+    height: 150px;
+    background-color: rgb(75, 182, 75);
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main{
+    margin-top: 10px;
+    flex: 1; 
+}
+
+footer{
+    margin-top: auto;
+    height: 50px;
+    background-color: rgb(75, 182, 75);;
+}
+
+h1, h2{
+    color: rgb(255, 255, 234);
+    text-align: center;
+}
+
+h1{
+    font-size: 70px;
+}
+
+h2{
+    font-size: 30px;
+}
 
 #hlavni-obsah{
-    margin: 10px;
+    margin: auto;
+    width: 1020px;
+    border: 1px solid black;
+    padding: 20px;
 }
 
 
-
-#telo-formulare{
-    width: 600px;
-    border: solid 1px black;
-}
-
+/* FORMULÁŘ */
 #formular-oddluzeni{
     padding: 10px;
+    width: 500px;
+    border: solid 1px black;
+    margin: 10px;
+    box-shadow: 2px 2px 5px grey;
 }
-
 
 
 fieldset{
     margin: 15px 5px;
-    /* color: red; */
     border: none;
 }
 
 legend{
     color: rgb(90, 90, 90);
     font-weight: bold;
-    /* border: none; */
 }
-
 
 .radek-formulare{
     display:block;
@@ -43,14 +82,12 @@ legend{
     display: flexbox;
 }
 
-
 .zaskrtavaci-volba{
-
+    font-weight:800;
     width: 110px;
     transition: 0.25s;
 
 }
-
 
 .zaskrtnuto-nevybrano{
     color: black;
@@ -70,20 +107,21 @@ legend{
 
 
 
-
-
-
+/* VYHODNOCENÍ FORMULÁŘE */
 
 #vyhodnoceni-formulare{
-    margin: 5px;
-    color: black;
+    margin: 10px;
+    padding: 10px;
     transition: 0.5s;
+    width: 500px;
 }
 
-#vyhodnoceni-formulare:hover{
+/* #vyhodnoceni-formulare:hover{
     color:grey;
-}
+} */
 
+
+/* EFEKTY */
 .pomalu-zmizet{
     transition: 1s;
     opacity: 0;
@@ -93,7 +131,3 @@ legend{
     transition: 1s;
     opacity: 1;
 }
-
-
-/*  */
-
