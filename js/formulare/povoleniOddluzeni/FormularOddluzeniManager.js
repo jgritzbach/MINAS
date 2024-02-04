@@ -22,14 +22,6 @@ class FormularOddluzeniManager{
 
     vypisVyhodnoceniFormulare(){
 
-        4
-        // const hodnoceni = {
-        //     0: '<br>Doposud nebyly vyplněny všechny potřebné kolonky.<br>Návrh na povolení oddlužení nelze vyhodnotit.',
-        //     1: '<br>Některá z kolonek byla vyhodnocena jako vadná.<br>Návrh na povolení oddlužení pravděpodobně nebude úspěšný.',
-        //     2: '<br>Některá z kolonek byla vyhodnocena jako diskutabilní.<br>Úspěch návrhu na povolení je nejistý, v závislosti na závažnosti okolností.',
-        //     3: '<br>Všechny kolonky byly vyhodnoceny jako v pořádku.<br>Zdá se, že návrh na povolení my mohl u soudu obstát.',
-        // }
-
         let vysledek = this.vyhodnotKolonky()
         this.vyhodnoceniFormulare.innerHTML = vysledek
 
