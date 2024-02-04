@@ -10,10 +10,12 @@ class FormularOddluzeni{
         this._nastavKolonky()
     }
 
-    _nastavKolonky(){
-        // všem <selection> kolonkám nastaví jako přípustnou volbu zaškrtávací možnosti v pořádku / diskutabilní / vadné
 
-        for (const kolonka of this.kolonky){
+    _nastavKolonky(){
+        // všem <select> kolonkám nastaví jako přípustnou volbu zaškrtávací možnosti v pořádku / diskutabilní / vadné
+        // a nastaví jim také reakci na změnu
+
+        for (const kolonka of this.vsechnyKolonky){
             this._vytvorZaskrtavaciVolbu(kolonka)
             this._nastavReakciNaVolbu(kolonka)
         }
@@ -27,8 +29,8 @@ class FormularOddluzeni{
         // Obecné náležitosti
         this.kolonkaPlneMoci = document.getElementById("nalezitosti-plne-moci")
         this.kolonkaFormaPodani = document.getElementById("nalezitosti-formy-podani")
-        this.kolonkaMistniPrislusnost = document.getElementById("mistni-prislusnost")
         this.kolonkaTvrzeniOUpadku = document.getElementById("tvrzeni-o-upadku")
+        this.kolonkaMistniPrislusnost = document.getElementById("mistni-prislusnost")
 
         // Přílohy insolvenčního návrhu
         this.kolonkaSeznamMajetku = document.getElementById("seznam-majetku")
@@ -45,11 +47,12 @@ class FormularOddluzeni{
         this.kolonkaDarovaciSmlouva = document.getElementById("priloha-darovaci-smlouva")
         this.kolonkaRozsudekOVyzivnem = document.getElementById("priloha-rozsudek-o-vyzivnem")
 
-        this.kolonky = [
+        // Logické Seskupení některých kolonek
+        this.vsechnyKolonky = [
             this.kolonkaPlneMoci,
             this.kolonkaFormaPodani,
-            this.kolonkaMistniPrislusnost,
             this.kolonkaTvrzeniOUpadku,
+            this.kolonkaMistniPrislusnost,
 
             this.kolonkaSeznamMajetku,
             this.kolonkaSeznamZamestnancu,
@@ -60,6 +63,21 @@ class FormularOddluzeni{
             this.kolonkaMinulePrijmy,
             this.kolonkaProhlaseniManzeluOMajetku, 
 
+            this.kolonkaDarovaciSmlouva,
+            this.kolonkaRozsudekOVyzivnem,
+        ]
+        
+        this.prilohyInsolvencnihoNavrhu = [
+            this.kolonkaSeznamMajetku,
+            this.kolonkaSeznamZamestnancu,
+            this.kolonkaListinyDokladajiciUpadek,
+        ]
+
+        this.prilohyNavrhuNaPovoleniOddluzeni = [
+            this.kolonkaProhlaseniOPouceni,
+            this.kolonkaSoucasnePrijmy,
+            this.kolonkaMinulePrijmy,
+            this.kolonkaProhlaseniManzeluOMajetku, 
             this.kolonkaDarovaciSmlouva,
             this.kolonkaRozsudekOVyzivnem,
         ]
@@ -100,37 +118,59 @@ class FormularOddluzeni{
         })
     }
 
-    vyhodnotKolonky(){
+    // Pomocné vyhodnocovací metody - 
+    // formulář umí odpovídat na dotazy stran vyplněných hodnot svých kolonek.
+    // odpovídá však jen true/false a vůbec se nestará o to, proč to chce někdo vědět a co s tím udělá (o vyhodnocení se postará manažer)
 
-        // vyhodnotí vnitřní kolonky formuláře a vrátí stav reprezentovaný číslem
-        
-        let hodnota, vadne, diskutabilni
-
-        // iterace skrze jednotlivé kolonky
-        for (const kolonka of this.kolonky){
-
-            hodnota = kolonka.value
-
-            if (hodnota === Konstanty.volbyValues['PRAZDNE']){      // pokud někde absentuje vyplnění, rovnou víme, že nelze vyhodnotit
-                return Konstanty.stavy['NECO_CHYBI'] 
-            } else if (hodnota === Konstanty.volbyValues['VADNE']){
-                vadne = true;
-            } else if (hodnota === Konstanty.volbyValues['DISKUTABILNI']){
-                diskutabilni = true;
-            }
-        }   
-
-        // jak dopadla iterace?
-        if (vadne){
-            return Konstanty.stavy['NECO_VADNE'] 
-        }
-        if (diskutabilni){
-            return Konstanty.stavy['NECO_DISKUTABILNI']
-        }
-        return Konstanty.stavy['VSE_OK']
+    _jeNevyplnene(kolonka){
+        // Vrací údaj o tom, zda daná kolonka je nevyplněná
+        return kolonka.value === Konstanty.volbyValues['PRAZDNE']
     }
+
+    _jeDiskutabilni(kolonka){
+        // Vrací údaj o tom, zda daná kolonka má vyplněnou volbu 'diskutabilní'
+        return kolonka.value === Konstanty.volbyValues['DISKUTABILNI']
+    }
+
+    _jeVadne(kolonka){
+        // Vrací údaj o tom, zda daná kolonka má vyplněnou volbu 'vadné'
+        return kolonka.value === Konstanty.volbyValues['VADNE']
+    }
+
+    _jeNecoZPredanychNejake(kolonky, callback){
+        // Vrací údaj o tom, zda alespoň některá z předaných kolonek má pravdivý výsledek callbacku
+        for (const kolonka of kolonky){
+            if (callback(kolonka)){            // stačí jediný pravdivý callback a hned vracíme pravdu (iterace končí)
+                return true
+            }
+        }
+    }
+
+    _jeNevyplneneNecoZ(kolonky){
+        // Vrací údaj o tom, zda alespoň některá z předaných kolonek je nevyplněná
+        return this._jeNecoZPredanychNejake(kolonky, this._jeNevyplnene)
+    }
+
+    _jeDiskutabilniNecoZ(kolonky){
+        // Vrací údaj o tom, zda alespoň některá z předaných kolonek je diskutabilní
+        return this._jeNecoZPredanychNejake(kolonky, this._jeDiskutabilni)
+    }
+
+    _jeVadneNecoZ(kolonky){
+        // Vrací údaj o tom, zda alespoň některá z předaných kolonek je vadná
+        return this._jeNecoZPredanychNejake(kolonky, this._jeVadne)
+    }
+
+    _jeVadnaNejakaPrilohaInsolvencnihoNavrhu(){
+        // Vrací údaj o tom, zda některá z kolonek náležících mezi přílohy insolvenčního návrhu má vyplněnou volbu 'vadné'
+        return this._jeVadneNecoZ(this.prilohyInsolvencnihoNavrhu)
         
+    }
 
-
-
+    _jeVadnaNejakaPrilohaNavrhuNaPovoleniOddluzeni(){
+        // Vrací údaj o tom, zda některá z kolonek náležících mezi přílohy návrhu na povolení oddlužení má vyplněnou volbu 'vadné'
+        return this._jeVadneNecoZ(this.prilohyNavrhuNaPovoleniOddluzeni)
+    }
+    
+    
 }

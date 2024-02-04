@@ -16,13 +16,17 @@ class Konstanty{
         VADNE : 'zaskrtnuto-vadne',
     }
 
-
     // potenciální stavy vyplněnosti kategorií
     static stavy = {
-        NECO_CHYBI : 0,
-        NECO_VADNE : 1,
-        NECO_DISKUTABILNI : 2,
-        VSE_OK :3, 
+        VADNE_PLNA_MOC : 0,
+        VADNE_FORMA_PODANI : 1,
+        VADNE_TVRZENI_O_UPADKU : 2,
+        VADNE_MISTNI_PRISLUSNOST : 3,
+        VADNE_PRILOHY_INSOLVENCNIHO_NAVRHU : 4,
+        VADNE_PRILOHY_NAVRHU_NA_ODDLUZENI : 5,
+        NECO_NEVYPLNENE : 6,
+        NECO_DISKUTABILNI : 7,
+        VSE_OK : 8,
     }
 
 }
