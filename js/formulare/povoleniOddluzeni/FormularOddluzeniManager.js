@@ -25,7 +25,7 @@ class FormularOddluzeniManager{
         const stavajiciHTML = cil.innerHTML
         const noveHTML = this.vyhodnotKolonky()
 
-        if (stavajiciHTML === noveHTML){
+        if (stavajiciHTML == noveHTML){
             return
         }
         
