@@ -73,28 +73,18 @@ legend{
 
 
 
-/* .zaskrtavaci-volba option[value='']{
-    color: black;
-}
 
-.zaskrtavaci-volba option[value='v-poradku']{
-    color: green;
-}
-
-.zaskrtavaci-volba option[value='diskutabilni']{
-    color: orange;
-}
-
-.zaskrtavaci-volba option[value='vadne']{
-    color: red;
-} */
-
-
-
-
-#vyhodnotit-navrh-na-oddluzeni{
+#vyhodnoceni-formulare{
     margin: 5px;
+    color: grey;
+    transition: 0.5s;
 }
+
+#vyhodnoceni-formulare:hover{
+    color:black;
+}
+
+
 
 /*  */
 

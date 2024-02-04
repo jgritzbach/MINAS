@@ -9,10 +9,11 @@ class FormularOddluzeniManager{
 
         this.tlacitkoVyhodnotit = document.getElementById("vyhodnotit-navrh-na-oddluzeni")
         this.vyhodnoceniFormulare = document.getElementById("vyhodnoceni-formulare")
-        this._pridatUdalostVyhodnoceni()
+        
 
 
         this.formular = new FormularOddluzeni()
+        this._pridatUdalostVyhodnoceni()
     }
 
 
@@ -26,10 +27,13 @@ class FormularOddluzeniManager{
 
     _pridatUdalostVyhodnoceni(){
 
-        this.tlacitkoVyhodnotit.addEventListener('click', (event) => {
-            event.preventDefault()
-            this.vypisVyhodnoceniFormulare()
-        })
+        for (const kolonka of this.formular.vsechnyKolonky){
+            kolonka.addEventListener('change', () => this.vypisVyhodnoceniFormulare())
+        }
+        // this.tlacitkoVyhodnotit.addEventListener('click', (event) => {
+        //     event.preventDefault()
+        //     this.vypisVyhodnoceniFormulare()
+        // })
 
     }
 
@@ -59,6 +63,16 @@ class FormularOddluzeniManager{
 
         if (f._jeNevyplnene(f.kolonkaFormaPodani)){
             return `Není vyplněna kolonka náležitostí formy podání. Formu podání je přitom třeba zkoumat přednostně před následnými kolonkami, které máte vyplněné. Ukázala-li by se forma podání jako vadná, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.`
+        }
+
+        // Vyhodnocení tvrzení o úpadku
+        if (f._jeVadne(f.kolonkaTvrzeniOUpadku)){
+            return `Tvrzení o úpadku dlužníka je nedostatečné. Insolvenční návrh bude soudem odmítnut (srov. § 128 odst. 1 IZ). Ač se to můje jevit neobvyklé, má odmítnutí insolvenčního návrhu pro nedostatečné tvrzení o úpadku dlužníka přednost i před posouzením místní nepříslušnosti (srov. § 7b odst. 5 IZ).<br/><br/>
+                    Jedná se o neodstranitelnou vadu, soud vás nebude vyzývat k opravě. Odmítnutím insolvenčního návrhu insolvenční řízení skončí.`
+        }
+
+        if (f._jeNevyplnene(f.kolonkaTvrzeniOUpadku)){
+            return `Není vyplněna kolonka náležitostí tvrzení o úpadku. Tvrzení o úpadku je přitom třeba zkoumat přednostně před následnými kolonkami, které máte vyplněné. Ukázala-li by se tvrzení o úpadku jako vadná, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.`
         }
 
 
