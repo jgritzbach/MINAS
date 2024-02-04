@@ -27,8 +27,8 @@ class FormularOddluzeni{
         // Obecné náležitosti
         this.kolonkaPlneMoci = document.getElementById("nalezitosti-plne-moci")
         this.kolonkaFormaPodani = document.getElementById("nalezitosti-formy-podani")
-        this.kolonkaMistniPrislusnost = document.getElementById("mistni-prislusnost")
         this.kolonkaTvrzeniOUpadku = document.getElementById("tvrzeni-o-upadku")
+        this.kolonkaMistniPrislusnost = document.getElementById("mistni-prislusnost")
 
         // Přílohy insolvenčního návrhu
         this.kolonkaSeznamMajetku = document.getElementById("seznam-majetku")
@@ -48,8 +48,8 @@ class FormularOddluzeni{
         this.kolonky = [
             this.kolonkaPlneMoci,
             this.kolonkaFormaPodani,
-            this.kolonkaMistniPrislusnost,
             this.kolonkaTvrzeniOUpadku,
+            this.kolonkaMistniPrislusnost,
 
             this.kolonkaSeznamMajetku,
             this.kolonkaSeznamZamestnancu,
@@ -104,6 +104,18 @@ class FormularOddluzeni{
 
         // vyhodnotí vnitřní kolonky formuláře a vrátí stav reprezentovaný číslem
         
+        // Přednost má vada plné moci - nnepřihlíží se a nelze napravit
+        // Poté je forma podání - zpracovatel má DS, takže má podat elektronicky, neučiní-li, výzva k opravě. Neopraví-li, odmítne se 
+        // Poté je tvrzení o úpadku - nedostatečné tvrzení o úpadku je důvodem k odmítnutí a nelze to napravit. Ač se to zdá zvláštní, odmítnutí zde má přednost i před vyslovením místní nepříslušnosti
+        // místní příslušnost - není-li soud místně příslušný, vysloví nepříslušnost a postoupí, zbytkem návrhu se vůbec nezabývá 
+
+        // Odtud dále nelze kvalifikovaně posoudit, co se stane, dokud se nevyplní všechno
+
+        // vady příloh insolvenčního návrhu - lze to napravit na výzvu - nedoplní-li odmítne se, protože insolvnenčí návrh nelze projednat
+        // vady příloh návrhu na oddlužení - lze to napravit na výzvu - nedoplní-li odmítne se návrh na povolení oddlužení, ale je-li IN v pořádku, lze IN projednat - rozhodne se o úpadku dlužníka buďto se řízení zastaví, nebo se prohlásí konkurs
+
+        // další přílohy - týkají se pouze oddlužení, a nejsou vyžadovány vždy - jsou-li vyžadovány, postupuje se dle klasických příloh oddlužení
+
         let hodnota, vadne, diskutabilni
 
         // iterace skrze jednotlivé kolonky
