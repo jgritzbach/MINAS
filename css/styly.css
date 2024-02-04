@@ -31,7 +31,8 @@ main{
 
 footer{
     margin-top: auto;
-    height: 100px;
+    height: auto;
+    /* height: 120px; */
     background-color: rgb(75, 182, 75);
     display:flex;
     flex-direction: column;
@@ -57,10 +58,8 @@ h2{
 #hlavni-obsah{
     margin: auto;
     width: 1020px;
-    background-color: rgb(255, 255, 240);
-    /* border: 1px solid black; */
     padding: 20px;
-    border-radius: 15px;;
+    min-height: 800px;
 }
 
 
@@ -69,33 +68,38 @@ h2{
     padding: 10px;
     width: 500px;
     background-color: rgb(245, 245, 220);
-    /* border: solid 1px black; */
     margin: 10px;
     box-shadow: 2px 2px 5px grey;
+    border-radius: 10px;
 }
 
 fieldset{
-    margin: 15px 5px;
+    margin: 18px 5px;
     border: none;
     /* border: 1px solid grey; */
     box-shadow: 2px 2px 5px grey;
+    border-radius: 10px;
 }
 
 legend{
-    
     color: rgb(90, 90, 90);
     font-weight: bold;
+    margin-bottom: 5;
 }
 
 .radek-formulare{
     display:block;
-    margin: 8px;
+    margin: 6px;
     display: flexbox;
 }
 
 
 select {
     margin-right: 10px;
+}
+
+select:hover{
+    cursor: pointer;
 }
 
 

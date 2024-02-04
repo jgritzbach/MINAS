@@ -38,28 +38,17 @@ class FormularOddluzeniManager{
         },200)
         
         cil.classList.remove('pomalu-se-objevit')
-        // setTimeout(() => {
-        //     cil.classList.remove('pomalu-se-objevit')
-        // },8000)
-            
-        
-        
 
     }
     
 
     _pridatUdalostVyhodnoceni(){
-
-        // kea každé kolonce formuláře se přidá další change event listener.
-        // právě ten přepíše text vyhodnocení formuláře
+        // ke každé kolonce formuláře se přidá další change event listener.
+        // právě ten přepíše text vyhodnocení formuláře při jakékoliv změně
 
         for (const kolonka of this.formular.vsechnyKolonky){
             kolonka.addEventListener('change', () => this.vypisVyhodnoceniFormulare())
         }
-        // this.tlacitkoVyhodnotit.addEventListener('click', (event) => {
-        //     event.preventDefault()
-        //     this.vypisdivVyhodnoceniFormulare()
-        // })
 
     }
 
@@ -72,8 +61,7 @@ class FormularOddluzeniManager{
 
         // Přednost má vada plné moci - nepřihlíží se a nelze napravit, ani se nemusíme dívat dál
         if (f._jeVadne(f.kolonkaPlneMoci)){
-            return `Vadná plná moc má za následek, že k insolvenčnímu návrhu se nepřihlíží (srov. § 97 IZ).<br/><br/>
-                    Žádnými dalšími náležitostmi se soud nebude vůbec zabývat. Nedojde k vydání vyhlášky o zahájení insolvenčního řízení (srov. § 101 IZ), ani k vyvolání účinků jinak spojených s jeho zahájením (srov. § 109 IZ).<br/><br/>
+            return `Vadná plná moc má za následek, že k insolvenčnímu návrhu se nepřihlíží (srov. § 97 IZ).<br/><br/>Žádnými dalšími náležitostmi se soud nebude vůbec zabývat. Nedojde k vydání vyhlášky o zahájení insolvenčního řízení (srov. § 101 IZ), ani k vyvolání účinků jinak spojených s jeho zahájením (srov. § 109 IZ).<br/><br/>
                     Jedná se o neodstranitelnou vadu, soud vás nebude vyzývat k opravě. Proti rozhodnutí o nepřihlížení k insolvenčnímu návrhu není přípustné odvolání. Insolvenční řízení tímto rozhodnutím skončí.`
         }
 
