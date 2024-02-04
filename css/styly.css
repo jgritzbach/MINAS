@@ -9,7 +9,7 @@
 /* HLAVNÍ LAYOUT */
 body{
     color: rgb(80, 80, 80);
-    background-color: rgb(255, 255, 234);
+    background-color: rgb(255, 255, 240);
     display: flex;
     flex-direction: column;
     min-height: 100vh;       /* velmi důležité - právě toto drží footer na spodku stránky */
@@ -36,7 +36,7 @@ footer{
 }
 
 h1, h2{
-    color: rgb(255, 255, 234);
+    color: rgb(255, 255, 240);
     text-align: center;
 }
 
@@ -51,8 +51,10 @@ h2{
 #hlavni-obsah{
     margin: auto;
     width: 1020px;
-    border: 1px solid black;
+    background-color: rgb(255, 255, 240);
+    /* border: 1px solid black; */
     padding: 20px;
+    border-radius: 15px;;
 }
 
 
@@ -60,11 +62,11 @@ h2{
 #formular-oddluzeni{
     padding: 10px;
     width: 500px;
-    border: solid 1px black;
+    background-color: rgb(245, 245, 224);
+    /* border: solid 1px black; */
     margin: 10px;
     box-shadow: 2px 2px 5px grey;
 }
-
 
 fieldset{
     margin: 15px 5px;
@@ -82,30 +84,33 @@ legend{
     display: flexbox;
 }
 
+
+/* ZAŠKRTÁVACÍ VOLBY */
 .zaskrtavaci-volba{
-    font-weight:800;
+    font-weight:550;
     width: 110px;
     transition: 0.25s;
-
 }
 
-.zaskrtnuto-nevybrano{
+select[zaskrtnuti='nevybrano']{
     color: black;
 }
 
-.zaskrtnuto-v-poradku{
-    color: green;
+select[zaskrtnuti='v-poradku']{
+    color: rgb(75, 182, 75);
 }
 
-.zaskrtnuto-diskutabilni{
-    color: orange;
+select[zaskrtnuti='diskutabilni']{
+    color: rgb(235, 145, 0);
 }
 
-.zaskrtnuto-vadne{
-    color: red;
+select[zaskrtnuti='vadne']{
+    color: rgb(224, 42, 42);
 }
 
-
+option{
+    color: black;
+}
 
 /* VYHODNOCENÍ FORMULÁŘE */
 

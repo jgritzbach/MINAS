@@ -10,10 +10,10 @@ class Konstanty{
 
     // zakšrtávací volby - values
     static volbyValues = {
-        PRAZDNE : 'zaskrtnuto-nevybrano',
-        V_PORADKU : 'zaskrtnuto-v-poradku',
-        DISKUTABILNI : 'zaskrtnuto-diskutabilni',
-        VADNE : 'zaskrtnuto-vadne',
+        PRAZDNE : 'nevybrano',
+        V_PORADKU : 'v-poradku',
+        DISKUTABILNI : 'diskutabilni',
+        VADNE : 'vadne',
     }
 
     // potenciální stavy vyplněnosti kategorií

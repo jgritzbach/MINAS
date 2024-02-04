@@ -87,6 +87,8 @@ class FormularOddluzeni{
 
         // nastaví zadanému <select> jeho přípustné zaškrtávací <options>
         
+        
+
         for (const hodnota of Object.entries(Konstanty.volbyValues)){   // k nastavení innerText a value nám pomůžou definované konstanty
             const option = document.createElement('option')             // vytvoříme nový option
             option.value = hodnota[1]                                   // jeho value mu nastavíme dle definovaných konstant
@@ -94,7 +96,8 @@ class FormularOddluzeni{
             selectElement.appendChild(option)                           // a hotový <option> přiřadíme do <select>
         }
 
-        selectElement.classList.add(Konstanty.volbyValues['PRAZDNE']) // <select> nastavíme výchozí volbu (tj. nic nevybráno)
+        selectElement.setAttribute('zaskrtnuti', Konstanty.volbyValues['PRAZDNE'])
+
     }
     
     _nastavReakciNaVolbu(selectElement){
@@ -104,18 +107,11 @@ class FormularOddluzeni{
         
         selectElement.addEventListener('change', () =>{
 
-            for (const volba of Object.values(Konstanty.volbyValues)){       // iterujeme napříč values dle definovaných konstant typů zaškrtávacích voleb
+            const novaVolba = selectElement.options[selectElement.selectedIndex].value  // namísto toho uchopíme zvolený <option>.value
+            selectElement.setAttribute('zaskrtnuti', novaVolba)
 
-                if (selectElement.classList.contains(volba)){       // až narazíme na tu, která se vyskytuje v současném <select>.classList
-                    
-                    selectElement.classList.remove(volba)           // tu odstraníme
-                    const novaVolba = selectElement.options[selectElement.selectedIndex].value  // namísto toho uchopíme zvolený <option>.value
-                    selectElement.classList.add(novaVolba)     // a ten vložíme do <select>.classList namísto původní volby
-                    break       // a můžeme rovnou skončit (nepředpokládá se, že by <select> mohl mít více zaškrtnutých voleb najednou)
-                } 
-            }
-                
         })
+
     }
 
     // Pomocné vyhodnocovací metody - 
