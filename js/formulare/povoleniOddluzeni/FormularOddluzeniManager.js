@@ -67,7 +67,7 @@ class FormularOddluzeniManager{
 
         if (f._jeNevyplnene(f.kolonkaPlneMoci)){
             return `Není vyplněna kolonka náležitostí plné moci.<br/><br/>
-                    Plnou  moc je přitom třeba zkoumat přednostně před ostatními kolonkami, které máte vyplněné. Ukázala-li by se plná moc jako vadná, je vyhodnocování ostatních náležitostí předčasné a tudíž zbytečné.`
+                    Plnou  moc je přitom třeba zkoumat přednostně před následnými kolonkami. Ukázala-li by se plná moc jako vadná, je vyhodnocování ostatních náležitostí předčasné a tudíž zbytečné.`
         }
 
 
@@ -80,7 +80,7 @@ class FormularOddluzeniManager{
 
         if (f._jeNevyplnene(f.kolonkaFormaPodani)){
             return `Není vyplněna kolonka náležitostí formy podání.<br/><br/>
-                    Formu podání je přitom třeba zkoumat přednostně před následnými kolonkami, které máte vyplněné. Ukázala-li by se forma podání jako vadná, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.`
+                    Formu podání je přitom třeba zkoumat přednostně před následnými kolonkami. Ukázala-li by se forma podání jako vadná, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.`
         }
 
         // Vyhodnocení tvrzení o úpadku
@@ -92,7 +92,7 @@ class FormularOddluzeniManager{
 
         if (f._jeNevyplnene(f.kolonkaTvrzeniOUpadku)){
             return `Není vyplněna kolonka náležitostí tvrzení o úpadku.<br/><br/>
-                    Tvrzení o úpadku je přitom třeba zkoumat přednostně před následnými kolonkami, které máte vyplněné. Ukázala-li by se tvrzení o úpadku jako vadná, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.`
+                    Tvrzení o úpadku je přitom třeba zkoumat přednostně před následnými kolonkami. Ukázala-li by se tvrzení o úpadku jako vadná, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.`
         }
 
 
@@ -105,7 +105,7 @@ class FormularOddluzeniManager{
 
         if (f._jeNevyplnene(f.kolonkaMistniPrislusnost)){
             return `Není vyplněna kolonka místní příslušnosti.<br/><br/>
-                    Místní příslušnost je přitom třeba zkoumat přednostně před následnými kolonkami, které máte vyplněné. Ukázalo-li by se, že soud není místně příslušný, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.`
+                    Místní příslušnost je přitom třeba zkoumat přednostně před následnými kolonkami. Ukázalo-li by se, že soud není místně příslušný, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.`
         }
 
 
@@ -117,7 +117,7 @@ class FormularOddluzeniManager{
 
         if (f._jeNevyplneneNecoZ(f.prilohyInsolvencnihoNavrhu)){
             return `Nejsou vyplněny všechny kolonky příloh insolvenčního návrhu.<br/><br/>
-                    Přílohy insolvenčního návrhu je přitom třeba zkoumat přednostně před následnými kolonkami, které máte vyplněné. Pokud by vady příloh insolvenčního návrhu  nebyly odstraněny, insolvenční návrh by byl odmítnut, a vyhodnocování příloh návrhu na povolení oddlužení by bylo předčasné a tudíž zbytečné.`
+                    Přílohy insolvenčního návrhu je přitom třeba zkoumat přednostně před následnými kolonkami. Pokud by vady příloh insolvenčního návrhu  nebyly odstraněny, insolvenční návrh by byl odmítnut, a vyhodnocování příloh návrhu na povolení oddlužení by bylo předčasné a tudíž zbytečné.`
         }
 
 
