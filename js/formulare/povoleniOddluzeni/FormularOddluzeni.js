@@ -6,7 +6,7 @@ class FormularOddluzeni{
 
     constructor(){
 
-        this._nastavPovoleneVolby()    // povolené volby jsou prázdné, v pořádku, diskutabilní a vadné
+        this._nastavPovoleneVolby()                         // povolené volby jsou 'prázdné', 'v pořádku', 'diskutabilní' a 'vadné'
         this._uchopKolonky()                                // uchopíme všechny elementy <select> k vyplnění
         this._nastavKolonky()                               // a nastavíme jim vše potřebné
     }
@@ -113,7 +113,6 @@ class FormularOddluzeni{
         })
 
     }
-
 
     _nastavPovoleneVolby(){
 
