@@ -86,7 +86,7 @@ class FormularOddluzeniManager{
         // Vyhodnocení tvrzení o úpadku
         if (f._jeVadne(f.kolonkaTvrzeniOUpadku)){
             return `Tvrzení o úpadku dlužníka je nedostatečné.<br/><br/>
-                    Insolvenční návrh bude soudem odmítnut (srov. § 128 odst. 1 IZ). Ač se to můje jevit neobvyklé, má odmítnutí insolvenčního návrhu pro nedostatečné tvrzení o úpadku dlužníka přednost i před posouzením místní nepříslušnosti (srov. § 7b odst. 5 IZ).<br/><br/>
+                    Insolvenční návrh bude soudem odmítnut (srov. § 128 odst. 1 IZ). Ač se to může jevit neobvyklé, má odmítnutí insolvenčního návrhu pro nedostatečné tvrzení o úpadku dlužníka přednost i před posouzením místní nepříslušnosti (srov. § 7b odst. 5 IZ).<br/><br/>
                     Jedná se o neodstranitelnou vadu, soud vás nebude vyzývat k opravě. Odmítnutím insolvenčního návrhu insolvenční řízení skončí.`
         }
 

@@ -9,7 +9,7 @@
 /* HLAVNÍ LAYOUT */
 body{
     color: rgb(80, 80, 80);
-    background-color: rgb(255, 255, 240);
+    background-color: rgb(255, 255, 245);
     display: flex;
     flex-direction: column;
     min-height: 100vh;       /* velmi důležité - právě toto drží footer na spodku stránky */
@@ -33,7 +33,6 @@ footer{
     margin-top: auto;
     height: auto;
     min-height: 150px;
-    /* height: 120px; */
     background-color: rgb(75, 182, 75);
     display:flex;
     flex-direction: column;
@@ -44,7 +43,7 @@ footer{
 }
 
 h1, h2{
-    color: rgb(255, 255, 240);
+    color: rgb(255, 255, 245);
     text-align: center;
 }
 
@@ -68,17 +67,19 @@ h2{
 #formular-oddluzeni{
     padding: 10px;
     width: 500px;
-    background-color: rgb(240, 240, 215);
+    background-color: rgb(245, 245, 220);
     margin: 10px;
-    /* box-shadow: 2px 2px 5px grey; */
     border-radius: 10px;
+}
+
+#formular-oddluzeni h3{
+    text-align: center;
+    margin: 8px;
 }
 
 fieldset{
     margin: 18px 5px;
     border: none;
-    /* border: 1px solid grey; */
-    /* box-shadow: 2px 2px 5px grey; */
     border-radius: 10px;
 }
 
@@ -116,9 +117,6 @@ select:hover{
     height: 22px;
 }
 
-/* select[zaskrtnuti='nevybrano']{
-    color: black;
-} */
 
 select[zaskrtnuti='v-poradku']{
     color: rgb(75, 182, 75);
@@ -144,12 +142,9 @@ option{
     transition: 0.5s;
     width: 500px;
     text-align: justify;
+    background-color: rgb(243, 245, 247);
+    border-radius: 10px;
 }
-
-/* #vyhodnoceni-formulare:hover{
-    color:grey;
-} */
-
 
 /* EFEKTY */
 .pomalu-zmizet{
