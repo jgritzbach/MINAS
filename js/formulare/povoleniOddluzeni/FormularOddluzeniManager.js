@@ -108,7 +108,6 @@ class FormularOddluzeniManager{
                     Místní příslušnost je přitom třeba zkoumat přednostně před následnými kolonkami. Ukázalo-li by se, že soud není místně příslušný, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.`
         }
 
-
         // vady příloh insolvenčního návrhu - lze to napravit na výzvu - nedoplní-li odmítne se, protože insolvnenčí návrh nelze projednat, a soud se návrhem na oddlužení nezabývá
         if (f._jeVadneNecoZ(f.prilohyInsolvencnihoNavrhu)){
             return `Některá z povinných příloh insolvenčního návrhu je vadná nebo chybí.<br/><br/>

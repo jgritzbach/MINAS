@@ -6,8 +6,9 @@ class FormularOddluzeni{
 
     constructor(){
 
-        this._uchopKolonky()
-        this._nastavKolonky()
+        this._nastavPovoleneVolby()    // povolené volby jsou prázdné, v pořádku, diskutabilní a vadné
+        this._uchopKolonky()                                // uchopíme všechny elementy <select> k vyplnění
+        this._nastavKolonky()                               // a nastavíme jim vše potřebné
     }
 
 
@@ -16,7 +17,7 @@ class FormularOddluzeni{
         // a nastaví jim také reakci na změnu
 
         for (const kolonka of this.vsechnyKolonky){
-            this._vytvorZaskrtavaciVolbu(kolonka)
+            this._nastavZaskrtavaciVolby(kolonka)
             this._nastavReakciNaVolbu(kolonka)
         }
 
@@ -83,20 +84,19 @@ class FormularOddluzeni{
         ]
     }
 
-    _vytvorZaskrtavaciVolbu(selectElement){
+    _nastavZaskrtavaciVolby(selectElement){
 
         // nastaví zadanému <select> jeho přípustné zaškrtávací <options>
-        
-        
 
-        for (const hodnota of Object.entries(Konstanty.volbyValues)){   // k nastavení innerText a value nám pomůžou definované konstanty
-            const option = document.createElement('option')             // vytvoříme nový option
-            option.value = hodnota[1]                                   // jeho value mu nastavíme dle definovaných konstant
-            option.innerText = Konstanty.volbyTexty[hodnota[0]]         // a jeho vnitřní text pomocí téhož klíče dle definovaných konstant
-            selectElement.appendChild(option)                           // a hotový <option> přiřadíme do <select>
+        for (const zaskrtavaciVolba of this.povoleneVolby){            // iterujeme skrze vlastnosti čtyř přípustných zakštávacích hodnot (ty jsou napevno definovány v instanční proměnné)
+
+            const option = document.createElement('option')             // vytvoříme nový element <option> (v každé iteraci vytváříme jinou přípustnou hodnotu)
+            option.value = zaskrtavaciVolba.VALUE                       // a přiřadíme jí předdefinovaný value
+            option.innerText = zaskrtavaciVolba.TEXT                    // a innerText
+
+            selectElement.appendChild(option)                           // hotový <option> vložíme do předaného <select>
+
         }
-
-        selectElement.setAttribute('zaskrtnuti', Konstanty.volbyValues['PRAZDNE'])
 
     }
     
@@ -114,23 +114,56 @@ class FormularOddluzeni{
 
     }
 
+
+    _nastavPovoleneVolby(){
+
+        // nastaví si vnitřní konstantní hodnoty pro <option> elementy - jejich innerTexty a values
+        // právě ty jsou později používány pro nastavení přípustných <option> a porovnávání hodnot <selectu>
+
+        
+        this.optionPrazdne = {
+            VALUE: 'nevybrano',
+            TEXT: "",
+        }
+
+        this.optionVPoradku = {
+            VALUE: 'v-poradku',
+            TEXT: "\u2714 v pořádku",
+        }
+
+        this.optionDiskutabilni = {
+            VALUE: 'diskutabilni',
+            TEXT: "? diskutabilní",
+        }
+
+        this.optionVadne = {
+            VALUE: 'vadne',
+            TEXT: "\u2717 vadné",
+        }
+
+        // ačkoliv hodnoty jednotlivých voleb jsou přímo dostupné, pro snazší hromadné iterace uchováváme odkazy na ně také 
+        this.povoleneVolby = [this.optionPrazdne, this.optionVPoradku, this.optionDiskutabilni, this.optionVadne,] // hromadně v poli
+
+    }
+
+
     // Pomocné vyhodnocovací metody - 
     // formulář umí odpovídat na dotazy stran vyplněných hodnot svých kolonek.
     // odpovídá však jen true/false a vůbec se nestará o to, proč to chce někdo vědět a co s tím udělá (o vyhodnocení se postará manažer)
 
     _jeNevyplnene(kolonka){
         // Vrací údaj o tom, zda daná kolonka je nevyplněná
-        return kolonka.value === Konstanty.volbyValues['PRAZDNE']
+        return kolonka.value === this.optionPrazdne.VALUE
     }
 
     _jeDiskutabilni(kolonka){
         // Vrací údaj o tom, zda daná kolonka má vyplněnou volbu 'diskutabilní'
-        return kolonka.value === Konstanty.volbyValues['DISKUTABILNI']
+        return kolonka.value === this.optionDiskutabilni.VALUE
     }
 
     _jeVadne(kolonka){
         // Vrací údaj o tom, zda daná kolonka má vyplněnou volbu 'vadné'
-        return kolonka.value === Konstanty.volbyValues['VADNE']
+        return kolonka.value === this.optionVadne.VALUE
     }
 
     _jeNecoZPredanychNejake(kolonky, callback){
@@ -144,28 +177,17 @@ class FormularOddluzeni{
 
     _jeNevyplneneNecoZ(kolonky){
         // Vrací údaj o tom, zda alespoň některá z předaných kolonek je nevyplněná
-        return this._jeNecoZPredanychNejake(kolonky, this._jeNevyplnene)
+        return this._jeNecoZPredanychNejake(kolonky, kolonka => this._jeNevyplnene(kolonka))  // callback musíme předat arrow funkcí, jinak ztratíme kontext this, který má odkazovat na instanci formuláře     
     }
 
     _jeDiskutabilniNecoZ(kolonky){
         // Vrací údaj o tom, zda alespoň některá z předaných kolonek je diskutabilní
-        return this._jeNecoZPredanychNejake(kolonky, this._jeDiskutabilni)
+        return this._jeNecoZPredanychNejake(kolonky, kolonka => this._jeDiskutabilni(kolonka))
     }
 
     _jeVadneNecoZ(kolonky){
         // Vrací údaj o tom, zda alespoň některá z předaných kolonek je vadná
-        return this._jeNecoZPredanychNejake(kolonky, this._jeVadne)
-    }
-
-    _jeVadnaNejakaPrilohaInsolvencnihoNavrhu(){
-        // Vrací údaj o tom, zda některá z kolonek náležících mezi přílohy insolvenčního návrhu má vyplněnou volbu 'vadné'
-        return this._jeVadneNecoZ(this.prilohyInsolvencnihoNavrhu)
-        
-    }
-
-    _jeVadnaNejakaPrilohaNavrhuNaPovoleniOddluzeni(){
-        // Vrací údaj o tom, zda některá z kolonek náležících mezi přílohy návrhu na povolení oddlužení má vyplněnou volbu 'vadné'
-        return this._jeVadneNecoZ(this.prilohyNavrhuNaPovoleniOddluzeni)
+        return this._jeNecoZPredanychNejake(kolonky, kolonka => this._jeVadne(kolonka))
     }
     
     
