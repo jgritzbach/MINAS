@@ -124,7 +124,7 @@ class FormularOddluzeniManager{
         if (f._jeVadneNecoZ(f.prilohyNavrhuNaPovoleniOddluzeni)){
             return `Některá z povinných návrhu na povolení oddlužení je vadná nebo chybí.<br/><br/>
                     Jedná se o odstranitelnou vadu. Soud v případě vadných příloh návrhu na povolení oddlužení vyzve navrhovatele k jejich doplnění (srov. § 393 odst. 2 IZ).<br/><br/>
-                    Nebudou-li přílohy ve stanovené lhůtě doplněny soud návrh na povolení oddlužení odmítne (§ 393 odst. 3 IZ). Jsou-li však náležitosti insolvenčního návrhu a jeho příloh v pořádku, soud přesto rozhodne o úpadku dlužníka. Pouze není možné řešit úpadek oddlužení. Dle stavu majetkové podstaty soud buďto na majetek dlužníka prohlásí konkurs, anebo pro nedostatek majetku řízení zastaví.`
+                    Nebudou-li přílohy ve stanovené lhůtě doplněny soud návrh na povolení oddlužení odmítne (§ 393 odst. 3 IZ). Jsou-li však náležitosti insolvenčního návrhu a jeho příloh v pořádku, soud přesto rozhodne o úpadku dlužníka. Pouze není možné řešit úpadek oddlužením. Dle stavu majetkové podstaty soud buďto na majetek dlužníka prohlásí konkurs, anebo pro nedostatek majetku řízení zastaví.`
         }
 
         // vady příloh návrhu na oddlužení - lze to napravit na výzvu - nedoplní-li odmítne se návrh na povolení oddlužení, ale je-li IN v pořádku, lze IN projednat - rozhodne se o úpadku dlužníka buďto se řízení zastaví, nebo se prohlásí konkurs
