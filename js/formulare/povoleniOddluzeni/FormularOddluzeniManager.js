@@ -7,10 +7,7 @@ class FormularOddluzeniManager{
 
     constructor(){
 
-        this.tlacitkoVyhodnotit = document.getElementById("vyhodnotit-navrh-na-oddluzeni")
-        this.divVyhodnoceniFormulare = document.getElementById("vyhodnoceni-formulare")
-        // this.divVyhodnoceniFormulare.innerHTML = 
-
+        this.divVyhodnoceniFormulare = document.getElementById("div-vyhodnoceni-formulare")
 
         this.formular = new FormularOddluzeni()
         this._pridatUdalostVyhodnoceni()

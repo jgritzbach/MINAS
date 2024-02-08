@@ -16,17 +16,21 @@
 </head>
 <body>
     
+
+    <!-- ZÁHLAVÍ STRÁNKY -->
     <header>
         <h1>MINAS</h1>
         <h2>můj insolvenční asistent</h2>
     </header>
 
+
+    <!-- MAIN -->
     <main>
         
         <div id="hlavni-obsah">
 
             <!-- Formulář všech náležitostí návrhu na povolení oddlužení -->
-                
+            <div id="div-formular-oddluzeni">
             <form id="formular-oddluzeni">
 
                 <h3>Náležitosti návrhu na povolení oddlužení</h4>
@@ -133,13 +137,39 @@
                 </fieldset>
 
             </form>
+            </div>
             <!-- Konec formuláře náležitostí návrhu na povolení oddlužení  -->
 
 
-
-            <!-- Zde se bude vypisovat stav vyhodnocení formuláře - co soud pravděpodobně udělá? -->
-            <div id="vyhodnoceni-formulare">
+            <!-- OBLAST VYHODNOCENÍ FORMULÁŘE NÁVRHU NA ODDLUŽENÍ-->
+            <!-- Zde se bude vypisovat, co soud pravděpodobně udělá  -->
+            <div id="div-vyhodnoceni-formulare">
                 Vyplňte prosím kolonky formuláře.
+            </div>
+
+
+            <!-- FORMULÁŘ PŘÍJMŮ DLUŽNÍKA -->
+            <div id="div-formular-prijmu-dluznika">
+                <br><hr>
+                <p>Zde se budou zadávat údaje o mzdě, případně jiném vlastním příjmu</p>
+                <p>Kromě vlastních příjmů se zde budou zadávat příjmy z darovacích smluv / smluv o důchodu od třetích osob (zpravidla rodiny nebo přátel), kterými dlužníci dorovnávají chybějící vlastní příjmy.</p>
+                <p>Tento formulář bude povinný. Bez dostatečných příjmů totiž o oddlužení vůbec nelze uvažovat</p>
+                <br>
+            </div>
+
+            <!-- FORMULÁŘ VYŽIVOVACÍCH POVINNOSTÍ DLUŽNÍKA -->
+            <div id="div-formular-vyzivovacich-povinnosti">
+                <br><hr>
+                <p>Zde se budou zadávat údaje o vyživovacích povinnostech</p>
+                <p>Vyplnění formuláře nebude povinné. Bude-li nevyplněn, bude se zkrátka předpokldádat, že žádné vyživovací povinnosti nejsou</p>
+                <br>
+            </div>
+
+            <!-- OBLAST VÝSLEDKŮ VÝPOČTŮ SRÁŽEK-->
+            <div id="div-vypocet-srazek">
+                <br><hr>
+                <p>Zde se bude zobrazovat výpočet srážek dle vyplněných údajů z formuláře příjmů a formuláře vyživovacích povinností</p>
+                <br>
             </div>
 
         
@@ -147,6 +177,8 @@
 
     </main>
 
+
+    <!-- ZÁPATÍ STRÁNKY -->
     <footer>
         <p>© Vytvořil Mgr. Jan Gritzbach</p> 
         <p>2024</p>
