@@ -56,6 +56,7 @@ h2{
 }
 
 #hlavni-obsah{
+    position: relative;
     margin: auto;
     width: 1020px;
     padding: 20px;
@@ -63,7 +64,7 @@ h2{
 }
 
 
-/* FORMULÁŘ */
+/* FORMULÁŘ ODDLUŽENÍ */
 #formular-oddluzeni{
     padding: 10px;
     width: 500px;
@@ -104,9 +105,51 @@ select:hover{
     cursor: pointer;
 }
 
-/* label{
 
-} */
+/* VYHODNOCENÍ FORMULÁŘE ODDLUŽENÍ */
+
+.oblast-vypisu{
+    margin: 10px;
+    padding: 10px;
+    transition: 0.5s;
+    text-align: justify;
+    background-color: rgb(243, 245, 247);
+    border-radius: 10px;
+    height:fit-content;
+}
+
+#div-vyhodnoceni-formulare{
+    width: 500px;
+}
+
+
+/* FORMULÁŘ PŘÍJMŮ */
+
+    /* zde budou styly pro formulář příjmů */
+#div-formular-prijmu{
+    width: 300px;
+    position: absolute;
+    top: 40px;
+    right: 140px; 
+}
+/* FORMULÁŘ VYŽIVOVACÍCH POVINNOSTÍ */
+#div-formular-vyzivovacich-povinnosti{
+    width: 300px;
+    position: absolute;
+    top: 260px;
+    right: 140px; 
+}
+    /* zde budou styly pro formulář vyživovacích povinností */
+
+/* VYHODNOCENÍ EKONOMICKÉ NABÍDKY */
+#div-vypocet-srazek{
+    width: 300px;
+    position: absolute;
+    top: 410px;
+    right: 140px; 
+}
+    /* zde budou styly pro oblast vyhodnocení ekonomikcé nabídky dlužníka */
+
 
 
 /* ZAŠKRTÁVACÍ VOLBY */
@@ -134,17 +177,7 @@ option{
     color: black;
 }
 
-/* VYHODNOCENÍ FORMULÁŘE */
 
-#div-vyhodnoceni-formulare{
-    margin: 10px;
-    padding: 10px;
-    transition: 0.5s;
-    width: 500px;
-    text-align: justify;
-    background-color: rgb(243, 245, 247);
-    border-radius: 10px;
-}
 
 /* EFEKTY */
 .pomalu-zmizet{
