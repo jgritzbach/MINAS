@@ -113,7 +113,9 @@ legend{
 }
 
 select {
-    margin-right: 10px;
+    height: 22px;
+    min-width: 100px;
+    transition: 0.25s;
 }
 
 select:hover{
@@ -165,13 +167,11 @@ select:hover{
 
 
 /* ZAŠKRTÁVACÍ VOLBY */
+
+
 .zaskrtavaci-volba{
     font-weight:550;
-    width: 25;
-    min-width: 100px;
     margin-right: 4%;
-    transition: 0.25s;
-    height: 22px;
 }
 
 

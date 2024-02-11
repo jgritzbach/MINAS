@@ -157,7 +157,41 @@
             <div id="oblast prijmu">
 
                 <!-- FORMULÁŘ PŘÍJMŮ DLUŽNÍKA -->
-                <div id="div-formular-prijmu" class=oblast-vypisu>
+                <div id="div-formular-prijmu">
+                    <form id="formular-prijmy">
+
+                        <div class="radek-formulare">
+                            <label>Typ příjmu</label>
+                            <label>Výše příjmu</label>
+                        </div>
+                        <!-- První příjem -->
+                        <div class="radek-formulare">
+                            <select id="typ-prijmu-1"></select> <!-- zde se vyplní typ příjmu -->
+                            <input id="vyse-prijmu-1" type="text" >
+                        </div>
+                        <div class="radek-formulare">
+                            <input id="zamestnavatel-prijmu-1" type="text"> <!-- údaj o zaměstnavateli nebude povinný -->
+                        </div>
+
+                        <!-- Druhý příjem -->
+                        <div class="radek-formulare">
+                            <select id="typ-prijmu-2"></select> <!-- zde se vyplní typ příjmu -->
+                            <input id="vyse-prijmu-2" type="text" >
+                        </div>
+                        <div class="radek-formulare">
+                            <input id="zamestnavatel-prijmu-2" type="text"> <!-- údaj o zaměstnavateli nebude povinný -->
+                        </div>
+
+                        <!-- Třetí příjem -->
+                        <div class="radek-formulare">
+                            <select id="typ-prijmu-3"></select> <!-- zde se vyplní typ příjmu -->
+                            <input id="vyse-prijmu-3" type="text" >
+                        </div>
+                        <div class="radek-formulare">
+                            <input id="zamestnavatel-prijmu-3" type="text"> <!-- údaj o zaměstnavateli nebude povinný -->
+                        </div>
+                    </form>
+                
                     <p>Zde se budou zadávat údaje o mzdě, případně jiném vlastním příjmu</p>
                     <p>Kromě vlastních příjmů se zde budou zadávat příjmy z darovacích smluv / smluv o důchodu od třetích osob (zpravidla rodiny nebo přátel), kterými dlužníci dorovnávají chybějící vlastní příjmy.</p>
                     <p>Tento formulář bude povinný. Bez dostatečných příjmů totiž o oddlužení vůbec nelze uvažovat</p>
