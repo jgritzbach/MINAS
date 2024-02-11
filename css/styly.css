@@ -63,7 +63,7 @@ h2{
 #hlavni-obsah{
     margin: auto;
     max-width: 1020px;
-    padding: 20px;
+    
     min-height: 900px;
 
     display: grid;
@@ -75,6 +75,7 @@ h2{
 @media screen and (min-width: 768px){
     #hlavni-obsah{
         grid-template-columns: 1fr 1fr;    /* na destkopu přidáme další 1fr, čímž dáme 2 sloupce vedle sebe */
+        padding: 0px;
     }
 }
 
@@ -97,40 +98,56 @@ h2{
 .formular fieldset{
     margin: 18px 5px;
     border: none;
-    border-radius: 10px;
 }
 
 .formular legend{
     color: rgb(90, 90, 90);
     font-weight: bold;
-    margin-bottom: 5;
+    margin-bottom: 5px;
 }
 
 .radek-formulare{
     display:block;
-    margin: 6px;
+    margin: 6px 0;
     display: flex;
     
 }
 
-select {
+.formular select, input {
     height: 22px;
-    min-width: 100px;
     transition: 0.25s;
+    /* padding-left: 5px; */
+    margin-right: 4%;
+}
+
+.formular select{
+    min-width: 110px;
+    max-width: 140px;
+}
+
+.formular input{
+    padding-left: 1%;
+    max-width: 140px;
+    
 }
 
 select:hover{
     cursor: pointer;
 }
 
-/* FORMULÁŘ ODDLUŽENÍ */
+option{
+    color: black;
+}
+
+
+/* KONKRÉTNÍ FORMULÁŘE  */
 #formular-oddluzeni{
     max-width: 500px;
 }
 
 
 
-/* VYHODNOCENÍ FORMULÁŘE ODDLUŽENÍ */
+/* VYHODNOCENÍ FORMULÁŘŮ */
 
 .oblast-vypisu{
     margin: 10px;
@@ -144,41 +161,12 @@ select:hover{
 }
 
 
-/* FORMULÁŘ PŘÍJMŮ */
-
-    /* zde budou styly pro formulář příjmů */
-/* #div-formular-prijmu{
-    width: 300px;
-    position: absolute;
-    top: 40px;
-    right: 140px; 
-} */
-/* FORMULÁŘ VYŽIVOVACÍCH POVINNOSTÍ */
-/* #div-formular-vyzivovacich-povinnosti{
-    width: 300px;
-    position: absolute;
-    top: 260px;
-    right: 140px; 
-} */
-    /* zde budou styly pro formulář vyživovacích povinností */
-
-/* VYHODNOCENÍ EKONOMICKÉ NABÍDKY */
-/* #div-vypocet-srazek{
-    width: 300px;
-    position: absolute;
-    top: 410px;
-    right: 140px; 
-} */
-    /* zde budou styly pro oblast vyhodnocení ekonomikcé nabídky dlužníka */
-
-
-
 /* ZAŠKRTÁVACÍ VOLBY */
 
-
 .zaskrtavaci-volba{
+    min-width: 100px;   /* min. šířka zaškrtávacích voleb stačí menší než u obecných <select> */
     font-weight:550;
-    margin-right: 4%;
+    
 }
 
 
@@ -194,9 +182,7 @@ select[zaskrtnuti='vadne']{
     color: rgb(224, 42, 42);
 }
 
-option{
-    color: black;
-}
+
 
 
 

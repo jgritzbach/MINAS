@@ -165,28 +165,29 @@
                         <fieldset>
                             <legend>Vlastní příjmy</legend>
 
+                            <div id="div-vlastni-prijmy">
                             <div class="radek-formulare">
-                                <label>Typ příjmu</label>
-                                <label>Výše příjmu</label>
                             </div>
                             <!-- První příjem -->
                             <div class="radek-formulare">
                                 <select id="typ-prijmu-1"></select> <!-- zde se vyplní typ příjmu -->
-                                <input id="vyse-prijmu-1" type="text" >
+                                <input id="vyse-prijmu-1" type="number" placeholder="Výše příjmu v Kč">
+                                <!-- <label for="vyse-prijmu-1">Kč</label> -->
                             </div>
                             
 
                             <!-- Druhý příjem -->
                             <div class="radek-formulare">
                                 <select id="typ-prijmu-2"></select> <!-- zde se vyplní typ příjmu -->
-                                <input id="vyse-prijmu-2" type="text" >
+                                <input id="vyse-prijmu-2" type="number" placeholder="Výše příjmu v Kč">
                             </div>
                             
 
                             <!-- Třetí příjem -->
                             <div class="radek-formulare">
                                 <select id="typ-prijmu-3"></select> <!-- zde se vyplní typ příjmu -->
-                                <input id="vyse-prijmu-3" type="text" >
+                                <input id="vyse-prijmu-3" type="number" placeholder="Výše příjmu v Kč">
+                            </div>
                             </div>
                            
                         </fieldset>
@@ -196,11 +197,11 @@
                             <legend>Příjmy od třetích osob</legend>
                             <div class="radek-formulare">
                                 <select id="typ-daru">
-                                    <option value="prázdné"></option>
+                                    <option value=""></option>
                                     <option value="darovaci-smlouva">Darovací smlouva</option>
                                     <option value="smlouva o důchodu">Smlouva o důchodu</option>
                                 </select>
-                                <input id="vyse-daru" type="text">
+                                <input id="vyse-daru" type="number" placeholder="Výše příjmu v Kč">
                             </div>
                         </fieldset>
                     </form>
@@ -209,10 +210,29 @@
                 <!-- KONEC FORMULÁŘE PŘÍJMŮ DLUŽNÍKA -->
 
                 <!-- FORMULÁŘ VYŽIVOVACÍCH POVINNOSTÍ DLUŽNÍKA -->
-                <div id="div-formular-vyzivovacich-povinnosti" class="oblast-vypisu">
-                    <p>Zde se budou zadávat údaje o vyživovacích povinnostech</p>
-                    <p>Vyplnění formuláře nebude povinné. Bude-li nevyplněn, bude se zkrátka předpokldádat, že žádné vyživovací povinnosti nejsou</p>
+                
+                <div id="div-formular-vyzivovacich-povinnosti">
+                <form class="formular" id="formular-vyzivovacich-povinnosti">
+                    <h3>Vyživovací povinnosti</h3>
+                    <div class="radek-formulare">
+                        <input id="pocet-vyzivovanych-osob-dluznika" type="number">
+                        <label for="pocet-vyzivovanych-osob-dluznika">Počet vyživovaných osob ze zákona</label>
+                    </div>
+
+                    <div class="radek-formulare">
+                        <input id="mesicni-vyzivne" type="number">
+                        <label for="mesicni-vyzivne">Měsíční výživné stanovené soudem</label>
+                    </div>
+
+                    <div class="radek-formulare">
+                        <input id="dluzne-vyzivne" type="number">
+                        <label for="dluzne-vyzivne">Dluh na výživném</label>
+                    </div>
+                    
+                </form>
                 </div>
+                <!-- KONEC FORMULÁŘE VYŽIVOVACÍCH POVINNOSTÍ DLUŽNÍKA -->
+                
 
                 <!-- OBLAST VÝSLEDKŮ VÝPOČTŮ SRÁŽEK-->
                 <div id="div-vypocet-srazek" class="oblast-vypisu">
