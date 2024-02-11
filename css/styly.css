@@ -58,7 +58,7 @@ h2{
 #hlavni-obsah{
     position: relative;
     margin: auto;
-    width: 1020px;
+    max-width: 1020px;
     padding: 20px;
     min-height: 900px;
 }
@@ -67,7 +67,7 @@ h2{
 /* FORMULÁŘ ODDLUŽENÍ */
 #formular-oddluzeni{
     padding: 10px;
-    width: 500px;
+    max-width: 500px;
     background-color: rgb(245, 245, 220);
     margin: 10px;
     border-radius: 10px;
@@ -93,7 +93,12 @@ legend{
 .radek-formulare{
     display:block;
     margin: 6px;
-    display: flexbox;
+    display: flex;
+    
+}
+
+.radek-formulare label{
+    
 }
 
 
@@ -119,35 +124,35 @@ select:hover{
 }
 
 #div-vyhodnoceni-formulare{
-    width: 500px;
+    max-width: 500px;
 }
 
 
 /* FORMULÁŘ PŘÍJMŮ */
 
     /* zde budou styly pro formulář příjmů */
-#div-formular-prijmu{
+/* #div-formular-prijmu{
     width: 300px;
     position: absolute;
     top: 40px;
     right: 140px; 
-}
+} */
 /* FORMULÁŘ VYŽIVOVACÍCH POVINNOSTÍ */
-#div-formular-vyzivovacich-povinnosti{
+/* #div-formular-vyzivovacich-povinnosti{
     width: 300px;
     position: absolute;
     top: 260px;
     right: 140px; 
-}
+} */
     /* zde budou styly pro formulář vyživovacích povinností */
 
 /* VYHODNOCENÍ EKONOMICKÉ NABÍDKY */
-#div-vypocet-srazek{
+/* #div-vypocet-srazek{
     width: 300px;
     position: absolute;
     top: 410px;
     right: 140px; 
-}
+} */
     /* zde budou styly pro oblast vyhodnocení ekonomikcé nabídky dlužníka */
 
 
@@ -155,7 +160,8 @@ select:hover{
 /* ZAŠKRTÁVACÍ VOLBY */
 .zaskrtavaci-volba{
     font-weight:550;
-    width: 110px;
+    min-width: 100px;
+    max-width: 120px;
     transition: 0.25s;
     height: 22px;
 }
