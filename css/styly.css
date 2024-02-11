@@ -49,6 +49,19 @@ h1, h2{
     text-align: center;
 }
 
+
+/* GRID */
+
+#hlavni-obsah{
+    margin: auto;
+    max-width: 1020px;
+    padding: 20px;
+    min-height: 900px;
+
+    display: grid;
+    grid-template-columns: 1fr;  /* Výchozí je 1fr pro mobily */
+}
+    
 h1{
     font-size: 4.5rem;
 }
