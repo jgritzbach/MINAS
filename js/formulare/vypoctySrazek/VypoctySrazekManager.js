@@ -39,6 +39,6 @@ class VypoctySrazekManager{
     }
 
     vypisVyhodnoceniFormulare(){
-        alert("Přepočítávám")
+        alert("Dočasný alert - toto bude nahrazeno skutečným přepotem")
     }
 }
