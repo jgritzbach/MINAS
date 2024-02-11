@@ -16,7 +16,29 @@ class VypoctySrazekManager{
         this.formularPrijmu = new FormularPrijmu()
         this.formularVyzivovacichPovinnosti = new FormularVyzivovacichPovinnosti()
 
-        //this._pridatUdalostVyhodnoceni()
+        this._pridatUdalostVyhodnoceni()
     }
 
+
+
+    _pridatUdalostVyhodnoceni(){
+        // ke každé relevantní kolonce formuláře příjmů nebo vyživovacích povinností se přidá další change event listener.
+        // právě ten zavolá přepočet srážek při jakékoliv změně
+
+        const fPrijmy = this.formularPrijmu
+        const fVyziv = this.formularVyzivovacichPovinnosti
+
+        // Zde určíme, které kolonky jsou způsobilé vyvolat přepočet
+        const cile = [... fPrijmy.vsechnyKolonkyVysePrijmu, fPrijmy.kolonkaVyseDaru, ...fVyziv.vsechnyKolonky]
+
+        for (const kolonka of cile){
+            kolonka.addEventListener('change', () => this.vypisVyhodnoceniFormulare())
+        }
+
+
+    }
+
+    vypisVyhodnoceniFormulare(){
+        alert("Přepočítávám")
+    }
 }

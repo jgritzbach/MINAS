@@ -82,7 +82,7 @@ class FormularPrijmu{
 
         this.optionDuchodStarobni = {
             VALUE: 'duchod-st',
-            TEXT: "důchod starob.",
+            TEXT: "důchod starobní",
         }
 
         this.optionDuchodInvalidniPrvniSt = {
