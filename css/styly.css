@@ -57,12 +57,25 @@ h2{
     font-size: 1.9rem;
 }
 
+
+/* GRID */
+
 #hlavni-obsah{
-    position: relative;
     margin: auto;
     max-width: 1020px;
     padding: 20px;
     min-height: 900px;
+
+    display: grid;
+    grid-template-columns: 1fr;  /* Výchozí je 1fr pro mobily, na desktopu přidáme další */
+    
+
+}
+
+@media screen and (min-width: 768px){
+    #hlavni-obsah{
+        grid-template-columns: 1fr 1fr;    /* na destkopu přidáme další 1fr, čímž dáme 2 sloupce vedle sebe */
+    }
 }
 
 
@@ -119,10 +132,6 @@ select:hover{
     border-radius: 10px;
     height:fit-content;
     max-width: 500px;
-}
-
-#div-vyhodnoceni-formulare{
-    
 }
 
 
