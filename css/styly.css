@@ -31,15 +31,17 @@ main{
 
 footer{
     margin-top: auto;
+    padding: 10px;
     height: auto;
-    min-height: 150px;
+    height: fit-content;
     background-color: rgb(75, 182, 75);
     display:flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 14px;
+    font-size: 0.85rem;
     text-align: center;
     color: rgb(255, 255, 240);
+    row-gap: 8px;
 }
 
 h1, h2{
@@ -48,11 +50,11 @@ h1, h2{
 }
 
 h1{
-    font-size: 70px;
+    font-size: 4.5rem;
 }
 
 h2{
-    font-size: 30px;
+    font-size: 1.9rem;
 }
 
 #hlavni-obsah{
@@ -97,11 +99,6 @@ legend{
     
 }
 
-.radek-formulare label{
-    
-}
-
-
 select {
     margin-right: 10px;
 }
@@ -121,10 +118,11 @@ select:hover{
     background-color: rgb(243, 245, 247);
     border-radius: 10px;
     height:fit-content;
+    max-width: 500px;
 }
 
 #div-vyhodnoceni-formulare{
-    max-width: 500px;
+    
 }
 
 
@@ -160,8 +158,9 @@ select:hover{
 /* ZAŠKRTÁVACÍ VOLBY */
 .zaskrtavaci-volba{
     font-weight:550;
+    width: 25;
     min-width: 100px;
-    max-width: 120px;
+    margin-right: 4%;
     transition: 0.25s;
     height: 22px;
 }
@@ -195,3 +194,4 @@ option{
     transition: 1s;
     opacity: 1;
 }
+
