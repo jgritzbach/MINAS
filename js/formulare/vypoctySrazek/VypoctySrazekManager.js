@@ -15,8 +15,9 @@ class VypoctySrazekManager{
 
         this.formularPrijmu = new FormularPrijmu()
         this.formularVyzivovacichPovinnosti = new FormularVyzivovacichPovinnosti()
-
+        
         this._pridatUdalostVyhodnoceni()
+
     }
 
 
@@ -28,7 +29,7 @@ class VypoctySrazekManager{
         const fPrijmy = this.formularPrijmu
         const fVyziv = this.formularVyzivovacichPovinnosti
 
-        // Zde určíme, které kolonky jsou způsobilé vyvolat přepočet
+        // Zde určíme, kteréthis.vypocty kolonky jsou způsobilé vyvolat přepočet
         const cile = [... fPrijmy.vsechnyKolonkyVysePrijmu, fPrijmy.kolonkaVyseDaru, ...fVyziv.vsechnyKolonky]
 
         for (const kolonka of cile){
@@ -39,6 +40,32 @@ class VypoctySrazekManager{
     }
 
     vypisVyhodnoceniFormulare(){
-        alert("Dočasný alert - toto bude nahrazeno skutečným přepotem")
+        alert(this.vypocitatSrazku())
     }
+
+
+
+    vypocitatSrazku(){
+        // Tato metoda ze všech údajů o příjmech dlužníka vypočítá výši zákonné srážky
+        // relevantní input data se převezmou z patřičnýc kolonek v html formulářích
+
+        const p = this.formularPrijmu
+        const v = this.formularVyzivovacichPovinnosti
+
+        // pokud se změní zákon, mělo by stačit provést změnu zde
+        const zivotniMinimumJednotlivce = 4860              // tuto výši fixně stanoví nařízení vlády 595/2006 Sb.
+        const normativniNakladyNaBydleni = 15597                // Upravuje § 2 písm. a) nařízení vlády, kterým se pro účely příspěvku na bydlení ze státní sociální podpory pro rok xy. Číslo nařízení se mění každý rok (např. v roce 2019 to bylo č. 320/2018 Sb.). 
+        const soucetMinimaANakladu = zivotniMinimumJednotlivce + normativniNakladyNaBydleni
+
+        const nezabavitelnaCastka = 2/3 * soucetMinimaANakladu
+        const zaVyzivovanouOsobu = 1/3 * nezabavitelnaCastka
+
+        const zaVyzivovaneOsobyCelkem = v.pocetOsob()
+        const celkemNezabavitelneNezaokrouhlene = nezabavitelnaCastka + zaVyzivovaneOsobyCelkem
+        return        Math.ceil(celkemNezabavitelneNezaokrouhlene)
+
+
+    }
+
+
 }

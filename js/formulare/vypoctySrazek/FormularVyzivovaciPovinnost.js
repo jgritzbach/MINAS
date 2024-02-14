@@ -29,6 +29,18 @@ class FormularVyzivovacichPovinnosti{
     }
 
 
+    pocetOsob(){
+        return this.kolonkaPocetVyzivovanychOsob.value
+    }
+
+    mesicniVyzivne(){
+        return this.kolonkaMesicniVyzivne.value
+    }
+
+    dluzneVyzivne(){
+        return this.kolonkaDluzneVyzivne.value
+    }
+
 
 
 
