@@ -175,24 +175,33 @@
                             </div>
                             <!-- První příjem -->
                             <div class="radek-formulare">
-                                <select id="typ-prijmu-1"></select> <!-- zde se vyplní typ příjmu -->
+                                
                                 <input id="vyse-prijmu-1" type="number" placeholder="Výše příjmu v Kč">
+                                <select id="typ-prijmu-1"></select> <!-- zde se vyplní typ příjmu -->
                                 <!-- <label for="vyse-prijmu-1">Kč</label> -->
                             </div>
                             
 
                             <!-- Druhý příjem -->
                             <div class="radek-formulare">
-                                <select id="typ-prijmu-2"></select> <!-- zde se vyplní typ příjmu -->
+                                
                                 <input id="vyse-prijmu-2" type="number" placeholder="Výše příjmu v Kč">
+                                <select id="typ-prijmu-2"></select> <!-- zde se vyplní typ příjmu -->
                             </div>
                             
 
                             <!-- Třetí příjem -->
                             <div class="radek-formulare">
-                                <select id="typ-prijmu-3"></select> <!-- zde se vyplní typ příjmu -->
+                                
                                 <input id="vyse-prijmu-3" type="number" placeholder="Výše příjmu v Kč">
+                                <select id="typ-prijmu-3"></select> <!-- zde se vyplní typ příjmu -->
                             </div>
+                            </div>
+
+                            <!-- Součet příjmů -->
+                            <div class="radek-formulare">
+                                <input id="soucet-vlastnich-prijmu-dluznika" type="number" disabled="disabled" >
+                                <label for="soucet-vlastnich-prijmu-dluznika">Kč celkem</label>
                             </div>
                            
                         </fieldset>
@@ -201,12 +210,12 @@
                         <!-- Darovací smlouva / smlouva o důchodu -->
                             <legend>Příjmy od třetích osob</legend>
                             <div class="radek-formulare">
+                                <input id="vyse-daru" type="number" placeholder="Výše příjmu v Kč">
                                 <select id="typ-daru">
                                     <option value=""></option>
                                     <option value="darovaci-smlouva">Darovací smlouva</option>
                                     <option value="smlouva o důchodu">Smlouva o důchodu</option>
                                 </select>
-                                <input id="vyse-daru" type="number" placeholder="Výše příjmu v Kč">
                             </div>
                         </fieldset>
                     </form>

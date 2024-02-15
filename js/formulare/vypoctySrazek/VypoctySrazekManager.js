@@ -40,7 +40,7 @@ class VypoctySrazekManager{
     }
 
     vypisVyhodnoceniFormulare(){
-        //alert(this.formularPrijmu.soucetPrijmu())
+        //alert(this.formularPrijmu.())
     }
 
 

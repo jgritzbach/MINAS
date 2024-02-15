@@ -24,7 +24,11 @@ class FormularPrijmu{
     }
 
 
-    soucetPrijmu(){
+    propisSoucetPrijmu(){
+        this.kolonkaSoucetVlastnichPrijmu.value = this.vypoctiSoucetPrijmu()
+    }
+
+    vypoctiSoucetPrijmu(){
         // Sečte všechny vyplněné vlastní příjmy dlužníka
         
         const soucet = this.vsechnyKolonkyVysePrijmu.reduce(
@@ -51,9 +55,10 @@ class FormularPrijmu{
 
         for (const kolonka of [...this.vsechnyKolonkyVysePrijmu, this.kolonkaVyseDaru]){       // všem <input> s výší příjmu (a to i u daru)
             kolonka.addEventListener('change', () =>{               // nastaví reakci na změnu
-                if (parseFloat(kolonka.value) < 0) {                // nejsou povolena záporná čísla
-                    kolonka.value = 0                               // hodnota je vždy alespoň nula
+                if (parseFloat(kolonka.value) < 0) {                    // nejsou povolena záporná čísla
+                    kolonka.value = 0                                   // hodnota je vždy alespoň nula
                 }
+                this.propisSoucetPrijmu()                               // a jakákoliv změna ihned provede průpis součtu do patřičné kolonky
             })
         }
 
@@ -156,6 +161,9 @@ class FormularPrijmu{
         this.kolonkaPrijem1Vyse = document.getElementById("vyse-prijmu-1")
         this.kolonkaPrijem2Vyse = document.getElementById("vyse-prijmu-2")
         this.kolonkaPrijem3Vyse = document.getElementById("vyse-prijmu-3")
+
+        // Součet příjmů - průpis
+        this.kolonkaSoucetVlastnichPrijmu = document.getElementById("soucet-vlastnich-prijmu-dluznika")
 
         // Příjem od 3. osoby
         this.kolonkaTypDaru= document.getElementById("typ-daru")
