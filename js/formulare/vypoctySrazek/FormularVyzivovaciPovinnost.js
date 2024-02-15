@@ -14,6 +14,7 @@ class FormularVyzivovacichPovinnosti{
     constructor(){
 
         this._uchopKolonky()                                // uchopíme všechny elementy <select> k vyplnění
+        this._nastavKolonky()
     }
 
 
@@ -46,7 +47,18 @@ class FormularVyzivovacichPovinnosti{
 
 
 
+    _nastavKolonky(){
+        // všem <input> kolonkám s počty nezabavitelných osob a výší výživného nastaví reakci na změnu
 
+        for (const kolonka of this.vsechnyKolonky){       // všem kolonkám s vyživovanými osobami a výživným
+             
+            kolonka.addEventListener('change', () =>{               // nastaví reakci na změnu
+                if (parseFloat(kolonka.value) < 0) {                // nejsou povolena záporná čísla
+                    kolonka.value = 0                               // hodnota je vždy alespoň nula
+                }
+            })
+        }
+    }
 
 
 

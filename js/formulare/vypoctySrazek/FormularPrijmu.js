@@ -2,12 +2,19 @@ class FormularPrijmu{
 
     // Tento formulář bude sloužit k zadávání dat o příjmech dlužníka.
     // Bude se zde vyplňovat typ příjmu a jeho výše
-    // Bude se vyplňovat zaměstnavatel, což ale nebude povinné
-    // k dosazení zaměstavatele půjde využít AresApiClient - postačí IČO a dosadí se všechny údaje z ARES
-    // To samo stačí na výpočet nezabavitelné částky a contrario k určení výše srážek
-    // Od toho se ještě budou odečítat případné vyživovací povinnosti dlužníka, jsou-li nějaké
+    // To samo ještě stačí na výpočet nezabavitelné částky a contrario k určení výše srážek
+    // Od toho se totiž ještě budou odečítat případné vyživovací povinnosti dlužníka, jsou-li nějaké
+    // Na což bude samostatný formulář
     // Nebude-li ve formuláři vyživovacích povinností nic vyplněno, má se za to, že žádné nejsou
-    // Bude-li něco vyplněno, výpočet srážek bude o to ponížen
+
+    // V budoucnu možná přidám možnost, že se bude vyplňovat plátce příjmu, což je údaj, který v aplikaci může být dále využíván
+    // zatím zde ještě plátce příjmů vyplnit nejde
+    // vyplnění plátce příjmu nebude povinné
+    // k dosazení zaměstavatele půjde časem využít AresApiClient - postačí IČO a dosadí se všechny údaje z ARES
+    
+    
+
+
     
     constructor(){
 
@@ -16,13 +23,38 @@ class FormularPrijmu{
         this._nastavKolonky()                               // a nastavíme jim vše potřebné
     }
 
-    _nastavKolonky(){
-        // všem <select> kolonkám nastaví jako přípustnou volbu zaškrtávací možnosti v pořádku / diskutabilní / vadné
-        // a nastaví jim také reakci na změnu
 
-        for (const kolonka of this.vsechnyKolonkyTypyPrijmu){
-            this._nastavVolby(kolonka)
-            this._nastavReakciNaVolbu(kolonka)
+    soucetPrijmu(){
+        // Sečte všechny vyplněné vlastní příjmy dlužníka
+        
+        const soucet = this.vsechnyKolonkyVysePrijmu.reduce(
+            
+            (soucet, kolonka) => {
+         
+                const vysePrijmu = parseFloat(kolonka.value)            // musíme ošetřit situace, kdy v některé kolonce není nic vyplněno
+                return isNaN(vysePrijmu) ? soucet : soucet + vysePrijmu // nevyplněnou kolonku totiž nelze převést na číslo -> přičítáme jen když je číslo
+            
+            }
+        ,0)
+
+        return soucet
+    }
+
+
+    _nastavKolonky(){
+        // všem <select> kolonkám typu příjmu nastaví jako přípustné volby [mzda, zisk OSVČ, důchod atd...]
+        // všem <input> kolonkám s výší příjmu nastaví reakci na změnu
+
+        for (const kolonka of this.vsechnyKolonkyTypyPrijmu){       // všem <select> typu příjmu
+            this._nastavVolby(kolonka)                              // nastaví přípustné <option>
+        }
+
+        for (const kolonka of [...this.vsechnyKolonkyVysePrijmu, this.kolonkaVyseDaru]){       // všem <input> s výší příjmu (a to i u daru)
+            kolonka.addEventListener('change', () =>{               // nastaví reakci na změnu
+                if (parseFloat(kolonka.value) < 0) {                // nejsou povolena záporná čísla
+                    kolonka.value = 0                               // hodnota je vždy alespoň nula
+                }
+            })
         }
 
     }
@@ -43,20 +75,6 @@ class FormularPrijmu{
 
     }
     
-    _nastavReakciNaVolbu(selectElement){
-        
-        // Nastaví vybranému <select> reakci na zvolení některé z option
-        // reakcí je přepis té části <select>.ClassList, která se týká barvy (o faktické přebarvení se stará CSS)
-        
-        selectElement.addEventListener('change', () =>{
-
-            // zatím zde není žádný následek change eventu
-
-        })
-
-    }
-
-
 
 
     _nastavPovoleneVolby(){
