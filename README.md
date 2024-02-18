@@ -23,11 +23,10 @@ VBA je zastaralý jazyk bez další perspektivy, značně omezený v možnostech
 
 Projekt MINAS představuje moji snahu postupně přetvořit původní rozsáhlý VBA projekt do moderní podoby webové aplikace.
 
-
 Vzhledem k rozsahu původního projektu bude toto běh na delší trať a lze očekávat, že jednotlivé funckionality budou převáděny postupně. 
 
-V současnosti je k dispozici pouze první drobná funkcionalita - vyhodnocení náležitostí formuláře na povolení oddlužení.
 Projekt je v úplném počátku, vše může být předmětem změny.
+V současnosti je k dispozici pouze posuzování návrhu na povolení oddlužení před úpadkem, které sestává jednak z vyhodnocení náležitostí formuláře na povolení oddlužení, a současně z výpočtu možné srážky a nezabavitelné částky z příjmů dlužníka.
 
 ## DŮLEŽITÉ UPOZORNĚNÍ - disclaimer!
 
