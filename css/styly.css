@@ -26,7 +26,7 @@ header{
 
 main{
     margin-top: 10px;
-    flex: 1; 
+    /* flex: 1;  */
 }
 
 footer{
@@ -49,19 +49,6 @@ h1, h2{
     text-align: center;
 }
 
-
-/* GRID */
-
-#hlavni-obsah{
-    margin: auto;
-    max-width: 1020px;
-    padding: 20px;
-    min-height: 900px;
-
-    display: grid;
-    grid-template-columns: 1fr;  /* Výchozí je 1fr pro mobily */
-}
-    
 h1{
     font-size: 4.5rem;
 }
@@ -71,33 +58,37 @@ h2{
 }
 
 
-/* GRID */
+
+/* GRID a flexboxes*/
 
 #hlavni-obsah{
     margin: auto;
+    padding: 2%;
     max-width: 1020px;
-    
     min-height: 900px;
-
     display: grid;
+    grid-gap: 20px;
     grid-template-columns: 1fr;  /* Výchozí je 1fr pro mobily, na desktopu přidáme další */
-    
-
 }
 
 @media screen and (min-width: 768px){
     #hlavni-obsah{
         grid-template-columns: 1fr 1fr;    /* na destkopu přidáme další 1fr, čímž dáme 2 sloupce vedle sebe */
-        padding: 0px;
     }
 }
 
+.vertical-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 15px;
+}
 
 /* FORMULÁŘE OBECNĚ */
 
 .formular{
     background-color: rgb(245, 245, 220);
-    margin: 10px;
+    /* background-color: rgb(215, 205, 220);         bledě modrá alternativa */
     border-radius: 10px;
     padding: 10px;
 }
@@ -129,7 +120,6 @@ h2{
 .formular select, input {
     height: 22px;
     transition: 0.25s;
-    /* padding-left: 5px; */
     margin-right: 4%;
 }
 
@@ -163,7 +153,6 @@ option{
 /* VYHODNOCENÍ FORMULÁŘŮ */
 
 .oblast-vypisu{
-    margin: 10px;
     padding: 10px;
     transition: 0.5s;
     text-align: justify;
