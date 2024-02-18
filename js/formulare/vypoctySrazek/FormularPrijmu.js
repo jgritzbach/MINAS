@@ -21,8 +21,13 @@ class FormularPrijmu{
         this._nastavPovoleneVolby()                         // povolené volby jsou 'prázdné', 'v pořádku', 'diskutabilní' a 'vadné'
         this._uchopKolonky()                                // uchopíme všechny elementy <select> k vyplnění
         this._nastavKolonky()                               // a nastavíme jim vše potřebné
+        this.propisSoucetPrijmu()
     }
 
+
+    getSoucetPrijmu(){
+        return parseFloat(this.kolonkaSoucetVlastnichPrijmu.value) || 0 // nemusíme vždy znovu provádět součet, protože ten se při každé změně už stejně propsal do kolonky
+    }
 
     propisSoucetPrijmu(){
         this.kolonkaSoucetVlastnichPrijmu.value = this.vypoctiSoucetPrijmu()
@@ -34,10 +39,8 @@ class FormularPrijmu{
         const soucet = this.vsechnyKolonkyVysePrijmu.reduce(
             
             (soucet, kolonka) => {
-         
-                const vysePrijmu = parseFloat(kolonka.value)            // musíme ošetřit situace, kdy v některé kolonce není nic vyplněno
-                return isNaN(vysePrijmu) ? soucet : soucet + vysePrijmu // nevyplněnou kolonku totiž nelze převést na číslo -> přičítáme jen když je číslo
-            
+                const vysePrijmu = parseFloat(kolonka.value) || 0   // není-li nic vyplněno, je výsledkem 0
+                return soucet + vysePrijmu
             }
         ,0)
 

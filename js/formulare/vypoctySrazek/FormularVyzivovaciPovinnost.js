@@ -31,19 +31,19 @@ class FormularVyzivovacichPovinnosti{
 
 
     pocetOsob(){
-        return this.kolonkaPocetVyzivovanychOsob.value
+        return parseInt(this.kolonkaPocetVyzivovanychOsob.value) || 0
     }
 
     mesicniVyzivne(){
-        return this.kolonkaMesicniVyzivne.value
+        return parseFloat(this.kolonkaMesicniVyzivne.value) || 0
     }
 
     dluzneVyzivne(){
-        return this.kolonkaDluzneVyzivne.value
+        return parseFloat(this.kolonkaDluzneVyzivne.value) || 0
     }
 
 
-
+    osetrenyNavrat(){}
 
 
 
