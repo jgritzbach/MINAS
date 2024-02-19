@@ -7,6 +7,10 @@
 }
 
 /* HLAVNÍ LAYOUT */
+html{
+    overflow-y: scroll;
+}
+
 body{
     color: rgb(80, 80, 80);
     background-color: rgb(255, 255, 245);
@@ -17,11 +21,11 @@ body{
 }
 
 header{
-    height: 150px;
+    /* height: 150px; */
     background-color: rgb(75, 182, 75);
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 main{
@@ -31,18 +35,33 @@ main{
 
 footer{
     margin-top: auto;
-    padding: 10px;
+    /* padding: 10px; */
     height: auto;
     height: fit-content;
     background-color: rgb(75, 182, 75);
+    /* background-color: rgb(15, 172, 15); */
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     font-size: 0.85rem;
     text-align: center;
     color: rgb(255, 255, 240);
-    row-gap: 8px;
+    
+    
 }
+
+#autor-copyright{
+    padding: 8px;
+}
+
+#disclaimer{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 8px;
+    padding: 8px;
+}
+
 
 h1, h2{
     color: rgb(255, 255, 245);
@@ -58,6 +77,50 @@ h2{
 }
 
 
+/* NAVIGACE */
+
+header nav ul{
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(15, 172, 15);
+    gap: 5px;
+    text-transform:uppercase;
+}
+
+
+@media screen and (min-width: 768px){
+    header nav ul{         /* na destkopu chceme navigaci horizontální a větší */
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+        min-height: 45px;
+            
+    }
+}
+
+header nav ul li {
+    list-style: none;
+}
+
+header nav ul li a{
+    text-decoration: none;
+    color: rgb(255, 255, 245);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+header nav ul li a:hover{
+    border-bottom: 3px solid rgb(255, 255, 245);
+    transform: scaleX(1);
+}
+
+.nav-podtrzeno{
+    border-bottom: 3px solid rgb(255, 255, 245);
+}
 
 /* GRID a flexboxes*/
 
@@ -83,6 +146,7 @@ h2{
     justify-content: start;
     gap: 15px;
 }
+
 
 /* FORMULÁŘE OBECNĚ */
 
@@ -171,7 +235,6 @@ option{
     
 }
 
-
 select[zaskrtnuti='v-poradku']{
     color: rgb(75, 182, 75);
 }
@@ -184,6 +247,18 @@ select[zaskrtnuti='vadne']{
     color: rgb(224, 42, 42);
 }
 
+
+
+
+/* BARVY */
+.tmave-zelene-pozadi{
+    background-color: rgb(15, 172, 15);
+    
+}
+
+.svetle-zelene-pozadi{
+    background-color: rgb(75, 182, 75);
+}
 
 
 
