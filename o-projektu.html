@@ -7,18 +7,6 @@
     <title>MINAS - můj insolvenční asistent</title>
     <link rel="stylesheet" href="css/styly.css">
     
-    <!-- Třídy formulářů náležitostí návrhu na oddlužení -->
-    <script src="js/formulare/povoleniOddluzeni/FormularOddluzeni.js"></script>
-    <script src="js/formulare/povoleniOddluzeni/FormularOddluzeniManager.js"></script>
-
-    <!-- Třídy výpočtů srážek -->
-    <script src="js/nastroje/vypocty/vypocetSrazek.js"></script>
-    <script src="js/formulare/vypoctySrazek/FormularPrijmu.js"></script>
-    <script src="js/formulare/vypoctySrazek/FormularVyzivovaciPovinnost.js"></script>
-    <script src="js/formulare/vypoctySrazek/VypoctySrazekManager.js"></script>
-
-    <!-- Main funkce -->
-    <script src="js/obsluha/main.js"></script>
 </head>
 <body>
     
@@ -36,6 +24,52 @@
             </ul>
         </nav>
     </header>
+
+    <main>
+
+        <div id="hlavni-obsah-stranky" class="layout-o-projektu vertical-flex">
+
+                <div class="oblast-vypisu">
+                    <h3>Co je projekt MINAS?</h3>
+                    <p>Můj insolvenční asistent (MINAS) je webová aplikace mající za cíl usnadnit analýzu a správu průběhu insolvenčního řízení.</p>
+                </div> 
+
+                <div class="oblast-vypisu">
+                    <h3>Hlavní myšlenka</h3>
+                    <p>Projekt MINAS najde využití zejména u pracovníků soudu, kteří díky němu budou moci rychleji vyhodnocovat průběh insolvenčního řízení, analyzovat data o dlužníku a věřitelích a využít je pro automatizaci tvorby soudních usnesení.</p>
+                    <p>Užitečný bude advokátům a insolvenčním správcům, kteří se chystají zpracovat klientům návrh na povolení oddlužení, a chtějí si připomenout povinné náležitosti takového návrhu.</p>
+                    <p>Ostatně kterýkoliv zájemce o proces oddlužení jej může využít k nezávaznému nahlédnutí do složitého procesu insolvenčního řízení, a učinit si o jeho průběhu lepší představu.</p>
+                </div> 
+
+                <div class="oblast-vypisu">
+                    <h3>Pozadí vzniku</h3>
+                    <p>V průběhu let 2019-2023 jsem na insolvenčním soudě vyvíjel vlastní projekt ve VBA, který mi měl usnadnit mou každodenní činnost vyššího soudního úředníka.</p>
+                    <p>Můj projekt se soustředil na web scraping insolvenčního rejstříku, analýzu jeho dat, a jejich využití pro automatizaci tvorby soudních rozhodnutí.</p>
+                    <p>Během let se projekt rozrostl na několik tisíc řádků kódu, zahrnujíce značné množství vlastních tříd, rozhraní a formulářů.</p>
+                </div>
+
+                <div class="oblast-vypisu">
+                    <h3>Potřeba změny</h3>
+                    <p>VBA je zastaralý jazyk bez další perspektivy, značně omezený v možnostech OOP a příliš vázaný na prostředí aplikací MS Office.</p>
+                    <p>Projekt MINAS představuje moji snahu postupně přetvořit původní rozsáhlý VBA projekt do moderní podoby webové aplikace.</p>
+                    <p>Vzhledem k rozsahu původního projektu bude toto běh na delší trať a lze očekávat, že jednotlivé funckionality budou převáděny postupně.</p>
+                    <p>Projekt je v úplném počátku, vše může být předmětem změny. V současnosti je k dispozici pouze posuzování návrhu na povolení oddlužení před úpadkem, které sestává jednak z vyhodnocení náležitostí formuláře na povolení oddlužení, a současně z výpočtu možné srážky a nezabavitelné částky z příjmů dlužníka.</p>
+                </div>
+
+                <div class="oblast-vypisu">
+                    <h3>DŮLEŽITÉ UPOZORNĚNÍ - disclaimer!</h3>
+                    <p>Projekt MINAS nelze používat jako náhradu za advokátní služby! Máte-li právní problém nebo dotaz, vždy se obraťte na svého advokáta!</p>
+                    <p>Projekt jako celek ani žádná jeho dílčí část nepředstavuje v žádném případě právní radu a nesmí být takto používán!</p>
+                    <p>Projekt slouží pro základní orientaci. Nikdy nelze předjímat rozhodnutí nezávislého soudu, který jediný má rozhodovací pravomoc.</p>
+                    <p>Projekt není zaštítěn žádnou státní či veřejnou institucí. Jedná se o vlastní soukromou iniciativu jednotlivce se znalostmi programování i práva.</p>
+                    <p>Primárním účelem díla je prezentovat potenciál využití webových technologií v odvětví insolvenčního práva. Nejedná se tedy o právnický, ale především programátorský projekt.</p>
+                    <p>Autor neodpovídá za škodu vzniklou využitím díla v rozporu s jeho účelem.</p>
+                </div>
+
+        </div>
+        <!-- KONEC DIVU HLAVNÍ OBSAH STRÁNKY -->
+
+    </main>
 
     <!-- ZÁPATÍ STRÁNKY -->
     <footer>

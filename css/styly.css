@@ -1,3 +1,4 @@
+/* SPOLEČNÉ */
 * { 
     
     margin: 0;
@@ -6,7 +7,6 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
-/* HLAVNÍ LAYOUT */
 html{
     overflow-y: scroll;
 }
@@ -19,18 +19,30 @@ body{
     min-height: 100vh;       /* velmi důležité - právě toto drží footer na spodku stránky */
 }
 
-#nazev-projektu{
+/* ZÁHLAVÍ */
+header{
     background-color: rgb(75, 182, 75);
-    padding: 5px 0px 15px; 
+    padding-top: 5px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h1, h2 {
+    color: rgb(255, 255, 245);
+    text-align: center;
+}
+
+h1{
+    font-size: 4rem;
+}
+
+h2{
+    font-size: 1.9rem;
 }
 
 
-
-main{
-    margin-top: 10px;
-    /* flex: 1;  */
-}
-
+/* ZÁPATÍ */
 footer{
     margin-top: auto;
     padding: 10px;
@@ -59,18 +71,7 @@ footer{
 }
 
 
-h1, h2 {
-    color: rgb(255, 255, 245);
-    text-align: center;
-}
 
-h1{
-    font-size: 4rem;
-}
-
-h2{
-    font-size: 1.9rem;
-}
 
 /* NAVIGACE */
 
@@ -117,35 +118,64 @@ header nav ul li a:hover{
     border-bottom: 3px solid rgb(255, 255, 245);
 }
 
-/* GRID a flexboxes*/
 
-#hlavni-obsah{
+/* OBLASTI S HLAVNÍM OBSAHEM OBSAHEM */
+main{
+    margin-top: 10px;
+}
+
+.oblast-vypisu{
+    padding: 10px;
+    transition: 0.5s;
+    text-align: justify;
+    background-color: rgb(243, 245, 247);
+    border-radius: 10px;
+    height:fit-content;
+    max-width: 500px;
+}
+
+.oblast-vypisu p{
+    margin: 5px 0 15px 0;
+}
+
+
+
+
+#hlavni-obsah-stranky{
     margin: auto;
     padding: 2%;
     max-width: 1020px;
     min-height: 900px;
+}
+
+.layout-povoleni-oddluzeni{
     display: grid;
     grid-gap: 20px;
     grid-template-columns: 1fr;  /* Výchozí je 1fr pro mobily, na desktopu přidáme další */
 }
 
 @media screen and (min-width: 768px){
-    #hlavni-obsah{
+    .layout-povoleni-oddluzeni{
         grid-template-columns: 1fr 1fr;    /* na destkopu přidáme další 1fr, čímž dáme 2 sloupce vedle sebe */
     }
 }
 
-.vertical-flex{
-    display: flex;
+
+.layout-o-projektu{
+    display:flex;
     flex-direction: column;
-    justify-content: start;
-    gap: 15px;
+    align-items: center;
 }
+
+
+
+
 
 
 /* FORMULÁŘE OBECNĚ */
 
 .formular{
+    max-width: 500px;
     background-color: rgb(245, 245, 220);
     /* background-color: rgb(215, 205, 220);         bledě modrá alternativa */
     border-radius: 10px;
@@ -173,7 +203,6 @@ header nav ul li a:hover{
     display:block;
     margin: 6px 0;
     display: flex;
-    
 }
 
 .formular select, input {
@@ -202,24 +231,14 @@ option{
 }
 
 
+
+
 /* KONKRÉTNÍ FORMULÁŘE  */
-#formular-oddluzeni{
+/* #formular-oddluzeni{
     max-width: 500px;
-}
+} */
 
 
-
-/* VYHODNOCENÍ FORMULÁŘŮ */
-
-.oblast-vypisu{
-    padding: 10px;
-    transition: 0.5s;
-    text-align: justify;
-    background-color: rgb(243, 245, 247);
-    border-radius: 10px;
-    height:fit-content;
-    max-width: 500px;
-}
 
 
 /* ZAŠKRTÁVACÍ VOLBY */
@@ -227,7 +246,6 @@ option{
 .zaskrtavaci-volba{
     min-width: 100px;   /* min. šířka zaškrtávacích voleb stačí menší než u obecných <select> */
     font-weight:550;
-    
 }
 
 select[zaskrtnuti='v-poradku']{
@@ -248,11 +266,21 @@ select[zaskrtnuti='vadne']{
 /* BARVY */
 .tmave-zelene-pozadi{
     background-color: rgb(15, 172, 15);
-    
 }
 
 .svetle-zelene-pozadi{
     background-color: rgb(75, 182, 75);
+}
+
+
+
+
+/* VŠEOBECNÉ GRID a flexboxes*/
+.vertical-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 15px;
 }
 
 
