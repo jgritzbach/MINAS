@@ -14,6 +14,8 @@ html{
 body{
     color: rgb(80, 80, 80);         /* barva písma v celém dokumentu */
     background-color: rgb(255, 255, 245);
+    display: flex;              /* velmi důležité - právě toto drží footer na spodku stránky */
+    flex-direction: column;
     min-height: 100vh;       /* velmi důležité - právě toto drží footer na spodku stránky */
 }
 
