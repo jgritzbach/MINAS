@@ -28,6 +28,10 @@ header{
     justify-content: space-between;     
 }
 
+#nazev-projektu{
+    margin-bottom: 10px;
+}
+
 h1, h2 {
     color: rgb(255, 255, 245);
     text-align: center;
@@ -209,6 +213,8 @@ main{
     height: 22px;
     transition: 0.25s;
     margin-right: 4%;
+    border-radius: 4px;
+    background-color: white;
 }
 
 .formular select{
