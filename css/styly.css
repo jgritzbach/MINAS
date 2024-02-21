@@ -4,7 +4,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: none;
 }
 
 html{
@@ -115,7 +116,6 @@ header nav ul li a{
 
 header nav ul li a:hover{
     border-bottom: 3px solid rgb(255, 255, 245);
-    transform: scaleX(1);
 }
 
 .nav-podtrzeno{
@@ -123,7 +123,7 @@ header nav ul li a:hover{
 }
 
 
-/* OBLASTI S HLAVNÍM OBSAHEM OBSAHEM */
+/* OBLASTI S HLAVNÍM OBSAHEM */
 main{
     margin-top: 10px;
 }
@@ -141,8 +141,6 @@ main{
 .oblast-vypisu p{
     margin: 5px 0 15px 0;
 }
-
-
 
 
 #hlavni-obsah-stranky{
@@ -198,7 +196,7 @@ main{
 }
 
 .formular legend{
-    color: rgb(90, 90, 90);
+    color: rgb(80, 80, 80);         /* barva písma v celém dokumentu */;
     font-weight: bold;
     margin-bottom: 5px;
 }
@@ -215,6 +213,7 @@ main{
     margin-right: 4%;
     border-radius: 4px;
     background-color: white;
+    border: 1px solid rgb(110, 110, 110);       
 }
 
 .formular select{
@@ -225,7 +224,6 @@ main{
 .formular input{
     padding-left: 1%;
     max-width: 140px;
-    
 }
 
 select:hover{
