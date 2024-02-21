@@ -20,7 +20,6 @@ class VypoctySrazekManager{
     }
 
 
-
     _pridatUdalostVyhodnoceni(){
         // ke každé relevantní kolonce formuláře příjmů nebo vyživovacích povinností se přidá další change event listener.
         // právě ten zavolá přepočet srážek při jakékoliv změně
@@ -44,8 +43,8 @@ class VypoctySrazekManager{
         const osoby = this.formularVyzivovacichPovinnosti.pocetOsob()
         const srazka = vypocetSrazek.vypocitatSrazku(prijmy, osoby)     // díky uložení výše srážky do mezivýpočtu ušetříme jeden výpočet navíc
         const zustatek = prijmy - srazka
-        const text = `Z příjmů dlužníka lze provést srážku: ${srazka} Kč.<br/><br/>
-                      Dlužníku měsíčně zůstane ${zustatek} Kč.`
+        const text = `<p>Z příjmů dlužníka lze provést srážku: ${srazka} Kč.</p>
+                      <p>Dlužníku měsíčně zůstane ${zustatek} Kč.</p>`
         
         this.divVypocetSrazek.innerHTML = text
     }
