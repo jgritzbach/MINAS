@@ -12,21 +12,17 @@ html{
 }
 
 body{
-    color: rgb(80, 80, 80);
+    color: rgb(80, 80, 80);         /* barva písma v celém dokumentu */
     background-color: rgb(255, 255, 245);
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;       /* velmi důležité - právě toto drží footer na spodku stránky */
-    
 }
 
-header{
-    /* height: 150px; */
+#nazev-projektu{
     background-color: rgb(75, 182, 75);
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between;
+    padding: 5px 0px 15px; 
 }
+
+
 
 main{
     margin-top: 10px;
@@ -35,19 +31,17 @@ main{
 
 footer{
     margin-top: auto;
-    /* padding: 10px; */
+    padding: 10px;
     height: auto;
     height: fit-content;
     background-color: rgb(75, 182, 75);
-    /* background-color: rgb(15, 172, 15); */
+    background-color: rgb(15, 172, 15);
     display:flex;
     flex-direction: column;
     justify-content: space-around;
     font-size: 0.85rem;
     text-align: center;
     color: rgb(255, 255, 240);
-    
-    
 }
 
 #autor-copyright{
@@ -63,19 +57,18 @@ footer{
 }
 
 
-h1, h2{
+h1, h2 {
     color: rgb(255, 255, 245);
     text-align: center;
 }
 
 h1{
-    font-size: 4.5rem;
+    font-size: 4rem;
 }
 
 h2{
     font-size: 1.9rem;
 }
-
 
 /* NAVIGACE */
 
