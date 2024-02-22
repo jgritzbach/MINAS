@@ -29,7 +29,7 @@ class FormularVyzivovacichPovinnosti{
         this.vsechnyKolonky = [this.kolonkaPocetVyzivovanychOsob, this.kolonkaMesicniVyzivne, this.kolonkaDluzneVyzivne,]
     }
 
-
+    
     pocetOsob(){
         return parseInt(this.kolonkaPocetVyzivovanychOsob.value) || 0
     }
