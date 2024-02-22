@@ -21,20 +21,33 @@ class FormularPrijmu{
         this._nastavPovoleneVolby()                         // povolené volby jsou 'prázdné', 'v pořádku', 'diskutabilní' a 'vadné'
         this._uchopKolonky()                                // uchopíme všechny elementy <select> k vyplnění
         this._nastavKolonky()                               // a nastavíme jim vše potřebné
-        this.propisSoucetPrijmu()
+        this._propisSoucetPrijmu()
     }
 
 
     getSoucetPrijmu(){
+        // vrátí číselný součet všech hodnot z kolonek pro výši vlastních příjmů (nezapočítávají se příjmy od 3. osob z darů)
         return parseFloat(this.kolonkaSoucetVlastnichPrijmu.value) || 0 // nemusíme vždy znovu provádět součet, protože ten se při každé změně už stejně propsal do kolonky
     }
 
-    propisSoucetPrijmu(){
+    getPrijemOdTretiOsoby(){
+        // vrátí číselnou výši daru od 3. osoby
+        return parseFloat(this.kolonkaVyseDaru.value) || 0 // nemusíme vždy znovu provádět součet, protože ten se při každé změně už stejně propsal do kolonky
+    }
+
+    getTypPrijmuOdTretiOsoby(){
+        // vrátí vyplněnou textovou hodnotu typu příjmu od 3. osoby - "darovací smlouva" anebo "smlouva o důchodu"
+        const volba = this.kolonkaTypDaru.options[this.kolonkaTypDaru.selectedIndex]
+        return volba.innerText.toLowerCase()
+    }
+
+    _propisSoucetPrijmu(){
+        // propíše vypočítaný součet příjmů do <html> kolonky určené k zobrazení tohoto součtu
         this.kolonkaSoucetVlastnichPrijmu.value = this.vypoctiSoucetPrijmu()
     }
 
     vypoctiSoucetPrijmu(){
-        // Sečte všechny vyplněné vlastní příjmy dlužníka
+        // Sečte všechny vyplněné vlastní příjmy dlužníka jako číselné hodnoty a vrátí je
         
         const soucet = this.vsechnyKolonkyVysePrijmu.reduce(
             
@@ -47,6 +60,7 @@ class FormularPrijmu{
         return soucet
     }
 
+    
 
     _nastavKolonky(){
         // všem <select> kolonkám typu příjmu nastaví jako přípustné volby [mzda, zisk OSVČ, důchod atd...]
@@ -61,7 +75,7 @@ class FormularPrijmu{
                 if (parseFloat(kolonka.value) < 0) {                    // nejsou povolena záporná čísla
                     kolonka.value = 0                                   // hodnota je vždy alespoň nula
                 }
-                this.propisSoucetPrijmu()                               // a jakákoliv změna ihned provede průpis součtu do patřičné kolonky
+                this._propisSoucetPrijmu()                               // a jakákoliv změna ihned provede průpis součtu do patřičné kolonky
             })
         }
 

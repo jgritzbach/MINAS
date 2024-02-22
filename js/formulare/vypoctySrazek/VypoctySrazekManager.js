@@ -39,12 +39,27 @@ class VypoctySrazekManager{
         // Vypíše do patřičného divu údaje o výši srážek z příjmu dlužníka a o výši nezabavitelné částky
         // k samotným výpočtům používá nezávislý nástroj výpočtu srážek
 
-        const prijmy = this.formularPrijmu.getSoucetPrijmu()
-        const osoby = this.formularVyzivovacichPovinnosti.pocetOsob()
-        const srazka = vypocetSrazek.vypocitatSrazku(prijmy, osoby)     // díky uložení výše srážky do mezivýpočtu ušetříme jeden výpočet navíc
+        const p = this.formularPrijmu
+        const v = this.formularVyzivovacichPovinnosti
+
+        const prijmy = p.getSoucetPrijmu()
+        const osoby = v.pocetOsob()
+        const srazka = vypocetSrazek.vypocitatSrazku(prijmy, osoby)     // díky uložení výše srážky do mezivýpočtu ušetříme jeden výpočet navíc - výpočet srážek provádí samostatná třída (nástroj)
         const zustatek = prijmy - srazka
-        const text = `<p>Z příjmů dlužníka lze provést srážku: ${srazka} Kč.</p>
+        let text = `<p>Z vlastních příjmů dlužníka lze provést srážku: ${srazka} Kč.</p>
                       <p>Dlužníku měsíčně zůstane ${zustatek} Kč.</p>`
+
+        if (p.getPrijemOdTretiOsoby() > 0){
+
+            let typPrijmuOdTretiOsoby = p.getTypPrijmuOdTretiOsoby()
+            typPrijmuOdTretiOsoby = typPrijmuOdTretiOsoby? typPrijmuOdTretiOsoby : `smlouva se třetí osobou`
+            let popisDaru = `, který dlužníku zajišťuje uzavřená ${typPrijmuOdTretiOsoby},`
+
+            text += `<p>Příjem ve výši ${p.getPrijemOdTretiOsoby()} Kč${popisDaru} je dlužník povinnen vydat celý (nezkrácený) ve prospěch majetkové podstaty.</p>`
+
+            
+        }
+ 
         
         this.divVypocetSrazek.innerHTML = text
     }
