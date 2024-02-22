@@ -150,8 +150,8 @@ class FormularPrijmu{
             TEXT: "odměna z DPP",
         }
 
-        this.optionJine = {
-            VALUE: 'jine',
+        this.optionJine = { 
+            VALUE: 'jiny-zabavitelny',
             TEXT: "jiný zabavitelný",
         }
 

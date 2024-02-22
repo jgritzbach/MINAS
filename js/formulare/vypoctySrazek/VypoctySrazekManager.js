@@ -27,8 +27,8 @@ class VypoctySrazekManager{
         const fPrijmy = this.formularPrijmu
         const fVyziv = this.formularVyzivovacichPovinnosti
 
-        // Zde určíme, které kolonky jsou způsobilé vyvolat přepočet
-        const cile = [... fPrijmy.vsechnyKolonkyVysePrijmu, fPrijmy.kolonkaVyseDaru, ...fVyziv.vsechnyKolonky]
+        // Zde určíme, které kolonky jsou způsobilé vyvolat přepis textového výsledku
+        const cile = [... fPrijmy.vsechnyKolonkyVysePrijmu, fPrijmy.kolonkaVyseDaru, fPrijmy.kolonkaTypDaru, ...fVyziv.vsechnyKolonky]      // přepis textu vyvolá i změna typu daru, protože jeho označení se pormítá do textu
 
         for (const kolonka of cile){
             kolonka.addEventListener('change', () => this.vypisVyhodnoceniFormulare())
