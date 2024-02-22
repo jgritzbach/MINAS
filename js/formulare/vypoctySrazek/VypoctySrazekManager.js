@@ -46,21 +46,25 @@ class VypoctySrazekManager{
         const osoby = v.pocetOsob()
         const srazka = vypocetSrazek.vypocitatSrazku(prijmy, osoby)     // díky uložení výše srážky do mezivýpočtu ušetříme jeden výpočet navíc - výpočet srážek provádí samostatná třída (nástroj)
         const zustatek = prijmy - srazka
-        let text = `<p>Z vlastních příjmů dlužníka lze provést srážku: ${srazka} Kč.</p>
-                      <p>Dlužníku měsíčně zůstane ${zustatek} Kč.</p>`
 
-        if (p.getPrijemOdTretiOsoby() > 0){
+        const prijmyZDaru = p.getPrijemOdTretiOsoby()
+
+        let text = `<p>Dlužníku měsíčně zůstane ${zustatek} Kč.</p>`
+
+        text += `<p>Z vlastních příjmů dlužníka lze provést srážku: ${srazka} Kč.</p>`
+                      
+
+        if (prijmyZDaru > 0){
 
             let typPrijmuOdTretiOsoby = p.getTypPrijmuOdTretiOsoby()
             typPrijmuOdTretiOsoby = typPrijmuOdTretiOsoby? typPrijmuOdTretiOsoby : `smlouva se třetí osobou`
             let popisDaru = `, který dlužníku zajišťuje uzavřená ${typPrijmuOdTretiOsoby},`
 
-            text += `<p>Příjem ve výši ${p.getPrijemOdTretiOsoby()} Kč${popisDaru} je dlužník povinnen vydat celý (nezkrácený) ve prospěch majetkové podstaty.</p>`
+            text += `<p>Příjem ve výši ${prijmyZDaru} Kč${popisDaru} je dlužník povinnen vydat celý (nezkrácený) ve prospěch majetkové podstaty.</p>`
+            text += `<p>Celkem tak dlužník do majetkové podstaty odevzdá ${srazka + prijmyZDaru} Kč měsíčně.</p>`
 
-            
         }
  
-        
         this.divVypocetSrazek.innerHTML = text
     }
 
