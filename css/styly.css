@@ -104,6 +104,7 @@ main{
     transition: 0.5s;
     text-align: justify;
     background-color: rgb(237, 255, 233);       /* světlounce zelená */
+    background-color: rgb(243, 245, 247);  
     
     /* background-color: rgb(75, 182, 75); */
      /* background-color: rgb(15, 172, 15); */
@@ -235,6 +236,7 @@ footer{
 
 #autor-copyright{
     padding: 10px;
+    background-image: linear-gradient(to bottom,rgb(75, 200, 75),rgb(15, 172, 15) );
     background-color: rgb(75, 182, 75);
 }
 
@@ -283,7 +285,7 @@ select[zaskrtnuti='vadne']{
 
 
 /* background-color: rgb(225, 245, 220);       světlounce zelená */
-
+/* background-color: rgb(243, 245, 247);        světle šedá*/
 
 
 /* VŠEOBECNÉ GRID a flexboxes*/
