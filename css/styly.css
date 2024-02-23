@@ -103,7 +103,7 @@ main{
     padding: 10px;
     transition: 0.5s;
     text-align: justify;
-    background-color: rgb(225, 245, 220);       /* světlounce zelená */
+    background-color: rgb(237, 255, 233);       /* světlounce zelená */
     
     /* background-color: rgb(75, 182, 75); */
      /* background-color: rgb(15, 172, 15); */
@@ -281,6 +281,8 @@ select[zaskrtnuti='vadne']{
     background-color: rgb(75, 182, 75);
 }
 
+
+/* background-color: rgb(225, 245, 220);       světlounce zelená */
 
 
 
