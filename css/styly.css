@@ -29,6 +29,16 @@ header{
     justify-content: space-between;     
 }
 
+@media screen and (min-width: 768px){
+    header h1{
+        letter-spacing: 8px;
+    }
+
+    header h2{
+        letter-spacing: 1.5px;
+    }
+}
+
 #nazev-projektu{
     margin-bottom: 10px;
 }
@@ -38,6 +48,7 @@ h1, h2 {
     text-align: center;
 }
 
+
 h1{
     font-size: 4rem;
 }
@@ -45,6 +56,15 @@ h1{
 h2{
     font-size: 1.9rem;
 }
+
+@media screen and (min-width: 768px){
+   
+    h3{
+        letter-spacing: 0.7px;
+    }
+}
+
+
 
 
 
@@ -236,7 +256,7 @@ footer{
 
 #autor-copyright{
     padding: 10px;
-    background-image: linear-gradient(to bottom,rgb(75, 200, 75),rgb(15, 172, 15) );
+    background-image: linear-gradient(to bottom,rgb(75, 190, 75),rgb(15, 172, 15) );
     background-color: rgb(75, 182, 75);
 }
 

@@ -42,7 +42,7 @@ class FormularOddluzeni{
         this.kolonkaProhlaseniOPouceni = document.getElementById("prohlaseni-o-pouceni")
         this.kolonkaSoucasnePrijmy = document.getElementById("priloha-soucasne-prijmy")
         this.kolonkaMinulePrijmy = document.getElementById("prijmy-za-12-mesicu")
-        this.kolonkaProhlaseniManzeluOMajetku = document.getElementById("prohlaseni-manzelu-o-majetku")
+        // this.kolonkaProhlaseniManzeluOMajetku = document.getElementById("prohlaseni-manzelu-o-majetku")      Dočasně vypnuto, dokud nebude zapracována i varianta pro manžela
 
         // Další přílohy
         this.kolonkaDarovaciSmlouva = document.getElementById("priloha-darovaci-smlouva")
@@ -62,7 +62,7 @@ class FormularOddluzeni{
             this.kolonkaProhlaseniOPouceni,
             this.kolonkaSoucasnePrijmy,
             this.kolonkaMinulePrijmy,
-            this.kolonkaProhlaseniManzeluOMajetku, 
+            // this.kolonkaProhlaseniManzeluOMajetku,                  Dočasně vypnuto, dokud nebude zapracována i varianta pro manžela
 
             this.kolonkaDarovaciSmlouva,
             this.kolonkaRozsudekOVyzivnem,
@@ -78,7 +78,7 @@ class FormularOddluzeni{
             this.kolonkaProhlaseniOPouceni,
             this.kolonkaSoucasnePrijmy,
             this.kolonkaMinulePrijmy,
-            this.kolonkaProhlaseniManzeluOMajetku, 
+            // this.kolonkaProhlaseniManzeluOMajetku,                      Dočasně vypnuto, dokud nebude zapracována i varianta pro manžela
             this.kolonkaDarovaciSmlouva,
             this.kolonkaRozsudekOVyzivnem,
         ]
