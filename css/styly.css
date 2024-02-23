@@ -115,6 +115,7 @@ header nav ul li a{
 }
 
 header nav ul li a:hover{
+    transition: border 0.12s;
     border-bottom: 3px solid rgb(255, 255, 245);
 }
 
@@ -132,7 +133,7 @@ main{
     padding: 10px;
     transition: 0.5s;
     text-align: justify;
-    background-color: rgb(243, 245, 247);
+    background-color: rgb rgb(243, 245, 247);
     border-radius: 10px;
     height:fit-content;
     max-width: 500px;
