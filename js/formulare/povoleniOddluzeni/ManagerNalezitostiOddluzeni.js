@@ -13,8 +13,95 @@ class ManagerNalezitostiOddluzeni{
 
         this.divVyhodnoceniFormulareNalezitostiOddluzeni = document.getElementById("div-vyhodnoceni-formulare-nalezitosti-oddluzeni")
 
-        this._pridatUdalostVyhodnoceni()
+     
+
+        this._pridatUdalosti()
     }
+
+   
+    
+
+    _pridatUdalosti(){
+        
+        const n = this.formularNalezitostiOddluzeni
+        const p = this.formularPrijmu
+        const v = this.formularVyzivovanychOsob
+        
+        // ke každé kolonce formuláře se přidá další change event listener.
+        // právě ten přepíše text vyhodnocení formuláře při jakékoliv změně
+        for (const kolonka of n.vsechnyKolonky){
+            kolonka.addEventListener('change', () => this.vypisVyhodnoceniFormulareNalezitostiOddluzeni())
+        }
+
+
+        // přidání change event listeneru na kolonky náležitostí příloh - doložení daru a rozsudku o výživném
+        
+
+        for (const kolonka of [p.kolonkaVyseDaru, p.kolonkaTypDaru]){     
+            
+            kolonka.addEventListener('change', () => {              // kdykoliv se něco změní v kolonkách typu nebo výše daru
+
+                const kolonkaPrilohaDar = n.kolonkaDarovaciSmlouva
+
+                if (!p.vyseDaru && !p.typDaru) {                        // pokud v dané chvíli není vůbec nic vyplněno ani ve výši daru ani v typu daru
+                    n.disableKolonka(kolonkaPrilohaDar, true)
+                } else {
+                    n.disableKolonka(kolonkaPrilohaDar, false)              // pokud v dané chvíli je vyplněna nějaká výše nebo typ daru, kolonka bude povinná
+                    this.vypisVyhodnoceniFormulareNalezitostiOddluzeni()    // což musíme ihned zohlednit ve výpisu vyhodncoení náelžitostí oddlužení
+                }
+            })
+        }      
+
+
+        for (const kolonka of [v.kolonkaMesicniVyzivne, v.kolonkaDluzneVyzivne]){     
+            
+            kolonka.addEventListener('change', () => {              // kdykoliv se něco změní v kolonkách typu nebo výše daru
+
+                const kolonkaPrilohaVyzivne = n.kolonkaRozsudekOVyzivnem
+                
+                if (!v.mesicniVyzivne && !v.dluzneVyzivne) {                        // pokud v dané chvíli není vůbec nic vyplněno ani ve výši daru ani v typu daru
+                    n.disableKolonka(kolonkaPrilohaVyzivne, true)
+                } else {
+                    n.disableKolonka(kolonkaPrilohaVyzivne, false)              // pokud v dané chvíli je vyplněna nějaká výše nebo typ daru, kolonka bude povinná
+                    this.vypisVyhodnoceniFormulareNalezitostiOddluzeni()    // což musíme ihned zohlednit ve výpisu vyhodncoení náelžitostí oddlužení
+                }
+            })
+        }  
+
+
+
+    }
+
+
+    
+
+    // proverPotrebuDisabled(kolonka, podminka){
+    //     if (podminka){
+    //         this.formularNalezitostiOddluzeni.disableKolonka(kolonka,true)
+    //     } else{
+    //         this.formularNalezitostiOddluzeni.disableKolonka(kolonka,true)
+    //         this.vypisVyhodnoceniFormulareNalezitostiOddluzeni()    // což musíme ihned zohlednit ve výpisu vyhodncoení náelžitostí oddlužení
+    //     }
+    // }
+  
+
+
+    // nastavDisableDlePodminky(zpusobileOvlivnit, ovlivneny, podminka){
+
+    //     for (const ovlivnovac of zpusobileOvlivnit){
+
+    //     }
+
+    // }
+    
+    // proverPotrebuBlokaceKolonky(){
+
+    // }
+    // zablkokovatKolonku(kolonka){
+    //     // Nastaví některou kolonku na 
+    //     kolonka.disabled = true               // tak kolonka náležitostí daru nepůjde ani vyplňovat
+    //     this.formularNalezitostiOddluzeni.vymazVolbu(kolonka)
+    // }
 
 
     vypisVyhodnoceniFormulareNalezitostiOddluzeni(){
@@ -40,18 +127,6 @@ class ManagerNalezitostiOddluzeni{
         cil.classList.remove('pomalu-se-objevit')
 
     }
-    
-
-    _pridatUdalostVyhodnoceni(){
-        // ke každé kolonce formuláře se přidá další change event listener.
-        // právě ten přepíše text vyhodnocení formuláře při jakékoliv změně
-
-        for (const kolonka of this.formularNalezitostiOddluzeni.vsechnyKolonky){
-            kolonka.addEventListener('change', () => this.vypisVyhodnoceniFormulareNalezitostiOddluzeni())
-        }
-
-    }
-
 
     vyhodnotKolonky(){
         // vyhodnotí vnitřní kolonky formuláře a vrátí stav reprezentovaný číslem

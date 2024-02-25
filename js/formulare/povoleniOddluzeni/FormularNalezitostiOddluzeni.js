@@ -107,18 +107,43 @@ class FormularOddluzeni{
         
         selectElement.addEventListener('change', () =>{
 
-            const novaVolba = selectElement.options[selectElement.selectedIndex].value  // namísto toho uchopíme zvolený <option>.value
-            selectElement.setAttribute('zaskrtnuti', novaVolba)
+            this._upravAtributZaskrtnuti(selectElement)      // atribut zaskrtnuti je vlastní atribut sloužící pro reprezentaci zakšrtnuté volby pro snazší CSS
 
         })
 
+    }
+
+    _upravAtributZaskrtnuti(selectElement){
+        // nastavi <selectu> vlastní atribut zaskrtnuti tak, aby s ejeho hodnota rovnala selected <option>.value
+
+        const novaVolba = selectElement.options[selectElement.selectedIndex].value  // namísto toho uchopíme zvolený <option>.value
+        selectElement.setAttribute('zaskrtnuti', novaVolba)
+    }
+
+
+
+    vymazVolbu(kolonka){
+        // vymaže dané kolonce volbu (tím, že jí nastaví na nevybráno)
+        // také jí patřičně upraví atribut zaskrtnuti, na který reaguje CSS
+        
+        kolonka.selectedIndex = 0
+        this._upravAtributZaskrtnuti(kolonka)
+    }
+
+    disableKolonka(kolonka, disabled){
+        // nastaví kolonce hodnotu disabled na zadanou boolean hodnotu
+        // pokud to znamená disabled=true, tak ji zrovna i dříve zvolenou hodnotu a atribut zaskrtnuti (pro potřeby CSS) nastaví na nevybráno
+
+        kolonka.disabled=disabled
+        if (disabled){
+            this.vymazVolbu(kolonka)
+        }
     }
 
     _nastavPovoleneVolby(){
 
         // nastaví si vnitřní konstantní hodnoty pro <option> elementy - jejich innerTexty a values
         // právě ty jsou později používány pro nastavení přípustných <option> a porovnávání hodnot <selectu>
-
         
         this.optionPrazdne = {
             VALUE: 'nevybrano',
@@ -188,6 +213,8 @@ class FormularOddluzeni{
         // Vrací údaj o tom, zda alespoň některá z předaných kolonek je vadná
         return this._jeNecoZPredanychNejake(kolonky, kolonka => this._jeVadne(kolonka))
     }
+
+
     
-    
+
 }
