@@ -205,6 +205,7 @@ main{
 
 .formular select:disabled, input:disabled{
     background-color: rgb(233, 235, 237);
+    cursor: auto;
 }
 
 .formular select{
