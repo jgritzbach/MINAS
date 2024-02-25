@@ -45,12 +45,12 @@ class ManagerSrazek{
         const p = this.formularPrijmu
         const v = this.formularVyzivovacichPovinnosti
 
-        const prijmy = p.getSoucetPrijmu()
-        const osoby = v.pocetOsob()
+        const prijmy = p.getSoucetVlastnichPrijmu
+        const osoby = v.pocetOsob
         const srazka = vypocetSrazek.vypocitatSrazku(prijmy, osoby)     // díky uložení výše srážky do mezivýpočtu ušetříme jeden výpočet navíc - výpočet srážek provádí samostatná třída (nástroj)
         const zustatek = prijmy - srazka
 
-        const prijmyZDaru = p.getPrijemOdTretiOsoby()
+        const prijmyZDaru = p.getPrijemOdTretiOsoby
         const celkovaSrazka = srazka + prijmyZDaru
 
         const pausalIS = 1089       // odměna a hotové výdaje insolvenčního správce vč. DPH
@@ -64,7 +64,7 @@ class ManagerSrazek{
         // text obohatíme o popis příjmů z daru, je-li nějaký
         if (prijmyZDaru){
 
-            let typPrijmuOdTretiOsoby = p.getTypPrijmuOdTretiOsoby()
+            let typPrijmuOdTretiOsoby = p.getTypPrijmuOdTretiOsoby
             typPrijmuOdTretiOsoby = typPrijmuOdTretiOsoby? typPrijmuOdTretiOsoby : `smlouva se třetí osobou`
             let popisDaru = `, který dlužníku zajišťuje uzavřená ${typPrijmuOdTretiOsoby},`
 
@@ -89,12 +89,12 @@ class ManagerSrazek{
         }
 
         // má-li dlužník dlužné výživné, text popisu to zmíní
-        if (v.dluzneVyzivne()){
-            text += `<p>Dále se bude uspokojovat přednostně dlužné výživné, a to až do úplného splacení dlužné částky ${v.dluzneVyzivne()} Kč.</p>`
+        if (v.dluzneVyzivne){
+            text += `<p>Dále se bude uspokojovat přednostně dlužné výživné, a to až do úplného splacení dlužné částky ${v.dluzneVyzivne} Kč.</p>`
         }
 
-        if (v.mesicniVyzivne()){
-            text += `<p>Dále je třeba odečíst pravidelné měsíční výživné určené soudem ve výši ${v.mesicniVyzivne()} Kč.</p>`
+        if (v.mesicniVyzivne){
+            text += `<p>Dále je třeba odečíst pravidelné měsíční výživné určené soudem ve výši ${v.mesicniVyzivne} Kč.</p>`
         }
 
         text += `<p>Teprve poté je možné uspokojovat nezajištěné věřitele.</p>`
