@@ -1,4 +1,4 @@
-class VypoctySrazekManager{
+class ManagerSrazek{
     // třída slouží pro manipulaci s formuláři příjmů a vyživovaných osob
     // na jejich základě umí spočítat výše srážek proveditelných z příjmů (respektive k tomu požívá samostatný nástroj)
     // formuláře sami si jen pamatují, které kolonky jsou jejich, co se v nich může vyplňovat, a umí posoudit, co v nich je

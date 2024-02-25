@@ -5,7 +5,7 @@ window.onload = ()=> {
     const formularVyzivovacichPovinnosti = new FormularVyzivovacichPovinnosti()
 
 
-    const formularOddluzeniManager = new FormularOddluzeniManager(formularNalezitostiOddluzeni, formularPrijmu, formularVyzivovacichPovinnosti)
-    const vypoctySrazekManager = new VypoctySrazekManager(formularPrijmu, formularVyzivovacichPovinnosti)
+    const managerNalezitostiOddluzeni = new ManagerNalezitostiOddluzeni(formularNalezitostiOddluzeni, formularPrijmu, formularVyzivovacichPovinnosti)
+    const managerSrazek = new ManagerSrazek(formularPrijmu, formularVyzivovacichPovinnosti)
     
 }

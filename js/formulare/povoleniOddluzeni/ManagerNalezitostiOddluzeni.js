@@ -1,4 +1,4 @@
-class FormularOddluzeniManager{
+class ManagerNalezitostiOddluzeni{
 
     // třída slouží pro manipulaci s formulářem
     // formulář sám si jen pamatuje, které kolonky jsou jeho, co se v nich může vyplňovat, a umí posoudit, co v nich je
