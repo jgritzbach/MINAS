@@ -30,12 +30,12 @@ class FormularPrijmu{
         return parseFloat(this.kolonkaSoucetVlastnichPrijmu.value) || 0 // nemusíme vždy znovu provádět součet, protože ten se při každé změně už stejně propsal do kolonky
     }
 
-    get PrijemOdTretiOsoby(){
+    get vyseDaru(){
         // vrátí číselnou výši daru od 3. osoby
         return parseFloat(this.kolonkaVyseDaru.value) || 0 // nemusíme vždy znovu provádět součet, protože ten se při každé změně už stejně propsal do kolonky
     }
 
-    get TypPrijmuOdTretiOsoby(){
+    get typDaru(){
         // vrátí vyplněnou textovou hodnotu typu příjmu od 3. osoby - "darovací smlouva" anebo "smlouva o důchodu"
         const volba = this.kolonkaTypDaru.options[this.kolonkaTypDaru.selectedIndex]
         return volba.innerText.toLowerCase()

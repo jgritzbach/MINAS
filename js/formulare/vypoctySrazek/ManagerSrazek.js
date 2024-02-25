@@ -50,7 +50,7 @@ class ManagerSrazek{
         const srazka = vypocetSrazek.vypocitatSrazku(prijmy, osoby)     // díky uložení výše srážky do mezivýpočtu ušetříme jeden výpočet navíc - výpočet srážek provádí samostatná třída (nástroj)
         const zustatek = prijmy - srazka
 
-        const prijmyZDaru = p.getPrijemOdTretiOsoby
+        const prijmyZDaru = p.vyseDaru
         const celkovaSrazka = srazka + prijmyZDaru
 
         const pausalIS = 1089       // odměna a hotové výdaje insolvenčního správce vč. DPH
@@ -64,9 +64,9 @@ class ManagerSrazek{
         // text obohatíme o popis příjmů z daru, je-li nějaký
         if (prijmyZDaru){
 
-            let typPrijmuOdTretiOsoby = p.getTypPrijmuOdTretiOsoby
-            typPrijmuOdTretiOsoby = typPrijmuOdTretiOsoby? typPrijmuOdTretiOsoby : `smlouva se třetí osobou`
-            let popisDaru = `, který dlužníku zajišťuje uzavřená ${typPrijmuOdTretiOsoby},`
+            let typDaru = p.typDaru
+            typDaru = typDaru? typDaru : `smlouva se třetí osobou`
+            let popisDaru = `, který dlužníku zajišťuje uzavřená ${typDaru},`
 
             text += `<p>Příjem ve výši ${prijmyZDaru} Kč${popisDaru} je dlužník povinnen vydat celý (nezkrácený) ve prospěch majetkové podstaty.</p>`
         }
