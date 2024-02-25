@@ -7,9 +7,9 @@ class ManagerNalezitostiOddluzeni{
 
     constructor(formularNalezitostiOddluzeni, formularPrijmu, formularVyzivovanychOsob){
 
-        this.formularNalezitostiOddluzeni = formularNalezitostiOddluzeni
-        this.formularPrijmu = formularPrijmu
-        this.formularVyzivovanychOsob = formularVyzivovanychOsob
+        this.n = formularNalezitostiOddluzeni
+        this.p = formularPrijmu
+        this.v = formularVyzivovanychOsob
 
         this.divVyhodnoceniFormulareNalezitostiOddluzeni = document.getElementById("div-vyhodnoceni-formulare-nalezitosti-oddluzeni")
 
@@ -22,87 +22,52 @@ class ManagerNalezitostiOddluzeni{
     
 
     _pridatUdalosti(){
-        
-        const n = this.formularNalezitostiOddluzeni
-        const p = this.formularPrijmu
-        const v = this.formularVyzivovanychOsob
+        // nastaví potřebné události některým kolonkám formulářů
+        // 1) každá kolonka formuláře náležitostí návrhu na povolení oddlužení ihned vyvolá přepis textového vyhodnocení
+        // 2) každá změna hodnot daru nebo výživného ve formulářích příjmů a vyživovaných osobo může vyvolat zakázanost nebo naopak poivnnost odpovídajících kolonek ve formuláři náležitostí
+
         
         // ke každé kolonce formuláře se přidá další change event listener.
         // právě ten přepíše text vyhodnocení formuláře při jakékoliv změně
-        for (const kolonka of n.vsechnyKolonky){
+        for (const kolonka of this.n.vsechnyKolonky){
             kolonka.addEventListener('change', () => this.vypisVyhodnoceniFormulareNalezitostiOddluzeni())
         }
 
 
-        // přidání change event listeneru na kolonky náležitostí příloh - doložení daru a rozsudku o výživném
+        // vytvoření předpřipravených funkcí pro prověření potřebnosti deaktivace kolonek daru a výživného
+        const potrebaDisableDaru = () => {this.proverPotrebuDisabled(this.n.kolonkaDarovaciSmlouva, (!this.p.vyseDaru && !this.p.typDaru))}
+        const potrebaDisableVyzivne = () => {this.proverPotrebuDisabled(this.n.kolonkaRozsudekOVyzivnem, (!this.v.mesicniVyzivne && !this.v.dluzneVyzivne))}
         
+            // při startu aplikace si je rovnou 1x zavoláme
+        potrebaDisableDaru()
+        potrebaDisableVyzivne()
 
-        for (const kolonka of [p.kolonkaVyseDaru, p.kolonkaTypDaru]){     
-            
-            kolonka.addEventListener('change', () => {              // kdykoliv se něco změní v kolonkách typu nebo výše daru
-
-                const kolonkaPrilohaDar = n.kolonkaDarovaciSmlouva
-
-                if (!p.vyseDaru && !p.typDaru) {                        // pokud v dané chvíli není vůbec nic vyplněno ani ve výši daru ani v typu daru
-                    n.disableKolonka(kolonkaPrilohaDar, true)
-                } else {
-                    n.disableKolonka(kolonkaPrilohaDar, false)              // pokud v dané chvíli je vyplněna nějaká výše nebo typ daru, kolonka bude povinná
-                    this.vypisVyhodnoceniFormulareNalezitostiOddluzeni()    // což musíme ihned zohlednit ve výpisu vyhodncoení náelžitostí oddlužení
-                }
-            })
-        }      
-
-
-        for (const kolonka of [v.kolonkaMesicniVyzivne, v.kolonkaDluzneVyzivne]){     
-            
-            kolonka.addEventListener('change', () => {              // kdykoliv se něco změní v kolonkách typu nebo výše daru
-
-                const kolonkaPrilohaVyzivne = n.kolonkaRozsudekOVyzivnem
-                
-                if (!v.mesicniVyzivne && !v.dluzneVyzivne) {                        // pokud v dané chvíli není vůbec nic vyplněno ani ve výši daru ani v typu daru
-                    n.disableKolonka(kolonkaPrilohaVyzivne, true)
-                } else {
-                    n.disableKolonka(kolonkaPrilohaVyzivne, false)              // pokud v dané chvíli je vyplněna nějaká výše nebo typ daru, kolonka bude povinná
-                    this.vypisVyhodnoceniFormulareNalezitostiOddluzeni()    // což musíme ihned zohlednit ve výpisu vyhodncoení náelžitostí oddlužení
-                }
-            })
-        }  
-
-
-
+        // a později je budeme volat tehdy, když se změní kterákoliv z relvantních kolonek
+        this._nastavReakci([this.p.kolonkaVyseDaru, this.p.kolonkaTypDaru], potrebaDisableDaru)
+        this._nastavReakci([this.v.kolonkaMesicniVyzivne, this.v.kolonkaDluzneVyzivne], potrebaDisableVyzivne)
     }
 
 
+    _nastavReakci(zpusobileOvlivnit, callback){
+        // nastaví množině kolonek change event listener, který spustí zadaný callback
+        for (const ovlivnitel of zpusobileOvlivnit){
+            ovlivnitel.addEventListener('change',() => callback())
+        }
+    }
     
 
-    // proverPotrebuDisabled(kolonka, podminka){
-    //     if (podminka){
-    //         this.formularNalezitostiOddluzeni.disableKolonka(kolonka,true)
-    //     } else{
-    //         this.formularNalezitostiOddluzeni.disableKolonka(kolonka,true)
-    //         this.vypisVyhodnoceniFormulareNalezitostiOddluzeni()    // což musíme ihned zohlednit ve výpisu vyhodncoení náelžitostí oddlužení
-    //     }
-    // }
+    proverPotrebuDisabled(kolonka, podminka){
+        // metoda podle boolean vyhodnoceni podminky buďto řekne formuláří náležitostí, ať si zadanou kolonku deaktivuje
+        // anebo naopak aktivuje
+
+        if (podminka){
+            this.n.disableKolonka(kolonka,true)
+        } else{
+            this.n.disableKolonka(kolonka,false)                    // deaktivace disabled = kolonka je nyní povinná
+            this.vypisVyhodnoceniFormulareNalezitostiOddluzeni()    // což musíme ihned zohlednit ve výpisu vyhodncoení náelžitostí oddlužení
+        }
+    }
   
-
-
-    // nastavDisableDlePodminky(zpusobileOvlivnit, ovlivneny, podminka){
-
-    //     for (const ovlivnovac of zpusobileOvlivnit){
-
-    //     }
-
-    // }
-    
-    // proverPotrebuBlokaceKolonky(){
-
-    // }
-    // zablkokovatKolonku(kolonka){
-    //     // Nastaví některou kolonku na 
-    //     kolonka.disabled = true               // tak kolonka náležitostí daru nepůjde ani vyplňovat
-    //     this.formularNalezitostiOddluzeni.vymazVolbu(kolonka)
-    // }
-
 
     vypisVyhodnoceniFormulareNalezitostiOddluzeni(){
         // do cílového divu vypíše text odpovídající vyhodnocení kolonek formuláře
@@ -132,7 +97,7 @@ class ManagerNalezitostiOddluzeni{
         // vyhodnotí vnitřní kolonky formuláře a vrátí stav reprezentovaný číslem
         // Vyhodnocení formuláře dle pevně daných pravidel (tato pravidla vyplývají přímo z insolvenčního zákona, jsou proto velmi hardcodová)
 
-        const f = this.formularNalezitostiOddluzeni     // pro lepší čitelnost uložíme referenci na formulář do jednopísmenné proměnné
+        const f = this.n     // pro lepší čitelnost uložíme referenci na formulář do jednopísmenné proměnné
 
         // Přednost má vada plné moci - nepřihlíží se a nelze napravit, ani se nemusíme dívat dál
         if (f._jeVadne(f.kolonkaPlneMoci)){
