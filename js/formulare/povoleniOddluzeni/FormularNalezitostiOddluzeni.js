@@ -152,7 +152,7 @@ class FormularOddluzeni{
 
     _jeNevyplnene(kolonka){
         // Vrací údaj o tom, zda daná kolonka je nevyplněná
-        return kolonka.value === this.optionPrazdne.VALUE
+        return (!kolonka.disabled && kolonka.value === this.optionPrazdne.VALUE)     // kolonka se považuje za nevyplněnou pouze pokud není deaktivovaná
     }
 
     _jeDiskutabilni(kolonka){

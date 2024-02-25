@@ -5,19 +5,22 @@ class FormularOddluzeniManager{
     // vůbec se však nestará o to, proč by to někdo chtěl vědět, a sám nic nedělá.
     // Pokyny k vyhodnocení mu zadává tento manžer, stejně tak jako vyvození důsledků takového vyhodnocení
 
-    constructor(){
+    constructor(formularNalezitostiOddluzeni, formularPrijmu, formularVyzivovanychOsob){
 
-        this.divVyhodnoceniFormulare = document.getElementById("div-vyhodnoceni-formulare")
+        this.formularNalezitostiOddluzeni = formularNalezitostiOddluzeni
+        this.formularPrijmu = formularPrijmu
+        this.formularVyzivovanychOsob = formularVyzivovanychOsob
 
-        this.formular = new FormularOddluzeni()
+        this.divVyhodnoceniFormulareNalezitostiOddluzeni = document.getElementById("div-vyhodnoceni-formulare-nalezitosti-oddluzeni")
+
         this._pridatUdalostVyhodnoceni()
     }
 
 
-    vypisVyhodnoceniFormulare(){
+    vypisVyhodnoceniFormulareNalezitostiOddluzeni(){
         // do cílového divu vypíše text odpovídající vyhodnocení kolonek formuláře
         
-        const cil = this.divVyhodnoceniFormulare 
+        const cil = this.divVyhodnoceniFormulareNalezitostiOddluzeni 
         
         const stavajiciHTML = cil.innerHTML
         const noveHTML = this.vyhodnotKolonky()
@@ -43,8 +46,8 @@ class FormularOddluzeniManager{
         // ke každé kolonce formuláře se přidá další change event listener.
         // právě ten přepíše text vyhodnocení formuláře při jakékoliv změně
 
-        for (const kolonka of this.formular.vsechnyKolonky){
-            kolonka.addEventListener('change', () => this.vypisVyhodnoceniFormulare())
+        for (const kolonka of this.formularNalezitostiOddluzeni.vsechnyKolonky){
+            kolonka.addEventListener('change', () => this.vypisVyhodnoceniFormulareNalezitostiOddluzeni())
         }
 
     }
@@ -54,7 +57,7 @@ class FormularOddluzeniManager{
         // vyhodnotí vnitřní kolonky formuláře a vrátí stav reprezentovaný číslem
         // Vyhodnocení formuláře dle pevně daných pravidel (tato pravidla vyplývají přímo z insolvenčního zákona, jsou proto velmi hardcodová)
 
-        const f = this.formular     // pro lepší čitelnost uložíme referenci na formulář do jednopísmenné proměnné
+        const f = this.formularNalezitostiOddluzeni     // pro lepší čitelnost uložíme referenci na formulář do jednopísmenné proměnné
 
         // Přednost má vada plné moci - nepřihlíží se a nelze napravit, ani se nemusíme dívat dál
         if (f._jeVadne(f.kolonkaPlneMoci)){
