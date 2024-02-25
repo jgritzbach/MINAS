@@ -22,11 +22,11 @@ class ManagerSrazek{
         // ke každé relevantní kolonce formuláře příjmů nebo vyživovacích povinností se přidá další change event listener.
         // právě ten zavolá přepočet srážek při jakékoliv změně
 
-        const fPrijmy = this.formularPrijmu
-        const fVyziv = this.formularVyzivovacichPovinnosti
+        const p = this.formularPrijmu
+        const v = this.formularVyzivovacichPovinnosti
 
         // Zde určíme, které kolonky jsou způsobilé vyvolat přepis textového výsledku
-        const cile = [... fPrijmy.vsechnyKolonkyVysePrijmu, fPrijmy.kolonkaVyseDaru, fPrijmy.kolonkaTypDaru, ...fVyziv.vsechnyKolonky]      // přepis textu vyvolá i změna typu daru, protože jeho označení se pormítá do textu
+        const cile = [... p.vsechnyKolonkyVysePrijmu, p.kolonkaVyseDaru, p.kolonkaTypDaru, ...v.vsechnyKolonky]      // přepis textu vyvolá i změna typu daru, protože jeho označení se promítá do textu
 
         for (const kolonka of cile){
             kolonka.addEventListener('change', () => this._vypisVyhodnoceniPrijmu())
@@ -45,7 +45,7 @@ class ManagerSrazek{
         const p = this.formularPrijmu
         const v = this.formularVyzivovacichPovinnosti
 
-        const prijmy = p.getSoucetVlastnichPrijmu
+        const prijmy = p.SoucetVlastnichPrijmu
         const osoby = v.pocetOsob
         const srazka = vypocetSrazek.vypocitatSrazku(prijmy, osoby)     // díky uložení výše srážky do mezivýpočtu ušetříme jeden výpočet navíc - výpočet srážek provádí samostatná třída (nástroj)
         const zustatek = prijmy - srazka
