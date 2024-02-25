@@ -123,13 +123,7 @@ main{
     padding: 10px;
     transition: 0.5s;
     text-align: justify;
-    background-color: rgb(237, 255, 233);       /* světlounce zelená */
     background-color: rgb(243, 245, 247);  
-    
-    /* background-color: rgb(75, 182, 75); */
-     /* background-color: rgb(15, 172, 15); */
-    
-    /* background-color: rgb rgb(243, 245, 247); */
     border-radius: 10px;
     height:fit-content;
     max-width: 500px;
@@ -174,8 +168,6 @@ main{
 .formular{
     max-width: 500px;
     background-color: rgb(225, 225, 200);
-    
-    /* background-color: rgb(215, 205, 220);         bledě modrá alternativa */
     border-radius: 10px;
     padding: 10px;
 }
@@ -209,7 +201,10 @@ main{
     margin-right: 4%;
     border-radius: 4px;
     background-color: white;
-    /* border: 1px solid rgb(110, 110, 110);        */
+}
+
+.formular select:disabled, input:disabled{
+    background-color: rgb(233, 235, 237);
 }
 
 .formular select{
@@ -231,16 +226,10 @@ option{
 }
 
 
-
-
 /* KONKRÉTNÍ FORMULÁŘE  */
 /* #formular-oddluzeni{
     max-width: 500px;
 } */
-
-
-
-
 
 
 /* ZÁPATÍ */
@@ -306,7 +295,7 @@ select[zaskrtnuti='vadne']{
 
 /* background-color: rgb(225, 245, 220);       světlounce zelená */
 /* background-color: rgb(243, 245, 247);        světle šedá*/
-
+/* background-color: rgb(215, 205, 220);         bledě modrá alternativa */
 
 /* VŠEOBECNÉ GRID a flexboxes*/
 .vertical-flex{         /* slouží k tomu, aby se v rámci grid "kratšího sloupce" zobrazovaly elementy odshora a dole nechaly volný prostor - grid sloupec by se jinak pokusil roztáhnout obsah po celé délce delšího sloupce */
