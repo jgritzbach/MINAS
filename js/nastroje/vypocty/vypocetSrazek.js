@@ -44,18 +44,19 @@ class vypocetSrazek{
             postihnoutPomerne = postizitelnaCastPrijmu      // jinak je celý postižitelný příjem postižitelný jen poměrně
         }
 
-        postihnoutPomerne = Math.floor(postihnoutPomerne / 3) * 3   // část příjmu postižitelná poměrně musí být zaokrouhlena dolů na číslo dělitelné třemi
+        const postihnoutPomerneZaokrouhleno = Math.floor(postihnoutPomerne / 3) * 3 
+        // postihnoutPomerne = Math.floor(postihnoutPomerne / 3) * 3   // část příjmu postižitelná poměrně musí být zaokrouhlena dolů na číslo dělitelné třemi
 
         // určení části příjmu, ze kterého lze strhnout úplně vše
         let postihnoutZcela     
         if (postihnoutPomerne < postizitelnaCastPrijmu){        // pokud jsou příjmy dlužníka vyšší, než kolik je strop poměrného postihování
-            postihnoutZcela = postizitelnaCastPrijmu - postihnoutPomerne    // pak tento přebytek už lze postihnout úplně celý (to už musí mít dlužník opravdu slušný příjem)
+            postihnoutZcela = (postizitelnaCastPrijmu - postihnoutPomerne).toFixed(2)    // pak tento přebytek už lze postihnout úplně celý (to už musí mít dlužník opravdu slušný příjem)
         } else {
             postihnoutZcela = 0                             // běžnější je, že dlužník se ke stropu ani neblíží a žádnou část příjmu proto nelze postihnout zcela
         }
         
         // konečná výše srážky
-        let realnaSrazka = (postihnoutPomerne * 2/3) + postihnoutZcela  // dvě třetiny z poměrně postižitelné části příjmu a všechno z plně postižitelné části příjmu - to je výsledná srážka
+        let realnaSrazka = (postihnoutPomerneZaokrouhleno * 2/3) + postihnoutZcela  // dvě třetiny z poměrně postižitelné části příjmu a všechno z plně postižitelné části příjmu - to je výsledná srážka
 
         return realnaSrazka        
     }

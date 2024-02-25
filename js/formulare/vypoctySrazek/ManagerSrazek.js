@@ -48,18 +48,33 @@ class ManagerSrazek{
         const prijmy = p.SoucetVlastnichPrijmu
         const osoby = v.pocetOsob
         const srazka = vypocetSrazek.vypocitatSrazku(prijmy, osoby)     // díky uložení výše srážky do mezivýpočtu ušetříme jeden výpočet navíc - výpočet srážek provádí samostatná třída (nástroj)
-        const zustatek = prijmy - srazka
+        let zustatek = prijmy - srazka
 
+        if (!Number.isInteger(zustatek)){        // pokud náhodou byla zadána nějaká desetinná čísla, projeví se to v zustatku
+            zustatek = zustatek.toFixed(2)      // a ten chceme zaokrouhlit na haléře
+        }
+        
         const prijmyZDaru = p.vyseDaru
         const celkovaSrazka = srazka + prijmyZDaru
 
         const pausalIS = 1089       // odměna a hotové výdaje insolvenčního správce vč. DPH
 
-        //text popisu zůstatku pro dlužníka
-        let text = `<p>Dlužníku z vlastních příjmů měsíčně zůstane ${zustatek} Kč.</p>`
+        let text = ""
 
-        // text popisu výše srážek z vlastních příjmů
-        text += `<p>Z vlastních příjmů dlužníka lze provést srážku: ${srazka} Kč.</p>`
+        // textový popis vlastníchy příjmů
+        if (prijmy > 0) {
+            text += `<p>Dlužníku z vlastních příjmů měsíčně zůstane ${zustatek} Kč.</p>`    //text popisu zůstatku pro dlužníka
+            
+            let textSrazky              // text popisu výše srážek z vlastních příjmů
+            if (srazka > 0){
+                textSrazky = `lze provést srážku ${srazka} Kč.`
+            } else {
+                textSrazky = `nelze provést žádnou srážku.`
+            }
+
+            text += `<p>Z vlastních příjmů dlužníka ${textSrazky}</p>`      
+
+        }
                       
         // text obohatíme o popis příjmů z daru, je-li nějaký
         if (prijmyZDaru){
