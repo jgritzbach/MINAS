@@ -235,7 +235,7 @@ option{
 
 /* ZÁPATÍ */
 footer{
-    background-color: rgb(15, 172, 15);
+    background-color: rgb(45, 152, 45);         
     display:flex;
     flex-direction: column;
     justify-content: space-between;
@@ -246,8 +246,6 @@ footer{
 
 #autor-copyright{
     padding: 10px;
-    background-image: linear-gradient(to bottom,rgb(75, 190, 75),rgb(15, 172, 15) );
-    background-color: rgb(75, 182, 75);
 }
 
 #disclaimer{
@@ -297,6 +295,7 @@ select[zaskrtnuti='vadne']{
 /* background-color: rgb(225, 245, 220);       světlounce zelená */
 /* background-color: rgb(243, 245, 247);        světle šedá*/
 /* background-color: rgb(215, 205, 220);         bledě modrá alternativa */
+/* background-color: rgb(45, 152, 45);              středně tmavá zelená*/
 
 /* VŠEOBECNÉ GRID a flexboxes*/
 .vertical-flex{         /* slouží k tomu, aby se v rámci grid "kratšího sloupce" zobrazovaly elementy odshora a dole nechaly volný prostor - grid sloupec by se jinak pokusil roztáhnout obsah po celé délce delšího sloupce */
