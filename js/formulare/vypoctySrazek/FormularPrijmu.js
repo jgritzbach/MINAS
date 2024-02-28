@@ -12,10 +12,6 @@ class FormularPrijmu{
     // vyplnění plátce příjmu nebude povinné
     // k dosazení zaměstavatele půjde časem využít AresApiClient - postačí IČO a dosadí se všechny údaje z ARES
     
-    
-
-
-    
     constructor(){
 
         this._nastavPovoleneVolby()                         // povolené volby jsou 'prázdné', 'v pořádku', 'diskutabilní' a 'vadné'
@@ -61,7 +57,6 @@ class FormularPrijmu{
     }
 
     
-
     _nastavKolonky(){
         // všem <select> kolonkám typu příjmu nastaví jako přípustné volby [mzda, zisk OSVČ, důchod atd...]
         // všem <input> kolonkám s výší příjmu nastaví reakci na změnu
@@ -81,6 +76,7 @@ class FormularPrijmu{
 
     }
 
+
     _nastavVolby(selectElement){
 
         // nastaví zadanému <select> jeho přípustné zaškrtávací <options>
@@ -97,7 +93,6 @@ class FormularPrijmu{
 
     }
     
-
 
     _nastavPovoleneVolby(){
 
@@ -162,7 +157,6 @@ class FormularPrijmu{
                            ] // hromadně v poli
 
     }
-
 
 
     _uchopKolonky(){
