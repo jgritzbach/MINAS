@@ -238,7 +238,7 @@ option{
 
 .zarovnat-vpravo{
     display: flex;
-    justify-content: right;
+    justify-content: center;
 }
 
 /* NÁPOVĚDA */
@@ -258,7 +258,7 @@ option{
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 15px;
-    margin: 7px;
+    margin: 7px 0;
 }
 
 .skryt-napovedu:hover {
