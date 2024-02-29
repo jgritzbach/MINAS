@@ -209,14 +209,14 @@ option{
 
 
 
-/* OBLASTI S HLAVNÍM OBSAHEM */
+/* OBLASTI S VÝPISEM TEXTU */
 
 
 .oblast-vypisu{
     padding: 10px;
     transition: 0.5s;
     text-align: justify;
-    background-color: rgb(243, 245, 247);  
+    background-color: rgb(235, 235, 235);  
     border-radius: 10px;
     height:fit-content;
     max-width: 500px;
@@ -227,12 +227,52 @@ option{
 }
 
 .vypis-ve-formulari{
+    background-color: rgb(245, 245, 245);  
     padding: 0.3em;
 }
 
 .vypis-ve-formulari p{
     font-size: 0.75em;
     margin: 0.4em 0.2em;
+}
+
+.zarovnat-vpravo{
+    display: flex;
+    justify-content: right;
+}
+
+/* NÁPOVĚDA */
+.label-napoveda{
+    cursor: pointer;
+}
+
+.label-napoveda:hover{
+    text-decoration: underline;
+    transition: text 0.25s;
+}
+
+.skryt-napovedu{
+    background-color: rgb(195, 195, 195); 
+    color: rgb(80, 80, 80);
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin: 7px;
+}
+
+.skryt-napovedu:hover {
+    background-color: rgb(165, 165, 165);
+    transition: all 0.25s;
+}
+
+.skryt-napovedu-sipka{
+    position: relative;
+    top: 3px;
+    font-size: 1em;
+    transform: scaleX(1.5);
+    display: inline-block;
+    margin-left: 4px;
 }
 
 /* ZÁPATÍ */
