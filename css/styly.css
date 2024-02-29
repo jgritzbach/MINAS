@@ -115,24 +115,10 @@ header nav ul li a:hover{
 
 
 /* OBLASTI S HLAVNÍM OBSAHEM */
+
 main{
     margin-top: 10px;
 }
-
-.oblast-vypisu{
-    padding: 10px;
-    transition: 0.5s;
-    text-align: justify;
-    background-color: rgb(243, 245, 247);  
-    border-radius: 10px;
-    height:fit-content;
-    max-width: 500px;
-}
-
-.oblast-vypisu p{
-    margin: 5px 0 15px 0;
-}
-
 
 #hlavni-obsah-stranky{
     margin: auto;
@@ -153,15 +139,11 @@ main{
     }
 }
 
-
 .layout-o-projektu{
     display:flex;
     flex-direction: column;
     align-items: center;
 }
-
-
-
 
 /* FORMULÁŘE OBECNĚ */
 
@@ -171,7 +153,6 @@ main{
     border-radius: 10px;
     padding: 10px;
 }
-
 
 .formular h3{
     text-align: center;
@@ -227,11 +208,32 @@ option{
 }
 
 
-/* KONKRÉTNÍ FORMULÁŘE  */
-/* #formular-oddluzeni{
-    max-width: 500px;
-} */
 
+/* OBLASTI S HLAVNÍM OBSAHEM */
+
+
+.oblast-vypisu{
+    padding: 10px;
+    transition: 0.5s;
+    text-align: justify;
+    background-color: rgb(243, 245, 247);  
+    border-radius: 10px;
+    height:fit-content;
+    max-width: 500px;
+}
+
+.oblast-vypisu p{
+    margin: 5px 0 15px 0;
+}
+
+.vypis-ve-formulari{
+    padding: 0.3em;
+}
+
+.vypis-ve-formulari p{
+    font-size: 0.75em;
+    margin: 0.4em 0.2em;
+}
 
 /* ZÁPATÍ */
 footer{
