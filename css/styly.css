@@ -236,11 +236,6 @@ option{
     margin: 0.4em 0.2em;
 }
 
-.zarovnat-vpravo{
-    display: flex;
-    justify-content: center;
-}
-
 /* NÁPOVĚDA */
 .label-napoveda{
     cursor: pointer;
@@ -251,7 +246,12 @@ option{
     transition: text 0.25s;
 }
 
-.skryt-napovedu{
+.div-skryt-napovedu{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-skryt-napovedu{
     background-color: rgb(195, 195, 195); 
     color: rgb(80, 80, 80);
     color: white;
@@ -261,12 +261,12 @@ option{
     margin: 7px 0;
 }
 
-.skryt-napovedu:hover {
+.btn-skryt-napovedu:hover {
     background-color: rgb(165, 165, 165);
     transition: all 0.25s;
 }
 
-.skryt-napovedu-sipka{
+.btn-skryt-napovedu-sipka{
     position: relative;
     top: 3px;
     font-size: 1em;
