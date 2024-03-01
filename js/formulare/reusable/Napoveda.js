@@ -19,6 +19,12 @@ class Napoveda{
         return this.divNapovedy
     }
 
+    get jeSkryte(){
+
+        const display = this.divNapovedy.style.display
+        return display === "none"
+    }
+
     skryjSe(){
         // celý svůj hlavní div schová
         this.divNapovedy.style.display = 'none'
@@ -33,7 +39,11 @@ class Napoveda{
 
         element.addEventListener('click', (event) =>{
             event.preventDefault()
-            this.ukazSe()
+            if (this.jeSkryte){
+                this.ukazSe()
+            } else {
+                this.skryjSe()
+            }
         })
     }
 
