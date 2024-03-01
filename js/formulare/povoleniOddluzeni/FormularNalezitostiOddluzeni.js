@@ -6,9 +6,11 @@ class FormularOddluzeni{
 
     constructor(){
 
-        this._nastavPovoleneVolby()                         // povolené volby jsou 'prázdné', 'v pořádku', 'diskutabilní' a 'vadné'
-        this._uchopKolonky()                                // uchopíme všechny elementy <select> k vyplnění
-        this._nastavKolonky()                               // a nastavíme jim vše potřebné
+        this._uchopPolozky()                     // uchopíme všechny položky - obecné divy, kde je kolonka, label i kontejner pro nápovědu
+        this._uchopKolonky()                     // v rámci položek uchopíme samostatně takéjenom položky 
+
+        this._nastavPovoleneVolby()              // v rámci zaškrtávacích <selectů> jsou povolené volby 'prázdné', 'v pořádku', 'diskutabilní' a 'vadné'
+        this._nastavKolonky()                    // kolonkám nastavíme povolené volby a reakce na ně
     }
 
 
@@ -23,30 +25,57 @@ class FormularOddluzeni{
 
     }
 
-    _uchopKolonky(){
+    _uchopPolozky(){
         
-        // na stránce uchopí patřičné kolonky (elementy <select>) dle jejich id a uloží je do vnitřních proměnných formuláře
+    // na stránce uchopí dle jejich id patřičné položky -> divy, které někde uvnitř sebe mají kolonku (elementy <select>), label a kontejner pro nápovědu
 
         // Obecné náležitosti
-        this.kolonkaPlneMoci = document.getElementById("kolonka-nalezitosti-plne-moci")
-        this.kolonkaFormaPodani = document.getElementById("kolonka-nalezitosti-formy-podani")
-        this.kolonkaTvrzeniOUpadku = document.getElementById("kolonka-tvrzeni-o-upadku")
-        this.kolonkaMistniPrislusnost = document.getElementById("kolonka-mistni-prislusnost")
+        this.polozkaPlneMoci = new PolozkaFormulare("nalezitosti-plne-moci")
+        this.polozkaFormaPodani = new PolozkaFormulare("nalezitosti-formy-podani")
+        this.polozkaTvrzeniOUpadku = new PolozkaFormulare("tvrzeni-o-upadku")
+        this.polozkaMistniPrislusnost = new PolozkaFormulare("mistni-prislusnost")
 
         // Přílohy insolvenčního návrhu
-        this.kolonkaSeznamMajetku = document.getElementById("kolonka-seznam-majetku")
-        this.kolonkaSeznamZamestnancu = document.getElementById("kolonka-seznam-zamestnancu")
-        this.kolonkaListinyDokladajiciUpadek = document.getElementById("kolonka-listiny-dokladajici-upadek")
+        this.polozkaSeznamMajetku = new PolozkaFormulare("seznam-majetku")
+        this.polozkaSeznamZamestnancu = new PolozkaFormulare("seznam-zamestnancu")
+        this.polozkaListinyDokladajiciUpadek = new PolozkaFormulare("listiny-dokladajici-upadek")
 
         // Přílohy návrhu na povolení oddlužení
-        this.kolonkaProhlaseniOPouceni = document.getElementById("kolonka-prohlaseni-o-pouceni")
-        this.kolonkaSoucasnePrijmy = document.getElementById("kolonka-priloha-soucasne-prijmy")
-        this.kolonkaMinulePrijmy = document.getElementById("kolonka-prijmy-za-12-mesicu")
-        // this.kolonkaProhlaseniManzeluOMajetku = document.getElementById("kolonka-prohlaseni-manzelu-o-majetku")      Dočasně vypnuto, dokud nebude zapracována i varianta pro manžela
+        this.polozkaProhlaseniOPouceni = new PolozkaFormulare("prohlaseni-o-pouceni")
+        this.polozkaSoucasnePrijmy = new PolozkaFormulare("priloha-soucasne-prijmy")
+        this.polozkaMinulePrijmy = new PolozkaFormulare("prijmy-za-12-mesicu")
+        // this.polozkaProhlaseniManzeluOMajetku = new PolozkaFormulare("prohlaseni-manzelu-o-majetku")      Dočasně vypnuto, dokud nebude zapracována i varianta pro manžela
 
         // Další přílohy
-        this.kolonkaDarovaciSmlouva = document.getElementById("kolonka-priloha-darovaci-smlouva")
-        this.kolonkaRozsudekOVyzivnem = document.getElementById("kolonka-priloha-rozsudek-o-vyzivnem")
+        this.polozkaDarovaciSmlouva = new PolozkaFormulare("priloha-darovaci-smlouva")
+        this.polozkaRozsudekOVyzivnem = new PolozkaFormulare("priloha-rozsudek-o-vyzivnem")
+
+    }
+
+    _uchopKolonky(){
+        
+        // ze vše svých položek vytahá kolonky, protože se s nimi velice často pracuje samostatně, v cyklech, a dotazy z cizích objektů
+
+        // Obecné náležitosti
+        this.kolonkaPlneMoci = this.polozkaPlneMoci.kolonka
+        this.kolonkaFormaPodani = this.polozkaFormaPodani.kolonka 
+        this.kolonkaTvrzeniOUpadku = this.polozkaTvrzeniOUpadku.kolonka
+        this.kolonkaMistniPrislusnost = this.polozkaMistniPrislusnost.kolonka
+
+        // Přílohy insolvenčního návrhu
+        this.kolonkaSeznamMajetku = this.polozkaSeznamMajetku.kolonka
+        this.kolonkaSeznamZamestnancu = this.polozkaSeznamZamestnancu.kolonka
+        this.kolonkaListinyDokladajiciUpadek = this.polozkaListinyDokladajiciUpadek.kolonka
+
+        // Přílohy návrhu na povolení oddlužení
+        this.kolonkaProhlaseniOPouceni = this.polozkaProhlaseniOPouceni.kolonka
+        this.kolonkaSoucasnePrijmy = this.polozkaSoucasnePrijmy.kolonka
+        this.kolonkaMinulePrijmy = this.polozkaMinulePrijmy.kolonka
+        // this.kolonkaProhlaseniManzeluOMajetku = this.polozkaProhlaseniManzeluOMajetku.kolonka      Dočasně vypnuto, dokud nebude zapracována i varianta pro manžela
+
+        // Další přílohy
+        this.kolonkaDarovaciSmlouva = this.polozkaDarovaciSmlouva.kolonka
+        this.kolonkaRozsudekOVyzivnem = this.polozkaRozsudekOVyzivnem.kolonka
 
         // Logické Seskupení některých kolonek
         this.vsechnyKolonky = [
