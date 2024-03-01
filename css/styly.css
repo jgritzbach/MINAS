@@ -229,13 +229,11 @@ option{
 .vypis-ve-formulari{        /* Oblast výpisu uvnitř formuláře bude zpravidal vypadat trochu jinak než mimo formulář - bude mít asi menší písmo a více na sebe nalepené  */
     background-color: rgb(245, 245, 245);  
     padding: 0;
-    /* background-color: red; */
+    font-size: 0.75em;
 }
 
-.vypis-ve-formulari p{
-    font-size: 0.75em;
+.vypis-ve-formulari p, li{
     margin: 0.7em 0.3em;
-
 }
 
 /* NÁPOVĚDA */
@@ -244,11 +242,11 @@ option{
 }
 
 .zobrazovac-napovedy{
-    cursor: pointer;
     text-decoration: underline;
 }
 
 .zobrazovac-napovedy:hover{
+    cursor: pointer;
     text-decoration: none;
     transition: text 0.25s;
 }
@@ -280,6 +278,17 @@ option{
     transform: scaleX(1.5);
     display: inline-block;
     margin-left: 4px;
+}
+
+
+.napoveda ol{
+    padding-left: 1em;
+    list-style-position: inside;
+    list-style-type: lower-roman;
+}
+
+.napoveda ol li p{
+    display: inline;
 }
 
 /* ZÁPATÍ */

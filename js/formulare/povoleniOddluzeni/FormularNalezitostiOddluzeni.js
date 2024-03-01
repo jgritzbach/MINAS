@@ -55,7 +55,7 @@ class FormularOddluzeni{
         this.vsechnyPolozky = [
             this.polozkaPlneMoci,
             this.polozkaFormaPodani,
-            // this.polozkaTvrzeniOUpadku,
+            this.polozkaTvrzeniOUpadku,
             // this.polozkaMistniPrislusnost,
 
             // this.polozkaSeznamMajetku,
