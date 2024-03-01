@@ -226,23 +226,30 @@ option{
     margin: 5px 0 15px 0;
 }
 
-.vypis-ve-formulari{
+.vypis-ve-formulari{        /* Oblast výpisu uvnitř formuláře bude zpravidal vypadat trochu jinak než mimo formulář - bude mít asi menší písmo a více na sebe nalepené  */
     background-color: rgb(245, 245, 245);  
-    padding: 0.3em;
+    padding: 0;
+    /* background-color: red; */
 }
 
 .vypis-ve-formulari p{
     font-size: 0.75em;
-    margin: 0.4em 0.2em;
+    margin: 0.7em 0.3em;
+
 }
 
 /* NÁPOVĚDA */
 .label-napoveda{
     cursor: pointer;
+    text-decoration: underline;
+}
+
+.napoveda{
+    padding: 5px;
 }
 
 .label-napoveda:hover{
-    text-decoration: underline;
+    text-decoration: none;
     transition: text 0.25s;
 }
 

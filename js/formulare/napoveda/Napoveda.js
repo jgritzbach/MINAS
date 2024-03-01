@@ -36,7 +36,7 @@ class Napoveda{
         const element = document.createElement("div")
 
         element.classList.add('napoveda')
-        element.classList.add('oblast-vypisu')
+        // element.classList.add('oblast-vypisu')
 
         element.innerHTML = this.htmlNapovedy
                                     
