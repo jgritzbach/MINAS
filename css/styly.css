@@ -239,16 +239,16 @@ option{
 }
 
 /* NÁPOVĚDA */
-.label-napoveda{
-    cursor: pointer;
-    text-decoration: underline;
-}
-
 .napoveda{
     padding: 5px;
 }
 
-.label-napoveda:hover{
+.zobrazovac-napovedy{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.zobrazovac-napovedy:hover{
     text-decoration: none;
     transition: text 0.25s;
 }

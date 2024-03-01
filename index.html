@@ -61,10 +61,11 @@
                         <!-- Plná moc -->
                         <div class="polozka-formulare">
                             <div class="radek-formulare">
-                                <select id="nalezitosti-plne-moci" class="zaskrtavaci-volba"></select>
-                                <label for="nalezitosti-plne-moci" class="label-napoveda">Náležitosti plné moci</label>
+                                <select id="kolonka-nalezitosti-plne-moci" class="zaskrtavaci-volba"></select>
+                                <label for="kolonka-nalezitosti-plne-moci" class="zobrazovac-napovedy">Náležitosti plné moci</label>
                             </div>
-                            <div class="oblast-vypisu vypis-ve-formulari">
+                            <div class="oblast-vypisu vypis-ve-formulari kontejner-napovedy"> <!-- je vhodné mít nápovědu v samostatném divu, který je výpisem, protože ne každá nápověda nutně bude muset být takovým výpisem -->
+                                
                                 <!-- <div class="napoveda">
                                     <p>Aby mohl zpracovatel za dlužníka sepsat a podat návrh na povolení oddlužení, potřebuje k tomu od dlužníka <strong>plnou moc</strong>, kterou je pak povinen zaslat soudu spolu se samotným návrhem. Insolvenční zákon klade na plnou moc pro účely zahájení řízení přísné požadavky.</p>
                                     <p>Plná moc je jednostranný právní úkon, který musí dlužník učinit <em>písemně</em> a podepsat jej. Insolvenční zákon dále vyžaduje, aby tento podpis byl <strong>úředně ověřen</strong> (tj. byl opatřen tzv. <em>doložkou legalizace</em>). Toto ověření může provést například obecní úřad nebo pošta.</p>
@@ -81,8 +82,8 @@
                         <!-- Forma podání -->
                         <div class="polozka-formulare" >
                             <div class="radek-formulare">
-                                <select id="nalezitosti-formy-podani" class="zaskrtavaci-volba"></select>
-                                <label for="nalezitosti-formy-podani" class="label-napoveda" id="zobrazovatel-napovedy">Náležitosti formy podání</label>
+                                <select id="kolonka-nalezitosti-formy-podani" class="zaskrtavaci-volba"></select>
+                                <label for="kolonka-nalezitosti-formy-podani" class="zobrazovac-napovedy" id="zobrazovatel-napovedy">Náležitosti formy podání</label>
                             </div>
                             <div class="oblast-vypisu vypis-ve-formulari" id="zde-napoveda">
                             
@@ -91,14 +92,14 @@
 
                         <!-- Tvrzení o úpadku -->
                         <div class="radek-formulare">
-                            <select id="tvrzeni-o-upadku" class="zaskrtavaci-volba"></select>
-                            <label for="tvrzeni-o-upadku" class="label-napoveda">Tvrzení o úpadku</label>
+                            <select id="kolonka-tvrzeni-o-upadku" class="zaskrtavaci-volba"></select>
+                            <label for="kolonka-tvrzeni-o-upadku" class="zobrazovac-napovedy">Tvrzení o úpadku</label>
                         </div>
 
                         <!-- Místní příslušnost -->
                         <div class="radek-formulare">
-                            <select id="mistni-prislusnost" class="zaskrtavaci-volba"></select>
-                            <label for="mistni-prislusnost" class="label-napoveda">Místní příslušnost</label>
+                            <select id="kolonka-mistni-prislusnost" class="zaskrtavaci-volba"></select>
+                            <label for="kolonka-mistni-prislusnost" class="zobrazovac-napovedy">Místní příslušnost</label>
                         </div>
 
                     </fieldset>
@@ -109,20 +110,20 @@
 
                         <!-- Seznam majetku -->
                         <div class="radek-formulare">
-                            <select id="seznam-majetku" class="zaskrtavaci-volba"></select>
-                            <label for="seznam-majetku" class="label-napoveda">Seznam majetku</label>
+                            <select id="kolonka-seznam-majetku" class="zaskrtavaci-volba"></select>
+                            <label for="kolonka-seznam-majetku" class="zobrazovac-napovedy">Seznam majetku</label>
                         </div>
 
                         <!-- Seznam zaměstnanců -->
                         <div class="radek-formulare">
-                            <select id="seznam-zamestnancu" class="zaskrtavaci-volba"></select>
-                            <label for="seznam-zamestnancu" class="label-napoveda">Seznam zaměstnanců</label>
+                            <select id="kolonka-seznam-zamestnancu" class="zaskrtavaci-volba"></select>
+                            <label for="kolonka-seznam-zamestnancu" class="zobrazovac-napovedy">Seznam zaměstnanců</label>
                         </div>
 
                         <!-- Listiny dokládající úpadek -->
                         <div class="radek-formulare">
-                            <select id="listiny-dokladajici-upadek" class="zaskrtavaci-volba"></select>
-                            <label for="listiny-dokladajici-upadek" class="label-napoveda">Listiny dokládající úpadek</label>
+                            <select id="kolonka-listiny-dokladajici-upadek" class="zaskrtavaci-volba"></select>
+                            <label for="kolonka-listiny-dokladajici-upadek" class="zobrazovac-napovedy">Listiny dokládající úpadek</label>
                         </div>
 
                     </fieldset>
@@ -133,28 +134,28 @@
                     
                         <!-- Čestné prohlášení o poučení o povinnostech -->
                         <div class="radek-formulare">
-                            <select id="prohlaseni-o-pouceni" class="zaskrtavaci-volba"></select>
-                            <label for="prohlaseni-o-pouceni" class="label-napoveda">Čestné prohlášení o poučení o povinnostech</label>
+                            <select id="kolonka-prohlaseni-o-pouceni" class="zaskrtavaci-volba"></select>
+                            <label for="kolonka-prohlaseni-o-pouceni" class="zobrazovac-napovedy">Čestné prohlášení o poučení o povinnostech</label>
                         </div>
 
                         <!-- Důkaz o současném příjmu -->
                         <div class="radek-formulare">
-                            <select id="priloha-soucasne-prijmy" class="zaskrtavaci-volba"></select>
-                            <label for="priloha-soucasne-prijmy" class="label-napoveda">Důkaz o současných příjmech</label>
+                            <select id="kolonka-priloha-soucasne-prijmy" class="zaskrtavaci-volba"></select>
+                            <label for="kolonka-priloha-soucasne-prijmy" class="zobrazovac-napovedy">Důkaz o současných příjmech</label>
                         </div>
 
                         <!-- Důkaz o příjmech za posledních 12 měsíců -->
                         <div class="radek-formulare">
-                            <select id="prijmy-za-12-mesicu" class="zaskrtavaci-volba"></select>
-                            <label for="prijmy-za-12-mesicu" class="label-napoveda">Důkaz o příjmech za posledních 12 měsíců</label>
+                            <select id="kolonka-prijmy-za-12-mesicu" class="zaskrtavaci-volba"></select>
+                            <label for="kolonka-prijmy-za-12-mesicu" class="zobrazovac-napovedy">Důkaz o příjmech za posledních 12 měsíců</label>
                         </div>
 
                         <!-- Dočasně vypnuto, dokud nebude zapracována i varianta pro manžela -->
 
                         <!-- Souhlasné prohlášení manželů o majetku - úředně ověřené podpisy                    
                         <div class="radek-formulare">
-                            <select id="prohlaseni-manzelu-o-majetku" class="zaskrtavaci-volba"></select>
-                            <label for="prohlaseni-manzelu-o-majetku">Prohlášení manželů o majetku</label>
+                            <select id="kolonka-prohlaseni-manzelu-o-majetku" class="zaskrtavaci-volba"></select>
+                            <label for="kolonka-prohlaseni-manzelu-o-majetku">Prohlášení manželů o majetku</label>
                         </div> -->      
                         
 
@@ -166,14 +167,14 @@
 
                         <!-- Darovací smlouva / smlouva o důchodu -->
                         <div class="radek-formulare">
-                            <select id="priloha-darovaci-smlouva" class="zaskrtavaci-volba"></select>
-                            <label for="priloha-darovaci-smlouva" class="label-napoveda">Darovací smlouva / smlouva o důchodu</label>
+                            <select id="kolonka-priloha-darovaci-smlouva" class="zaskrtavaci-volba"></select>
+                            <label for="kolonka-priloha-darovaci-smlouva" class="zobrazovac-napovedy">Darovací smlouva / smlouva o důchodu</label>
                         </div>
 
                         <!-- Rozsudek soudu o výživném -->
                         <div class="radek-formulare">
-                            <select id="priloha-rozsudek-o-vyzivnem" class="zaskrtavaci-volba"></select>
-                            <label for="priloha-rozsudek-o-vyzivnem" class="label-napoveda">Rozsudek soudu o výživném</label>
+                            <select id="kolonka-priloha-rozsudek-o-vyzivnem" class="zaskrtavaci-volba"></select>
+                            <label for="kolonka-priloha-rozsudek-o-vyzivnem" class="zobrazovac-napovedy">Rozsudek soudu o výživném</label>
                         </div>
 
                     </fieldset>

@@ -28,25 +28,25 @@ class FormularOddluzeni{
         // na stránce uchopí patřičné kolonky (elementy <select>) dle jejich id a uloží je do vnitřních proměnných formuláře
 
         // Obecné náležitosti
-        this.kolonkaPlneMoci = document.getElementById("nalezitosti-plne-moci")
-        this.kolonkaFormaPodani = document.getElementById("nalezitosti-formy-podani")
-        this.kolonkaTvrzeniOUpadku = document.getElementById("tvrzeni-o-upadku")
-        this.kolonkaMistniPrislusnost = document.getElementById("mistni-prislusnost")
+        this.kolonkaPlneMoci = document.getElementById("kolonka-nalezitosti-plne-moci")
+        this.kolonkaFormaPodani = document.getElementById("kolonka-nalezitosti-formy-podani")
+        this.kolonkaTvrzeniOUpadku = document.getElementById("kolonka-tvrzeni-o-upadku")
+        this.kolonkaMistniPrislusnost = document.getElementById("kolonka-mistni-prislusnost")
 
         // Přílohy insolvenčního návrhu
-        this.kolonkaSeznamMajetku = document.getElementById("seznam-majetku")
-        this.kolonkaSeznamZamestnancu = document.getElementById("seznam-zamestnancu")
-        this.kolonkaListinyDokladajiciUpadek = document.getElementById("listiny-dokladajici-upadek")
+        this.kolonkaSeznamMajetku = document.getElementById("kolonka-seznam-majetku")
+        this.kolonkaSeznamZamestnancu = document.getElementById("kolonka-seznam-zamestnancu")
+        this.kolonkaListinyDokladajiciUpadek = document.getElementById("kolonka-listiny-dokladajici-upadek")
 
         // Přílohy návrhu na povolení oddlužení
-        this.kolonkaProhlaseniOPouceni = document.getElementById("prohlaseni-o-pouceni")
-        this.kolonkaSoucasnePrijmy = document.getElementById("priloha-soucasne-prijmy")
-        this.kolonkaMinulePrijmy = document.getElementById("prijmy-za-12-mesicu")
-        // this.kolonkaProhlaseniManzeluOMajetku = document.getElementById("prohlaseni-manzelu-o-majetku")      Dočasně vypnuto, dokud nebude zapracována i varianta pro manžela
+        this.kolonkaProhlaseniOPouceni = document.getElementById("kolonka-prohlaseni-o-pouceni")
+        this.kolonkaSoucasnePrijmy = document.getElementById("kolonka-priloha-soucasne-prijmy")
+        this.kolonkaMinulePrijmy = document.getElementById("kolonka-prijmy-za-12-mesicu")
+        // this.kolonkaProhlaseniManzeluOMajetku = document.getElementById("kolonka-prohlaseni-manzelu-o-majetku")      Dočasně vypnuto, dokud nebude zapracována i varianta pro manžela
 
         // Další přílohy
-        this.kolonkaDarovaciSmlouva = document.getElementById("priloha-darovaci-smlouva")
-        this.kolonkaRozsudekOVyzivnem = document.getElementById("priloha-rozsudek-o-vyzivnem")
+        this.kolonkaDarovaciSmlouva = document.getElementById("kolonka-priloha-darovaci-smlouva")
+        this.kolonkaRozsudekOVyzivnem = document.getElementById("kolonka-priloha-rozsudek-o-vyzivnem")
 
         // Logické Seskupení některých kolonek
         this.vsechnyKolonky = [
