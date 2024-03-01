@@ -10,6 +10,7 @@ class Napoveda{
         
         this.tlacitkoSkryt = this._vytvorTlacitkoSkryt()       // tlačítko existuje jako samostatný objekt pro to, aby mu šly předávat event listenery a callbacky
         this.divNapovedy = this._vytvorElementNapovedy()
+        this.skryjSe()
 
     }
 
@@ -27,6 +28,14 @@ class Napoveda{
         this.divNapovedy.style.display = 'block'
     }
 
+    nastavZobrazovatele(element){
+        // předaný element se stane tím, kdo způsobí zobrazení nápovědy
+
+        element.addEventListener('click', (event) =>{
+            event.preventDefault()
+            this.ukazSe()
+        })
+    }
 
     _vytvorElementNapovedy(){
         // vytvoří html element nápovědy
