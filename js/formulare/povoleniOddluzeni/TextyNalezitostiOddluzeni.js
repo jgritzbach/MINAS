@@ -17,12 +17,14 @@ class TextyNalezitostiOddluzeni{
             <p>To zaručuje shodu elektronického dokumentu s původním listinným originálem. Vůči soudu je tak prokázáno, že ověřovací doložka legalizace nebyla do elektronického souboru s plnou mocí vložena např. úpravou dokumentu jako obrázku.</p>
             <p>Pro platnost doložky o konverzi je dále nezbytné, aby byl výstup z konverze opatřen <em>kvalifikovaným elektronickým podpisem</em> osoby, která konverzi provedla.</p>`,
 
+
         "nalezitosti-formy-podani" : `
         
             <p>Insolvenční zákon ukládá v § 80a povinnost těm subjektů, které mají <em>povinně zřízenou <strong>datovou schránku</strong></em>, komunikovat se soudem <strong>pouze v elektronické podobě</strong>.</p>
             <p>Všechny osoby, které jsou způsobilé za dlužníka sepsat a podat insolvenční návrh spojený s návrhem na povolení oddlužení dle § 390a odst. 1 IZ, mají povinně zřízenou datovou schránku. Proto může být návrh na povolení oddlužení zpravidla podán pouze elektronickou formou, a to včetně všech příloh. Výjimečně a pouze v odůvodněných případech může soud povolit výjimku.</p>
             <p>Pokud zpracovatel návrhu doručí soudu návrh či některou jeho přílohu v <em>listinné podobě</em>, vyzve ho soud, aby podání učinil <em>elektronicky</em>, tj. prostřednictvím <em>datové schránky</em> či <em>emailem s uznávaným elektronickým podpisem</em>. Není-li vada formy ani přes výzvu soudu odstraněna, soud takové podání odmítne.</p>`,
             //<p>Návrh samotný musí přijít z datové schránky (tím pádem samotný formulář návrhu nemusí být podepsán) nebo emailem s uznávaným elektronickým podpisem.</p>`,
+
 
         "tvrzeni-o-upadku" : `
 
@@ -67,8 +69,18 @@ class TextyNalezitostiOddluzeni{
             <p>Soud zpravidla dlužníka vyzve ke sdělení, na jaké adrese se zdržují s úmyslem žít tam trvale (dle § 80 občanského zákoníku).</p>
             <p>Pokud dlužník jako místo, kde se zdržuje s úmyslem žít tam trvale, označí adresu spadající do místní příslušnosti jiného krajského soudu, soud vysloví svou místní nepříslušnost a postoupí věc místně příslušnému soudu.</p>`,
             
-            
-            
+
+        "seznam-majetku" : `
+            <p>V <strong>seznamu majetku</strong> je dlužník povinen označit <em>jednotlivě</em> svůj majetek včetně pohledávek. U pohledávek má stručně uvést skutečnosti, na kterých se zakládají, a vyjádřit se k jejich dobytnosti.</p>
+            <p>U majetku, ke kterému uplatňují práva třetí osoby (typicky zajištěný majetek, např. z titulu zástavní smlouvy) by měl dlužník tyto osoby označit a tento majetek nejlépe uvést odděleně.</p>
+            <p>Seznam majetku musí dlužník <strong>vlastnoručně podepsat</strong> a výslovně v něm uvést prohlášení, že <strong>seznam je správný a úplný</strong>.</p>
+            <p>Seznam závazků se při návrhu na povolení oddlužení již předkládat nemusí.</p>`,
+
+
+        "seznam-zamestnancu" : `
+            <p>Může se to zdát překvapivé, ale i dlužník, který nikdy neměl žádné své zaměstnance (nikdy nikoho nezaměstnával) je povinen předložit <strong>seznamu zaměstnanců</strong>.</p>
+            <p>Pokud dlužník žádné zaměstnance nemá, je povinen tuto skutečnost <em>uvést výslovně</em>. Má-li nějaké zaměstnance, musí je označit alespoň jménem, příjmením a bydlištěm.</p>
+            <p>Seznam zaměstnanců musí dlužník <strong>vlastnoručně podepsat</strong> a výslovně v něm uvést prohlášení, že <strong>seznam je správný a úplný</strong>.</p>`,
             
             
             

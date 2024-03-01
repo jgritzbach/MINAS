@@ -43,6 +43,7 @@ class Napoveda{
                 this.ukazSe()
             } else {
                 this.skryjSe()
+                // element.scrollIntoView(true)
             }
         })
     }
