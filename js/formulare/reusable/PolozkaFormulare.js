@@ -18,6 +18,10 @@ class PolozkaFormulare{
         this.kolonka = document.getElementById(idKolonky)
         this.popisek = document.querySelector(`label[for="${idKolonky}"]`)      // příslušný label pro kolonku, pokud existuje
 
+        // const div = this.polozka
+        // const kontejner = div.querySelector('.kontejner-napovedy')
+        // this.kontejnerNapovedy = kontejner
+
     }
 
     get polozka(){
@@ -39,11 +43,38 @@ class PolozkaFormulare{
     get popisek(){
         return this._popisek
     }
-
+    
     set popisek(elementLabel){
         this._popisek = elementLabel
     }
 
+    get kontejnerNapovedy(){
+        return this._kontejnerNapovedy
+    }
+
+    set kontejnerNapovedy(div){
+        this._kontejnerNapovedy = div
+    }
+
+
+    nastavNapovedu(zobrazovatel, htmlNapovedy){
+        // tato metoda umožní položce formuláře obsahovat nápovědu
+        // nápověda je samostatná třída
+        // je potřeba nastavit jí vnitřní text, který má zobrazovat (respektive vnitřní html, například již rozčleněné do <p>)
+        // dále je třeba nastavit odkaz na objekt, který bude zodpovědný za zobrazení nápovědy
+
+        const napoveda = new Napoveda(htmlNapovedy)         // založíme nápovědu jako samostatný objekt - stačí jí oznámit text, který má obsahovat (respektive html, protože text už bude asi obsahovat <p>)
+        napoveda.nastavZobrazovatele(zobrazovatel)          // nastavíme, kdo bude způsobovat zobrazení nápovědy
+
+        const kontejner = napoveda.div                      // nápověda vygeneruje ucelený div, který stačí převzít
+
+        kontejner.classList.add('kontejner-napovedy')       // doplníme ho o CSS třídy (nechceme, aby to dělala nápověda sama, třeba budu chtít časem jinak vypadající nápovědy)
+        kontejner.classList.add('oblast-vypisu')
+        kontejner.classList.add('vypis-ve-formulari')
+
+        this.polozka.appendChild(kontejner)                 // <div> s nápovědou se vloží jako poslední element do položky
+     
+    }
 
 
 

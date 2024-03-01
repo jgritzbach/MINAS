@@ -11,6 +11,8 @@ class FormularOddluzeni{
 
         this._nastavPovoleneVolby()              // v rámci zaškrtávacích <selectů> jsou povolené volby 'prázdné', 'v pořádku', 'diskutabilní' a 'vadné'
         this._nastavKolonky()                    // kolonkám nastavíme povolené volby a reakce na ně
+
+        this._nastavNapovedy()
     }
 
 
@@ -245,5 +247,15 @@ class FormularOddluzeni{
 
 
     
+
+    _nastavNapovedy(){
+        this.polozkaPlneMoci.nastavNapovedu(this.polozkaPlneMoci.popisek,`<p>Aby mohl zpracovatel za dlužníka sepsat a podat návrh na povolení oddlužení, potřebuje k tomu od dlužníka <strong>plnou moc</strong>, kterou je pak povinen zaslat soudu spolu se samotným návrhem. Insolvenční zákon klade na plnou moc pro účely zahájení řízení přísné požadavky.</p>
+        <p>Plná moc je jednostranný právní úkon, který musí dlužník učinit <em>písemně</em> a podepsat jej. Insolvenční zákon dále vyžaduje, aby tento podpis byl <strong>úředně ověřen</strong> (tj. byl opatřen tzv. <em>doložkou legalizace</em>). Toto ověření může provést například obecní úřad nebo pošta.</p>
+        <p>Jelikož zpracovatel návrhu na povolení oddlužení je typicky osoba, která musí s insolvenčním soudem komunikovat povinně elektronicky (§ 80a IZ), bude plnou moc s úředně ověřeným podpisem třeba tzv. <strong>konvertovat</strong>, tedy opatřit <em>ověřovací doložkou konverze</em>.</p>
+        <p>To zaručuje shodu elektronického dokumentu s původním listinným originálem. Vůči soudu je tak prokázáno, že ověřovací doložka legalizace nebyla do elektronického souboru s plnou mocí vložena např. úpravou dokumentu jako obrázku.</p>
+        <p>Pro platnost doložky o konverzi je dále nezbytné, aby byl výstup z konverze opatřen <em>kvalifikovaným elektronickým podpisem</em> osoby, která konverzi provedla.</p>`)
+
+                                    
+    }
 
 }
