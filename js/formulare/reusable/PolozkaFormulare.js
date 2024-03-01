@@ -14,14 +14,19 @@ class PolozkaFormulare{
         const idPolozky = 'polozka-' + obecnyNazev
         const idKolonky = 'kolonka-' + obecnyNazev
 
+        this.obecnyNazev = obecnyNazev                                          // toto je základní stavební kámen ID celé položky - z něj se odvozuje název kolonky, labelu, textů nápověd apod.
         this.polozka = document.getElementById(idPolozky)
         this.kolonka = document.getElementById(idKolonky)
         this.popisek = document.querySelector(`label[for="${idKolonky}"]`)      // příslušný label pro kolonku, pokud existuje
 
-        // const div = this.polozka
-        // const kontejner = div.querySelector('.kontejner-napovedy')
-        // this.kontejnerNapovedy = kontejner
+    }
 
+    get obecnyNazev(){
+        return this._obecnyNazev
+    }
+
+    set obecnyNazev(nazev){
+        this._obecnyNazev = nazev
     }
 
     get polozka(){
