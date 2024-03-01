@@ -8,12 +8,27 @@ class Napoveda{
 
         this.htmlNapovedy = htmlNapovedy    // samotný text nápovědy, který očekává, že už bude obalen elementy <p>
         
-        this.tlacitkoSkryt = this.vytvorTlacitkoSkryt       // tlačítko existuje jako samostatný objekt pro to, aby mu šly předávat event listenery a callbacky
-        this.divNapovedy = this.vytvorElementNapovedy()
+        this.tlacitkoSkryt = this._vytvorTlacitkoSkryt()       // tlačítko existuje jako samostatný objekt pro to, aby mu šly předávat event listenery a callbacky
+        this.divNapovedy = this._vytvorElementNapovedy()
 
     }
 
-    vytvorElementNapovedy(){
+    get div(){
+        // vrátí svůj hlavní div, ve kterém je vloženo vše další
+        return this.divNapovedy
+    }
+
+    skryjSe(){
+        // celý svůj hlavní div schová
+        this.divNapovedy.style.display = 'none'
+    }
+
+    ukazSe(){
+        this.divNapovedy.style.display = 'block'
+    }
+
+
+    _vytvorElementNapovedy(){
         // vytvoří html element nápovědy
         // jde o div, do kterého je vepsán htmlText nápovědy (zadané už v konstruktoru)
         // na závěr je vždy doplněno tlačítko pro skrytí, které už bylo vytvořeno dříve
@@ -21,8 +36,9 @@ class Napoveda{
         const element = document.createElement("div")
 
         element.classList.add('napoveda')
+        element.classList.add('oblast-vypisu')
 
-        element.innerHTML = this.textNapovedy
+        element.innerHTML = this.htmlNapovedy
                                     
         const skrytNapovedu = document.createElement('div')
         skrytNapovedu.classList.add('div-skryt-napovedu')
@@ -33,7 +49,7 @@ class Napoveda{
         return element
     }
 
-    vytvorTlacitkoSkryt(){
+    _vytvorTlacitkoSkryt(){
         // vytvoří tlačítko skrýt nápovědu
         // tlačítko existuje jako samostatný objekt pro to, aby mu šly předávat event listenery a callbacky
 
@@ -41,7 +57,12 @@ class Napoveda{
         btnSkryt.classList.add('btn-skryt-napovedu')
         btnSkryt.innerHTML = `skrýt <span class="skryt-napovedu-sipka">^</span>`
 
-        return tlacitko
+        btnSkryt.addEventListener('click', (event) =>{
+            event.preventDefault()
+            this.skryjSe()
+        })
+
+        return btnSkryt
     }
 
 
