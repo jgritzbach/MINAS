@@ -19,7 +19,7 @@ class TextyNalezitostiOddluzeni{
 
         "nalezitosti-formy-podani" : `
         
-            <p>§ 80a insolvenčního zákona ukládá povinnost těm subjektů, které mají <em>povinně zřízenou <strong>datovou schránku</strong></em>, komunikovat se soudem <strong>pouze v elektronické podobě</strong>.</p>
+            <p>Insolvenční zákon ukládá v § 80a povinnost těm subjektů, které mají <em>povinně zřízenou <strong>datovou schránku</strong></em>, komunikovat se soudem <strong>pouze v elektronické podobě</strong>.</p>
             <p>Všechny osoby, které jsou způsobilé za dlužníka sepsat a podat insolvenční návrh spojený s návrhem na povolení oddlužení dle § 390a odst. 1 IZ, mají povinně zřízenou datovou schránku. Proto může být návrh na povolení oddlužení zpravidla podán pouze elektronickou formou, a to včetně všech příloh. Výjimečně a pouze v odůvodněných případech může soud povolit výjimku.</p>
             <p>Pokud zpracovatel návrhu doručí soudu návrh či některou jeho přílohu v <em>listinné podobě</em>, vyzve ho soud, aby podání učinil <em>elektronicky</em>, tj. prostřednictvím <em>datové schránky</em> či <em>emailem s uznávaným elektronickým podpisem</em>. Není-li vada formy ani přes výzvu soudu odstraněna, soud takové podání odmítne.</p>`,
             //<p>Návrh samotný musí přijít z datové schránky (tím pádem samotný formulář návrhu nemusí být podepsán) nebo emailem s uznávaným elektronickým podpisem.</p>`,
@@ -56,13 +56,24 @@ class TextyNalezitostiOddluzeni{
                     <p>jedná se o věřitelský insolvenční návrh a dlužník na výzvu soudu dle § 128/3 IZ nepředložil seznamy majetku, závazků a zaměstnanců</p>
                 </li>
             </ol>
-            <p>Alternativou k <em>platební neschopnosti</em> je shora zmíněné <strong>předlužení</strong>. Týká se pouze právnických osob nebo fyzických osob podnikatelů. Osoba je předlužena, má-li více věřitelů a souhrn jejích závazků převyšuje hodnotu jejího majetku.</p>
+            <p>Alternativou k <em>platební neschopnosti</em> je shora zmíněné <strong>předlužení</strong>. Týká se pouze právnických osob nebo fyzických osob podnikatelů. Osoba je předlužena, má-li více věřitelů a souhrn jejích závazků převyšuje hodnotu jejího majetku.</p>`,
 
 
-                
-                
-                
-            `,
+        "mistni-prislusnost" : `
+            
+            <p>Aby soud mohl návrh dlužníka věcně projednat, musí být pro to splněny tzv. <em>podmínky řízení</em>, mezi nimi i <strong>místní příslušnost</strong>.</p>
+            <p>Místní příslušnost se řídí zpravidla dle <em>bydliště</em> či <em>sídla</em> dlužníka. <a href="https://www.zakonyprolidi.cz/cs/2002-6#f2273426" target="_blank">Zákon o soudech a soudcích</a> přesně vymezuje, které okresní (a od toho odvozené krajské soudy) jsou místně příslušné dle bydliště dlužníka. Tento zákon pamatuje na každé město a každou obec v České republice.</p>
+            <p>Pokud se liší dlužníkova trvalá adresa (zapsaná v centrální evidenci obyvatel) od adresy, kterou dlužník uvede jako korespondenční, a přitom alespoň jedna z těchto adresu spadá do místní příslušnosti jiného soudu, než u kterého byl návrh podán, je to důvod pro soud prověřit podmínku místní příslušnosti.</p>
+            <p>Soud zpravidla dlužníka vyzve ke sdělení, na jaké adrese se zdržují s úmyslem žít tam trvale (dle § 80 občanského zákoníku).</p>
+            <p>Pokud dlužník jako místo, kde se zdržuje s úmyslem žít tam trvale, označí adresu spadající do místní příslušnosti jiného krajského soudu, soud vysloví svou místní nepříslušnost a postoupí věc místně příslušnému soudu.</p>`,
+            
+            
+            
+            
+            
+            
+            
+            
     
     }
     // 1) ,

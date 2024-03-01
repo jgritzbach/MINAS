@@ -56,19 +56,19 @@ class FormularOddluzeni{
             this.polozkaPlneMoci,
             this.polozkaFormaPodani,
             this.polozkaTvrzeniOUpadku,
-            // this.polozkaMistniPrislusnost,
+            this.polozkaMistniPrislusnost,
 
-            // this.polozkaSeznamMajetku,
-            // this.polozkaSeznamZamestnancu,
-            // this.polozkaListinyDokladajiciUpadek,
+            this.polozkaSeznamMajetku,
+            this.polozkaSeznamZamestnancu,
+            this.polozkaListinyDokladajiciUpadek,
 
-            // this.polozkaProhlaseniOPouceni,
-            // this.polozkaSoucasnePrijmy,
-            // this.polozkaMinulePrijmy,
-            // // this.polozkaProhlaseniManzeluOMajetku, Dočasně vypnuto, dokud nebude zapracována i varianta pro manžela
+            this.polozkaProhlaseniOPouceni,
+            this.polozkaSoucasnePrijmy,
+            this.polozkaMinulePrijmy,
+            // this.polozkaProhlaseniManzeluOMajetku, Dočasně vypnuto, dokud nebude zapracována i varianta pro manžela
 
-            // this.polozkaDarovaciSmlouva,
-            // this.polozkaRozsudekOVyzivnem,
+            this.polozkaDarovaciSmlouva,
+            this.polozkaRozsudekOVyzivnem,
         ]
 
     }
@@ -263,12 +263,17 @@ class FormularOddluzeni{
     
 
     _nastavNapovedy(){
+        // všem položkám nastaví nápovědu, pokud jsou pro ni k dispozici texty
 
         const t = new TextyNalezitostiOddluzeni(this)
 
         for (const polozka of this.vsechnyPolozky){
 
-            polozka.nastavNapovedu(polozka.popisek, t.napoveda[polozka.obecnyNazev])
+            const text = t.napoveda[polozka.obecnyNazev]        // zdrojem textů je samostatná třída, aby texty nezaplevelovaly logiku formuláře
+
+            if (text){      // je-li dostupný nějaký text nápovědy
+                polozka.nastavNapovedu(polozka.popisek, text)       // nápověda se vytvoří
+            }
 
         }
 
