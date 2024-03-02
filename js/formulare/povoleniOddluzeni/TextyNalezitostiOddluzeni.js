@@ -142,33 +142,8 @@ class TextyNalezitostiOddluzeni{
             <p>Jestliže byla <strong>vyživovací povinnost</strong> dlužníka vůči dítěti <strong>stanovena <em>rozhodnutím soudu</em></strong>, pak je dlužník povinen doložit kopii tohoto <strong>rozsudku</strong>.</p>
             <p>To platí i v případě, kdy opatrovnický soud svým rozhodnutím pouze schválil <em>dohodu rodičů</em> dítěte. Mimosoudní dohody rodičů o výši výživného však insolvenční soud často neakceptuje. V takovém případě se dítě se zohlední přímo ve výpočtu srážek jako vyživovaná osoba ze zákona.</p>
             <p>V případě, že v této aplikaci vyplníte ve formuláři vyživovaných osob výši soudně určeného výživného (či dluhu na něm), stane se tato kolonka povinnou.</p>`,
-        
-        
 
-
-            
-            
-    
     }
-    // 1) ,
-
-    // 2)  a
-
-    // 3) 
-
-
-    //     `,
-
-    // }
-
-//     get napovedaPlnaMoc(){
-
-//         return 
-//     }
-
-//     get napovedaFormaPodani(){
-
-//         return
 
 }
 
