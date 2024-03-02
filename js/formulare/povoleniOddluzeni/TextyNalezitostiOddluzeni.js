@@ -113,19 +113,39 @@ class TextyNalezitostiOddluzeni{
             <p><em>Absence</em> kteréhokoliv z uvedených bodů <em>je vadou</em> této přílohy. Zákon zde klade velmi konkrétní požadavky na znění čestného prohlášení.</p>`,
         
         
-        "priloha-soucasne-prijmy" :
+        "priloha-soucasne-prijmy" : `
+            
+            <p>Základním předpokladem pro povolení oddlužení je dostatečná <strong>ekonomická nabídka</strong> dlužníka vůči věřitelům.</p>
+            <p>Dlužník je povinen prokázat, že má příjmy, ze kterých bude možné provádět srážku umožňující hradit (vedle odměny a hotových výdajů insolvenčního správce) měsíčně nezajištěným věřitelům alespoň tolik, co dostává insolvenční správce, tzv. <strong>minimální splátku</strong>.</p>
+            <p>Zjednodušeně lze tedy říci, že minimální splátka bývá dvojnásobek odměny a hotových výdajů insolvenčního správce. Tato částka se může lišit dle počtu přihlášek věřitelů, zapodstatových pohledávek (např. výživného), ale většinou se pohybuje okolo 2 200 Kč měsíčně.</p></p>
+            <p>Dlužník je tedy povinen prokázat, že z jeho příjmů je možné tuto částku srazit. Příjmem dlužníka bývá nejčastěji mzda, případně zisk z podnikání, důchod či příjem z darovací smlouvy od třetí osoby (zpravidla od příbuzných nebo přátel).</p>
+            <p>Dle typu příjmu se tak může povinnou přílohou stát <em>pracovní smlouva</em>, <em>výplatní pásky</em>, potvrzení zaměstnavatele o vyplácené mzdě, účetní doklady, výpisy z účtu a obecně vše, čím může dlužník prokázat dostatečnost své ekonomické nabídky. Pro smlouvy od třetích osob je zde samostatná kolonka.</p>`,
 
-        `
-        <p>Základním předpokladem pro povolení oddlužení je dostatečná <strong>ekonomická nabídka</strong> dlužníka vůči věřitelům.</p>
-        <p>Dlužník je povinen prokázat, že má příjmy, ze kterých bude možné provádět srážku umožňující hradit (vedle odměny a hotových výdajů insolvenčního správce) měsíčně nezajištěným věřitelům alespoň tolik, co dostává insolvenční správce, tzv. <strong>minimální splátku</strong>.</p>
-        <p>Zjednodušeně lze tedy říci, že minimální splátka bývá dvojnásobek odměny a hotových výdajů insolvenčního správce. Tato částka se může lišit dle počtu přihlášek věřitelů, zapodstatových pohledávek (např. výživného), ale většinou se pohybuje okolo 2 200 Kč měsíčně.</p></p>
-        <p>Dlužník je tedy povinen prokázat, že z jeho příjmů je možné tuto částku srazit. Příjmem dlužníka bývá nejčastěji mzda, případně zisk z podnikání, důchod či příjem z darovací smlouvy od třetí osoby (zpravidla od příbuzných nebo přátel).</p>
-        <p>Dle typu příjmu se tak může povinnou přílohou stát <em>pracovní smlouva</em>, <em>výplatní pásky</em>, potvrzení zaměstnavatele o vyplácené mzdě, účetní doklady, výpisy z účtu a obecně vše, čím může dlužník prokázat dostatečnost své ekonomické nabídky. Pro smlouvy od třetích osob je zde samostatná kolonka.</p>
+
+        "prijmy-za-12-mesicu" : `
+        
+            <p>Dlužník je povinen prokázat, jaké byly jeho příjmy <strong>za posledních 12 měsíců</strong> před podáním insolvenčního návrhu spojeného s návrhem na povolení oddlužení.</p>
+            <p>Může se jednat o <em>výplatní pásky</em>, <em>výpisy z účtu</em>, <em>účetní doklady</em> a obecně vše, čím může dlužník prokázat své minulé příjmy.</p>
+            <p>Neměl-li dlužník žádné příjmy, měl by o tom sepsat čestné prohlášení.</p>`,
+        
+
+        "priloha-darovaci-smlouva" : `
+        
+            <p>Smlouvy zajišťující dlužníku <strong>příjem od třetí osoby</strong> (typicky <em>darovací smlouva</em> nebo <em>smlouva o důchodu</em>) nejsou samy o sobě povinnou náležitostí návrhu na povolení oddlužení.</p>
+            <p>Jestliže však dlužník v návrhu takový příjem uvede, pak by jej měl být schopen doložit kopií takové smlouvy. <em>Pokud dlužník na takové smlouvě staví splnění tzv. minimální splátky</em>, pak je to dokonce <strong>zcela nezbytné</strong>.</p>
+            <p>Doložená smlouva musí být podepsána oběma smluvními stranami a tyto musejí být řádně identifikované. Oproti dřívější právní úpravě však již podpisy na smlouvě nemusejí být úředně ověřeny.</p>
+            <p>V případě, že v této aplikaci vyplníte ve formuláři příjmů dlužníka nějakou hodnotu vypovídající o existenci takové smlouvy, stane se tato kolonka povinnou.</p>`,
+
+
+        "priloha-rozsudek-o-vyzivnem" : `
+        
+            <p>Jestliže byla <strong>vyživovací povinnost</strong> dlužníka vůči dítěti <strong>stanovena <em>rozhodnutím soudu</em></strong>, pak je dlužník povinen doložit kopii tohoto <strong>rozsudku</strong>.</p>
+            <p>To platí i v případě, kdy opatrovnický soud svým rozhodnutím pouze schválil <em>dohodu rodičů</em> dítěte. Mimosoudní dohody rodičů o výši výživného však insolvenční soud často neakceptuje. V takovém případě se dítě se zohlední přímo ve výpočtu srážek jako vyživovaná osoba ze zákona.</p>
+            <p>V případě, že v této aplikaci vyplníte ve formuláři vyživovaných osob výši soudně určeného výživného (či dluhu na něm), stane se tato kolonka povinnou.</p>`,
         
         
 
-        
-        `,
+
             
             
     
