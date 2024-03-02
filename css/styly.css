@@ -281,13 +281,17 @@ option{
 }
 
 
-.napoveda ol{
+.napoveda ol, ul{
     padding-left: 1em;
     list-style-position: inside;
+}
+
+.napoveda ol{
     list-style-type: lower-roman;
 }
 
-.napoveda ol li p{
+.napoveda ol li p, 
+.napoveda ul li p{
     display: inline;
 }
 

@@ -82,7 +82,35 @@ class TextyNalezitostiOddluzeni{
             <p>Pokud dlužník žádné zaměstnance nemá, je povinen tuto skutečnost <em>uvést výslovně</em>. Má-li nějaké zaměstnance, musí je označit alespoň jménem, příjmením a bydlištěm.</p>
             <p>Seznam zaměstnanců musí dlužník <strong>vlastnoručně podepsat</strong> a výslovně v něm uvést prohlášení, že <strong>seznam je správný a úplný</strong>.</p>`,
             
+        
+        "listiny-dokladajici-upadek" : `
+        
+            <p>Dlužník má povinnost nejen svůj úpadek tvrdit, ale také <strong>prokázat</strong>. Za důkaz typicky slouží <em>listiny</em> dokládající, že <em>alespoň dva</em> závazky vůči alespoň dvěma věřitelům jsou více jak 30 dnů po splatnosti</p>
+            <p>Za takový důkaz zpravidla nepostačí listiny prokazující <em>pouhou existenci</em> závazku či jeho vznik v minulosti, jako jsou například kopie úvěrových smluv. Z listin by měla přímo vyplývat <strong>splatnost</strong> závazku a to, že že nebyl včas uhrazen. Typicky tedy <em>exekuční příkazy</em>, <em>výzvy věřitelů</em> k úhradě závazku, <em>rozsudky</em> ukládající povinnost zaplatit k určenému datu, předžalobní výzvy apod.</p>
+            <p>Výpis z centrální evidence exekucí lze akceptovat jen pokud je z něj patrné, kdo je věřitelem. Dlužník totiž může mít nařízeno více exekucí, ale pokud by ve všech případech byl oprávněným jediný věřitel, dlužník by v úpadku nebyl.</p>`,
+
+        "prohlaseni-o-pouceni" : `
+
+            <p>Dlužníci musí k návrhu na povolení oddlužení přikládat vlastnoručně <em>podepsané</em> <strong>čestné prohlášení</strong>, ve kterém musí uvést, že:</p>
+            <ol>
+                <li>
+                    <p>byli při sepisu insolvenčního návrhu poučeni o svých povinnostech v insolvenčním řízení</p>
+                </li>
+                <li>
+                    <p>budou v oddlužení řádně platit pohledávky svých věřitelů</p>
+                </li>
+                <li>
+                    <p>vynaloží veškeré úsilí, které po nich lze spravedlivě požadovat, k plnému uspokojení svých věřitelů</p>
+                </li>
+                <li>
+                    <p>budou plnit všechny povinnosti vyplývající z insolvenčního zákona a z rozhodnutí o schválení oddlužení</p>
+                </li>
+                <li>
+                    <p>budou přiznávat veškeré své příjmy v plné výši</p>
+                </li>
+            </ol>
             
+            <p><em>Absence</em> kteréhokoliv z uvedených bodů <em>je vadou</em> této přílohy. Zákon zde klade velmi konkrétní požadavky na znění čestného prohlášení.</p>`,
             
             
             
