@@ -27,7 +27,18 @@ class Napoveda{
 
     skryjSe(){
         // celý svůj hlavní div schová
+
         this.divNapovedy.style.display = 'none'
+
+        if (this.zobrazovatel){
+
+            const horniPoloha = this.zobrazovatel.getBoundingClientRect().top
+            if (top){
+                this.zobrazovatel.scrollIntoView(true)
+            }
+
+
+        }
     }
 
     ukazSe(){
@@ -37,13 +48,14 @@ class Napoveda{
     nastavZobrazovatele(element){
         // předaný element se stane tím, kdo způsobí zobrazení nápovědy
 
+        this.zobrazovatel = element
+
         element.addEventListener('click', (event) =>{
             event.preventDefault()
             if (this.jeSkryte){
                 this.ukazSe()
             } else {
                 this.skryjSe()
-                // element.scrollIntoView(true)
             }
         })
     }
