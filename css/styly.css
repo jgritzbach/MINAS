@@ -248,7 +248,7 @@ option{
 .zobrazovac-napovedy:hover{
     cursor: pointer;
     text-decoration: none;
-    transition: text 0.25s;
+        opacity: 0.85;
 }
 
 .div-skryt-napovedu{
@@ -269,6 +269,7 @@ option{
 .btn-skryt-napovedu:hover {
     background-color: rgb(165, 165, 165);
     transition: all 0.25s;
+    cursor: pointer;
 }
 
 .btn-skryt-napovedu-sipka{

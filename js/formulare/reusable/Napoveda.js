@@ -30,15 +30,15 @@ class Napoveda{
 
         this.divNapovedy.style.display = 'none'
 
-        if (this.zobrazovatel){
+        // if (this.zobrazovatel){
 
-            const horniPoloha = this.zobrazovatel.getBoundingClientRect().top
-            if (top){
-                this.zobrazovatel.scrollIntoView(true)
-            }
+        //     const horniPoloha = this.zobrazovatel.getBoundingClientRect().top
+        //     if (top){
+        //         this.zobrazovatel.scrollIntoView(true)
+        //     }
 
-
-        }
+        // }
+        
     }
 
     ukazSe(){

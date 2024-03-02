@@ -235,6 +235,11 @@ class FormularOddluzeni{
         return kolonka.value === this.optionDiskutabilni.VALUE
     }
 
+    _jeVadne(kolonka){
+        // Vrací údaj o tom, zda daná kolonka má vyplněnou volbu 'diskutabilní'
+        return kolonka.value === this.optionVadne.VALUE
+    }
+
     _jeNecoZPredanychNejake(kolonky, callback){
         // Vrací údaj o tom, zda alespoň některá z předaných kolonek má pravdivý výsledek callbacku
         for (const kolonka of kolonky){
