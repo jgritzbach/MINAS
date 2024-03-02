@@ -111,7 +111,21 @@ class TextyNalezitostiOddluzeni{
             </ol>
             
             <p><em>Absence</em> kteréhokoliv z uvedených bodů <em>je vadou</em> této přílohy. Zákon zde klade velmi konkrétní požadavky na znění čestného prohlášení.</p>`,
-            
+        
+        
+        "priloha-soucasne-prijmy" :
+
+        `
+        <p>Základním předpokladem pro povolení oddlužení je dostatečná <strong>ekonomická nabídka</strong> dlužníka vůči věřitelům.</p>
+        <p>Dlužník je povinen prokázat, že má příjmy, ze kterých bude možné provádět srážku umožňující hradit (vedle odměny a hotových výdajů insolvenčního správce) měsíčně nezajištěným věřitelům alespoň tolik, co dostává insolvenční správce, tzv. <strong>minimální splátku</strong>.</p>
+        <p>Zjednodušeně lze tedy říci, že minimální splátka bývá dvojnásobek odměny a hotových výdajů insolvenčního správce. Tato částka se může lišit dle počtu přihlášek věřitelů, zapodstatových pohledávek (např. výživného), ale většinou se pohybuje okolo 2 200 Kč měsíčně.</p></p>
+        <p>Dlužník je tedy povinen prokázat, že z jeho příjmů je možné tuto částku srazit. Příjmem dlužníka bývá nejčastěji mzda, případně zisk z podnikání, důchod či příjem z darovací smlouvy od třetí osoby (zpravidla od příbuzných nebo přátel).</p>
+        <p>Dle typu příjmu se tak může povinnou přílohou stát <em>pracovní smlouva</em>, <em>výplatní pásky</em>, potvrzení zaměstnavatele o vyplácené mzdě, účetní doklady, výpisy z účtu a obecně vše, čím může dlužník prokázat dostatečnost své ekonomické nabídky. Pro smlouvy od třetích osob je zde samostatná kolonka.</p>
+        
+        
+
+        
+        `,
             
             
     
