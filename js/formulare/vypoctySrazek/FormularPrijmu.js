@@ -15,7 +15,7 @@ class FormularPrijmu{
     constructor(){
 
         this._nastavPovoleneVolby()                         // povolené volby jsou 'prázdné', 'v pořádku', 'diskutabilní' a 'vadné'
-        this._uchopKolonky()                                // uchopíme všechny elementy <select> k vyplnění
+        this._uchopPolozky()                                // uchopíme všechny elementy <select> k vyplnění
         this._nastavKolonky()                               // a nastavíme jim vše potřebné
         this._propisSoucetVlastnichPrijmu()
     }
@@ -23,29 +23,31 @@ class FormularPrijmu{
 
     get SoucetVlastnichPrijmu(){
         // vrátí číselný součet všech hodnot z kolonek pro výši vlastních příjmů (nezapočítávají se příjmy od 3. osob z darů)
-        return parseFloat(this.kolonkaSoucetVlastnichPrijmu.value) || 0 // nemusíme vždy znovu provádět součet, protože ten se při každé změně už stejně propsal do kolonky
+        return parseFloat(this.polozkaSoucetVlastnichPrijmu.kolonka.value) || 0 // nemusíme vždy znovu provádět součet, protože ten se při každé změně už stejně propsal do kolonky
     }
 
     get vyseDaru(){
         // vrátí číselnou výši daru od 3. osoby
-        return parseFloat(this.kolonkaVyseDaru.value) || 0 // nemusíme vždy znovu provádět součet, protože ten se při každé změně už stejně propsal do kolonky
+        return parseFloat(this.polozkaVyseDaru.kolonka.value) || 0 // nemusíme vždy znovu provádět součet, protože ten se při každé změně už stejně propsal do kolonky
     }
 
     get typDaru(){
         // vrátí vyplněnou textovou hodnotu typu příjmu od 3. osoby - "darovací smlouva" anebo "smlouva o důchodu"
-        const volba = this.kolonkaTypDaru.options[this.kolonkaTypDaru.selectedIndex]
+        const kolonka = this.polozkaTypDaru.kolonka
+        const volba = kolonka.options[kolonka.selectedIndex]
         return volba.innerText.toLowerCase()
     }
 
     _propisSoucetVlastnichPrijmu(){
         // propíše vypočítaný součet příjmů do <html> kolonky určené k zobrazení tohoto součtu
-        this.kolonkaSoucetVlastnichPrijmu.value = this.vypoctiSoucetVlastnichPrijmu()
+        this.polozkaSoucetVlastnichPrijmu.kolonka.value = this.vypoctiSoucetVlastnichPrijmu()
     }
 
     vypoctiSoucetVlastnichPrijmu(){
         // Sečte všechny vyplněné vlastní příjmy dlužníka jako číselné hodnoty a vrátí je
         
-        const soucet = this.vsechnyKolonkyVysePrijmu.reduce(
+        const kolonky = this.vsechnyPolozkyVysePrijmu.map(polozka => polozka.kolonka)
+        const soucet = kolonky.reduce(
             
             (soucet, kolonka) => {
                 const vysePrijmu = parseFloat(kolonka.value) || 0   // není-li nic vyplněno, je výsledkem 0
@@ -61,11 +63,14 @@ class FormularPrijmu{
         // všem <select> kolonkám typu příjmu nastaví jako přípustné volby [mzda, zisk OSVČ, důchod atd...]
         // všem <input> kolonkám s výší příjmu nastaví reakci na změnu
 
-        for (const kolonka of this.vsechnyKolonkyTypyPrijmu){       // všem <select> typu příjmu
-            this._nastavVolby(kolonka)                              // nastaví přípustné <option>
+        for (const polozka of this.vsechnyPolozkyTypyPrijmu){       // všem <select> typu příjmu
+            this._nastavVolby(polozka.kolonka)                              // nastaví přípustné <option>
         }
 
-        for (const kolonka of [...this.vsechnyKolonkyVysePrijmu, this.kolonkaVyseDaru]){       // všem <input> s výší příjmu (a to i u daru)
+
+        for (const polozka of [...this.vsechnyPolozkyVysePrijmu, this.polozkaVyseDaru]){       // všem <input> s výší příjmu (a to i u daru)
+
+            const kolonka = polozka.kolonka
             kolonka.addEventListener('change', () =>{               // nastaví reakci na změnu
                 if (parseFloat(kolonka.value) < 0) {                    // nejsou povolena záporná čísla
                     kolonka.value = 0                                   // hodnota je vždy alespoň nula
@@ -159,38 +164,38 @@ class FormularPrijmu{
     }
 
 
-    _uchopKolonky(){
+    _uchopPolozky(){
         
-        // na stránce uchopí patřičné kolonky (elementy <select>) dle jejich id a uloží je do vnitřních proměnných formuláře
+        // na stránce uchopí patřičné položky (elementy <div>) dle jejich id a uloží je do vnitřních proměnných formuláře
 
         // Typy příjmů
-        this.kolonkaPrijem1Typ = document.getElementById("typ-prijmu-1")
-        this.kolonkaPrijem2Typ = document.getElementById("typ-prijmu-2")
-        this.kolonkaPrijem3Typ = document.getElementById("typ-prijmu-3")
+        this.polozkaPrijem1Typ = new PolozkaFormulare("typ-prijmu-1")
+        this.polozkaPrijem2Typ = new PolozkaFormulare("typ-prijmu-2")
+        this.polozkaPrijem3Typ = new PolozkaFormulare("typ-prijmu-3")
 
         // Výše příjmů
-        this.kolonkaPrijem1Vyse = document.getElementById("vyse-prijmu-1")
-        this.kolonkaPrijem2Vyse = document.getElementById("vyse-prijmu-2")
-        this.kolonkaPrijem3Vyse = document.getElementById("vyse-prijmu-3")
+        this.polozkaPrijem1Vyse = new PolozkaFormulare("vyse-prijmu-1")
+        this.polozkaPrijem2Vyse = new PolozkaFormulare("vyse-prijmu-2")
+        this.polozkaPrijem3Vyse = new PolozkaFormulare("vyse-prijmu-3")
 
         // Součet příjmů - průpis
-        this.kolonkaSoucetVlastnichPrijmu = document.getElementById("soucet-vlastnich-prijmu-dluznika")
+        this.polozkaSoucetVlastnichPrijmu = new PolozkaFormulare("soucet-vlastnich-prijmu-dluznika")
 
         // Příjem od 3. osoby
-        this.kolonkaTypDaru= document.getElementById("typ-daru")
-        this.kolonkaVyseDaru= document.getElementById("vyse-daru")
+        this.polozkaTypDaru= new PolozkaFormulare("typ-daru")
+        this.polozkaVyseDaru= new PolozkaFormulare("vyse-daru")
         
-        // Logické Seskupení některých kolonek
-        this.vsechnyKolonkyVysePrijmu = [
-            this.kolonkaPrijem1Vyse,
-            this.kolonkaPrijem2Vyse,
-            this.kolonkaPrijem3Vyse,
+        // Logické Seskupení některých položek
+        this.vsechnyPolozkyVysePrijmu = [
+            this.polozkaPrijem1Vyse,
+            this.polozkaPrijem2Vyse,
+            this.polozkaPrijem3Vyse,
         ]
 
-        this.vsechnyKolonkyTypyPrijmu = [
-            this.kolonkaPrijem1Typ,
-            this.kolonkaPrijem2Typ,
-            this.kolonkaPrijem3Typ,
+        this.vsechnyPolozkyTypyPrijmu = [
+            this.polozkaPrijem1Typ,
+            this.polozkaPrijem2Typ,
+            this.polozkaPrijem3Typ,
         ]
         
     }
