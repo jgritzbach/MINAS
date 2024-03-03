@@ -1,4 +1,4 @@
-class FormularOddluzeni{
+class FormularOddluzeni extends BaseFormular{
 
     // Úkolem této třídy je uchopit elementy z html stránky, které slouží jako formulář náležitostí návrhu na oddlužení
     // Tyto náležitosti má umět vyhodnotit a vrátit výsledný stav
@@ -6,27 +6,17 @@ class FormularOddluzeni{
 
     constructor(){
 
+        super()
+
         this._uchopPolozky()                     // uchopíme všechny položky - obecné divy, kde je kolonka, label i kontejner pro nápovědu
 
         this._nastavPovoleneVolby()              // v rámci zaškrtávacích <selectů> jsou povolené volby 'prázdné', 'v pořádku', 'diskutabilní' a 'vadné'
         this._nastavKolonky()                    // v rámci položek nastavíme kolonkám povolené volby a reakce na ně
 
-        this._nastavNapovedy()
+        super._nastavNapovedy(this.vsechnyPolozky, TextyNapovedNalezitostiOddluzeni)    // s pomocí bázové třídy vytvoří nápovědu všem kolonkám, kde jsou texty k dispozici
     }
 
-
-    _nastavKolonky(){
-        // všem <select> kolonkám nastaví jako přípustnou volbu zaškrtávací možnosti v pořádku / diskutabilní / vadné
-        // a nastaví jim také reakci na změnu
-
-        for (const polozka of this.vsechnyPolozky){
-            const kolonka = polozka.kolonka
-            this._nastavZaskrtavaciVolby(kolonka)
-            this._nastavReakciNaVolbu(kolonka)
-        }
-
-    }
-
+   
     _uchopPolozky(){
         
     // na stránce uchopí dle jejich id patřičné položky -> divy, které někde uvnitř sebe mají kolonku (elementy <select>), label a kontejner pro nápovědu
@@ -93,6 +83,18 @@ class FormularOddluzeni{
 
     }
 
+    _nastavKolonky(){
+        // všem <select> kolonkám nastaví jako přípustnou volbu zaškrtávací možnosti v pořádku / diskutabilní / vadné
+        // a nastaví jim také reakci na změnu
+
+        for (const polozka of this.vsechnyPolozky){
+            const kolonka = polozka.kolonka
+            this._nastavZaskrtavaciVolby(kolonka)
+            this._nastavReakciNaVolbu(kolonka)
+        }
+
+    }
+
     _nastavZaskrtavaciVolby(selectElement){
 
         // nastaví zadanému <select> jeho přípustné zaškrtávací <options>
@@ -128,8 +130,6 @@ class FormularOddluzeni{
         const novaVolba = selectElement.options[selectElement.selectedIndex].value  // namísto toho uchopíme zvolený <option>.value
         selectElement.setAttribute('zaskrtnuti', novaVolba)
     }
-
-
 
     vymazVolbu(polozka){
         // v rámci zadané položky vymaže její položce volbu (tím, že jí nastaví na nevybráno)
@@ -181,7 +181,6 @@ class FormularOddluzeni{
 
     }
 
-
     // Pomocné vyhodnocovací metody - 
     // formulář umí odpovídat na dotazy stran vyplněných hodnot svých kolonek.
     // odpovídá však jen true/false a vůbec se nestará o to, proč to chce někdo vědět a co s tím udělá (o vyhodnocení se postará manažer)
@@ -228,27 +227,6 @@ class FormularOddluzeni{
     _jeVadneNecoZ(polozky){
         // Vrací údaj o tom, zda alespoň některá z kolonek předaných položek je vadná
         return this._jeNecoZPredanychNejake(polozky, polozka => this._jeVadne(polozka))
-    }
-
-
-    
-
-    _nastavNapovedy(){
-        // všem položkám nastaví nápovědu, pokud jsou pro ni k dispozici texty
-
-        const t = new TextyNalezitostiOddluzeni(this)
-
-        for (const polozka of this.vsechnyPolozky){
-
-            const text = t.napoveda[polozka.obecnyNazev]        // zdrojem textů je samostatná třída, aby texty nezaplevelovaly logiku formuláře
-
-            if (text){      // je-li dostupný nějaký text nápovědy
-                polozka.nastavNapovedu(polozka.popisek, text)       // nápověda se vytvoří
-            }
-
-        }
-
-                                    
     }
 
 }

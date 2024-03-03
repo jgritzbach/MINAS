@@ -1,10 +1,9 @@
-class TextyNalezitostiOddluzeni{
+class TextyNapovedNalezitostiOddluzeni{
     // Aby obsahově dlouhé nezaplevelovaly kód tříd, které jich potřebují využít
     // budou existovat odděleně a třídy se na ně mohou odkazovat
 
-    constructor(formular){
+    constructor(){
 
-        this.formular = formular
     }
 
     napoveda = {
@@ -140,7 +139,7 @@ class TextyNalezitostiOddluzeni{
         "priloha-rozsudek-o-vyzivnem" : `
         
             <p>Jestliže byla <strong>vyživovací povinnost</strong> dlužníka vůči dítěti <strong>stanovena <em>rozhodnutím soudu</em></strong>, pak je dlužník povinen doložit kopii tohoto <strong>rozsudku</strong>.</p>
-            <p>To platí i v případě, kdy opatrovnický soud svým rozhodnutím pouze schválil <em>dohodu rodičů</em> dítěte. Mimosoudní dohody rodičů o výši výživného však insolvenční soud často neakceptuje. V takovém případě se dítě se zohlední přímo ve výpočtu srážek jako vyživovaná osoba ze zákona.</p>
+            <p>To platí i v případě, kdy opatrovnický soud svým rozhodnutím pouze schválil <em>dohodu rodičů</em> dítěte. Mimosoudní dohody rodičů o výši výživného však insolvenční soud často neakceptuje. V takovém případě se dítě zohlední přímo ve výpočtu srážek jako vyživovaná osoba ze zákona.</p>
             <p>V případě, že v této aplikaci vyplníte ve formuláři vyživovaných osob výši soudně určeného výživného (či dluhu na něm), stane se tato kolonka povinnou.</p>`,
 
     }
