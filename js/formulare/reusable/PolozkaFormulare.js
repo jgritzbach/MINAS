@@ -4,12 +4,18 @@ class PolozkaFormulare{
     // současně však také může mít přidružený label
     // a také může mít přidruženou nápovědu, kterou lze zobrazit nějakou událostí.
 
+    // Důležité je, že jedna položka má jednu kolonku. Ne více. Je-li více kolonek, musí být více položek
+    // Pokud více kolonek potřebuje nějaké logické seskupení, má se to odehrát hierarchicky výše
+    // například jejich setříděním v nějaké třídě "sekce formuláře"
+    // Některé formuláře z důvodu lepší čitelnosti zobrazují položky vedle sebe místo pod sebou
+    // tím se nenechme mást. I když jsou vedle sebe, a možná mají tedy něco společného, přesto jsou to samostatné položky a jejich seskupení se má odehrát jinde, například právě v nějaké "sekci formuláře"
+
     constructor(obecnyNazev){
 
         // obecnyNazev - to bude představovat část názvu společnou jako pro položku, tak pro kolonku a label
         // rozdíl pak bude v tom, že položka a kolonka budou mít každá jiné slovo před touto společnou frází
-        // například pokud obecnyNazev bude "nalezitosti-plne-moci"
-        //tak objekt polozkyFormulare uz sam hned vi, ze 
+        // například pokud obecnyNazev bude "nalezitosti-plne-moci" 
+        // tak proměnná kolonky už hned ví, že má hledat kolonka-nalezitosti-plne-moci
 
         const idPolozky = 'polozka-' + obecnyNazev
         const idKolonky = 'kolonka-' + obecnyNazev
