@@ -97,7 +97,7 @@ class ManagerSrazek{
         if (celkovaSrazka > pausalIS){  // Pokud pokryjeme alespoň paušál IS
             text += `<p>Od této částky je třeba dále odečíst ${popisPausaluIS}</p>` // připíšeme to do textu a normálně pokračujeme dál
         } else {    // pokud však nepokryjeme ani paušál IS
-            text += `<p>Tato částka nepokryje ani ${popisPausaluIS}<p>      
+            text += `<p>Příjmy dlužníka nepokryjí ani ${popisPausaluIS}<p>      
                      <p>Neprokáže-li dlužník soudu další příjmy, oddlužení nebude povoleno pro nesplnění podmínky minimální splátky.</p>` // připíšeme to do textu
 
             return text // a rovnou skončíme - nic dalšího už není potřeba vypisovat
