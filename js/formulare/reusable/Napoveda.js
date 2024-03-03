@@ -29,15 +29,6 @@ class Napoveda{
         // celý svůj hlavní div schová
 
         this.divNapovedy.style.display = 'none'
-
-        // if (this.zobrazovatel){
-
-        //     const horniPoloha = this.zobrazovatel.getBoundingClientRect().top
-        //     if (top){
-        //         this.zobrazovatel.scrollIntoView(true)
-        //     }
-
-        // }
         
     }
 
