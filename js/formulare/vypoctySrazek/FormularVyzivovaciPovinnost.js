@@ -13,50 +13,44 @@ class FormularVyzivovacichPovinnosti{
 
     constructor(){
 
-        this._uchopPolozky()
-        this._uchopKolonky()                                // uchopíme všechny elementy <select> k vyplnění
+        this._uchopPolozky()                // uchopíme všechny elementy (divy) položek vyživovacích povinností dlužníka
         this._nastavKolonky()
 
-        this.polozkaPocetVyzivovanychOsob.nastavNapovedu(this.polozkaPocetVyzivovanychOsob.popisek, "<p>K vyživované osobě se buďto počítá zákonná vyživovací povinnost, anebo je soudem urřené výživné. Vzájmeně se to vylučuje.</p>")
+        // this.polozkaPocetVyzivovanychOsob.nastavNapovedu(this.polozkaPocetVyzivovanychOsob.popisek, "<p>K vyživované osobě se buďto počítá zákonná vyživovací povinnost, anebo je soudem urřené výživné. Vzájmeně se to vylučuje.</p>")
         
     }
-
 
     _uchopPolozky(){
-        this.polozkaPocetVyzivovanychOsob = new PolozkaFormulare('pocet-vyzivovanych-osob-dluznika')
-    }
-
-
-    _uchopKolonky(){
         
-        // na stránce uchopí patřičné kolonky dle jejich id a uloží je do vnitřních proměnných formuláře
+        // na stránce uchopí patřičné položky (divy) dle jejich id a uloží je do vnitřních proměnných formuláře
 
-        this.kolonkaPocetVyzivovanychOsob = document.getElementById("kolonka-pocet-vyzivovanych-osob-dluznika")     // počet vyživovaných osob ve společné domácnosti
-        this.kolonkaMesicniVyzivne = document.getElementById("mesicni-vyzivne")     // výživné stanovené soudem (typicky na děti mimo společnou domácnost)
-        this.kolonkaDluzneVyzivne = document.getElementById("dluzne-vyzivne")       // dluh na výživném stanoveném soudem
+        this.polozkaPocetVyzivovanychOsob = new PolozkaFormulare("pocet-vyzivovanych-osob-dluznika")     // počet vyživovaných osob ve společné domácnosti
+        this.polozkaMesicniVyzivne = new PolozkaFormulare("mesicni-vyzivne")     // výživné stanovené soudem (typicky na děti mimo společnou domácnost)
+        this.polozkaDluzneVyzivne = new PolozkaFormulare("dluzne-vyzivne")       // dluh na výživném stanoveném soudem
         
-        this.vsechnyKolonky = [this.kolonkaPocetVyzivovanychOsob, this.kolonkaMesicniVyzivne, this.kolonkaDluzneVyzivne,]
+        this.vsechnyPolozky = [this.polozkaPocetVyzivovanychOsob, this.polozkaMesicniVyzivne, this.polozkaDluzneVyzivne,]
     }
 
     
     get pocetOsob(){
-        return parseInt(this.kolonkaPocetVyzivovanychOsob.value) || 0
+        return parseInt(this.polozkaPocetVyzivovanychOsob.kolonka.value) || 0
     }
 
     get mesicniVyzivne(){
-        return parseFloat(this.kolonkaMesicniVyzivne.value) || 0
+        return parseFloat(this.polozkaMesicniVyzivne.kolonka.value) || 0
     }
 
     get dluzneVyzivne(){
-        return parseFloat(this.kolonkaDluzneVyzivne.value) || 0
+        return parseFloat(this.polozkaDluzneVyzivne.kolonka.value) || 0
     }
 
 
     _nastavKolonky(){
         // všem <input> kolonkám s počty nezabavitelných osob a výší výživného nastaví reakci na změnu
 
-        for (const kolonka of this.vsechnyKolonky){       // všem kolonkám s vyživovanými osobami a výživným
-             
+        for (const polozka of this.vsechnyPolozky){       // všem kolonkám s vyživovanými osobami a výživným
+            
+            const kolonka = polozka.kolonka
             kolonka.addEventListener('change', () =>{               // nastaví reakci na změnu
                 if (parseFloat(kolonka.value) < 0) {                // nejsou povolena záporná čísla
                     kolonka.value = 0                               // hodnota je vždy alespoň nula

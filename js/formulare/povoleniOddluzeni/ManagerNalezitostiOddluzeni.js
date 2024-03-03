@@ -44,7 +44,7 @@ class ManagerNalezitostiOddluzeni{
 
         // a později je budeme volat tehdy, když se změní kterákoliv z relevantních kolonek
         this._nastavReakci([this.p.kolonkaVyseDaru, this.p.kolonkaTypDaru], potrebaDisableDaru)
-        this._nastavReakci([this.v.kolonkaMesicniVyzivne, this.v.kolonkaDluzneVyzivne], potrebaDisableVyzivne)
+        this._nastavReakci([this.v.polozkaMesicniVyzivne.kolonka, this.v.polozkaDluzneVyzivne.kolonka], potrebaDisableVyzivne)
     }
 
 
