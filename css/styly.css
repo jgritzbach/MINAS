@@ -174,12 +174,13 @@ main{
     display:block;
     margin: 6px 0;
     display: flex;
+    gap: 4%;
 }
 
 .formular select, input {
     height: 22px;
     transition: 0.25s;
-    margin-right: 4%;
+    /* margin-right: 4%; */
     border-radius: 4px;
     background-color: white;
 }
