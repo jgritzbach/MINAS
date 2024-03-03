@@ -248,7 +248,7 @@ option{
 .zobrazovac-napovedy:hover{
     cursor: pointer;
     text-decoration: none;
-        opacity: 0.85;
+    opacity: 0.85;
 }
 
 .div-skryt-napovedu{

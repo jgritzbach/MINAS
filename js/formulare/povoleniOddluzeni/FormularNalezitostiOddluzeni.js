@@ -278,7 +278,6 @@ class FormularOddluzeni{
 
             if (text){      // je-li dostupný nějaký text nápovědy
                 polozka.nastavNapovedu(polozka.popisek, text)       // nápověda se vytvoří
-                polozka.popisek.classList.add("zobrazovac-napovedy")
             }
 
         }

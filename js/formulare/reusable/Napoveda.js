@@ -45,14 +45,19 @@ class Napoveda{
         this.divNapovedy.style.display = 'block'
     }
 
-    nastavZobrazovatele(element){
+    nastavZobrazovatele(element, nastavitTriduCSS = true){
         // předaný element se stane tím, kdo způsobí zobrazení nápovědy
 
-        this.zobrazovatel = element
+        this.zobrazovatel = element     // objekt nápovědy si navíc pamatuje, který element je tím zobrazovatelem
 
-        element.addEventListener('click', (event) =>{
+        if (nastavitTriduCSS){          // dle boolean argumentu lze rovnou html element zobrazovatele vybavit CSS třídou, která má naznačit, že jde o zobrazovatele
+            element.classList.add('zobrazovac-napovedy')
+        }
+        
+
+        element.addEventListener('click', (event) =>{       // po kliknutí na element zobrazovatele
             event.preventDefault()
-            if (this.jeSkryte){
+            if (this.jeSkryte){                 // se bude střídavě přepínat zobrazení/skrytí nápovědy
                 this.ukazSe()
             } else {
                 this.skryjSe()

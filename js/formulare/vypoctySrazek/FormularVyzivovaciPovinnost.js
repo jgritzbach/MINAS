@@ -13,8 +13,17 @@ class FormularVyzivovacichPovinnosti{
 
     constructor(){
 
+        this._uchopPolozky()
         this._uchopKolonky()                                // uchopíme všechny elementy <select> k vyplnění
         this._nastavKolonky()
+
+        this.polozkaPocetVyzivovanychOsob.nastavNapovedu(this.polozkaPocetVyzivovanychOsob.popisek, "<p>K vyživované osobě se buďto počítá zákonná vyživovací povinnost, anebo je soudem urřené výživné. Vzájmeně se to vylučuje.</p>")
+        
+    }
+
+
+    _uchopPolozky(){
+        this.polozkaPocetVyzivovanychOsob = new PolozkaFormulare('pocet-vyzivovanych-osob-dluznika')
     }
 
 
@@ -22,7 +31,7 @@ class FormularVyzivovacichPovinnosti{
         
         // na stránce uchopí patřičné kolonky dle jejich id a uloží je do vnitřních proměnných formuláře
 
-        this.kolonkaPocetVyzivovanychOsob = document.getElementById("pocet-vyzivovanych-osob-dluznika")     // počet vyživovaných osob ve společné domácnosti
+        this.kolonkaPocetVyzivovanychOsob = document.getElementById("kolonka-pocet-vyzivovanych-osob-dluznika")     // počet vyživovaných osob ve společné domácnosti
         this.kolonkaMesicniVyzivne = document.getElementById("mesicni-vyzivne")     // výživné stanovené soudem (typicky na děti mimo společnou domácnost)
         this.kolonkaDluzneVyzivne = document.getElementById("dluzne-vyzivne")       // dluh na výživném stanoveném soudem
         
