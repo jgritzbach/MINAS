@@ -7,10 +7,9 @@ class FormularOddluzeni{
     constructor(){
 
         this._uchopPolozky()                     // uchopíme všechny položky - obecné divy, kde je kolonka, label i kontejner pro nápovědu
-        this._uchopKolonky()                     // v rámci položek uchopíme samostatně takéjenom položky 
 
         this._nastavPovoleneVolby()              // v rámci zaškrtávacích <selectů> jsou povolené volby 'prázdné', 'v pořádku', 'diskutabilní' a 'vadné'
-        this._nastavKolonky()                    // kolonkám nastavíme povolené volby a reakce na ně
+        this._nastavKolonky()                    // v rámci položek nastavíme kolonkám povolené volby a reakce na ně
 
         this._nastavNapovedy()
     }
@@ -20,7 +19,8 @@ class FormularOddluzeni{
         // všem <select> kolonkám nastaví jako přípustnou volbu zaškrtávací možnosti v pořádku / diskutabilní / vadné
         // a nastaví jim také reakci na změnu
 
-        for (const kolonka of this.vsechnyKolonky){
+        for (const polozka of this.vsechnyPolozky){
+            const kolonka = polozka.kolonka
             this._nastavZaskrtavaciVolby(kolonka)
             this._nastavReakciNaVolbu(kolonka)
         }
@@ -52,6 +52,9 @@ class FormularOddluzeni{
         this.polozkaDarovaciSmlouva = new PolozkaFormulare("priloha-darovaci-smlouva")
         this.polozkaRozsudekOVyzivnem = new PolozkaFormulare("priloha-rozsudek-o-vyzivnem")
 
+        
+        // Logické Seskupení některých položek
+            // všechny
         this.vsechnyPolozky = [
             this.polozkaPlneMoci,
             this.polozkaFormaPodani,
@@ -71,67 +74,23 @@ class FormularOddluzeni{
             this.polozkaRozsudekOVyzivnem,
         ]
 
-    }
-
-    _uchopKolonky(){
-        
-        // ze vše svých položek vytahá kolonky, protože se s nimi velice často pracuje samostatně, v cyklech, a dotazy z cizích objektů
-
-        // Obecné náležitosti
-        this.kolonkaPlneMoci = this.polozkaPlneMoci.kolonka
-        this.kolonkaFormaPodani = this.polozkaFormaPodani.kolonka 
-        this.kolonkaTvrzeniOUpadku = this.polozkaTvrzeniOUpadku.kolonka
-        this.kolonkaMistniPrislusnost = this.polozkaMistniPrislusnost.kolonka
-
-        // Přílohy insolvenčního návrhu
-        this.kolonkaSeznamMajetku = this.polozkaSeznamMajetku.kolonka
-        this.kolonkaSeznamZamestnancu = this.polozkaSeznamZamestnancu.kolonka
-        this.kolonkaListinyDokladajiciUpadek = this.polozkaListinyDokladajiciUpadek.kolonka
-
-        // Přílohy návrhu na povolení oddlužení
-        this.kolonkaProhlaseniOPouceni = this.polozkaProhlaseniOPouceni.kolonka
-        this.kolonkaSoucasnePrijmy = this.polozkaSoucasnePrijmy.kolonka
-        this.kolonkaMinulePrijmy = this.polozkaMinulePrijmy.kolonka
-        // this.kolonkaProhlaseniManzeluOMajetku = this.polozkaProhlaseniManzeluOMajetku.kolonka      Dočasně vypnuto, dokud nebude zapracována i varianta pro manžela
-
-        // Další přílohy
-        this.kolonkaDarovaciSmlouva = this.polozkaDarovaciSmlouva.kolonka
-        this.kolonkaRozsudekOVyzivnem = this.polozkaRozsudekOVyzivnem.kolonka
-
-        // Logické Seskupení některých kolonek
-        this.vsechnyKolonky = [
-            this.kolonkaPlneMoci,
-            this.kolonkaFormaPodani,
-            this.kolonkaTvrzeniOUpadku,
-            this.kolonkaMistniPrislusnost,
-
-            this.kolonkaSeznamMajetku,
-            this.kolonkaSeznamZamestnancu,
-            this.kolonkaListinyDokladajiciUpadek,
-
-            this.kolonkaProhlaseniOPouceni,
-            this.kolonkaSoucasnePrijmy,
-            this.kolonkaMinulePrijmy,
-            // this.kolonkaProhlaseniManzeluOMajetku,                  Dočasně vypnuto, dokud nebude zapracována i varianta pro manžela
-
-            this.kolonkaDarovaciSmlouva,
-            this.kolonkaRozsudekOVyzivnem,
-        ]
-        
+            //přílohy insolvenčního návrhu
         this.prilohyInsolvencnihoNavrhu = [
-            this.kolonkaSeznamMajetku,
-            this.kolonkaSeznamZamestnancu,
-            this.kolonkaListinyDokladajiciUpadek,
+            this.polozkaSeznamMajetku,
+            this.polozkaSeznamZamestnancu,
+            this.polozkaListinyDokladajiciUpadek,
         ]
 
+            // přílohy návrhu na povolení oddlužení
         this.prilohyNavrhuNaPovoleniOddluzeni = [
-            this.kolonkaProhlaseniOPouceni,
-            this.kolonkaSoucasnePrijmy,
-            this.kolonkaMinulePrijmy,
-            // this.kolonkaProhlaseniManzeluOMajetku,                      Dočasně vypnuto, dokud nebude zapracována i varianta pro manžela
-            this.kolonkaDarovaciSmlouva,
-            this.kolonkaRozsudekOVyzivnem,
+            this.polozkaProhlaseniOPouceni,
+            this.polozkaSoucasnePrijmy,
+            this.polozkaMinulePrijmy,
+            // this.polozkaProhlaseniManzeluOMajetku,                      Dočasně vypnuto, dokud nebude zapracována i varianta pro manžela
+            this.polozkaDarovaciSmlouva,
+            this.polozkaRozsudekOVyzivnem,
         ]
+
     }
 
     _nastavZaskrtavaciVolby(selectElement){
@@ -172,21 +131,23 @@ class FormularOddluzeni{
 
 
 
-    vymazVolbu(kolonka){
-        // vymaže dané kolonce volbu (tím, že jí nastaví na nevybráno)
+    vymazVolbu(polozka){
+        // v rámci zadané položky vymaže její položce volbu (tím, že jí nastaví na nevybráno)
         // také jí patřičně upraví atribut zaskrtnuti, na který reaguje CSS
         
+        const kolonka = polozka.kolonka
         kolonka.selectedIndex = 0
         this._upravAtributZaskrtnuti(kolonka)
     }
 
-    disableKolonka(kolonka, disabled){
-        // nastaví kolonce hodnotu disabled na zadanou boolean hodnotu
+    disableKolonka(polozka, disabled){
+        // v rámci zadané položky nastaví její kolonce hodnotu disabled na zadanou boolean hodnotu
         // pokud to znamená disabled=true, tak ji zrovna i dříve zvolenou hodnotu a atribut zaskrtnuti (pro potřeby CSS) nastaví na nevybráno
 
+        const kolonka = polozka.kolonka
         kolonka.disabled=disabled
         if (disabled){
-            this.vymazVolbu(kolonka)
+            this.vymazVolbu(polozka)
         }
     }
 
@@ -225,43 +186,48 @@ class FormularOddluzeni{
     // formulář umí odpovídat na dotazy stran vyplněných hodnot svých kolonek.
     // odpovídá však jen true/false a vůbec se nestará o to, proč to chce někdo vědět a co s tím udělá (o vyhodnocení se postará manažer)
 
-    _jeNevyplnene(kolonka){
-        // Vrací údaj o tom, zda daná kolonka je nevyplněná
+    _jeNevyplnene(polozka){
+        // Vrací údaj o tom, zda kolonka dané položky je nevyplněná
+        const kolonka = polozka.kolonka
         return (!kolonka.disabled && kolonka.value === this.optionPrazdne.VALUE)     // kolonka se považuje za nevyplněnou pouze pokud není deaktivovaná
     }
 
-    _jeDiskutabilni(kolonka){
-        // Vrací údaj o tom, zda daná kolonka má vyplněnou volbu 'diskutabilní'
+    _jeDiskutabilni(polozka){
+        // Vrací údaj o tom, zda kolonka dané položky má vyplněnou volbu 'diskutabilní'
+        const kolonka = polozka.kolonka
         return kolonka.value === this.optionDiskutabilni.VALUE
     }
 
-    _jeVadne(kolonka){
-        // Vrací údaj o tom, zda daná kolonka má vyplněnou volbu 'diskutabilní'
+    _jeVadne(polozka){
+        // Vrací údaj o tom, zda kolonka dané položky má vyplněnou volbu 'diskutabilní'
+        const kolonka = polozka.kolonka
         return kolonka.value === this.optionVadne.VALUE
     }
 
-    _jeNecoZPredanychNejake(kolonky, callback){
-        // Vrací údaj o tom, zda alespoň některá z předaných kolonek má pravdivý výsledek callbacku
-        for (const kolonka of kolonky){
+    _jeNecoZPredanychNejake(polozky, callback){
+        // Vrací údaj o tom, zda alespoň některá z kolonek předaných položek má pravdivý výsledek callbacku
+        for (const polozka of polozky){
+            const kolonka = polozka.kolonka
             if (callback(kolonka)){            // stačí jediný pravdivý callback a hned vracíme pravdu (iterace končí)
                 return true
             }
         }
     }
 
-    _jeNevyplneneNecoZ(kolonky){
-        // Vrací údaj o tom, zda alespoň některá z předaných kolonek je nevyplněná
-        return this._jeNecoZPredanychNejake(kolonky, kolonka => this._jeNevyplnene(kolonka))  // callback musíme předat arrow funkcí, jinak ztratíme kontext this, který má odkazovat na instanci formuláře     
+    _jeNevyplneneNecoZ(polozky){
+        // Vrací údaj o tom, zda alespoň některá z kolonek předaných položek je nevyplněná
+
+        return this._jeNecoZPredanychNejake(polozky, polozka => this._jeNevyplnene(polozka))  // callback musíme předat arrow funkcí, jinak ztratíme kontext this, který má odkazovat na instanci formuláře     
     }
 
-    _jeDiskutabilniNecoZ(kolonky){
-        // Vrací údaj o tom, zda alespoň některá z předaných kolonek je diskutabilní
-        return this._jeNecoZPredanychNejake(kolonky, kolonka => this._jeDiskutabilni(kolonka))
+    _jeDiskutabilniNecoZ(polozky){
+        // Vrací údaj o tom, zda alespoň některá z kolonek předaných položek je diskutabilní
+        return this._jeNecoZPredanychNejake(polozky, polozka => this._jeDiskutabilni(polozka))
     }
 
-    _jeVadneNecoZ(kolonky){
-        // Vrací údaj o tom, zda alespoň některá z předaných kolonek je vadná
-        return this._jeNecoZPredanychNejake(kolonky, kolonka => this._jeVadne(kolonka))
+    _jeVadneNecoZ(polozky){
+        // Vrací údaj o tom, zda alespoň některá z kolonek předaných položek je vadná
+        return this._jeNecoZPredanychNejake(polozky, polozka => this._jeVadne(polozka))
     }
 
 

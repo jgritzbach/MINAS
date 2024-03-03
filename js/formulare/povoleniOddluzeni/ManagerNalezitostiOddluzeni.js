@@ -29,20 +29,20 @@ class ManagerNalezitostiOddluzeni{
         
         // ke každé kolonce formuláře se přidá další change event listener.
         // právě ten přepíše text vyhodnocení formuláře při jakékoliv změně
-        for (const kolonka of this.n.vsechnyKolonky){
-            kolonka.addEventListener('change', () => this.vypisVyhodnoceniFormulareNalezitostiOddluzeni())
+        for (const polozka of this.n.vsechnyPolozky){
+            polozka.kolonka.addEventListener('change', () => this.vypisVyhodnoceniFormulareNalezitostiOddluzeni())
         }
 
 
         // vytvoření předpřipravených funkcí pro prověření potřebnosti deaktivace kolonek daru a výživného
-        const potrebaDisableDaru = () => {this.proverPotrebuDisabled(this.n.kolonkaDarovaciSmlouva, (!this.p.vyseDaru && !this.p.typDaru))}
-        const potrebaDisableVyzivne = () => {this.proverPotrebuDisabled(this.n.kolonkaRozsudekOVyzivnem, (!this.v.mesicniVyzivne && !this.v.dluzneVyzivne))}
+        const potrebaDisableDaru = () => {this.proverPotrebuDisabled(this.n.polozkaDarovaciSmlouva, (!this.p.vyseDaru && !this.p.typDaru))}
+        const potrebaDisableVyzivne = () => {this.proverPotrebuDisabled(this.n.polozkaRozsudekOVyzivnem, (!this.v.mesicniVyzivne && !this.v.dluzneVyzivne))}
         
             // při startu aplikace si je rovnou 1x zavoláme
         potrebaDisableDaru()
         potrebaDisableVyzivne()
 
-        // a později je budeme volat tehdy, když se změní kterákoliv z relvantních kolonek
+        // a později je budeme volat tehdy, když se změní kterákoliv z relevantních kolonek
         this._nastavReakci([this.p.kolonkaVyseDaru, this.p.kolonkaTypDaru], potrebaDisableDaru)
         this._nastavReakci([this.v.kolonkaMesicniVyzivne, this.v.kolonkaDluzneVyzivne], potrebaDisableVyzivne)
     }
@@ -56,14 +56,14 @@ class ManagerNalezitostiOddluzeni{
     }
     
 
-    proverPotrebuDisabled(kolonka, podminka){
+    proverPotrebuDisabled(polozka, podminka){
         // metoda podle boolean vyhodnoceni podminky buďto řekne formuláří náležitostí, ať si zadanou kolonku deaktivuje
         // anebo naopak aktivuje
 
         if (podminka){
-            this.n.disableKolonka(kolonka,true)
+            this.n.disableKolonka(polozka,true)
         } else{
-            this.n.disableKolonka(kolonka,false)                    // deaktivace disabled = kolonka je nyní povinná
+            this.n.disableKolonka(polozka,false)                    // deaktivace disabled = kolonka je nyní povinná
             this.vypisVyhodnoceniFormulareNalezitostiOddluzeni()    // což musíme ihned zohlednit ve výpisu vyhodncoení náelžitostí oddlužení
         }
     }
@@ -100,51 +100,51 @@ class ManagerNalezitostiOddluzeni{
         const f = this.n     // pro lepší čitelnost uložíme referenci na formulář do jednopísmenné proměnné
 
         // Přednost má vada plné moci - nepřihlíží se a nelze napravit, ani se nemusíme dívat dál
-        if (f._jeVadne(f.kolonkaPlneMoci)){
+        if (f._jeVadne(f.polozkaPlneMoci)){
             return `<p>Vadná plná moc má za následek, že k insolvenčnímu návrhu se nepřihlíží (srov. § 97 IZ).</p>
                     <p>Žádnými dalšími náležitostmi se soud nebude vůbec zabývat. Nedojde k vydání vyhlášky o zahájení insolvenčního řízení (srov. § 101 IZ), ani k vyvolání účinků jinak spojených s jeho zahájením (srov. § 109 IZ).</p>
                     <p>Jedná se o neodstranitelnou vadu, soud vás nebude vyzývat k opravě. Proti rozhodnutí o nepřihlížení k insolvenčnímu návrhu není přípustné odvolání. Insolvenční řízení tímto rozhodnutím skončí.</p>`
         }
 
-        if (f._jeNevyplnene(f.kolonkaPlneMoci)){
+        if (f._jeNevyplnene(f.polozkaPlneMoci)){
             return `<p>Není vyplněna kolonka náležitostí plné moci.</p>
                     <p>Plnou  moc je přitom třeba zkoumat přednostně před následnými kolonkami. Ukázala-li by se plná moc jako vadná, je vyhodnocování ostatních náležitostí předčasné a tudíž zbytečné.</p>`
         }
 
 
         // Poté je forma podání - zpracovatel má DS, takže má podat elektronicky, neučiní-li, výzva k opravě. Neopraví-li, odmítne se 
-        if (f._jeVadne(f.kolonkaFormaPodani)){
+        if (f._jeVadne(f.polozkaFormaPodani)){
             return `<p>Forma podání insolvenčního návrhu spojeného s návrhem na povolení oddlužení je vadná.</p>
                     <p>Zpracovatelem návrhu na povolení oddlužení je typicky advokát, insolvenční správce nebo akreditovaná osoba. Jedná se o osoby, které mají zřízenou datovou schránku ze zákona a vůči insolvenčnímu soudu tak mohou činit podání pouze v elektronické podobě (srov. § 80a IZ).</p>
                     <p>Jedná se o odstranitelnou vadu. Soud v případě podání v listinné podobě vyzve zpracovatele návrhu k podání tohoto návrhu v elektronické podobě. Nebude-li ve stanovené lhůtě forma podání opravena, k návrhu se nebude přihlížet (srov. § 97 odst. 4 IZ) a insolvenční řízení tím skončí.</p>`
         }
 
-        if (f._jeNevyplnene(f.kolonkaFormaPodani)){
+        if (f._jeNevyplnene(f.polozkaFormaPodani)){
             return `<p>Není vyplněna kolonka náležitostí formy podání.</p>
                     <p>Formu podání je přitom třeba zkoumat přednostně před následnými kolonkami. Ukázala-li by se forma podání jako vadná, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.</p>`
         }
 
         // Vyhodnocení tvrzení o úpadku
-        if (f._jeVadne(f.kolonkaTvrzeniOUpadku)){
+        if (f._jeVadne(f.polozkaTvrzeniOUpadku)){
             return `<p>Tvrzení o úpadku dlužníka je nedostatečné.</p>
                     <p>Insolvenční návrh bude soudem odmítnut (srov. § 128 odst. 1 IZ). Ač se to může jevit neobvyklé, má odmítnutí insolvenčního návrhu pro nedostatečné tvrzení o úpadku dlužníka přednost i před posouzením místní nepříslušnosti (srov. § 7b odst. 5 IZ).</p>
                     <p>Jedná se o neodstranitelnou vadu, soud vás nebude vyzývat k opravě. Odmítnutím insolvenčního návrhu insolvenční řízení skončí.</p>`
         }
 
-        if (f._jeNevyplnene(f.kolonkaTvrzeniOUpadku)){
+        if (f._jeNevyplnene(f.polozkaTvrzeniOUpadku)){
             return `<p>Není vyplněna kolonka náležitostí tvrzení o úpadku.</p>
                     <p>Tvrzení o úpadku je přitom třeba zkoumat přednostně před následnými kolonkami. Ukázala-li by se tvrzení o úpadku jako vadná, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.<p/>`
         }
 
 
         // Vyhodnocení místní příslušnosti
-        if (f._jeVadne(f.kolonkaMistniPrislusnost)){
+        if (f._jeVadne(f.polozkaMistniPrislusnost)){
             return `<p>Místní příslušnost Krajského soudu patří mezi podmínky řízení, bez kterých není možné rozhodnout ve věci samé (srov. § 7b IZ).</p>
                     <p>Sezná-li soud, že je místně nepříslušný, postoupí věc místně příslušnému soudu.</p>
                     <p>Nedostatek místní příslušnosti nelze napravit. Řízení však nekončí, pouze se přesune k jinému soudu, který se bude věcí dále zabývat.</p>`
         }
 
-        if (f._jeNevyplnene(f.kolonkaMistniPrislusnost)){
+        if (f._jeNevyplnene(f.polozkaMistniPrislusnost)){
             return `<p>Není vyplněna kolonka místní příslušnosti.</p>
                     <p>Místní příslušnost je přitom třeba zkoumat přednostně před následnými kolonkami. Ukázalo-li by se, že soud není místně příslušný, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.</p>`
         }
@@ -174,7 +174,7 @@ class ManagerNalezitostiOddluzeni{
         }
 
         // je-li nkěterá kolonka diskutabilní, je postup nejistý
-        if (f._jeDiskutabilniNecoZ(f.vsechnyKolonky)){
+        if (f._jeDiskutabilniNecoZ(f.vsechnyPolozky)){
             return `<p>Všechny kolonky byly vyplněny, ale některé náležitosti jsou diskutabilní.</p>
                     <p>Insolvenční návrh spojený s návrhem na povolení oddlužení by mohl u soud obstát, ale konkrétní výsledek závisí na okolnostech případu.</p>`
         }
