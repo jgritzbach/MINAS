@@ -7,5 +7,7 @@ window.onload = ()=> {
 
     const managerNalezitostiOddluzeni = new ManagerNalezitostiOddluzeni(formularNalezitostiOddluzeni, formularPrijmu, formularVyzivovacichPovinnosti)
     const managerSrazek = new ManagerSrazek(formularPrijmu, formularVyzivovacichPovinnosti)
+
+
     
 }

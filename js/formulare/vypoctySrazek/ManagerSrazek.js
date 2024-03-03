@@ -26,10 +26,10 @@ class ManagerSrazek{
         const v = this.formularVyzivovacichPovinnosti
 
         // Zde určíme, které kolonky jsou způsobilé vyvolat přepis textového výsledku
-        const cile = [... p.vsechnyKolonkyVysePrijmu, p.kolonkaVyseDaru, p.kolonkaTypDaru, ...v.vsechnyKolonky]      // přepis textu vyvolá i změna typu daru, protože jeho označení se promítá do textu
+        const cile = [... p.vsechnyPolozkyVysePrijmu, p.polozkaVyseDaru, p.polozkaTypDaru, ...v.vsechnyPolozky]      // přepis textu vyvolá i změna typu daru, protože jeho označení se promítá do textu
 
-        for (const kolonka of cile){
-            kolonka.addEventListener('change', () => this._vypisVyhodnoceniPrijmu())
+        for (const polozka of cile){
+            polozka.kolonka.addEventListener('change', () => this._vypisVyhodnoceniPrijmu())
         }
     }
 
@@ -97,7 +97,7 @@ class ManagerSrazek{
         if (celkovaSrazka > pausalIS){  // Pokud pokryjeme alespoň paušál IS
             text += `<p>Od této částky je třeba dále odečíst ${popisPausaluIS}</p>` // připíšeme to do textu a normálně pokračujeme dál
         } else {    // pokud však nepokryjeme ani paušál IS
-            text += `<p>Tato částka nepokryje ani ${popisPausaluIS}<p>      
+            text += `<p>Příjmy dlužníka nepokryjí ani ${popisPausaluIS}<p>      
                      <p>Neprokáže-li dlužník soudu další příjmy, oddlužení nebude povoleno pro nesplnění podmínky minimální splátky.</p>` // připíšeme to do textu
 
             return text // a rovnou skončíme - nic dalšího už není potřeba vypisovat

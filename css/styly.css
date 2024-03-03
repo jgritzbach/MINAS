@@ -4,7 +4,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: Calibri, "Segoe UI", Helvetica, Arial, sans-serif ;
+     /* 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
     border: none;
 }
 
@@ -115,24 +116,10 @@ header nav ul li a:hover{
 
 
 /* OBLASTI S HLAVNÍM OBSAHEM */
+
 main{
     margin-top: 10px;
 }
-
-.oblast-vypisu{
-    padding: 10px;
-    transition: 0.5s;
-    text-align: justify;
-    background-color: rgb(243, 245, 247);  
-    border-radius: 10px;
-    height:fit-content;
-    max-width: 500px;
-}
-
-.oblast-vypisu p{
-    margin: 5px 0 15px 0;
-}
-
 
 #hlavni-obsah-stranky{
     margin: auto;
@@ -153,15 +140,11 @@ main{
     }
 }
 
-
 .layout-o-projektu{
     display:flex;
     flex-direction: column;
     align-items: center;
 }
-
-
-
 
 /* FORMULÁŘE OBECNĚ */
 
@@ -171,7 +154,6 @@ main{
     border-radius: 10px;
     padding: 10px;
 }
-
 
 .formular h3{
     text-align: center;
@@ -193,12 +175,12 @@ main{
     display:block;
     margin: 6px 0;
     display: flex;
+    gap: 4%;
 }
 
 .formular select, input {
     height: 22px;
     transition: 0.25s;
-    margin-right: 4%;
     border-radius: 4px;
     background-color: white;
 }
@@ -227,11 +209,93 @@ option{
 }
 
 
-/* KONKRÉTNÍ FORMULÁŘE  */
-/* #formular-oddluzeni{
-    max-width: 500px;
-} */
 
+/* OBLASTI S VÝPISEM TEXTU */
+
+
+.oblast-vypisu{
+    padding: 10px;
+    transition: 0.5s;
+    text-align: justify;
+    background-color: rgb(235, 235, 235);  
+    border-radius: 10px;
+    height:fit-content;
+    max-width: 500px;
+}
+
+.oblast-vypisu p{
+    margin: 5px 0 15px 0;
+}
+
+.vypis-ve-formulari{        /* Oblast výpisu uvnitř formuláře bude zpravidal vypadat trochu jinak než mimo formulář - bude mít asi menší písmo a více na sebe nalepené  */
+    background-color: rgb(245, 245, 245);  
+    padding: 0;
+    font-size: 0.75em;
+}
+
+.vypis-ve-formulari p, li{
+    margin: 0.7em 0.3em;
+}
+
+/* NÁPOVĚDA */
+.napoveda{
+    padding: 5px;
+}
+
+.zobrazovac-napovedy{
+    text-decoration: underline;
+}
+
+.zobrazovac-napovedy:hover{
+    cursor: pointer;
+    text-decoration: none;
+    opacity: 0.85;
+}
+
+.div-skryt-napovedu{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-skryt-napovedu{
+    background-color: rgb(195, 195, 195); 
+    color: rgb(80, 80, 80);
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin: 7px 0;
+}
+
+.btn-skryt-napovedu:hover {
+    background-color: rgb(165, 165, 165);
+    transition: all 0.25s;
+    cursor: pointer;
+}
+
+.btn-skryt-napovedu-sipka{
+    position: relative;
+    top: 3px;
+    font-size: 1em;
+    transform: scaleX(1.5);
+    display: inline-block;
+    margin-left: 4px;
+}
+
+
+.napoveda ol, ul{
+    padding-left: 1em;
+    list-style-position: inside;
+}
+
+.napoveda ol{
+    list-style-type: lower-roman;
+}
+
+.napoveda ol li p, 
+.napoveda ul li p{
+    display: inline;
+}
 
 /* ZÁPATÍ */
 footer{
