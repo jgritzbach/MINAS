@@ -28,286 +28,303 @@
 
     <!-- MAIN -->
     <main>
+
+     
         
-        <div id="hlavni-obsah-stranky" class="layout-povoleni-oddluzeni">
+        <div id="hlavni-obsah-stranky"> 
 
-            <!-- OBLAST NÁLEŽITOSTÍ - ta sestává z formuláře náležitostí a jeho vyhodnocení -->
-            <div id="div-oblast-nalezitosti" class="vertical-flex">
-
-                <!-- Formulář všech náležitostí návrhu na povolení oddlužení -->
-                <div id="div-formular-oddluzeni">
-                <form class="formular" id="formular-oddluzeni">
-
-                    <h3>Náležitosti návrhu na povolení oddlužení</h4>
-                    <!-- Obecné náležitosti návrhu -->
-                    <fieldset>
-                        <legend>Obecné náležitosti podání</legend>
-                    
-                        <!-- Plná moc -->
-                        <div id="polozka-nalezitosti-plne-moci" class="polozka-formulare">
-                            <div class="radek-formulare">
-                                <select id="kolonka-nalezitosti-plne-moci" class="zaskrtavaci-volba"></select>
-                                <label for="kolonka-nalezitosti-plne-moci">Náležitosti plné moci</label>
-                            </div>
-                        </div>
-
-                        <!-- Forma podání -->
-                        <div id="polozka-nalezitosti-formy-podani" class="polozka-formulare" >
-                            <div class="radek-formulare">
-                                <select id="kolonka-nalezitosti-formy-podani" class="zaskrtavaci-volba"></select>
-                                <label for="kolonka-nalezitosti-formy-podani">Náležitosti formy podání</label>
-                            </div>
-                        </div>
-
-                        <!-- Tvrzení o úpadku -->
-                        <div id="polozka-tvrzeni-o-upadku" class="polozka-formulare" >
-                            <div class="radek-formulare">
-                                <select id="kolonka-tvrzeni-o-upadku" class="zaskrtavaci-volba"></select>
-                                <label for="kolonka-tvrzeni-o-upadku">Tvrzení o úpadku</label>
-                            </div>
-                        </div>
-
-                        <!-- Místní příslušnost -->
-                        <div id="polozka-mistni-prislusnost" class="polozka-formulare" >
-                            <div class="radek-formulare">
-                                <select id="kolonka-mistni-prislusnost" class="zaskrtavaci-volba"></select>
-                                <label for="kolonka-mistni-prislusnost">Místní příslušnost</label>
-                            </div>
-                        </div>
-
-                    </fieldset>
-
-                    <!-- Přílohy insolvenčního návrhu -->
-                    <fieldset>
-                        <legend>Přílohy insolvenčního návrhu</legend>
-
-                        <!-- Seznam majetku -->
-                        <div id="polozka-seznam-majetku" class="polozka-formulare" >
-                            <div class="radek-formulare">
-                                <select id="kolonka-seznam-majetku" class="zaskrtavaci-volba"></select>
-                                <label for="kolonka-seznam-majetku">Seznam majetku</label>
-                            </div>
-                        </div>
-
-                        <!-- Seznam zaměstnanců -->
-                        <div id="polozka-seznam-zamestnancu" class="polozka-formulare" >
-                            <div class="radek-formulare">
-                                <select id="kolonka-seznam-zamestnancu" class="zaskrtavaci-volba"></select>
-                                <label for="kolonka-seznam-zamestnancu">Seznam zaměstnanců</label>
-                            </div>
-                        </div>
-
-                        <!-- Listiny dokládající úpadek -->
-                        <div id="polozka-listiny-dokladajici-upadek" class="polozka-formulare" >
-                            <div class="radek-formulare">
-                                <select id="kolonka-listiny-dokladajici-upadek" class="zaskrtavaci-volba"></select>
-                                <label for="kolonka-listiny-dokladajici-upadek">Listiny dokládající úpadek</label>
-                            </div>
-                        </div>
-
-                    </fieldset>
-
-                    <!-- Přílohy návrhu na povolení oddlužení -->
-                    <fieldset>
-                        <legend>Přílohy návrhu na povolení oddlužení</legend>
-                    
-                        <!-- Čestné prohlášení o poučení o povinnostech -->
-                        <div id="polozka-prohlaseni-o-pouceni" class="polozka-formulare" >
-                            <div class="radek-formulare">
-                                <select id="kolonka-prohlaseni-o-pouceni" class="zaskrtavaci-volba"></select>
-                                <label for="kolonka-prohlaseni-o-pouceni">Čestné prohlášení o poučení o povinnostech</label>
-                            </div>
-                        </div>
-
-                        <!-- Důkaz o současném příjmu -->
-                        <div id="polozka-priloha-soucasne-prijmy" class="polozka-formulare" >
-                            <div class="radek-formulare">
-                                <select id="kolonka-priloha-soucasne-prijmy" class="zaskrtavaci-volba"></select>
-                                <label for="kolonka-priloha-soucasne-prijmy">Důkaz o současných příjmech</label>
-                            </div>
-                        </div>
-
-                        <!-- Důkaz o příjmech za posledních 12 měsíců -->
-                        <div id="polozka-prijmy-za-12-mesicu" class="polozka-formulare" >
-                            <div class="radek-formulare">
-                                <select id="kolonka-prijmy-za-12-mesicu" class="zaskrtavaci-volba"></select>
-                                <label for="kolonka-prijmy-za-12-mesicu">Důkaz o příjmech za posledních 12 měsíců</label>
-                            </div>
-                        </div>
-
-                        <!-- Dočasně vypnuto, dokud nebude zapracována i varianta pro manžela -->
-
-                        <!-- Souhlasné prohlášení manželů o majetku - úředně ověřené podpisy       
-                        <div id="polozka-prohlaseni-manzelu-o-majetku" class="polozka-formulare" >             
-                            <div class="radek-formulare">
-                                <select id="kolonka-prohlaseni-manzelu-o-majetku" class="zaskrtavaci-volba"></select>
-                                <label for="kolonka-prohlaseni-manzelu-o-majetku">Prohlášení manželů o majetku</label>
-                            </div>      
-                        </div>--> 
-                        
-                        
-                    </fieldset>
-
-                        <!-- Další přílohy -->
-                        <fieldset>
-                        <legend>Další přílohy návrhu na povolení oddlužení</legend>
-
-                        <!-- Darovací smlouva / smlouva o důchodu -->
-                        <div id="polozka-priloha-darovaci-smlouva" class="polozka-formulare" >
-                            <div class="radek-formulare">
-                                <select id="kolonka-priloha-darovaci-smlouva" class="zaskrtavaci-volba"></select>
-                                <label for="kolonka-priloha-darovaci-smlouva">Darovací smlouva / smlouva o důchodu</label>
-                            </div>
-                        </div>
-
-                        <!-- Rozsudek soudu o výživném -->
-                        <div id="polozka-priloha-rozsudek-o-vyzivnem" class="polozka-formulare" >
-                            <div class="radek-formulare">
-                                <select id="kolonka-priloha-rozsudek-o-vyzivnem" class="zaskrtavaci-volba"></select>
-                                <label for="kolonka-priloha-rozsudek-o-vyzivnem">Rozsudek soudu o výživném</label>
-                            </div>
-                        </div>
-
-                    </fieldset>
-
-                </form>
-                </div><!-- Konec formuláře náležitostí návrhu na povolení oddlužení  -->
-
-
-                <!-- OBLAST VYHODNOCENÍ FORMULÁŘE NÁVRHU NA ODDLUŽENÍ-->
-                <!-- Zde se bude vypisovat, co soud pravděpodobně udělá  -->
-                <div id="div-vyhodnoceni-formulare-nalezitosti-oddluzeni" class="oblast-vypisu">
-                    Vyplňte prosím kolonky formuláře.
+            <!-- ÚVODNÍ TEXT -->
+            <div class="siroky-sloupec">
+                <div class="oblast-vypisu">
+                    <h3>Vítejte v projektu MINAS - webové aplikaci pro správu insolvenčního řízení</h3>
+                    <p>Rozhlédněte se okolo a vyzkoušejte si sami posouzení nového insolvenčního návrhu spojeného s návrhem na povolení oddlužení.</p>
+                    <p>Dlužník, který se nachází v úpadku (nezvládá hradit své závazky), může soudu navrhnout,aby jeho úpadek byl řešen oddlužením, najehož konci může být osvobozen od placení části neuhrazených dluhů.</p>
+                    <p>Insolvenční návrh spojený snávrhem nařízení je zahájeno doručením takového návrhu na soud.</p>
                 </div>
-
             </div>
-            <!-- KONEC OBLASTI NÁLEŽITOSTÍ -->
-
         
-            <!-- OBLAST PŘÍJMŮ -->
-            <div id="oblast prijmu" class="vertical-flex">
+            <div class="layout-povoleni-oddluzeni">
 
-                <!-- FORMULÁŘ PŘÍJMŮ DLUŽNÍKA -->
-                <div id="div-formular-prijmu">
-                    <form class="formular" id="formular-prijmy">
+                <!-- OBLAST NÁLEŽITOSTÍ - ta sestává z formuláře náležitostí a jeho vyhodnocení -->
+                <div id="div-oblast-nalezitosti" class="vertical-flex">
 
-                        <h3>Příjmy dlužníka</h4>
+                    <!-- Formulář všech náležitostí návrhu na povolení oddlužení -->
+                    <div id="div-formular-oddluzeni">
+                    <form class="formular" id="formular-oddluzeni">
 
+                        <h3>Náležitosti návrhu na povolení oddlužení</h4>
+                        <!-- Obecné náležitosti návrhu -->
                         <fieldset>
-                            <!-- Vlastní příjmy -->
-                            <legend>Vlastní příjmy</legend>
-
-                                <div id="div-vlastni-prijmy">
-
-                                <!-- První příjem -->
+                            <legend>Obecné náležitosti podání</legend>
+                        
+                            <!-- Plná moc -->
+                            <div id="polozka-nalezitosti-plne-moci" class="polozka-formulare">
                                 <div class="radek-formulare">
-                                    <div id="polozka-vyse-prijmu-1" class="polozka-formulare">
-                                        <input id="kolonka-vyse-prijmu-1" type="number" placeholder="Výše příjmu v Kč">
-                                    </div>
-
-                                    <div id="polozka-typ-prijmu-1" class="polozka-formulare">
-                                        <select id="kolonka-typ-prijmu-1"></select> <!-- zde se vyplní typ příjmu -->
-                                    </div>
+                                    <select id="kolonka-nalezitosti-plne-moci" class="zaskrtavaci-volba"></select>
+                                    <label for="kolonka-nalezitosti-plne-moci">Náležitosti plné moci</label>
                                 </div>
-                                
+                            </div>
 
-                                <!-- Druhý příjem -->
+                            <!-- Forma podání -->
+                            <div id="polozka-nalezitosti-formy-podani" class="polozka-formulare" >
                                 <div class="radek-formulare">
-                                    <div id="polozka-vyse-prijmu-2" class="polozka-formulare">
-                                        <input id="kolonka-vyse-prijmu-2" type="number" placeholder="Výše příjmu v Kč">
-                                    </div>
-
-                                    <div id="polozka-typ-prijmu-2" class="polozka-formulare">
-                                        <select id="kolonka-typ-prijmu-2"></select> <!-- zde se vyplní typ příjmu -->
-                                    </div>
+                                    <select id="kolonka-nalezitosti-formy-podani" class="zaskrtavaci-volba"></select>
+                                    <label for="kolonka-nalezitosti-formy-podani">Náležitosti formy podání</label>
                                 </div>
-                                
+                            </div>
 
-                                <!-- Třetí příjem -->
+                            <!-- Tvrzení o úpadku -->
+                            <div id="polozka-tvrzeni-o-upadku" class="polozka-formulare" >
                                 <div class="radek-formulare">
-                                    <div id="polozka-vyse-prijmu-3" class="polozka-formulare">
-                                        <input id="kolonka-vyse-prijmu-3" type="number" placeholder="Výše příjmu v Kč">
+                                    <select id="kolonka-tvrzeni-o-upadku" class="zaskrtavaci-volba"></select>
+                                    <label for="kolonka-tvrzeni-o-upadku">Tvrzení o úpadku</label>
+                                </div>
+                            </div>
+
+                            <!-- Místní příslušnost -->
+                            <div id="polozka-mistni-prislusnost" class="polozka-formulare" >
+                                <div class="radek-formulare">
+                                    <select id="kolonka-mistni-prislusnost" class="zaskrtavaci-volba"></select>
+                                    <label for="kolonka-mistni-prislusnost">Místní příslušnost</label>
+                                </div>
+                            </div>
+
+                        </fieldset>
+
+                        <!-- Přílohy insolvenčního návrhu -->
+                        <fieldset>
+                            <legend>Přílohy insolvenčního návrhu</legend>
+
+                            <!-- Seznam majetku -->
+                            <div id="polozka-seznam-majetku" class="polozka-formulare" >
+                                <div class="radek-formulare">
+                                    <select id="kolonka-seznam-majetku" class="zaskrtavaci-volba"></select>
+                                    <label for="kolonka-seznam-majetku">Seznam majetku</label>
+                                </div>
+                            </div>
+
+                            <!-- Seznam zaměstnanců -->
+                            <div id="polozka-seznam-zamestnancu" class="polozka-formulare" >
+                                <div class="radek-formulare">
+                                    <select id="kolonka-seznam-zamestnancu" class="zaskrtavaci-volba"></select>
+                                    <label for="kolonka-seznam-zamestnancu">Seznam zaměstnanců</label>
+                                </div>
+                            </div>
+
+                            <!-- Listiny dokládající úpadek -->
+                            <div id="polozka-listiny-dokladajici-upadek" class="polozka-formulare" >
+                                <div class="radek-formulare">
+                                    <select id="kolonka-listiny-dokladajici-upadek" class="zaskrtavaci-volba"></select>
+                                    <label for="kolonka-listiny-dokladajici-upadek">Listiny dokládající úpadek</label>
+                                </div>
+                            </div>
+
+                        </fieldset>
+
+                        <!-- Přílohy návrhu na povolení oddlužení -->
+                        <fieldset>
+                            <legend>Přílohy návrhu na povolení oddlužení</legend>
+                        
+                            <!-- Čestné prohlášení o poučení o povinnostech -->
+                            <div id="polozka-prohlaseni-o-pouceni" class="polozka-formulare" >
+                                <div class="radek-formulare">
+                                    <select id="kolonka-prohlaseni-o-pouceni" class="zaskrtavaci-volba"></select>
+                                    <label for="kolonka-prohlaseni-o-pouceni">Čestné prohlášení o poučení o povinnostech</label>
+                                </div>
+                            </div>
+
+                            <!-- Důkaz o současném příjmu -->
+                            <div id="polozka-priloha-soucasne-prijmy" class="polozka-formulare" >
+                                <div class="radek-formulare">
+                                    <select id="kolonka-priloha-soucasne-prijmy" class="zaskrtavaci-volba"></select>
+                                    <label for="kolonka-priloha-soucasne-prijmy">Důkaz o současných příjmech</label>
+                                </div>
+                            </div>
+
+                            <!-- Důkaz o příjmech za posledních 12 měsíců -->
+                            <div id="polozka-prijmy-za-12-mesicu" class="polozka-formulare" >
+                                <div class="radek-formulare">
+                                    <select id="kolonka-prijmy-za-12-mesicu" class="zaskrtavaci-volba"></select>
+                                    <label for="kolonka-prijmy-za-12-mesicu">Důkaz o příjmech za posledních 12 měsíců</label>
+                                </div>
+                            </div>
+
+                            <!-- Dočasně vypnuto, dokud nebude zapracována i varianta pro manžela -->
+
+                            <!-- Souhlasné prohlášení manželů o majetku - úředně ověřené podpisy       
+                            <div id="polozka-prohlaseni-manzelu-o-majetku" class="polozka-formulare" >             
+                                <div class="radek-formulare">
+                                    <select id="kolonka-prohlaseni-manzelu-o-majetku" class="zaskrtavaci-volba"></select>
+                                    <label for="kolonka-prohlaseni-manzelu-o-majetku">Prohlášení manželů o majetku</label>
+                                </div>      
+                            </div>--> 
+                            
+                            
+                        </fieldset>
+
+                            <!-- Další přílohy -->
+                            <fieldset>
+                            <legend>Další přílohy návrhu na povolení oddlužení</legend>
+
+                            <!-- Darovací smlouva / smlouva o důchodu -->
+                            <div id="polozka-priloha-darovaci-smlouva" class="polozka-formulare" >
+                                <div class="radek-formulare">
+                                    <select id="kolonka-priloha-darovaci-smlouva" class="zaskrtavaci-volba"></select>
+                                    <label for="kolonka-priloha-darovaci-smlouva">Darovací smlouva / smlouva o důchodu</label>
+                                </div>
+                            </div>
+
+                            <!-- Rozsudek soudu o výživném -->
+                            <div id="polozka-priloha-rozsudek-o-vyzivnem" class="polozka-formulare" >
+                                <div class="radek-formulare">
+                                    <select id="kolonka-priloha-rozsudek-o-vyzivnem" class="zaskrtavaci-volba"></select>
+                                    <label for="kolonka-priloha-rozsudek-o-vyzivnem">Rozsudek soudu o výživném</label>
+                                </div>
+                            </div>
+
+                        </fieldset>
+
+                    </form>
+                    </div><!-- Konec formuláře náležitostí návrhu na povolení oddlužení  -->
+
+
+                    <!-- OBLAST VYHODNOCENÍ FORMULÁŘE NÁVRHU NA ODDLUŽENÍ-->
+                    <!-- Zde se bude vypisovat, co soud pravděpodobně udělá  -->
+                    <div id="div-vyhodnoceni-formulare-nalezitosti-oddluzeni" class="oblast-vypisu">
+                        Vyplňte prosím kolonky formuláře.
+                    </div>
+
+                </div>
+                <!-- KONEC OBLASTI NÁLEŽITOSTÍ -->
+
+            
+                <!-- OBLAST PŘÍJMŮ -->
+                <div id="oblast prijmu" class="vertical-flex">
+
+                    <!-- FORMULÁŘ PŘÍJMŮ DLUŽNÍKA -->
+                    <div id="div-formular-prijmu">
+                        <form class="formular" id="formular-prijmy">
+
+                            <h3>Příjmy dlužníka</h4>
+
+                            <fieldset>
+                                <!-- Vlastní příjmy -->
+                                <legend>Vlastní příjmy</legend>
+
+                                    <div id="div-vlastni-prijmy">
+
+                                    <!-- První příjem -->
+                                    <div class="radek-formulare">
+                                        <div id="polozka-vyse-prijmu-1" class="polozka-formulare">
+                                            <input id="kolonka-vyse-prijmu-1" type="number" placeholder="Výše příjmu v Kč">
+                                        </div>
+
+                                        <div id="polozka-typ-prijmu-1" class="polozka-formulare">
+                                            <select id="kolonka-typ-prijmu-1"></select> <!-- zde se vyplní typ příjmu -->
+                                        </div>
                                     </div>
                                     
-                                    <div id="polozka-typ-prijmu-3" class="polozka-formulare">
-                                        <select id="kolonka-typ-prijmu-3"></select> <!-- zde se vyplní typ příjmu -->
-                                    </div>
-                                </div>
-                                </div>
 
-                                <!-- Součet příjmů -->
-                                <div id="polozka-soucet-vlastnich-prijmu-dluznika">
+                                    <!-- Druhý příjem -->
                                     <div class="radek-formulare">
-                                        <input id="kolonka-soucet-vlastnich-prijmu-dluznika" type="number" disabled="disabled" >
-                                        <label for="kolonka-soucet-vlastnich-prijmu-dluznika">Kč celkem</label>
-                                    </div>
-                                </div>
-                           
-                        </fieldset>
+                                        <div id="polozka-vyse-prijmu-2" class="polozka-formulare">
+                                            <input id="kolonka-vyse-prijmu-2" type="number" placeholder="Výše příjmu v Kč">
+                                        </div>
 
-                        <fieldset>
-                            <!-- Příjmy od třetích osob (darovací smlouva / smlouva o důchodu) -->
-                            <legend>Příjmy od třetích osob</legend>
-                                <div class="radek-formulare">
+                                        <div id="polozka-typ-prijmu-2" class="polozka-formulare">
+                                            <select id="kolonka-typ-prijmu-2"></select> <!-- zde se vyplní typ příjmu -->
+                                        </div>
+                                    </div>
+                                    
 
-                                    <div id="polozka-vyse-daru" class="polozka-formulare">
-                                        <input id="kolonka-vyse-daru" type="number" placeholder="Výše příjmu v Kč">
+                                    <!-- Třetí příjem -->
+                                    <div class="radek-formulare">
+                                        <div id="polozka-vyse-prijmu-3" class="polozka-formulare">
+                                            <input id="kolonka-vyse-prijmu-3" type="number" placeholder="Výše příjmu v Kč">
+                                        </div>
+                                        
+                                        <div id="polozka-typ-prijmu-3" class="polozka-formulare">
+                                            <select id="kolonka-typ-prijmu-3"></select> <!-- zde se vyplní typ příjmu -->
+                                        </div>
+                                    </div>
                                     </div>
 
-                                    <div id="polozka-typ-daru" class="polozka-formulare">
-                                        <select id="kolonka-typ-daru">
-                                            <option value=""></option>
-                                            <option value="darovaci-smlouva">Darovací smlouva</option>
-                                            <option value="smlouva o důchodu">Smlouva o důchodu</option>
-                                        </select>
+                                    <!-- Součet příjmů -->
+                                    <div id="polozka-soucet-vlastnich-prijmu-dluznika">
+                                        <div class="radek-formulare">
+                                            <input id="kolonka-soucet-vlastnich-prijmu-dluznika" type="number" disabled="disabled" >
+                                            <label for="kolonka-soucet-vlastnich-prijmu-dluznika">Kč celkem</label>
+                                        </div>
                                     </div>
-                                </div>
-                        </fieldset>
+                            
+                            </fieldset>
+
+                            <fieldset>
+                                <!-- Příjmy od třetích osob (darovací smlouva / smlouva o důchodu) -->
+                                <legend>Příjmy od třetích osob</legend>
+                                    <div class="radek-formulare">
+
+                                        <div id="polozka-vyse-daru" class="polozka-formulare">
+                                            <input id="kolonka-vyse-daru" type="number" placeholder="Výše příjmu v Kč">
+                                        </div>
+
+                                        <div id="polozka-typ-daru" class="polozka-formulare">
+                                            <select id="kolonka-typ-daru">
+                                                <option value=""></option>
+                                                <option value="darovaci-smlouva">Darovací smlouva</option>
+                                                <option value="smlouva o důchodu">Smlouva o důchodu</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                            </fieldset>
+                        </form>
+                    
+                    </div>
+                    <!-- KONEC FORMULÁŘE PŘÍJMŮ DLUŽNÍKA -->
+
+                    <!-- FORMULÁŘ VYŽIVOVACÍCH POVINNOSTÍ DLUŽNÍKA -->
+                    
+                    <div id="div-formular-vyzivovacich-povinnosti">
+                    <form class="formular" id="formular-vyzivovacich-povinnosti">
+                        <h3>Vyživovací povinnosti</h3>
+
+                        <div id="polozka-pocet-vyzivovanych-osob-dluznika" class="polozka-formulare" >
+                            <div class="radek-formulare">
+                                <input id="kolonka-pocet-vyzivovanych-osob-dluznika" type="number">
+                                <label for="kolonka-pocet-vyzivovanych-osob-dluznika">Počet vyživovaných osob ze zákona</label>
+                            </div>
+                        </div>
+
+                        <div id="polozka-mesicni-vyzivne" class="polozka-formulare" >
+                            <div class="radek-formulare">
+                                <input id="kolonka-mesicni-vyzivne" type="number">
+                                <label for="kolonka-mesicni-vyzivne">Měsíční výživné stanovené soudem</label>
+                            </div>
+                        </div>
+                        
+                        <div id="polozka-dluzne-vyzivne" class="polozka-formulare" >
+                            <div class="radek-formulare">
+                                <input id="kolonka-dluzne-vyzivne" type="number">
+                                <label for="kolonka-dluzne-vyzivne">Dluh na výživném</label>
+                            </div>
+                        </div>
+                        
                     </form>
-                
-                </div>
-                <!-- KONEC FORMULÁŘE PŘÍJMŮ DLUŽNÍKA -->
-
-                <!-- FORMULÁŘ VYŽIVOVACÍCH POVINNOSTÍ DLUŽNÍKA -->
-                
-                <div id="div-formular-vyzivovacich-povinnosti">
-                <form class="formular" id="formular-vyzivovacich-povinnosti">
-                    <h3>Vyživovací povinnosti</h3>
-
-                    <div id="polozka-pocet-vyzivovanych-osob-dluznika" class="polozka-formulare" >
-                        <div class="radek-formulare">
-                            <input id="kolonka-pocet-vyzivovanych-osob-dluznika" type="number">
-                            <label for="kolonka-pocet-vyzivovanych-osob-dluznika">Počet vyživovaných osob ze zákona</label>
-                        </div>
                     </div>
-
-                    <div id="polozka-mesicni-vyzivne" class="polozka-formulare" >
-                        <div class="radek-formulare">
-                            <input id="kolonka-mesicni-vyzivne" type="number">
-                            <label for="kolonka-mesicni-vyzivne">Měsíční výživné stanovené soudem</label>
-                        </div>
-                    </div>
+                    <!-- KONEC FORMULÁŘE VYŽIVOVACÍCH POVINNOSTÍ DLUŽNÍKA -->
                     
-                    <div id="polozka-dluzne-vyzivne" class="polozka-formulare" >
-                        <div class="radek-formulare">
-                            <input id="kolonka-dluzne-vyzivne" type="number">
-                            <label for="kolonka-dluzne-vyzivne">Dluh na výživném</label>
-                        </div>
+
+                    <!-- OBLAST VÝSLEDKŮ VÝPOČTŮ SRÁŽEK-->
+                    <div id="div-vypocet-srazek" class="oblast-vypisu">
+                        <p>Vyplňte prosím příjmy dlužníka a jeho vyživovací povinnosti.</p>
                     </div>
+
                     
-                </form>
                 </div>
-                <!-- KONEC FORMULÁŘE VYŽIVOVACÍCH POVINNOSTÍ DLUŽNÍKA -->
-                
+                <!-- KONEC OBLASTI PŘÍJMŮ -->
 
-                <!-- OBLAST VÝSLEDKŮ VÝPOČTŮ SRÁŽEK-->
-                <div id="div-vypocet-srazek" class="oblast-vypisu">
-                    <p>Vyplňte prosím příjmy dlužníka a jeho vyživovací povinnosti.</p>
-                </div>
-
-                
             </div>
-            <!-- KONEC OBLASTI PŘÍJMŮ -->
+            <!-- KONEC DIVU LAYOUT POVOLENÍ ODDLUŽENÍ -->
 
         </div>
         <!-- KONEC DIVU HLAVNÍ OBSAH -->

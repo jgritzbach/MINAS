@@ -121,6 +121,20 @@ main{
     margin-top: 10px;
 }
 
+
+.sloupec{
+    margin: auto;
+    padding: 2%;
+}
+
+.siroky{
+    max-width: 1020px;
+}
+
+.stredni{
+    max-width: 510px;
+}
+
 #hlavni-obsah-stranky{
     margin: auto;
     padding: 2%;
@@ -220,7 +234,7 @@ option{
     background-color: rgb(235, 235, 235);  
     border-radius: 10px;
     height:fit-content;
-    max-width: 500px;
+    /* max-width: 500px; */
 }
 
 .oblast-vypisu p{
