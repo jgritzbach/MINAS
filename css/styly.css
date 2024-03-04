@@ -144,6 +144,7 @@ main{
 
 .layout-povoleni-oddluzeni{
     display: grid;
+    margin-top: 15px;
     grid-gap: 20px;
     grid-template-columns: 1fr;  /* Výchozí je 1fr pro mobily, na desktopu přidáme další */
 }
@@ -235,6 +236,10 @@ option{
     border-radius: 10px;
     height:fit-content;
     /* max-width: 500px; */
+}
+
+.oblast-vypisu h3{
+    margin-bottom: 15px;
 }
 
 .oblast-vypisu p{
