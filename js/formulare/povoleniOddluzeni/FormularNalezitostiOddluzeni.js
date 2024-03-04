@@ -206,8 +206,8 @@ class FormularOddluzeni extends BaseFormular{
     _jeNecoZPredanychNejake(polozky, callback){
         // Vrací údaj o tom, zda alespoň některá z kolonek předaných položek má pravdivý výsledek callbacku
         for (const polozka of polozky){
-            const kolonka = polozka.kolonka
-            if (callback(kolonka)){            // stačí jediný pravdivý callback a hned vracíme pravdu (iterace končí)
+            
+            if (callback(polozka)){            // stačí jediný pravdivý callback a hned vracíme pravdu (iterace končí)
                 return true
             }
         }
