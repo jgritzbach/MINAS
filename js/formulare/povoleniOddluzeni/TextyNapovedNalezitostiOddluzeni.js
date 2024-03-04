@@ -84,8 +84,8 @@ class TextyNapovedNalezitostiOddluzeni{
         
         "listiny-dokladajici-upadek" : `
         
-            <p>Dlužník má povinnost nejen svůj úpadek tvrdit, ale také <strong>prokázat</strong>. Za důkaz typicky slouží <em>listiny</em> dokládající, že <em>alespoň dva</em> závazky vůči alespoň dvěma věřitelům jsou více jak 30 dnů po splatnosti</p>
-            <p>Za takový důkaz zpravidla nepostačí listiny prokazující <em>pouhou existenci</em> závazku či jeho vznik v minulosti, jako jsou například kopie úvěrových smluv. Z listin by měla přímo vyplývat <strong>splatnost</strong> závazku a to, že že nebyl včas uhrazen. Typicky tedy <em>exekuční příkazy</em>, <em>výzvy věřitelů</em> k úhradě závazku, <em>rozsudky</em> ukládající povinnost zaplatit k určenému datu, předžalobní výzvy apod.</p>
+            <p>Dlužník má povinnost nejen svůj úpadek tvrdit, ale také <strong>prokázat</strong>. Za důkaz typicky slouží <em>listiny</em>, ze kterých plyne, že <em>alespoň dva</em> závazky vůči alespoň dvěma věřitelům jsou více jak 30 dnů po splatnosti</p>
+            <p>Za takový důkaz zpravidla nepostačí listiny prokazující <em>pouhou existenci</em> závazku či jeho vznik v minulosti, jako jsou například kopie úvěrových smluv. Z listin by měla přímo vyplývat <strong>splatnost</strong> závazku a to, že nebyl včas uhrazen. Typicky tedy <em>exekuční příkazy</em>, <em>výzvy věřitelů</em> k úhradě závazku, <em>rozsudky</em> ukládající povinnost zaplatit k určenému datu, <em>předžalobní výzvy</em> apod.</p>
             <p>Výpis z centrální evidence exekucí lze akceptovat jen pokud je z něj patrné, kdo je věřitelem. Dlužník totiž může mít nařízeno více exekucí, ale pokud by ve všech případech byl oprávněným jediný věřitel, dlužník by v úpadku nebyl.</p>`,
 
         "prohlaseni-o-pouceni" : `
