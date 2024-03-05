@@ -119,17 +119,17 @@ header nav ul li a:hover{
 /* OBLASTI S HLAVNÍM OBSAHEM */
 
 main{
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 
 .sloupec{
     margin: auto;
-    padding: 2%;
+    /* padding: 2%; */
 }
 
 .siroky{
-    max-width: 1020px;
+    max-width: 920px;
 }
 
 .stredni{
@@ -139,7 +139,7 @@ main{
 #hlavni-obsah-stranky{
     margin: auto;
     padding: 2%;
-    max-width: 1020px;
+    max-width: 920px;
     min-height: 900px;
 }
 
@@ -156,11 +156,7 @@ main{
     }
 }
 
-.layout-o-projektu{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-}
+
 
 /* FORMULÁŘE OBECNĚ */
 
