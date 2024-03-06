@@ -152,7 +152,7 @@ main{
     grid-template-columns: 1fr;  /* Výchozí je 1fr pro mobily, na desktopu přidáme další */
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 700px){
     .layout-povoleni-oddluzeni{
         grid-template-columns: 1fr 1fr;    /* na destkopu přidáme další 1fr, čímž dáme 2 sloupce vedle sebe */
     }
@@ -163,7 +163,7 @@ main{
 /* FORMULÁŘE OBECNĚ */
 
 .formular{
-    max-width: 500px;
+    /* max-width: 500px; */
     background-color: rgb(225, 225, 200);
     border-radius: 10px;
     padding: 10px;
@@ -197,12 +197,12 @@ main{
 }
 
 .formular select, input {
-    font-size: 0.9em;
+    /* font-size: 0.9em; */
     height: 22px;
     transition: 0.25s;
     border-radius: 4px;
     background-color: white;
-    max-width: 145px;
+    
 }
 
 .formular select:disabled, input:disabled{
