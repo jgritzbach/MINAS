@@ -290,7 +290,7 @@ option{
     cursor: pointer;
 }
 
-.btn-skryt-napovedu-sipka{
+.skryt-napovedu-sipka{
     position: relative;
     top: 3px;
     font-size: 1em;
