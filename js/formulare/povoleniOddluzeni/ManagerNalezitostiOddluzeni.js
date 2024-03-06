@@ -108,7 +108,7 @@ class ManagerNalezitostiOddluzeni{
 
         if (n._jeNevyplnene(n.polozkaPlneMoci)){
             return `<p>Není vyplněna kolonka náležitostí plné moci.</p>
-                    <p>Plnou  moc je přitom třeba zkoumat přednostně před následnými kolonkami. Ukázala-li by se plná moc jako vadná, je vyhodnocování ostatních náležitostí předčasné a tudíž zbytečné.</p>`
+                    <p>Plnou  moc je třeba zkoumat přednostně před následnými kolonkami. Ukázala-li by se plná moc jako vadná, je vyhodnocování ostatních náležitostí předčasné a tudíž zbytečné.</p>`
         }
 
 
@@ -120,8 +120,8 @@ class ManagerNalezitostiOddluzeni{
         }
 
         if (n._jeNevyplnene(n.polozkaFormaPodani)){
-            return `<p>Není vyplněna kolonka náležitostí formy podání.</p>
-                    <p>Formu podání je přitom třeba zkoumat přednostně před následnými kolonkami. Ukázala-li by se forma podání jako vadná, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.</p>`
+            return `<p>Pokračujte s vyplněním kolonky náležitostí formy podání.</p>
+                    <p>Formu podání je třeba zkoumat přednostně před následnými kolonkami. Ukázala-li by se forma podání jako vadná, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.</p>`
         }
 
         // Vyhodnocení tvrzení o úpadku
@@ -132,8 +132,8 @@ class ManagerNalezitostiOddluzeni{
         }
 
         if (n._jeNevyplnene(n.polozkaTvrzeniOUpadku)){
-            return `<p>Není vyplněna kolonka náležitostí tvrzení o úpadku.</p>
-                    <p>Tvrzení o úpadku je přitom třeba zkoumat přednostně před následnými kolonkami. Ukázala-li by se tvrzení o úpadku jako vadná, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.<p/>`
+            return `<p>Pokračujte s vyplněním kolonky náležitostí tvrzení o úpadku.</p>
+                    <p>Tvrzení o úpadku je třeba zkoumat přednostně před následnými kolonkami. Ukázala-li by se tvrzení o úpadku jako vadná, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.<p/>`
         }
 
 
@@ -145,19 +145,19 @@ class ManagerNalezitostiOddluzeni{
         }
 
         if (n._jeNevyplnene(n.polozkaMistniPrislusnost)){
-            return `<p>Není vyplněna kolonka místní příslušnosti.</p>
-                    <p>Místní příslušnost je přitom třeba zkoumat přednostně před následnými kolonkami. Ukázalo-li by se, že soud není místně příslušný, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.</p>`
+            return `<p>Pokračujte s vyplněním kolonky místní příslušnosti.</p>
+                    <p>Místní příslušnost je třeba zkoumat přednostně před následnými kolonkami. Ukázalo-li by se, že soud není místně příslušný, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.</p>`
         }
 
         // vady příloh insolvenčního návrhu - lze to napravit na výzvu - nedoplní-li odmítne se, protože insolvnenčí návrh nelze projednat, a soud se návrhem na oddlužení nezabývá
         if (n._jeVadneNecoZ(n.prilohyInsolvencnihoNavrhu)){
-            return `<p>Některá z povinných příloh insolvenčního návrhu je vadná nebo chybí.</p>
+            return `<p>Některá z povinných příloh insolvenčního návrhu je vadná.</p>
                     <p>Jedná se o odstranitelnou vadu. Soud v případě vadných příloh insolvenčního návrhu vyzve navrhovatele k jejich doplnění. Nebudou-li ve stanovené lhůtě přílohy doplněny, soud insolvenční návrh odmítne (srov. § 128 odst. 2 IZ) a insolvenční řízení tím skončí.</p>`
         }
 
         if (n._jeNevyplneneNecoZ(n.prilohyInsolvencnihoNavrhu)){
-            return `<p>Nejsou vyplněny všechny kolonky příloh insolvenčního návrhu.<p/>
-                    <p>Přílohy insolvenčního návrhu je přitom třeba zkoumat přednostně před následnými kolonkami. Pokud by vady příloh insolvenčního návrhu  nebyly odstraněny, insolvenční návrh by byl odmítnut, a vyhodnocování příloh návrhu na povolení oddlužení by bylo předčasné a tudíž zbytečné.</p>`
+            return `<p>Pokračujte s vyplněním všech kolonek příloh insolvenčního návrhu.<p/>
+                    <p>Přílohy insolvenčního návrhu je vhodné zkoumat přednostně před přílohami návrhu na povolení oddlužení. Pokud by vady příloh insolvenčního návrhu  nebyly odstraněny, insolvenční návrh by byl odmítnut, a vyhodnocování příloh návrhu na povolení oddlužení by bylo předčasné a tudíž zbytečné.</p>`
         }
 
 
@@ -170,18 +170,18 @@ class ManagerNalezitostiOddluzeni{
 
         // vady příloh návrhu na oddlužení - lze to napravit na výzvu - nedoplní-li odmítne se návrh na povolení oddlužení, ale je-li IN v pořádku, lze IN projednat - rozhodne se o úpadku dlužníka buďto se řízení zastaví, nebo se prohlásí konkurs
         if (n._jeNevyplneneNecoZ(n.prilohyNavrhuNaPovoleniOddluzeni)){
-            return `<p>Nejsou vyplněny všechny kolonky příloh návrhu na povolení oddlužení. Bez vyplnění těchto kolonek je sice možné posoudit insolvenční návrh, ale již ne návrh na povolení oddlužení.</p>`
+            return `<p>Pokračujte s vyplněním všech kolonek příloh návrhu na povolení oddlužení. Bez vyplnění těchto kolonek je sice možné posoudit samotný insolvenční návrh, ale již ne návrh na povolení oddlužení.</p>`
         }
 
         // je-li nkěterá kolonka diskutabilní, je postup nejistý
         if (n._jeDiskutabilniNecoZ(n.vsechnyPolozky)){
             return `<p>Všechny kolonky byly vyplněny, ale některé náležitosti jsou diskutabilní.</p>
-                    <p>Insolvenční návrh spojený s návrhem na povolení oddlužení by mohl u soud obstát, ale konkrétní výsledek závisí na okolnostech případu.</p>`
+                    <p>Insolvenční návrh spojený s návrhem na povolení oddlužení by mohl u soud obstát, ale konkrétní výsledek závisí na okolnostech případu. Závisí to také na dostatečnosti příjmů dlužníka.</p>`
         }
 
         // nenastala-li žádná z přednostních podmínek, je vše v pořádku
         return `<p>Všechny náležitosti insolvenčního návrhu spojeného s návrhem na povolení oddlužení se zdají být v pořádku.</p>
-                <p>Soud by mohl rozhodnout o úpadku dlužníka a povolit jeho oddlužení.</p>`
+                <p>Soud by mohl rozhodnout o úpadku dlužníka a povolit jeho oddlužení. Závisí to však také na dostatečnosti příjmů dlužníka.</p>`
     
     }
 
