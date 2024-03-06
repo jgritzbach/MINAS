@@ -202,7 +202,6 @@ main{
     transition: 0.25s;
     border-radius: 4px;
     background-color: white;
-    min-width: 110px;
     max-width: 145px;
 }
 
