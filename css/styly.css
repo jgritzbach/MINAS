@@ -293,7 +293,6 @@ option{
 .skryt-napovedu-sipka{
     position: relative;
     top: 3px;
-    font-size: 1em;
     transform: scaleX(1.5);
     display: inline-block;
     margin-left: 4px;
