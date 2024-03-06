@@ -7,6 +7,7 @@
     font-family: Calibri, "Segoe UI", Helvetica, Arial, sans-serif ;
      /* 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
     border: none;
+    /* font-size: 18px; */
 }
 
 html{
@@ -191,21 +192,23 @@ main{
     gap: 4%;
 }
 
+.formular legend{
+    min-width: 140px;
+}
+
 .formular select, input {
+    font-size: 0.9em;
     height: 22px;
     transition: 0.25s;
     border-radius: 4px;
     background-color: white;
+    min-width: 110px;
+    max-width: 145px;
 }
 
 .formular select:disabled, input:disabled{
     background-color: rgb(233, 235, 237);
     cursor: auto;
-}
-
-.formular select{
-    min-width: 110px;
-    max-width: 140px;
 }
 
 .formular input{
