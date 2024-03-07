@@ -8,5 +8,9 @@ class SkupinaPolozekFormulare{
 
     }
 
+    add(polozka){
+        this.polozky.push(polozka)
+    }
+
 
 }
