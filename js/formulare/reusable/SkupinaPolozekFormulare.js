@@ -8,6 +8,14 @@ class SkupinaPolozekFormulare{
 
     }
 
+    get nazevSkupiny(){
+        return this._nazevSkupiny
+    }
+
+    set nazevSkupiny(nazev){
+        this._nazevSkupiny = nazev
+    }
+
     get polozky(){
         return this._polozky
     }
