@@ -110,36 +110,37 @@ class ManagerNalezitostiOddluzeni{
 
         for (const polozka of n.obecneNalezitosti.polozky){     // napříč každou položkou obecných náležitostí
 
-            let vysledek
-            vysledek = vyhodnoceni[polozka.obecnyNazev][polozka.kolonka.value]
+            let vysledek = vyhodnoceni[polozka.obecnyNazev][polozka.kolonka.value]  // vyzkoušíme, zda ve "slovníku" textů pod kombinací iterované položky a value nenajdeme nějaký záznam
 
-            if (vysledek){
-                return vysledek
-            }
+            if (vysledek){      // pokud se nějaký záznam našel, 
+                return vysledek     // chceme ho rovnou vypsat a dál ani nepokračujeme.
+            }                   // jestliže však pro danou kombinací položky a value její kolonky žádný záznam není, jdeme dále 
 
         }
 
         // dotazování skrze přílohy insolvnenčího návrhu a přílohy návrhu na povolení oddlužneí je složitější, protože posuzujeme spíše skupinu jako takovou
         let polozka
+
+        // postupně v pevně daném pořadí chceme vyhodnocovat napřed přílohy IN a až poté přílohy ODDL.
         const skupinyPriloh = [n.prilohyInsolvencnihoNavrhu,n.prilohyNavrhuNaPovoleniOddluzeni]
 
-        for (const skupina of skupinyPriloh) {
-            for (const callback of [polozky => n.jeVadneNecoZ(polozky), polozky => n.jeNevyplneneNecoZ(polozky)]){
-                const polozky = skupina.polozky
-                polozka = callback(polozky)
-                if (polozka){
-                    return vyhodnoceni[skupina.nazevSkupiny][polozka.kolonka.value]
+        for (const skupina of skupinyPriloh) {      // napříč skupinami, tedy napřed skrze položky IN a poté až skrze položky ODDL.
+            for (const callback of [polozky => n.jeVadneNecoZ(polozky), polozky => n.jeNevyplneneNecoZ(polozky)]){  // vyzkoušíme po sobě dva callbacky, napřed jeVadne() a poté jeNevyplneno()
+                polozka = callback(skupina.polozky)     // vyzkoušíme, zda se nám z dotazovacího callbacku vrátí nějaká položka (splnila podmínku callbacku)
+                if (polozka){                   // pokud ano,
+                    return vyhodnoceni[skupina.nazevSkupiny][polozka.kolonka.value]     //  chceme ihned vypsat text, který ve "slovníku" odpovídá kombinaci položky a value
                 }
             } 
         }
 
-        polozka = n.jeDiskutabilniNecoZ(n.vsechnyPolozky.polozky)
-
-        if (polozka){
-            return vyhodnoceni[polozka.kolonka.value]
+        // Pokud jsme došli až sem, znamená to, že žádná z povinných kolonek nebyla ani vadná, ani nezůstala nevyplněná
+        polozka = n.jeDiskutabilniNecoZ(n.vsechnyPolozky.polozky)   // stále by však mohlo být něco diskutabilní
+        if (polozka){   // pokud má nějaká položka pozitivní test diskutabilnosti
+            return vyhodnoceni[polozka.kolonka.value]       // tak si ve "slovníku" vytáhneme text přímo pro diskutabilnost jako takovou
         }
 
-        return vyhodnoceni[n.obecneNalezitosti.polozky[0].kolonka.value]
+        // Pokud jsme došli až sem, znamená to, že všechny povinné kolonky jsou v pořádku
+        return vyhodnoceni[n.obecneNalezitosti.polozky[0].kolonka.value]    // jelikož VŠECHNY mají value v-poradku, můžeme vzít klidně value hned té první jako klíčpro slovník
 
     }
 
