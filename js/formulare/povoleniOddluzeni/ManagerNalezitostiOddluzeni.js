@@ -31,7 +31,7 @@ class ManagerNalezitostiOddluzeni{
         
         // ke každé kolonce formuláře se přidá další change event listener.
         // právě ten přepíše text vyhodnocení formuláře při jakékoliv změně
-        for (const polozka of this.n.vsechnyPolozky){
+        for (const polozka of this.n.vsechnyPolozky.polozky){
             polozka.kolonka.addEventListener('change', () => this.vypisVyhodnoceniFormulareNalezitostiOddluzeni())
         }
 
@@ -99,21 +99,48 @@ class ManagerNalezitostiOddluzeni{
 
     vyhodnotKolonky(){
         // Vyhodnocení formuláře dle pevně daných pravidel (tato pravidla vyplývají přímo z insolvenčního zákona, jsou proto velmi hardcodová)
+        // VELMI!!! zde záleží na pořadí, tedy aby již přímo ve třídě formuláře náležitostí byly položky seskupovány v přesně daném pořadí
+        // o to se stará ale sám formulář
 
         const n = this.n     // pro lepší čitelnost uložíme referenci na formulář do jednopísmenné proměnné
+        const vyhodnoceni = TextyNalezitostiOddluzeni.vyhodnoceni   // odkaz na textová data
+        
+        // napřed budeme posuzovat obecné náležitosti, se kterými se pracuje trochu jinak
+        // u obecný náležitostí hraje každá sama za sebe - každá má svůj vlastní následek, proto stačí jednoduchá iterace
 
-        for (const polozka of n.obecneNalezitosti){
+        for (const polozka of n.obecneNalezitosti.polozky){     // napříč každou položkou obecných náležitostí
 
-            if (n.jeVadne(polozka)){
-                return Text
+            let vysledek
+            vysledek = vyhodnoceni[polozka.obecnyNazev][polozka.kolonka.value]
+
+            if (vysledek){
+                return vysledek
             }
 
         }
-        
-    }
 
-    
-    
-        
+        // dotazování skrze přílohy insolvnenčího návrhu a přílohy návrhu na povolení oddlužneí je složitější, protože posuzujeme spíše skupinu jako takovou
+        let polozka
+        const skupinyPriloh = [n.prilohyInsolvencnihoNavrhu,n.prilohyNavrhuNaPovoleniOddluzeni]
+
+        for (const skupina of skupinyPriloh) {
+            for (const callback of [polozky => n.jeVadneNecoZ(polozky), polozky => n.jeNevyplneneNecoZ(polozky)]){
+                const polozky = skupina.polozky
+                polozka = callback(polozky)
+                if (polozka){
+                    return vyhodnoceni[skupina.nazevSkupiny][polozka.kolonka.value]
+                }
+            } 
+        }
+
+        polozka = n.jeDiskutabilniNecoZ(n.vsechnyPolozky.polozky)
+
+        if (polozka){
+            return vyhodnoceni[polozka.kolonka.value]
+        }
+
+        return vyhodnoceni[n.obecneNalezitosti.polozky[0].kolonka.value]
+
+    }
 
 }

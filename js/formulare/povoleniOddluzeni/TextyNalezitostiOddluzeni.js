@@ -140,7 +140,7 @@ class TextyNalezitostiOddluzeni{
 
     }
 
-    vyhodnoceni = {
+    static vyhodnoceni = {
 
         "nalezitosti-plne-moci" : {
 
@@ -191,9 +191,9 @@ class TextyNalezitostiOddluzeni{
 
             "vadne" :   
             
-                `<p>Místní příslušnost Krajského soudu patří mezi podmínky řízení, bez kterých není možné rozhodnout ve věci samé (srov. § 7b IZ).</p>
+                `<p>Nedostatek místní příslušnosti nelze napravit. Místní příslušnost Krajského soudu patří mezi podmínky řízení, bez kterých není možné rozhodnout ve věci samé (srov. § 7b IZ).</p>
                 <p>Sezná-li soud, že je místně nepříslušný, postoupí věc místně příslušnému soudu.</p>
-                <p>Nedostatek místní příslušnosti nelze napravit. Řízení však nekončí, pouze se přesune k jinému soudu, který se bude věcí dále zabývat.</p>`,
+                <p>Řízení však nekončí, pouze se přesune k jinému soudu, který se bude věcí dále zabývat.</p>`,
 
             "nevyplneno" : 
             
@@ -216,7 +216,7 @@ class TextyNalezitostiOddluzeni{
 
         },
         
-        "prilohy-insolvencniho-navrhu" : {
+        "prilohy-navrhu-na-povoleni-oddluzeni" : {
 
             "vadne" :   
             

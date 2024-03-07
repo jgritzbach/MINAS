@@ -13,7 +13,7 @@ class FormularOddluzeni extends BaseFormular{
         this._nastavPovoleneVolby()              // v rámci zaškrtávacích <selectů> jsou povolené volby 'prázdné', 'v pořádku', 'diskutabilní' a 'vadné'
         this._nastavKolonky()                    // v rámci položek nastavíme kolonkám povolené volby a reakce na ně
 
-        super._nastavNapovedy(this.vsechnyPolozky, TextyNalezitostiOddluzeni)    // s pomocí bázové třídy vytvoří nápovědu všem kolonkám, kde jsou texty k dispozici
+        super._nastavNapovedy(this.vsechnyPolozky.polozky, TextyNalezitostiOddluzeni)    // s pomocí bázové třídy vytvoří nápovědu všem kolonkám, kde jsou texty k dispozici
     }
 
    
@@ -45,7 +45,8 @@ class FormularOddluzeni extends BaseFormular{
         
         // Logické Seskupení některých položek
             // všechny
-        this.vsechnyPolozky = [
+
+        this.vsechnyPolozky = new SkupinaPolozekFormulare('vsechny-polozky',[
             this.polozkaPlneMoci,
             this.polozkaFormaPodani,
             this.polozkaTvrzeniOUpadku,
@@ -62,32 +63,33 @@ class FormularOddluzeni extends BaseFormular{
 
             this.polozkaDarovaciSmlouva,
             this.polozkaRozsudekOVyzivnem,
-        ]
+        ])
+        
 
             // obecné náležitosti
-        this.obecneNalezitosti = [
+        this.obecneNalezitosti = new SkupinaPolozekFormulare('obecne-nalezitosti',[
             this.polozkaPlneMoci,
             this.polozkaFormaPodani,
             this.polozkaTvrzeniOUpadku,
             this.polozkaMistniPrislusnost,
-        ]
+        ])
 
             //přílohy insolvenčního návrhu
-        this.prilohyInsolvencnihoNavrhu = [
+        this.prilohyInsolvencnihoNavrhu = new SkupinaPolozekFormulare('prilohy-insolvencniho-navrhu',[
             this.polozkaSeznamMajetku,
             this.polozkaSeznamZamestnancu,
             this.polozkaListinyDokladajiciUpadek,
-        ]
+        ])
 
             // přílohy návrhu na povolení oddlužení
-        this.prilohyNavrhuNaPovoleniOddluzeni = [
+        this.prilohyNavrhuNaPovoleniOddluzeni = new SkupinaPolozekFormulare('prilohy-navrhu-na-povoleni-oddluzeni',[
             this.polozkaProhlaseniOPouceni,
             this.polozkaSoucasnePrijmy,
             this.polozkaMinulePrijmy,
             // this.polozkaProhlaseniManzeluOMajetku,                      Dočasně vypnuto, dokud nebude zapracována i varianta pro manžela
             this.polozkaDarovaciSmlouva,
             this.polozkaRozsudekOVyzivnem,
-        ]
+        ])
 
     }
 
@@ -95,7 +97,7 @@ class FormularOddluzeni extends BaseFormular{
         // všem <select> kolonkám nastaví jako přípustnou volbu zaškrtávací možnosti v pořádku / diskutabilní / vadné
         // a nastaví jim také reakci na změnu
 
-        for (const polozka of this.vsechnyPolozky){
+        for (const polozka of this.vsechnyPolozky.polozky){
             const kolonka = polozka.kolonka
             this._nastavZaskrtavaciVolby(kolonka)
             this._nastavReakciNaVolbu(kolonka)

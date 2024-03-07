@@ -22,7 +22,5 @@ class BaseFormular{
     
         }
     }
-    
-
 } 
                                 
