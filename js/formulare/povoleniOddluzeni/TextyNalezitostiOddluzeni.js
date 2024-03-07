@@ -1,7 +1,6 @@
-class TextyNapovedNalezitostiOddluzeni{
+class TextyNalezitostiOddluzeni{
     // Aby obsahově dlouhé nezaplevelovaly kód tříd, které jich potřebují využít
     // budou existovat odděleně a třídy se na ně mohou odkazovat
-
 
 
     napoveda = {
@@ -216,7 +215,7 @@ class TextyNapovedNalezitostiOddluzeni{
                 <p>Přílohy insolvenčního návrhu je vhodné zkoumat přednostně před přílohami návrhu na povolení oddlužení. Pokud by vady příloh insolvenčního návrhu  nebyly odstraněny, insolvenční návrh by byl odmítnut, a vyhodnocování příloh návrhu na povolení oddlužení by bylo předčasné a tudíž zbytečné.</p>`,
 
         },
-
+        
         "prilohy-insolvencniho-navrhu" : {
 
             "vadne" :   

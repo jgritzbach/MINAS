@@ -11,7 +11,7 @@ class FormularVyzivovacichPovinnosti extends BaseFormular{
         this._uchopPolozky()                // uchopíme všechny elementy (divy) položek vyživovacích povinností dlužníka
         this._nastavKolonky()
 
-        super._nastavNapovedy(this.vsechnyPolozky, TextyNapovedVyzivovanýchOsob)
+        super._nastavNapovedy(this.vsechnyPolozky, TextyVyzivovaneOsoby)
         
     }
 

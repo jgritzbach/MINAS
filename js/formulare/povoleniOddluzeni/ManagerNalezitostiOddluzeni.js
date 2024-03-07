@@ -25,6 +25,8 @@ class ManagerNalezitostiOddluzeni{
         // nastaví potřebné události některým kolonkám formulářů
         // 1) každá kolonka formuláře náležitostí návrhu na povolení oddlužení ihned vyvolá přepis textového vyhodnocení
         // 2) každá změna hodnot daru nebo výživného ve formulářích příjmů a vyživovaných osobo může vyvolat zakázanost nebo naopak poivnnost odpovídajících kolonek ve formuláři náležitostí
+        // ad bod 2) -> toto chování by bylo nejlepší implementovat jako "observer pattern" ale v dosavadní fázi jde o velmi jednoduchou závislost dvou kolonek,
+        // takže se to jeví trochu jako overkill - pokud však přibudou i další závislsosti, vytvořit observera!
 
         
         // ke každé kolonce formuláře se přidá další change event listener.
@@ -45,6 +47,8 @@ class ManagerNalezitostiOddluzeni{
         // a později je budeme volat tehdy, když se změní kterákoliv z relevantních kolonek
         this._nastavReakci([this.p.polozkaVyseDaru.kolonka, this.p.polozkaTypDaru.kolonka], potrebaDisableDaru)
         this._nastavReakci([this.v.polozkaMesicniVyzivne.kolonka, this.v.polozkaDluzneVyzivne.kolonka], potrebaDisableVyzivne)
+            // ^toto chování by bylo nejlepší implementovat jako "observer pattern" ale v dosavadní fázi jde o velmi jednoduchou závislost dvou kolonek,
+            // takže se to jeví trochu jako overkill - pokud však přibudou i další závislsosti, vytvořit observera!
     }
 
 
@@ -94,95 +98,18 @@ class ManagerNalezitostiOddluzeni{
     }
 
     vyhodnotKolonky(){
-        // vyhodnotí vnitřní kolonky formuláře a vrátí stav reprezentovaný číslem
         // Vyhodnocení formuláře dle pevně daných pravidel (tato pravidla vyplývají přímo z insolvenčního zákona, jsou proto velmi hardcodová)
 
         const n = this.n     // pro lepší čitelnost uložíme referenci na formulář do jednopísmenné proměnné
 
-        // Přednost má vada plné moci - nepřihlíží se a nelze napravit, ani se nemusíme dívat dál
-        if (n._jeVadne(n.polozkaPlneMoci)){
-            return `<p>Vadná plná moc má za následek, že k insolvenčnímu návrhu se nepřihlíží (srov. § 97 IZ).</p>
-                    <p>Žádnými dalšími náležitostmi se soud nebude vůbec zabývat. Nedojde k vydání vyhlášky o zahájení insolvenčního řízení (srov. § 101 IZ), ani k vyvolání účinků jinak spojených s jeho zahájením (srov. § 109 IZ).</p>
-                    <p>Jedná se o neodstranitelnou vadu, soud vás nebude vyzývat k opravě. Proti rozhodnutí o nepřihlížení k insolvenčnímu návrhu není přípustné odvolání. Insolvenční řízení tímto rozhodnutím skončí.</p>`
+        for (const polozka of n.obecneNalezitosti){
+
+            if (n.jeVadne(polozka)){
+                return Text
+            }
+
         }
-
-        if (n._jeNevyplnene(n.polozkaPlneMoci)){
-            return `<p>Není vyplněna kolonka náležitostí plné moci.</p>
-                    <p>Plnou  moc je třeba zkoumat přednostně před následnými kolonkami. Ukázala-li by se plná moc jako vadná, je vyhodnocování ostatních náležitostí předčasné a tudíž zbytečné.</p>`
-        }
-
-
-        // Poté je forma podání - zpracovatel má DS, takže má podat elektronicky, neučiní-li, výzva k opravě. Neopraví-li, odmítne se 
-        if (n._jeVadne(n.polozkaFormaPodani)){
-            return `<p>Forma podání insolvenčního návrhu spojeného s návrhem na povolení oddlužení je vadná.</p>
-                    <p>Zpracovatelem návrhu na povolení oddlužení je typicky advokát, insolvenční správce nebo akreditovaná osoba. Jedná se o osoby, které mají zřízenou datovou schránku ze zákona a vůči insolvenčnímu soudu tak mohou činit podání pouze v elektronické podobě (srov. § 80a IZ).</p>
-                    <p>Jedná se o odstranitelnou vadu. Soud v případě podání v listinné podobě vyzve zpracovatele návrhu k podání tohoto návrhu v elektronické podobě. Nebude-li ve stanovené lhůtě forma podání opravena, k návrhu se nebude přihlížet (srov. § 97 odst. 4 IZ) a insolvenční řízení tím skončí.</p>`
-        }
-
-        if (n._jeNevyplnene(n.polozkaFormaPodani)){
-            return `<p>Pokračujte s vyplněním kolonky náležitostí formy podání.</p>
-                    <p>Formu podání je třeba zkoumat přednostně před následnými kolonkami. Ukázala-li by se forma podání jako vadná, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.</p>`
-        }
-
-        // Vyhodnocení tvrzení o úpadku
-        if (n._jeVadne(n.polozkaTvrzeniOUpadku)){
-            return `<p>Tvrzení o úpadku dlužníka je nedostatečné.</p>
-                    <p>Insolvenční návrh bude soudem odmítnut (srov. § 128 odst. 1 IZ). Ač se to může jevit neobvyklé, má odmítnutí insolvenčního návrhu pro nedostatečné tvrzení o úpadku dlužníka přednost i před posouzením místní nepříslušnosti (srov. § 7b odst. 5 IZ).</p>
-                    <p>Jedná se o neodstranitelnou vadu, soud vás nebude vyzývat k opravě. Odmítnutím insolvenčního návrhu insolvenční řízení skončí.</p>`
-        }
-
-        if (n._jeNevyplnene(n.polozkaTvrzeniOUpadku)){
-            return `<p>Pokračujte s vyplněním kolonky náležitostí tvrzení o úpadku.</p>
-                    <p>Tvrzení o úpadku je třeba zkoumat přednostně před následnými kolonkami. Ukázala-li by se tvrzení o úpadku jako vadná, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.<p/>`
-        }
-
-
-        // Vyhodnocení místní příslušnosti
-        if (n._jeVadne(n.polozkaMistniPrislusnost)){
-            return `<p>Místní příslušnost Krajského soudu patří mezi podmínky řízení, bez kterých není možné rozhodnout ve věci samé (srov. § 7b IZ).</p>
-                    <p>Sezná-li soud, že je místně nepříslušný, postoupí věc místně příslušnému soudu.</p>
-                    <p>Nedostatek místní příslušnosti nelze napravit. Řízení však nekončí, pouze se přesune k jinému soudu, který se bude věcí dále zabývat.</p>`
-        }
-
-        if (n._jeNevyplnene(n.polozkaMistniPrislusnost)){
-            return `<p>Pokračujte s vyplněním kolonky místní příslušnosti.</p>
-                    <p>Místní příslušnost je třeba zkoumat přednostně před následnými kolonkami. Ukázalo-li by se, že soud není místně příslušný, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.</p>`
-        }
-
-        // vady příloh insolvenčního návrhu - lze to napravit na výzvu - nedoplní-li odmítne se, protože insolvnenčí návrh nelze projednat, a soud se návrhem na oddlužení nezabývá
-        if (n._jeVadneNecoZ(n.prilohyInsolvencnihoNavrhu)){
-            return `<p>Některá z povinných příloh insolvenčního návrhu je vadná.</p>
-                    <p>Jedná se o odstranitelnou vadu. Soud v případě vadných příloh insolvenčního návrhu vyzve navrhovatele k jejich doplnění. Nebudou-li ve stanovené lhůtě přílohy doplněny, soud insolvenční návrh odmítne (srov. § 128 odst. 2 IZ) a insolvenční řízení tím skončí.</p>`
-        }
-
-        if (n._jeNevyplneneNecoZ(n.prilohyInsolvencnihoNavrhu)){
-            return `<p>Pokračujte s vyplněním všech kolonek příloh insolvenčního návrhu.<p/>
-                    <p>Přílohy insolvenčního návrhu je vhodné zkoumat přednostně před přílohami návrhu na povolení oddlužení. Pokud by vady příloh insolvenčního návrhu  nebyly odstraněny, insolvenční návrh by byl odmítnut, a vyhodnocování příloh návrhu na povolení oddlužení by bylo předčasné a tudíž zbytečné.</p>`
-        }
-
-
-        // vady příloh návrhu na oddlužení - lze to napravit na výzvu - nedoplní-li odmítne se návrh na povolení oddlužení, ale je-li IN v pořádku, lze IN projednat - rozhodne se o úpadku dlužníka buďto se řízení zastaví, nebo se prohlásí konkurs
-        if (n._jeVadneNecoZ(n.prilohyNavrhuNaPovoleniOddluzeni)){
-            return `<p>Některá z povinných návrhu na povolení oddlužení je vadná nebo chybí.</p>
-                    <p>Jedná se o odstranitelnou vadu. Soud v případě vadných příloh návrhu na povolení oddlužení vyzve navrhovatele k jejich doplnění (srov. § 393 odst. 2 IZ).</p>
-                    <p>Nebudou-li přílohy ve stanovené lhůtě doplněny soud návrh na povolení oddlužení odmítne (§ 393 odst. 3 IZ). Jsou-li však náležitosti insolvenčního návrhu a jeho příloh v pořádku, soud přesto rozhodne o úpadku dlužníka. Pouze není možné řešit úpadek oddlužením. Dle stavu majetkové podstaty soud buďto na majetek dlužníka prohlásí konkurs, anebo pro nedostatek majetku řízení zastaví.</p>`
-        }
-
-        // vady příloh návrhu na oddlužení - lze to napravit na výzvu - nedoplní-li odmítne se návrh na povolení oddlužení, ale je-li IN v pořádku, lze IN projednat - rozhodne se o úpadku dlužníka buďto se řízení zastaví, nebo se prohlásí konkurs
-        if (n._jeNevyplneneNecoZ(n.prilohyNavrhuNaPovoleniOddluzeni)){
-            return `<p>Pokračujte s vyplněním všech kolonek příloh návrhu na povolení oddlužení. Bez vyplnění těchto kolonek je sice možné posoudit samotný insolvenční návrh, ale již ne návrh na povolení oddlužení.</p>`
-        }
-
-        // je-li nkěterá kolonka diskutabilní, je postup nejistý
-        if (n._jeDiskutabilniNecoZ(n.vsechnyPolozky)){
-            return `<p>Všechny kolonky byly vyplněny, ale některé náležitosti jsou diskutabilní.</p>
-                    <p>Insolvenční návrh spojený s návrhem na povolení oddlužení by mohl u soud obstát, ale konkrétní výsledek závisí na okolnostech případu. Závisí to také na dostatečnosti příjmů dlužníka.</p>`
-        }
-
-        // nenastala-li žádná z přednostních podmínek, je vše v pořádku
-        return `<p>Všechny náležitosti insolvenčního návrhu spojeného s návrhem na povolení oddlužení se zdají být v pořádku.</p>
-                <p>Soud by mohl rozhodnout o úpadku dlužníka a povolit jeho oddlužení. Závisí to však také na dostatečnosti příjmů dlužníka.</p>`
-    
+        
     }
 
     

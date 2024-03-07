@@ -193,19 +193,19 @@ class FormularOddluzeni extends BaseFormular{
     // formulář umí odpovídat na dotazy stran vyplněných hodnot svých kolonek.
     // odpovídá však jen true/false a vůbec se nestará o to, proč to chce někdo vědět a co s tím udělá (o vyhodnocení se postará manažer)
 
-    _jeNevyplnene(polozka){
+    jeNevyplnene(polozka){
         // Vrací údaj o tom, zda kolonka dané položky je nevyplněná
         const kolonka = polozka.kolonka
         return (!kolonka.disabled && kolonka.value === this.optionPrazdne.VALUE)     // kolonka se považuje za nevyplněnou pouze pokud není deaktivovaná
     }
 
-    _jeDiskutabilni(polozka){
+    jeDiskutabilni(polozka){
         // Vrací údaj o tom, zda kolonka dané položky má vyplněnou volbu 'diskutabilní'
         const kolonka = polozka.kolonka
         return kolonka.value === this.optionDiskutabilni.VALUE
     }
 
-    _jeVadne(polozka){
+    jeVadne(polozka){
         // Vrací údaj o tom, zda kolonka dané položky má vyplněnou volbu 'diskutabilní'
         const kolonka = polozka.kolonka
         return kolonka.value === this.optionVadne.VALUE
@@ -221,20 +221,20 @@ class FormularOddluzeni extends BaseFormular{
         }
     }
 
-    _jeNevyplneneNecoZ(polozky){
+    jeNevyplneneNecoZ(polozky){
         // Vrací údaj o tom, zda alespoň některá z kolonek předaných položek je nevyplněná
 
-        return this._jeNecoZPredanychNejake(polozky, polozka => this._jeNevyplnene(polozka))  // callback musíme předat arrow funkcí, jinak ztratíme kontext this, který má odkazovat na instanci formuláře     
+        return this._jeNecoZPredanychNejake(polozky, polozka => this.jeNevyplnene(polozka))  // callback musíme předat arrow funkcí, jinak ztratíme kontext this, který má odkazovat na instanci formuláře     
     }
 
-    _jeDiskutabilniNecoZ(polozky){
+    jeDiskutabilniNecoZ(polozky){
         // Vrací údaj o tom, zda alespoň některá z kolonek předaných položek je diskutabilní
-        return this._jeNecoZPredanychNejake(polozky, polozka => this._jeDiskutabilni(polozka))
+        return this._jeNecoZPredanychNejake(polozky, polozka => this.jeDiskutabilni(polozka))
     }
 
-    _jeVadneNecoZ(polozky){
+    jeVadneNecoZ(polozky){
         // Vrací údaj o tom, zda alespoň některá z kolonek předaných položek je vadná
-        return this._jeNecoZPredanychNejake(polozky, polozka => this._jeVadne(polozka))
+        return this._jeNecoZPredanychNejake(polozky, polozka => this.jeVadne(polozka))
     }
 
 }

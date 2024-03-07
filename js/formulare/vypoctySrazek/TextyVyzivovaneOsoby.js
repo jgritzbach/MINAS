@@ -1,4 +1,4 @@
-class TextyNapovedVyzivovanýchOsob{
+class TextyVyzivovaneOsoby{
     // Aby obsahově dlouhé nezaplevelovaly kód tříd, které jich potřebují využít
     // budou existovat odděleně a třídy se na ně mohou odkazovat
 
