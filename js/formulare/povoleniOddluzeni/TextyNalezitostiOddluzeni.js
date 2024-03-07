@@ -146,13 +146,13 @@ class TextyNalezitostiOddluzeni{
 
             "vadne" :   
             
-                `<p>Vadná plná moc má za následek, že k insolvenčnímu návrhu se nepřihlíží (srov. § 97 IZ).</p>
+                `<p>Vadná <strong>plná moc</strong> má za následek, že k insolvenčnímu návrhu <em>se nepřihlíží</em> (srov. § 97 IZ).</p>
                 <p>Žádnými dalšími náležitostmi se soud nebude vůbec zabývat. Nedojde k vydání vyhlášky o zahájení insolvenčního řízení (srov. § 101 IZ), ani k vyvolání účinků jinak spojených s jeho zahájením (srov. § 109 IZ).</p>
                 <p>Jedná se o neodstranitelnou vadu, soud vás nebude vyzývat k opravě. Proti rozhodnutí o nepřihlížení k insolvenčnímu návrhu není přípustné odvolání. Insolvenční řízení tímto rozhodnutím skončí.</p>`,
 
             "nevyplneno" : 
                 
-                `<p>Není vyplněna kolonka náležitostí plné moci.</p>
+                `<p>Není vyplněna kolonka náležitostí <strong>plné moci</strong>.</p>
                 <p>Plnou  moc je vhodné zkoumat přednostně před následnými kolonkami. Ukázala-li by se plná moc jako vadná, je vyhodnocování ostatních náležitostí předčasné a tudíž zbytečné.</p>`,
 
         },
@@ -161,13 +161,13 @@ class TextyNalezitostiOddluzeni{
 
             "vadne" :   
             
-                `<p>Forma podání insolvenčního návrhu spojeného s návrhem na povolení oddlužení je vadná.</p>
+                `<p><strong>Forma podání</strong> insolvenčního návrhu spojeného s návrhem na povolení oddlužení je vadná.</p>
                 <p>Zpracovatelem návrhu na povolení oddlužení je typicky advokát, insolvenční správce nebo akreditovaná osoba. Jedná se o osoby, které mají zřízenou datovou schránku ze zákona a vůči insolvenčnímu soudu tak mohou činit podání pouze v elektronické podobě (srov. § 80a IZ).</p>
-                <p>Jedná se o odstranitelnou vadu. Soud v případě podání v listinné podobě vyzve zpracovatele návrhu k podání tohoto návrhu v elektronické podobě. Nebude-li ve stanovené lhůtě forma podání opravena, k návrhu se nebude přihlížet (srov. § 97 odst. 4 IZ) a insolvenční řízení tím skončí.</p>`,
+                <p>Jedná se o odstranitelnou vadu. Soud v případě podání v listinné podobě vyzve zpracovatele návrhu k podání tohoto návrhu v elektronické podobě. Nebude-li ve stanovené lhůtě forma podání opravena, k návrhu <em>se nebude přihlížet</em> (srov. § 97 odst. 4 IZ) a insolvenční řízení tím skončí.</p>`,
 
             "nevyplneno" : 
             
-                `<p>Pokračujte s vyplněním kolonky náležitostí formy podání.</p>
+                `<p>Pokračujte s vyplněním kolonky náležitostí <strong>formy podání</strong>.</p>
                 <p>Formu podání je vhodné zkoumat přednostně před následnými kolonkami. Ukázala-li by se forma podání jako vadná, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.</p>`,
 
         },
@@ -176,13 +176,13 @@ class TextyNalezitostiOddluzeni{
 
             "vadne" :   
             
-                `<p>Tvrzení o úpadku dlužníka je nedostatečné.</p>
-                <p>Insolvenční návrh bude soudem odmítnut (srov. § 128 odst. 1 IZ). Ač se to může jevit neobvyklé, má odmítnutí insolvenčního návrhu pro nedostatečné tvrzení o úpadku dlužníka přednost i před posouzením místní nepříslušnosti (srov. § 7b odst. 5 IZ).</p>
+                `<p><strong>Tvrzení o úpadku</strong> dlužníka je nedostatečné.</p>
+                <p>Insolvenční návrh bude soudem <em>odmítnut</em> (srov. § 128 odst. 1 IZ). Ač se to může jevit neobvyklé, má odmítnutí insolvenčního návrhu pro nedostatečné tvrzení o úpadku dlužníka přednost i před posouzením <em>místní (ne)příslušnosti</em> (srov. § 7b odst. 5 IZ).</p>
                 <p>Jedná se o neodstranitelnou vadu, soud vás nebude vyzývat k opravě. Odmítnutím insolvenčního návrhu insolvenční řízení skončí.</p>`,
 
             "nevyplneno" : 
             
-                `<p>Pokračujte s vyplněním kolonky náležitostí tvrzení o úpadku.</p>
+                `<p>Pokračujte s vyplněním kolonky náležitostí <strong>tvrzení o úpadku</strong>.</p>
                 <p>Tvrzení o úpadku je vhodné zkoumat přednostně před následnými kolonkami. Ukázala-li by se tvrzení o úpadku jako vadná, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.<p/>`,
 
         },
@@ -191,13 +191,13 @@ class TextyNalezitostiOddluzeni{
 
             "vadne" :   
             
-                `<p>Nedostatek místní příslušnosti nelze napravit. Místní příslušnost Krajského soudu patří mezi podmínky řízení, bez kterých není možné rozhodnout ve věci samé (srov. § 7b IZ).</p>
+                `<p>Nedostatek <strong>místní příslušnosti</strong> nelze napravit. Místní příslušnost Krajského soudu patří mezi podmínky řízení, bez kterých není možné rozhodnout ve věci samé (srov. § 7b IZ).</p>
                 <p>Sezná-li soud, že je místně nepříslušný, postoupí věc místně příslušnému soudu.</p>
-                <p>Řízení však nekončí, pouze se přesune k jinému soudu, který se bude věcí dále zabývat.</p>`,
+                <p>Řízení však nekončí, pouze bude <em>postoupeno</em> k jinému soudu, který se bude věcí dále zabývat.</p>`,
 
             "nevyplneno" : 
             
-                `<p>Pokračujte s vyplněním kolonky místní příslušnosti.</p>
+                `<p>Pokračujte s vyplněním kolonky <strong>místní příslušnosti</strong>.</p>
                 <p>Místní příslušnost je vhodné zkoumat přednostně před následnými kolonkami. Ukázalo-li by se, že soud není místně příslušný, je vyhodnocování následných náležitostí předčasné a tudíž zbytečné.</p>`,
 
         },
@@ -206,12 +206,12 @@ class TextyNalezitostiOddluzeni{
 
             "vadne" :   
             
-                `<p>Některá z povinných příloh insolvenčního návrhu je vadná.</p>
-                <p>Jedná se o odstranitelnou vadu. Soud v případě vadných příloh insolvenčního návrhu vyzve navrhovatele k jejich doplnění. Nebudou-li ve stanovené lhůtě přílohy doplněny, soud insolvenční návrh odmítne (srov. § 128 odst. 2 IZ) a insolvenční řízení tím skončí.</p>`,
+                `<p>Některá z povinných <strong>příloh insolvenčního návrhu</strong> je vadná.</p>
+                <p>Jedná se o odstranitelnou vadu. Soud v případě vadných příloh insolvenčního návrhu <em>vyzve</em> navrhovatele k jejich opravě či doplnění. Nebudou-li ve stanovené lhůtě přílohy doplněny, soud insolvenční návrh <em>odmítne</em> (srov. § 128 odst. 2 IZ) a insolvenční řízení tím skončí.</p>`,
 
             "nevyplneno" : 
             
-                `<p>Pokračujte s vyplněním všech kolonek příloh insolvenčního návrhu.<p/>
+                `<p>Pokračujte s vyplněním všech kolonek <strong>příloh insolvenčního návrhu</strong>.<p/>
                 <p>Přílohy insolvenčního návrhu je vhodné zkoumat přednostně před přílohami návrhu na povolení oddlužení. Pokud by vady příloh insolvenčního návrhu  nebyly odstraněny, insolvenční návrh by byl odmítnut, a vyhodnocování příloh návrhu na povolení oddlužení by bylo předčasné a tudíž zbytečné.</p>`,
 
         },
@@ -220,25 +220,26 @@ class TextyNalezitostiOddluzeni{
 
             "vadne" :   
             
-                `<p>Některá z povinných návrhu na povolení oddlužení je vadná nebo chybí.</p>
-                <p>Jedná se o odstranitelnou vadu. Soud v případě vadných příloh návrhu na povolení oddlužení vyzve navrhovatele k jejich doplnění (srov. § 393 odst. 2 IZ).</p>
-                <p>Nebudou-li přílohy ve stanovené lhůtě doplněny soud návrh na povolení oddlužení odmítne (§ 393 odst. 3 IZ). Jsou-li však náležitosti insolvenčního návrhu a jeho příloh v pořádku, soud přesto rozhodne o úpadku dlužníka. Pouze není možné řešit úpadek oddlužením. Dle stavu majetkové podstaty soud buďto na majetek dlužníka prohlásí konkurs, anebo pro nedostatek majetku řízení zastaví.</p>`,
+                `<p>Některá z povinných <strong>příloh návrhu na povolení oddlužení</strong> je vadná nebo chybí.</p>
+                <p>Jedná se o odstranitelnou vadu. Soud v případě vadných příloh návrhu na povolení oddlužení <em>vyzve</em> navrhovatele k jejich opravě či doplnění (srov. § 393 odst. 2 IZ).</p>
+                <p>Nebudou-li přílohy ve stanovené lhůtě doplněny soud návrh na povolení oddlužení <em>odmítne</em> (§ 393 odst. 3 IZ). Jsou-li však náležitosti insolvenčního návrhu a jeho příloh v pořádku, soud přesto rozhodne o úpadku dlužníka. Pouze není možné řešit úpadek oddlužením. Dle stavu majetkové podstaty soud buďto na majetek dlužníka prohlásí konkurs, anebo pro nedostatek majetku řízení zastaví.</p>`,
 
             "nevyplneno" : 
             
-                `<p>Pokračujte s vyplněním všech kolonek příloh návrhu na povolení oddlužení. Bez vyplnění těchto kolonek je sice možné posoudit samotný insolvenční návrh, ale již ne návrh na povolení oddlužení.</p>`,
+                `<p>Pokračujte s vyplněním všech kolonek <strong>příloh návrhu na povolení oddlužení</strong>.</p>
+                <p>Bez vyplnění těchto kolonek je sice možné posoudit samotný insolvenční návrh, ale již ne návrh na povolení oddlužení.</p>`,
 
         },
 
         "diskutabilni" : 
         
-            `<p>Všechny kolonky byly vyplněny, ale některé náležitosti jsou diskutabilní.</p>
+            `<p>Všechny kolonky byly vyplněny, ale některé náležitosti jsou <em>diskutabilní</em>.</p>
             <p>Insolvenční návrh spojený s návrhem na povolení oddlužení by mohl u soud obstát, ale konkrétní výsledek závisí na okolnostech případu. Závisí to také na dostatečnosti příjmů dlužníka.</p>`,
 
         "v-poradku" : 
 
             `<p>Všechny náležitosti insolvenčního návrhu spojeného s návrhem na povolení oddlužení se zdají být v pořádku.</p>
-            <p>Soud by mohl rozhodnout o úpadku dlužníka a povolit jeho oddlužení. Závisí to však také na dostatečnosti příjmů dlužníka.</p>`,
+            <p>Soud by v takové situaci mohl rozhodnout o úpadku dlužníka a povolit jeho oddlužení. Závisí to však také na dostatečnosti příjmů dlužníka.</p>`,
 
     }
 
