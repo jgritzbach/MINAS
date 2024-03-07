@@ -7,7 +7,8 @@ class TextyNalezitostiOddluzeni{
 
         "nalezitosti-plne-moci" : `
         
-            <p>Aby mohl zpracovatel za dlužníka sepsat a podat návrh na povolení oddlužení, potřebuje k tomu od dlužníka <strong>plnou moc</strong>, kterou je pak povinen zaslat soudu spolu se samotným návrhem. Insolvenční zákon klade na plnou moc pro účely zahájení řízení přísné požadavky.</p>
+            <p>Dlužník si nemůže návrh na povolení oddlužení sepsat a podat sám. Insolvenční zákon vyžaduje, aby takový návrh za dlužníka učinil odborný <strong>zpracovatel</strong>, typicky <em>advokát</em> nebo <em>insolvenční správce</em>, případně nezisková organizace s udělenou akreditací.</p>
+            <p>Aby mohl <em>zpracovatel</em> za dlužníka sepsat a podat návrh na povolení oddlužení, potřebuje k tomu od dlužníka <strong>plnou moc</strong>, kterou je pak povinen zaslat soudu spolu se samotným návrhem. Insolvenční zákon klade na plnou moc pro účely zahájení řízení přísné požadavky.</p>
             <p>Plná moc je jednostranný právní úkon, který musí dlužník učinit <em>písemně</em> a podepsat jej. Insolvenční zákon dále vyžaduje, aby tento podpis byl <strong>úředně ověřen</strong> (tj. byl opatřen tzv. <em>doložkou legalizace</em>). Toto ověření může provést například obecní úřad nebo pošta.</p>
             <p>Jelikož zpracovatel návrhu na povolení oddlužení je typicky osoba, která musí s insolvenčním soudem komunikovat povinně elektronicky (§ 80a IZ), bude plnou moc s úředně ověřeným podpisem třeba tzv. <strong>konvertovat</strong>, tedy opatřit <em>ověřovací doložkou konverze</em>.</p>
             <p>To zaručuje shodu elektronického dokumentu s původním listinným originálem. Vůči soudu je tak prokázáno, že ověřovací doložka legalizace nebyla do elektronického souboru s plnou mocí vložena např. úpravou dokumentu jako obrázku.</p>
