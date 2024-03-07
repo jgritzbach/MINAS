@@ -8,6 +8,15 @@ class SkupinaPolozekFormulare{
 
     }
 
+    get polozky(){
+        return this._polozky
+    }
+
+    set polozky(skupinaPolozek){
+        this._polozky = skupinaPolozek
+    }
+
+
     add(polozka){
         this.polozky.push(polozka)
     }
