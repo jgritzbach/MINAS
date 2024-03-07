@@ -26,7 +26,7 @@ class ManagerSrazek{
         const v = this.formularVyzivovacichPovinnosti
 
         // Zde určíme, které kolonky jsou způsobilé vyvolat přepis textového výsledku
-        const cile = [... p.vsechnyPolozkyVysePrijmu, p.polozkaVyseDaru, p.polozkaTypDaru, ...v.vsechnyPolozky]      // přepis textu vyvolá i změna typu daru, protože jeho označení se promítá do textu
+        const cile = [... p.vsechnyPolozkyVysePrijmu.polozky, p.polozkaVyseDaru, p.polozkaTypDaru, ...v.vsechnyPolozky.polozky]      // přepis textu vyvolá i změna typu daru, protože jeho označení se promítá do textu
 
         for (const polozka of cile){
             polozka.kolonka.addEventListener('change', () => this._vypisVyhodnoceniPrijmu())

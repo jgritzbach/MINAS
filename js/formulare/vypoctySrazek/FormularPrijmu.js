@@ -46,7 +46,7 @@ class FormularPrijmu{
     vypoctiSoucetVlastnichPrijmu(){
         // Sečte všechny vyplněné vlastní příjmy dlužníka jako číselné hodnoty a vrátí je
         
-        const kolonky = this.vsechnyPolozkyVysePrijmu.map(polozka => polozka.kolonka)
+        const kolonky = this.vsechnyPolozkyVysePrijmu.polozky.map(polozka => polozka.kolonka)
         const soucet = kolonky.reduce(
             
             (soucet, kolonka) => {
@@ -63,12 +63,12 @@ class FormularPrijmu{
         // všem <select> kolonkám typu příjmu nastaví jako přípustné volby [mzda, zisk OSVČ, důchod atd...]
         // všem <input> kolonkám s výší příjmu nastaví reakci na změnu
 
-        for (const polozka of this.vsechnyPolozkyTypyPrijmu){       // všem <select> typu příjmu
+        for (const polozka of this.vsechnyPolozkyTypPrijmu.polozky){       // všem <select> typu příjmu
             this._nastavVolby(polozka.kolonka)                              // nastaví přípustné <option>
         }
 
 
-        for (const polozka of [...this.vsechnyPolozkyVysePrijmu, this.polozkaVyseDaru]){       // všem <input> s výší příjmu (a to i u daru)
+        for (const polozka of [...this.vsechnyPolozkyVysePrijmu.polozky, this.polozkaVyseDaru]){       // všem <input> s výší příjmu (a to i u daru)
 
             const kolonka = polozka.kolonka
             kolonka.addEventListener('change', () =>{               // nastaví reakci na změnu
@@ -186,17 +186,17 @@ class FormularPrijmu{
         this.polozkaVyseDaru= new PolozkaFormulare("vyse-daru")
         
         // Logické Seskupení některých položek
-        this.vsechnyPolozkyVysePrijmu = [
+        this.vsechnyPolozkyVysePrijmu = new SkupinaPolozekFormulare('vsechny-polozky-vyse-prijmu', [
             this.polozkaPrijem1Vyse,
             this.polozkaPrijem2Vyse,
             this.polozkaPrijem3Vyse,
-        ]
+        ])
 
-        this.vsechnyPolozkyTypyPrijmu = [
+        this.vsechnyPolozkyTypPrijmu = new SkupinaPolozekFormulare('vsechny-polozky-typ-prijmu',[
             this.polozkaPrijem1Typ,
             this.polozkaPrijem2Typ,
             this.polozkaPrijem3Typ,
-        ]
+        ])
         
     }
 
