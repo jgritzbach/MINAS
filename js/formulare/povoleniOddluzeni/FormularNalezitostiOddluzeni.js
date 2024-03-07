@@ -13,7 +13,7 @@ class FormularOddluzeni extends BaseFormular{
         this._nastavPovoleneVolby()              // v rámci zaškrtávacích <selectů> jsou povolené volby 'prázdné', 'v pořádku', 'diskutabilní' a 'vadné'
         this._nastavKolonky()                    // v rámci položek nastavíme kolonkám povolené volby a reakce na ně
 
-        super._nastavNapovedy(this.vsechnyPolozky, TextyNapovedNalezitostiOddluzeni)    // s pomocí bázové třídy vytvoří nápovědu všem kolonkám, kde jsou texty k dispozici
+        super._nastavNapovedy(this.vsechnyPolozky, TextyNalezitostiOddluzeni)    // s pomocí bázové třídy vytvoří nápovědu všem kolonkám, kde jsou texty k dispozici
     }
 
    
@@ -196,19 +196,28 @@ class FormularOddluzeni extends BaseFormular{
     jeNevyplnene(polozka){
         // Vrací údaj o tom, zda kolonka dané položky je nevyplněná
         const kolonka = polozka.kolonka
-        return (!kolonka.disabled && kolonka.value === this.optionPrazdne.VALUE)     // kolonka se považuje za nevyplněnou pouze pokud není deaktivovaná
+        // return (!kolonka.disabled && kolonka.value === this.optionPrazdne.VALUE)     // kolonka se považuje za nevyplněnou pouze pokud není deaktivovaná
+        if ((!kolonka.disabled && kolonka.value === this.optionPrazdne.VALUE)){     // kolonka se považuje za nevyplněnou pouze pokud není deaktivovaná
+            return polozka
+        }
     }
 
     jeDiskutabilni(polozka){
         // Vrací údaj o tom, zda kolonka dané položky má vyplněnou volbu 'diskutabilní'
         const kolonka = polozka.kolonka
-        return kolonka.value === this.optionDiskutabilni.VALUE
+        // return kolonka.value === this.optionDiskutabilni.VALUE
+        if(kolonka.value === this.optionDiskutabilni.VALUE){
+            return polozka
+        }
     }
 
     jeVadne(polozka){
         // Vrací údaj o tom, zda kolonka dané položky má vyplněnou volbu 'diskutabilní'
         const kolonka = polozka.kolonka
-        return kolonka.value === this.optionVadne.VALUE
+        // return kolonka.value === this.optionVadne.VALUE
+        if(kolonka.value === this.optionVadne.VALUE){
+            return polozka
+        }
     }
 
     _jeNecoZPredanychNejake(polozky, callback){
@@ -216,7 +225,7 @@ class FormularOddluzeni extends BaseFormular{
         for (const polozka of polozky){
             
             if (callback(polozka)){            // stačí jediný pravdivý callback a hned vracíme pravdu (iterace končí)
-                return true
+                return polozka
             }
         }
     }
