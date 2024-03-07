@@ -28,7 +28,7 @@ class TextyVyzivovaneOsoby{
         
         "dluzne-vyzivne" : `
         
-            <p>Bylo-li dlužníku opatrovnickým soudem uloženo platit výživné (zpravidla každý měsíc), pak na tomto výživném mohl také vzniknout <strong>dluh</strong>.</p>
+            <p>Bylo-li dlužníku opatrovnickým soudem uloženo platit <em>výživné</em> (zpravidla každý měsíc), pak na tomto výživném mohl také vzniknout <strong>dluh</strong>.</p>
             <p>Dluh na výživném se v oddlužení hradí <strong>přednostně</strong> před <em>pohledávkami věřitelů</em>, a dokonce i před řádným <em>měsíčním výživným</em>. <em>Odměna a hotové výdaje</em> insolvenčního správce však mají stále přednost. Insolvenční zákon tedy prioritizuje insolvenčního správce i před dlužným výživným.</p>
             <p>V případě, že v této aplikaci vyplníte tuto kolonku, začne se ve formuláři náležitostí návrhu na povolení oddlužení vyžadovat nová příloha - doložení kopie rozsudku o výživném.</p>`,
         
