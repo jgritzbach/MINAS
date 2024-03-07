@@ -64,6 +64,14 @@ class FormularOddluzeni extends BaseFormular{
             this.polozkaRozsudekOVyzivnem,
         ]
 
+            // obecné náležitosti
+        this.obecneNalezitosti = [
+            this.polozkaPlneMoci,
+            this.polozkaFormaPodani,
+            this.polozkaTvrzeniOUpadku,
+            this.polozkaMistniPrislusnost,
+        ]
+
             //přílohy insolvenčního návrhu
         this.prilohyInsolvencnihoNavrhu = [
             this.polozkaSeznamMajetku,
