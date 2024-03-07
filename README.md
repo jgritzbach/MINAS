@@ -3,6 +3,8 @@
 
 Můj insolvenční asistent (MINAS) je webová aplikace mající za cíl usnadnit analýzu a správu průběhu insolvenčního řízení.
 
+Projekt je sice stále ve vývoji, ale již je k dispozici na oficiální stránce www.minas.cz
+
 ## Hlavní myšlenka
 
 Projekt MINAS najde využití zejména u pracovníků soudu, kteří díky němu budou moci rychleji vyhodnocovat průběh insolvenčního řízení, analyzovat data o dlužníku a věřitelích a využít je pro automatizaci tvorby soudních usnesení.
