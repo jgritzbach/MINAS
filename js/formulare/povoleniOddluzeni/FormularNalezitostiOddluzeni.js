@@ -157,7 +157,7 @@ class FormularOddluzeni extends BaseFormular{
         // právě ty jsou později používány pro nastavení přípustných <option> a porovnávání hodnot <selectu>
         
         this.optionPrazdne = {
-            VALUE: 'nevybrano',
+            VALUE: 'nevyplneno',
             TEXT: "",
         }
 
