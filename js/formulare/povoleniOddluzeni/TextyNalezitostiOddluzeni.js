@@ -17,7 +17,7 @@ class TextyNalezitostiOddluzeni{
 
         "nalezitosti-formy-podani" : `
         
-            <p>Insolvenční zákon ukládá v § 80a povinnost těm subjektů, které mají <em>povinně zřízenou <strong>datovou schránku</strong></em>, komunikovat se soudem <strong>pouze v elektronické podobě</strong>.</p>
+            <p>Insolvenční zákon ukládá v § 80a povinnost těm subjektům, které mají <em>povinně zřízenou <strong>datovou schránku</strong></em>, komunikovat se soudem <strong>pouze v elektronické podobě</strong>.</p>
             <p>Všechny osoby, které jsou způsobilé za dlužníka sepsat a podat insolvenční návrh spojený s návrhem na povolení oddlužení dle § 390a odst. 1 IZ, mají povinně zřízenou datovou schránku. Proto může být návrh na povolení oddlužení zpravidla podán pouze elektronickou formou, a to včetně všech příloh. Výjimečně a pouze v odůvodněných případech může soud povolit výjimku.</p>
             <p>Pokud zpracovatel návrhu doručí soudu návrh či některou jeho přílohu v <em>listinné podobě</em>, vyzve ho soud, aby podání učinil <em>elektronicky</em>, tj. prostřednictvím <em>datové schránky</em> či <em>emailem s uznávaným elektronickým podpisem</em>. Není-li vada formy ani přes výzvu soudu odstraněna, soud takové podání odmítne.</p>`,
 
@@ -135,8 +135,8 @@ class TextyNalezitostiOddluzeni{
 
         "priloha-rozsudek-o-vyzivnem" : `
         
-            <p>Jestliže byla <strong>vyživovací povinnost</strong> dlužníka vůči dítěti <strong>stanovena <em>rozhodnutím soudu</em></strong>, pak je dlužník povinen doložit kopii tohoto <strong>rozsudku</strong>.</p>
-            <p>To platí i v případě, kdy opatrovnický soud svým rozhodnutím pouze schválil <em>dohodu rodičů</em> dítěte. Mimosoudní dohody rodičů o výši výživného však insolvenční soud často neakceptuje. V takovém případě se dítě zohlední přímo ve výpočtu srážek jako vyživovaná osoba ze zákona.</p>
+            <p>Jestliže byla <strong>vyživovací povinnost</strong> dlužníka vůči dítěti <strong>stanovena <em>rozhodnutím soudu</em></strong>, pak je dlužník povinen doložit kopii tohoto <strong>rozsudku</strong>. To platí i v případě, kdy opatrovnický soud svým rozhodnutím pouze schválil <em>dohodu rodičů</em> dítěte.</p>
+            <p>Mimosoudní dohody rodičů o výši výživného (tedy bez schválení opatrovnickým soudem) však insolvenční soud často neakceptuje. V takovém případě se dítě zohlední přímo ve výpočtu srážek jako vyživovaná osoba ze zákona.</p>
             <p>V případě, že v této aplikaci vyplníte ve formuláři vyživovaných osob výši soudně určeného výživného (či dluhu na něm), stane se tato kolonka povinnou.</p>`,
 
     }
