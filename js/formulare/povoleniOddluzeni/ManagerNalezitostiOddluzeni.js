@@ -1,9 +1,9 @@
 class ManagerNalezitostiOddluzeni{
-    // Třída slouží pro manipulaci s formulářem náležitostí návrhu na povolení oddlužení
-    // Formulář sám si jen pamatuje, které kolonky jsou jeho, co se v nich může vyplňovat, a umí posoudit, co v nich je
-    // Vůbec se však nestará o to, proč by to někdo chtěl vědět, a sám nic nedělá.
-    // Právě tento manažer z hodnot formuláře vyvozuje důsledky a nutí ho vypínat některé své kolonky
-    // Za tímto účelem přeneseně komunikuje stav i formuláře příjmů a vyživovaných osob
+    // třída slouží pro manipulaci s formulářem náležitostí návrhu na povolení oddlužení
+    // formulář sám si jen pamatuje, které kolonky jsou jeho, co se v nich může vyplňovat, a umí posoudit, co v nich je
+    // vůbec se však nestará o to, proč by to někdo chtěl vědět, a sám nic nedělá.
+    // právě tento manažer z hodnot formuláře vyvozuje důsledky a nutí ho vypínat některé své kolonky
+    // za tímto účelem přeneseně komunikuje stav i formuláře příjmů a vyživovaných osob
 
     constructor(formularNalezitostiOddluzeni, formularPrijmu, formularVyzivovanychOsob){
 

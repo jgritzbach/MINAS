@@ -1,8 +1,8 @@
 class FormularOddluzeni extends BaseFormular{
-    // Úkolem této třídy je uchopit elementy z html stránky, které slouží pro vyplňování náležitostí návrhu na povolení oddlužení
-    // To zahrnuje jednotlivé položky a jejich kolonky
+    // úkolem této třídy je uchopit elementy z html stránky, které slouží pro vyplňování náležitostí návrhu na povolení oddlužení
+    // to zahrnuje jednotlivé položky a jejich kolonky
     // jednotlivé kolonky i jejich logické soubory umí vyhodnotit
-    // Sama o sobě se však tato třída nestará o logiku aplikace, ani nic nikam nevypisuje, k tomu slouží její manager
+    // sama o sobě se však tato třída nestará o logiku aplikace, ani nic nikam nevypisuje, k tomu slouží její manager
 
     constructor(){
 
@@ -196,7 +196,7 @@ class FormularOddluzeni extends BaseFormular{
     }
     
     _nastavReakciNaVolbu(selectElement){
-        // Nastaví vybranému <select> reakci na zvolení některé z <option>
+        // nastaví vybranému <select> reakci na zvolení některé z <option>
         // reakcí je, že v rámci <select>.ClassList se přepíše atribut 'zaskrtnuti', na který reaguje CSS změnou barvy
         
         selectElement.addEventListener('change', () =>{

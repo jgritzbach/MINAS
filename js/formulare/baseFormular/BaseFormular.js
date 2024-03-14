@@ -1,5 +1,5 @@
 class BaseFormular{
-    // Obecná třída jakéhokoliv formuláře, kde se mohou sdružovat všechny metody společné všem formulářům
+    // obecná třída jakéhokoliv formuláře, kde se mohou sdružovat všechny metody společné všem formulářům
 
     constructor(){
 

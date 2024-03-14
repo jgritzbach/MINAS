@@ -1,8 +1,6 @@
 class Napoveda{
-    // třída reprezentuje objekt nějaké nápovědy nebo informativního textu
-    // očekává se, že se bude chtít někde zobrazit
-    // a naopak bude mít vlastní tlačítko na to se zase schovat
-    // nápověda očekává, že bude přiřazena k něčemu
+    // třída reprezentuje objekt nějaké nápovědy coby <divu> s informativním textem
+    // očekává se, že se bude chtít někde zobrazit, a naopak má vlastní tlačítko pro skrytí
 
     constructor(htmlNapovedy){
 
@@ -92,8 +90,5 @@ class Napoveda{
 
         return btnSkryt
     }
-
-
-
 
 }
