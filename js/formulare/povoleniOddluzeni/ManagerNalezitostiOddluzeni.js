@@ -96,7 +96,7 @@ class ManagerNalezitostiOddluzeni{
         const vyhodnoceni = TextyNalezitostiOddluzeni.vyhodnoceni   // odkaz na textová data
         
         // napřed budeme posuzovat obecné náležitosti, se kterými se pracuje trochu jinak
-        // u obecný náležitostí hraje každá sama za sebe - každá má svůj vlastní následek, proto stačí jednoduchá iterace
+        // u obecných náležitostí hraje každá sama za sebe - každá má svůj vlastní následek, proto stačí jednoduchá iterace
 
         for (const polozka of n.obecneNalezitosti.polozky){     // napříč každou položkou obecných náležitostí
 
@@ -109,9 +109,9 @@ class ManagerNalezitostiOddluzeni{
         }
 
         // dotazování skrze přílohy insolvnenčího návrhu a přílohy návrhu na povolení oddlužneí je složitější, protože posuzujeme spíše skupinu jako takovou
-        let polozka
-
         // postupně v pevně daném pořadí chceme vyhodnocovat napřed přílohy IN a až poté přílohy ODDL.
+        
+        let polozka
         const skupinyPriloh = [n.prilohyInsolvencnihoNavrhu,n.prilohyNavrhuNaPovoleniOddluzeni]
 
         for (const skupina of skupinyPriloh) {      // napříč skupinami, tedy napřed skrze položky IN a poté až skrze položky ODDL.
