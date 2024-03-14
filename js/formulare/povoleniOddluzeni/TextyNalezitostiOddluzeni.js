@@ -244,14 +244,6 @@ class TextyNalezitostiOddluzeni{
 
     }
 
-
-
-     
-
-
-        
-
-
 }
 
 

@@ -1,6 +1,7 @@
 class TextyVyzivovaneOsoby{
-    // Aby obsahově dlouhé nezaplevelovaly kód tříd, které jich potřebují využít
+    // Aby obsahově dlouhé texty nezaplevelovaly kód tříd, které jich potřebují využít
     // budou existovat odděleně a třídy se na ně mohou odkazovat
+    // jelikož se tyto texty zobrazují jen u klienta, není potřeba je načítat z žádné databáze
 
     constructor(){
 
