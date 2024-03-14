@@ -2,8 +2,7 @@ class TextyNalezitostiOddluzeni{
     // Aby obsahově dlouhé nezaplevelovaly kód tříd, které jich potřebují využít
     // budou existovat odděleně a třídy se na ně mohou odkazovat
 
-
-    napoveda = {
+    static napoveda = {
 
         "nalezitosti-plne-moci" : `
         

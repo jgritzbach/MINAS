@@ -3,11 +3,7 @@ class TextyVyzivovaneOsoby{
     // budou existovat odděleně a třídy se na ně mohou odkazovat
     // jelikož se tyto texty zobrazují jen u klienta, není potřeba je načítat z žádné databáze
 
-    constructor(){
-
-    }
-
-    napoveda = {
+    static napoveda = {
 
         "pocet-vyzivovanych-osob-dluznika" : `
         
