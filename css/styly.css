@@ -1,4 +1,5 @@
 /* SPOLEČNÉ */
+
 * { 
     
     margin: 0;
@@ -22,7 +23,9 @@ body{
     min-height: 100vh;       /* velmi důležité - právě toto drží footer na spodku stránky */
 }
 
+
 /* ZÁHLAVÍ */
+
 header{
     background-color: rgb(75, 182, 75);
     padding-top: 5px;
@@ -68,9 +71,6 @@ h2{
 }
 
 
-
-
-
 /* NAVIGACE */
 
 header nav ul{
@@ -84,7 +84,6 @@ header nav ul{
     gap: 5px;
     text-transform:uppercase;
 }
-
 
 @media screen and (min-width: 768px){
     header nav ul{         /* na destkopu chceme navigaci horizontální a větší */
@@ -126,7 +125,6 @@ main{
 
 .sloupec{
     margin: auto;
-    /* padding: 2%; */
 }
 
 .siroky{
@@ -159,11 +157,9 @@ main{
 }
 
 
-
 /* FORMULÁŘE OBECNĚ */
 
 .formular{
-    /* max-width: 500px; */
     background-color: rgb(225, 225, 200);
     border-radius: 10px;
     padding: 10px;
@@ -180,7 +176,6 @@ main{
 }
 
 .formular legend{
-    color: rgb(80, 80, 80);         /* barva písma v celém dokumentu */;
     font-weight: bold;
     margin-bottom: 5px;
 }
@@ -197,7 +192,6 @@ main{
 }
 
 .formular select, input {
-    /* font-size: 0.9em; */
     height: 22px;
     transition: 0.25s;
     border-radius: 4px;
@@ -224,9 +218,7 @@ option{
 }
 
 
-
 /* OBLASTI S VÝPISEM TEXTU */
-
 
 .oblast-vypisu{
     padding: 10px;
@@ -235,7 +227,6 @@ option{
     background-color: rgb(235, 235, 235);  
     border-radius: 10px;
     height:fit-content;
-    /* max-width: 500px; */
 }
 
 .oblast-vypisu h3{
@@ -246,7 +237,7 @@ option{
     margin: 5px 0 15px 0;
 }
 
-.vypis-ve-formulari{        /* Oblast výpisu uvnitř formuláře bude zpravidal vypadat trochu jinak než mimo formulář - bude mít asi menší písmo a více na sebe nalepené  */
+.vypis-ve-formulari{        /* Oblast výpisu uvnitř formuláře bude vypadat trochu jinak než mimo formulář - bude mít menší písmo a více na sebe nalepené  */
     background-color: rgb(245, 245, 245);  
     padding: 0;
     font-size: 0.84em;
@@ -256,7 +247,9 @@ option{
     margin: 0.7em 0.3em;
 }
 
+
 /* NÁPOVĚDA */
+
 .napoveda{
     padding: 5px;
 }
@@ -300,7 +293,6 @@ option{
     margin-left: 4px;
 }
 
-
 .napoveda ol, ul{
     padding-left: 1em;
     list-style-position: inside;
@@ -315,7 +307,9 @@ option{
     display: inline;
 }
 
+
 /* ZÁPATÍ */
+
 footer{
     background-color: rgb(45, 152, 45);         
     display:flex;
@@ -339,9 +333,6 @@ footer{
 }
 
 
-
-
-
 /* ZAŠKRTÁVACÍ VOLBY */
 
 .zaskrtavaci-volba{
@@ -362,9 +353,8 @@ select[zaskrtnuti='vadne']{
 }
 
 
-
-
 /* BARVY */
+
 .tmave-zelene-pozadi{
     background-color: rgb(15, 172, 15);
 }
@@ -373,15 +363,15 @@ select[zaskrtnuti='vadne']{
     background-color: rgb(75, 182, 75);
 }
 
-
 /* background-color: rgb(225, 245, 220);       světlounce zelená */
 /* background-color: rgb(243, 245, 247);        světle šedá*/
 /* background-color: rgb(215, 205, 220);         bledě modrá alternativa */
 /* background-color: rgb(45, 152, 45);              středně tmavá zelená*/
 
-/* VŠEOBECNÉ GRID a flexboxes*/
-.vertical-flex{         /* slouží k tomu, aby se v rámci grid "kratšího sloupce" zobrazovaly elementy odshora a dole nechaly volný prostor - grid sloupec by se jinak pokusil roztáhnout obsah po celé délce delšího sloupce */
-    
+
+/* ZVLÁŠTNÍ FLEXBOXY*/
+
+.vertical-flex{         /* slouží k tomu, aby se v rámci sloupce elementy řadily vertikálně jeden za druhým a nesnažily se zaplnit celý prostor rovnoměrně */
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -389,9 +379,8 @@ select[zaskrtnuti='vadne']{
 }
 
 
-
-
 /* EFEKTY */
+
 .pomalu-zmizet{
     transition: 1s;
     opacity: 0;
@@ -401,4 +390,3 @@ select[zaskrtnuti='vadne']{
     transition: 1s;
     opacity: 1;
 }
-
