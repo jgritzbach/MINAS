@@ -1,8 +1,7 @@
 class vypocetSrazek{
-    // Tato třída slouží pro provádění výpočtů srážek (a contrario nezabavitelných částek) v oddlužení
-    // Jde o obecnou třídu provádějící výpočty, bez jakékoliv návaaznosti na nějaké html elementy nebo formuláře
-    
-    // Díky obecné povaze výpočtů bez návaznosti na elementy ji lze využít kdykoliv a kdekoliv
+    // tato třída slouží pro provádění výpočtů srážek (a contrario nezabavitelných částek) v oddlužení
+    // jde o obecnou třídu provádějící výpočty, bez jakékoliv návaaznosti na nějaké html elementy nebo formuláře
+    // díky obecné povaze výpočtů bez návaznosti na elementy ji lze využít kdykoliv a kdekoliv
     // K provedení výpočtů není potřeba třídu instanciovat, výpočet je static
 
     static vypocitatSrazku(soucetPrijmu, pocetVyzivovanychOsob){
