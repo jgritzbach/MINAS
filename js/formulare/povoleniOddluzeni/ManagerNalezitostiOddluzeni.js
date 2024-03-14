@@ -82,8 +82,9 @@ class ManagerNalezitostiOddluzeni{
             this.n.disableKolonka(polozka,true)
         } else{
             this.n.disableKolonka(polozka,false)                    // deaktivace disabled = kolonka je nyní povinná
-            this.vypisVyhodnoceniFormulareNalezitostiOddluzeni()    // což musíme ihned zohlednit ve výpisu vyhodncoení náelžitostí oddlužení
         }
+
+        this.vypisVyhodnoceniFormulareNalezitostiOddluzeni()    // v každém případě musíme ihned změnu zohlednit ve výpisu vyhodnocení náležitostí návrhu na povolení oddlužení
     }
   
     _vyhodnotKolonky(){
