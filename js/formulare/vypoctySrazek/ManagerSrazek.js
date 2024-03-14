@@ -1,11 +1,9 @@
 class ManagerSrazek{
-    // třída slouží pro manipulaci s formuláři příjmů a vyživovaných osob
-    // na jejich základě umí spočítat výše srážek proveditelných z příjmů (respektive k tomu požívá samostatný nástroj)
+    // třída slouží pro manipulaci s formuláři příjmů a vyživovacích povinností
+    // na jejich základě umí spočítat výše srážek proveditelných z příjmů (respektive k tomu požívá samostatný nástroj VypocetSrazek)
     // formuláře sami si jen pamatují, které kolonky jsou jejich, co se v nich může vyplňovat, a umí posoudit, co v nich je
     // vůbec se však nestarají o to, proč by to někdo chtěl vědět, a nejsou nijak iniciativní.
-    // Pokyny k vyhodnocení jim zadává tento manžer, stejně tak jako vyvození důsledků takového vyhodnocení
-
-
+    // pokyny k vyhodnocení jim zadává tento manžer, stejně tak jako vyvození důsledků takového vyhodnocení
 
     constructor(formularPrijmu, formularVyzivovacichPovinnosti){
 
@@ -17,6 +15,10 @@ class ManagerSrazek{
 
     }
 
+    vypisVyhodnoceniPrijmu(){
+        // Vypíše do patřičného divu údaje o výši nezabavitelné částky, výši srážek a zapodstatových pohledávek
+        this.divVypocetSrazek.innerHTML = this._sestavTextProVyhodnoceniPrijmu()
+    }
 
     _pridatUdalostVyhodnoceni(){
         // ke každé relevantní kolonce formuláře příjmů nebo vyživovacích povinností se přidá další change event listener.
@@ -29,13 +31,8 @@ class ManagerSrazek{
         const cile = [... p.vsechnyPolozkyVysePrijmu.polozky, p.polozkaVyseDaru, p.polozkaTypDaru, ...v.vsechnyPolozky.polozky]      // přepis textu vyvolá i změna typu daru, protože jeho označení se promítá do textu
 
         for (const polozka of cile){
-            polozka.kolonka.addEventListener('change', () => this._vypisVyhodnoceniPrijmu())
+            polozka.kolonka.addEventListener('change', () => this.vypisVyhodnoceniPrijmu())
         }
-    }
-
-    _vypisVyhodnoceniPrijmu(){
-        // Vypíše do patřičného divu údaje o výši nezabavitelné částky, výši srážek a zapodstatových pohledávek
-        this.divVypocetSrazek.innerHTML = this._sestavTextProVyhodnoceniPrijmu()
     }
 
     _sestavTextProVyhodnoceniPrijmu(){
