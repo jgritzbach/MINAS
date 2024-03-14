@@ -1,12 +1,10 @@
-
 class FormularVyzivovacichPovinnosti extends BaseFormular{
-
-    // Formulář slouží pro manipulaci s kolonkami vyživovacích povinností dlužníka
-    // Neprovádí žádné výpočty, o to se stará VypoctySrazekManager
+    // formulář slouží pro manipulaci s kolonkami vyživovacích povinností dlužníka
+    // neprovádí žádné výpočty a neřídí logiku aplikace, o to se stará ManagerSrazek
    
     constructor(){
 
-        super()
+        super() // formulář dědí od obecného formuláře
 
         this._uchopPolozky()                // uchopíme všechny elementy (divy) položek vyživovacích povinností dlužníka
         this._nastavKolonky()

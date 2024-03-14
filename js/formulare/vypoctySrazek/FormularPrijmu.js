@@ -5,6 +5,7 @@ class FormularPrijmu extends BaseFormular{
     // od toho se totiž ještě budou odečítat případné vyživovací povinnosti dlužníka, jsou-li nějaké
     // na což je zde samostatný formulář vyživovaných osob
     // nebude-li ve formuláři vyživovacích povinností nic vyplněno, má se za to, že žádné nejsou
+    // formulář sám nijak neřídí logiku aplikace, o to se stará ManagerSrazek
 
     // v budoucnu možná přidám možnost, že se bude vyplňovat plátce příjmu, což je údaj, který v aplikaci může být dále využíván
     // zatím zde ještě plátce příjmů vyplnit nejde
