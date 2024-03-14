@@ -1,4 +1,4 @@
-class FormularPrijmu{
+class FormularPrijmu extends BaseFormular{
     // tento formulář bude sloužit k zadávání dat o příjmech dlužníka.
     // bude se zde vyplňovat typ příjmu a jeho výše
     // to samo o sobě ale ještě nestačí na výpočet nezabavitelné částky a contrario k určení výše srážek
@@ -12,6 +12,8 @@ class FormularPrijmu{
     // k dosazení zaměstavatele půjde časem využít AresApiClient jako z mého dalšího projektu na GitHub - postačí IČO a dosadí se všechny údaje z ARES
     
     constructor(){
+
+        super() // formulář dědí od obecného formuláře
 
         this._nastavPovoleneVolby()                         // povolené volby jsou 'prázdné', 'v pořádku', 'diskutabilní' a 'vadné'
         this._uchopPolozky()                                // uchopíme všechny elementy <select> k vyplnění
