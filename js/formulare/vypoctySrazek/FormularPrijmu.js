@@ -1,16 +1,15 @@
 class FormularPrijmu{
+    // tento formulář bude sloužit k zadávání dat o příjmech dlužníka.
+    // bude se zde vyplňovat typ příjmu a jeho výše
+    // to samo o sobě ale ještě nestačí na výpočet nezabavitelné částky a contrario k určení výše srážek
+    // od toho se totiž ještě budou odečítat případné vyživovací povinnosti dlužníka, jsou-li nějaké
+    // na což je zde samostatný formulář vyživovaných osob
+    // nebude-li ve formuláři vyživovacích povinností nic vyplněno, má se za to, že žádné nejsou
 
-    // Tento formulář bude sloužit k zadávání dat o příjmech dlužníka.
-    // Bude se zde vyplňovat typ příjmu a jeho výše
-    // To samo ještě stačí na výpočet nezabavitelné částky a contrario k určení výše srážek
-    // Od toho se totiž ještě budou odečítat případné vyživovací povinnosti dlužníka, jsou-li nějaké
-    // Na což bude samostatný formulář
-    // Nebude-li ve formuláři vyživovacích povinností nic vyplněno, má se za to, že žádné nejsou
-
-    // V budoucnu možná přidám možnost, že se bude vyplňovat plátce příjmu, což je údaj, který v aplikaci může být dále využíván
+    // v budoucnu možná přidám možnost, že se bude vyplňovat plátce příjmu, což je údaj, který v aplikaci může být dále využíván
     // zatím zde ještě plátce příjmů vyplnit nejde
     // vyplnění plátce příjmu nebude povinné
-    // k dosazení zaměstavatele půjde časem využít AresApiClient - postačí IČO a dosadí se všechny údaje z ARES
+    // k dosazení zaměstavatele půjde časem využít AresApiClient jako z mého dalšího projektu na GitHub - postačí IČO a dosadí se všechny údaje z ARES
     
     constructor(){
 
@@ -19,7 +18,6 @@ class FormularPrijmu{
         this._nastavKolonky()                               // a nastavíme jim vše potřebné
         this._propisSoucetVlastnichPrijmu()
     }
-
 
     get SoucetVlastnichPrijmu(){
         // vrátí číselný součet všech hodnot z kolonek pro výši vlastních příjmů (nezapočítávají se příjmy od 3. osob z darů)
@@ -58,7 +56,6 @@ class FormularPrijmu{
         return soucet
     }
 
-    
     _nastavKolonky(){
         // všem <select> kolonkám typu příjmu nastaví jako přípustné volby [mzda, zisk OSVČ, důchod atd...]
         // všem <input> kolonkám s výší příjmu nastaví reakci na změnu
@@ -81,7 +78,6 @@ class FormularPrijmu{
 
     }
 
-
     _nastavVolby(selectElement){
 
         // nastaví zadanému <select> jeho přípustné zaškrtávací <options>
@@ -97,13 +93,11 @@ class FormularPrijmu{
         }
 
     }
-    
 
     _nastavPovoleneVolby(){
 
         // nastaví si vnitřní konstantní hodnoty pro <option> elementy - jejich innerTexty a values
         // právě ty jsou později používány pro nastavení přípustných <option> a porovnávání hodnot <selectu>
-
         
         this.optionPrazdne = {
             VALUE: 'nevybrano',
@@ -162,7 +156,6 @@ class FormularPrijmu{
                            ] // hromadně v poli
 
     }
-
 
     _uchopPolozky(){
         
