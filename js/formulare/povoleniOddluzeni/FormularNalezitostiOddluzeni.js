@@ -9,7 +9,6 @@ class FormularOddluzeni extends BaseFormular{
         super()     // formulář dědí od obecného formuláře
 
         this._uchopPolozky()                     // uchopíme všechny položky - obecné <divy>, ve kterých je samotná kolonka, label i kontejner pro nápovědu
-
         this._nastavPovoleneVolby()              // v rámci zaškrtávacích <selectů> jsou povolené volby 'prázdné', 'v pořádku', 'diskutabilní' a 'vadné'
         this._nastavKolonky()                    // v rámci položek nastavíme kolonkám povolené volby a reakce na ně
 

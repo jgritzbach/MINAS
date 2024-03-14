@@ -26,7 +26,6 @@ class FormularVyzivovacichPovinnosti extends BaseFormular{
             this.polozkaMesicniVyzivne, 
             this.polozkaDluzneVyzivne,])
     }
-
     
     get pocetOsob(){
         return parseInt(this.polozkaPocetVyzivovanychOsob.kolonka.value) || 0
@@ -39,7 +38,6 @@ class FormularVyzivovacichPovinnosti extends BaseFormular{
     get dluzneVyzivne(){
         return parseFloat(this.polozkaDluzneVyzivne.kolonka.value) || 0
     }
-
 
     _nastavKolonky(){
         // všem <input> kolonkám s počty nezabavitelných osob a výší výživného nastaví reakci na změnu

@@ -16,9 +16,9 @@ class FormularPrijmu extends BaseFormular{
 
         super() // formulář dědí od obecného formuláře
 
-        this._nastavPovoleneVolby()                         // povolené volby jsou 'prázdné', 'v pořádku', 'diskutabilní' a 'vadné'
         this._uchopPolozky()                                // uchopíme všechny elementy <select> k vyplnění
-        this._nastavKolonky()                               // a nastavíme jim vše potřebné
+        this._nastavPovoleneVolby()                         // povolené volby jsou 'prázdné', 'v pořádku', 'diskutabilní' a 'vadné'
+        this._nastavKolonky()                               // kolonkám nastavíme vše potřebné
         this._propisSoucetVlastnichPrijmu()
     }
 
@@ -39,11 +39,6 @@ class FormularPrijmu extends BaseFormular{
         return volba.innerText.toLowerCase()
     }
 
-    _propisSoucetVlastnichPrijmu(){
-        // propíše vypočítaný součet příjmů do <html> kolonky určené k zobrazení tohoto součtu
-        this.polozkaSoucetVlastnichPrijmu.kolonka.value = this.vypoctiSoucetVlastnichPrijmu()
-    }
-
     vypoctiSoucetVlastnichPrijmu(){
         // Sečte všechny vyplněné vlastní příjmy dlužníka jako číselné hodnoty a vrátí je
         
@@ -57,6 +52,46 @@ class FormularPrijmu extends BaseFormular{
         ,0)
 
         return soucet
+    }
+
+    _propisSoucetVlastnichPrijmu(){
+        // propíše vypočítaný součet příjmů do <html> kolonky určené k zobrazení tohoto součtu
+        this.polozkaSoucetVlastnichPrijmu.kolonka.value = this.vypoctiSoucetVlastnichPrijmu()
+    }
+
+    _uchopPolozky(){
+        // na stránce uchopí patřičné položky (elementy <div>) dle jejich id a uloží je do vnitřních proměnných formuláře
+
+        // Typy příjmů
+        this.polozkaPrijem1Typ = new PolozkaFormulare("typ-prijmu-1")
+        this.polozkaPrijem2Typ = new PolozkaFormulare("typ-prijmu-2")
+        this.polozkaPrijem3Typ = new PolozkaFormulare("typ-prijmu-3")
+
+        // Výše příjmů
+        this.polozkaPrijem1Vyse = new PolozkaFormulare("vyse-prijmu-1")
+        this.polozkaPrijem2Vyse = new PolozkaFormulare("vyse-prijmu-2")
+        this.polozkaPrijem3Vyse = new PolozkaFormulare("vyse-prijmu-3")
+
+        // Součet příjmů - průpis
+        this.polozkaSoucetVlastnichPrijmu = new PolozkaFormulare("soucet-vlastnich-prijmu-dluznika")
+
+        // Příjem od 3. osoby
+        this.polozkaTypDaru= new PolozkaFormulare("typ-daru")
+        this.polozkaVyseDaru= new PolozkaFormulare("vyse-daru")
+        
+        // Logické Seskupení některých položek
+        this.vsechnyPolozkyVysePrijmu = new SkupinaPolozekFormulare('vsechny-polozky-vyse-prijmu', [
+            this.polozkaPrijem1Vyse,
+            this.polozkaPrijem2Vyse,
+            this.polozkaPrijem3Vyse,
+        ])
+
+        this.vsechnyPolozkyTypPrijmu = new SkupinaPolozekFormulare('vsechny-polozky-typ-prijmu',[
+            this.polozkaPrijem1Typ,
+            this.polozkaPrijem2Typ,
+            this.polozkaPrijem3Typ,
+        ])
+        
     }
 
     _nastavKolonky(){
@@ -82,7 +117,6 @@ class FormularPrijmu extends BaseFormular{
     }
 
     _nastavVolby(selectElement){
-
         // nastaví zadanému <select> jeho přípustné zaškrtávací <options>
 
         for (const typPrijmu of this.povoleneVolby){            // iterujeme skrze vlastnosti všech přípustných hodnot (ty jsou napevno definovány v instanční proměnné)
@@ -98,7 +132,6 @@ class FormularPrijmu extends BaseFormular{
     }
 
     _nastavPovoleneVolby(){
-
         // nastaví si vnitřní konstantní hodnoty pro <option> elementy - jejich innerTexty a values
         // právě ty jsou později používány pro nastavení přípustných <option> a porovnávání hodnot <selectu>
         
@@ -152,48 +185,14 @@ class FormularPrijmu extends BaseFormular{
             TEXT: "jiný zabavitelný",
         }
 
-        // ačkoliv hodnoty jednotlivých voleb jsou přímo dostupné, pro snazší hromadné iterace uchováváme odkazy na ně také 
-        this.povoleneVolby = [this.optionPrazdne, this.optionMzda, this.optionOSVC, this.optionDuchodStarobni, this.optionDuchodInvalidniPrvniSt,
-                            this.optionDuchodInvalidniDruhySt, this.optionDuchodInvalidniTretiSt, this.optionRodicovskyPrispevek, 
-                            this.optionDPP, this.optionJine,
-                           ] // hromadně v poli
+        // ačkoliv hodnoty jednotlivých voleb jsou přímo dostupné, pro snazší hromadné iterace uchováváme odkazy na ně také hromadně
+        this.povoleneVolby = [
+            this.optionPrazdne, this.optionMzda, this.optionOSVC,
+            this.optionDuchodStarobni, this.optionDuchodInvalidniPrvniSt, this.optionDuchodInvalidniDruhySt, this.optionDuchodInvalidniTretiSt, 
+            this.optionRodicovskyPrispevek, 
+            this.optionDPP, this.optionJine,
+        ] 
 
-    }
-
-    _uchopPolozky(){
-        
-        // na stránce uchopí patřičné položky (elementy <div>) dle jejich id a uloží je do vnitřních proměnných formuláře
-
-        // Typy příjmů
-        this.polozkaPrijem1Typ = new PolozkaFormulare("typ-prijmu-1")
-        this.polozkaPrijem2Typ = new PolozkaFormulare("typ-prijmu-2")
-        this.polozkaPrijem3Typ = new PolozkaFormulare("typ-prijmu-3")
-
-        // Výše příjmů
-        this.polozkaPrijem1Vyse = new PolozkaFormulare("vyse-prijmu-1")
-        this.polozkaPrijem2Vyse = new PolozkaFormulare("vyse-prijmu-2")
-        this.polozkaPrijem3Vyse = new PolozkaFormulare("vyse-prijmu-3")
-
-        // Součet příjmů - průpis
-        this.polozkaSoucetVlastnichPrijmu = new PolozkaFormulare("soucet-vlastnich-prijmu-dluznika")
-
-        // Příjem od 3. osoby
-        this.polozkaTypDaru= new PolozkaFormulare("typ-daru")
-        this.polozkaVyseDaru= new PolozkaFormulare("vyse-daru")
-        
-        // Logické Seskupení některých položek
-        this.vsechnyPolozkyVysePrijmu = new SkupinaPolozekFormulare('vsechny-polozky-vyse-prijmu', [
-            this.polozkaPrijem1Vyse,
-            this.polozkaPrijem2Vyse,
-            this.polozkaPrijem3Vyse,
-        ])
-
-        this.vsechnyPolozkyTypPrijmu = new SkupinaPolozekFormulare('vsechny-polozky-typ-prijmu',[
-            this.polozkaPrijem1Typ,
-            this.polozkaPrijem2Typ,
-            this.polozkaPrijem3Typ,
-        ])
-        
     }
 
 }
