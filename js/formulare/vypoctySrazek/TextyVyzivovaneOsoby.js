@@ -15,13 +15,11 @@ class TextyVyzivovaneOsoby{
             <p>Vyživované osoby <em>ze zákona</em> se promítají do výpočtu nezabavitelné částky. Čím více vyživovaných osob, tím méně lze z vlastních příjmů dlužníka srážet.</p>
             <p>U <em>výživného stanoveného soudem</em> se vyživovaná osoba do výpočtu nezabavitelné částky nijak nepromítá (dlužníku se tedy srazí, jakoby tuto osobu nevyživoval). Ze sražené částky se však výživné uspokojuje přednostně před pohledávkami věřitelů.</p>`,
 
-
         "mesicni-vyzivne" : `
         
             <p>U <strong>výživného stanoveného soudem</strong> se vyživovaná osoba do výpočtu nezabavitelné částky nijak nepromítá (dlužníku se tedy srazí, jakoby tuto osobu nevyživoval). Ze sražené částky se však výživné uspokojuje přednostně před pohledávkami věřitelů. Ještě před tím se však musí uspokojit <em>odměna a hotové výdaje</em> insolvenčního správce a případně <em>dlužné výživné</em>.</p>
             <p>Za výživné stanovené soudem se považuje také pouhé schválení <em>dohody rodičů</em> opatrovnickým soudem. Mimosoudní dohody rodičů o výši výživného (tedy bez schválení opatrovnickým soudem) však insolvenční soud často neakceptuje. V takovém případě se dítě místo toho zohlední přímo ve výpočtu srážek jako vyživovaná osoba ze zákona (kolonka výše).</p>
             <p>V případě, že v této aplikaci vyplníte tuto kolonku, začne se ve formuláři náležitostí návrhu na povolení oddlužení vyžadovat nová příloha - doložení kopie rozsudku o výživném.</p>`,
-
         
         "dluzne-vyzivne" : `
         
