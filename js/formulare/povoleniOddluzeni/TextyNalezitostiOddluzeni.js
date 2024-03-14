@@ -14,13 +14,11 @@ class TextyNalezitostiOddluzeni{
             <p>To zaručuje shodu elektronického dokumentu s původním listinným originálem. Vůči soudu je tak prokázáno, že ověřovací doložka legalizace nebyla do elektronického souboru s plnou mocí vložena např. úpravou dokumentu jako obrázku.</p>
             <p>Pro platnost doložky o konverzi je dále nezbytné, aby byl výstup z konverze opatřen <em>kvalifikovaným elektronickým podpisem</em> osoby, která konverzi provedla.</p>`,
 
-
         "nalezitosti-formy-podani" : `
         
             <p>Insolvenční zákon ukládá v § 80a povinnost těm subjektům, které mají <em>povinně zřízenou <strong>datovou schránku</strong></em>, komunikovat se soudem <strong>pouze v elektronické podobě</strong>.</p>
             <p>Všechny osoby, které jsou způsobilé za dlužníka sepsat a podat insolvenční návrh spojený s návrhem na povolení oddlužení dle § 390a odst. 1 IZ, mají povinně zřízenou datovou schránku. Proto může být návrh na povolení oddlužení zpravidla podán pouze elektronickou formou, a to včetně všech příloh. Výjimečně a pouze v odůvodněných případech může soud povolit výjimku.</p>
             <p>Pokud zpracovatel návrhu doručí soudu návrh či některou jeho přílohu v <em>listinné podobě</em>, vyzve ho soud, aby podání učinil <em>elektronicky</em>, tj. prostřednictvím <em>datové schránky</em> či <em>emailem s uznávaným elektronickým podpisem</em>. Není-li vada formy ani přes výzvu soudu odstraněna, soud takové podání odmítne.</p>`,
-
 
         "tvrzeni-o-upadku" : `
 
@@ -56,7 +54,6 @@ class TextyNalezitostiOddluzeni{
             </ol>
             <p>Alternativou k <em>platební neschopnosti</em> je shora zmíněné <strong>předlužení</strong>. Týká se pouze právnických osob nebo fyzických osob podnikatelů. Osoba je předlužena, má-li více věřitelů a souhrn jejích závazků převyšuje hodnotu jejího majetku.</p>`,
 
-
         "mistni-prislusnost" : `
             
             <p>Aby soud mohl návrh dlužníka věcně projednat, musí být pro to splněny tzv. <em>podmínky řízení</em>, mezi nimi i <strong>místní příslušnost</strong>.</p>
@@ -65,20 +62,17 @@ class TextyNalezitostiOddluzeni{
             <p>Soud zpravidla dlužníka vyzve ke sdělení, na jaké adrese se zdržují s úmyslem žít tam trvale (dle § 80 občanského zákoníku).</p>
             <p>Pokud dlužník jako místo, kde se zdržuje s úmyslem žít tam trvale, označí adresu spadající do místní příslušnosti jiného krajského soudu, soud vysloví svou místní nepříslušnost a postoupí věc místně příslušnému soudu.</p>`,
             
-
         "seznam-majetku" : `
             <p>V <strong>seznamu majetku</strong> je dlužník povinen označit <em>jednotlivě</em> svůj majetek včetně pohledávek. U pohledávek má stručně uvést skutečnosti, na kterých se zakládají, a vyjádřit se k jejich dobytnosti.</p>
             <p>U majetku, ke kterému uplatňují práva třetí osoby (typicky zajištěný majetek, např. z titulu zástavní smlouvy) by měl dlužník tyto osoby označit a tento majetek nejlépe uvést odděleně.</p>
             <p>Seznam majetku musí dlužník <strong>vlastnoručně podepsat</strong> a výslovně v něm uvést prohlášení, že <strong>seznam je správný a úplný</strong>.</p>
             <p>Seznam závazků se při návrhu na povolení oddlužení již předkládat nemusí.</p>`,
 
-
         "seznam-zamestnancu" : `
             <p>Může se to zdát překvapivé, ale i dlužník, který nikdy neměl žádné své zaměstnance (nikdy nikoho nezaměstnával) je povinen předložit <strong>seznamu zaměstnanců</strong>.</p>
             <p>Pokud dlužník žádné zaměstnance nemá, je povinen tuto skutečnost <em>uvést výslovně</em>. Má-li nějaké zaměstnance, musí je označit alespoň jménem, příjmením a bydlištěm.</p>
             <p>Seznam zaměstnanců musí dlužník <strong>vlastnoručně podepsat</strong> a výslovně v něm uvést prohlášení, že <strong>seznam je správný a úplný</strong>.</p>`,
             
-        
         "listiny-dokladajici-upadek" : `
         
             <p>Dlužník má povinnost nejen svůj úpadek tvrdit, ale také <strong>prokázat</strong>. Za důkaz typicky slouží <em>listiny</em>, ze kterých plyne, že <em>alespoň dva</em> závazky vůči alespoň dvěma věřitelům jsou více jak 30 dnů po splatnosti</p>
@@ -108,7 +102,6 @@ class TextyNalezitostiOddluzeni{
             
             <p><em>Absence</em> kteréhokoliv z uvedených bodů <em>je vadou</em> této přílohy. Zákon zde klade velmi konkrétní požadavky na znění čestného prohlášení.</p>`,
         
-        
         "priloha-soucasne-prijmy" : `
             
             <p>Základním předpokladem pro povolení oddlužení je dostatečná <strong>ekonomická nabídka</strong> dlužníka vůči věřitelům.</p>
@@ -117,21 +110,18 @@ class TextyNalezitostiOddluzeni{
             <p>Dlužník je tedy povinen prokázat, že z jeho příjmů je možné tuto částku srazit. Příjmem dlužníka bývá nejčastěji mzda, případně zisk z podnikání, důchod či příjem z darovací smlouvy od třetí osoby (zpravidla od příbuzných nebo přátel).</p>
             <p>Dle typu příjmu se tak může povinnou přílohou stát <em>pracovní smlouva</em>, <em>výplatní pásky</em>, potvrzení zaměstnavatele o vyplácené mzdě, účetní doklady, výpisy z účtu a obecně vše, čím může dlužník prokázat dostatečnost své ekonomické nabídky. Pro smlouvy od třetích osob je zde samostatná kolonka.</p>`,
 
-
         "prijmy-za-12-mesicu" : `
         
             <p>Dlužník je povinen prokázat, jaké byly jeho příjmy <strong>za posledních 12 měsíců</strong> před podáním insolvenčního návrhu spojeného s návrhem na povolení oddlužení.</p>
             <p>Může se jednat o <em>výplatní pásky</em>, <em>výpisy z účtu</em>, <em>účetní doklady</em> a obecně vše, čím může dlužník prokázat své minulé příjmy.</p>
             <p>Neměl-li dlužník žádné příjmy, měl by o tom sepsat čestné prohlášení.</p>`,
         
-
         "priloha-darovaci-smlouva" : `
         
             <p>Smlouvy zajišťující dlužníku <strong>příjem od třetí osoby</strong> (typicky <em>darovací smlouva</em> nebo <em>smlouva o důchodu</em>) nejsou samy o sobě povinnou náležitostí návrhu na povolení oddlužení.</p>
             <p>Jestliže však dlužník v návrhu takový příjem uvede, pak by jej měl být schopen doložit kopií takové smlouvy. <em>Pokud dlužník na takové smlouvě staví splnění tzv. minimální splátky</em>, pak je to dokonce <strong>zcela nezbytné</strong>.</p>
             <p>Doložená smlouva musí být podepsána oběma smluvními stranami a tyto musejí být řádně identifikované. Oproti dřívější právní úpravě však již podpisy na smlouvě nemusejí být úředně ověřeny.</p>
             <p>V případě, že v této aplikaci vyplníte ve formuláři příjmů dlužníka nějakou hodnotu vypovídající o existenci takové smlouvy, stane se tato kolonka povinnou.</p>`,
-
 
         "priloha-rozsudek-o-vyzivnem" : `
         
